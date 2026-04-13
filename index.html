@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecondBrain — AI Note-Taking Assistant</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <meta name="description" content="SecondBrain turns your voice into organized notes, summaries, and calendar events — powered by AI. Available on iOS." />
+  <meta property="og:title" content="SecondBrain — Your thoughts, organized by AI" />
+  <meta property="og:description" content="Speak your mind. SecondBrain listens, organizes, and remembers — so you don't have to." />
+  <meta property="og:type" content="website" />
+  <style>
+    /* ═══════════════════════════════════════════════════════ */
+    /* RESET                                                   */
+    /* ═══════════════════════════════════════════════════════ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    /* ═══════════════════════════════════════════════════════ */
+    /* TOKENS — LIGHT                                          */
+    /* ═══════════════════════════════════════════════════════ */
+    :root {
+      --bg-base: #ffffff;
+      --bg-surface: #f8f8f8;
+      --bg-elevated: #f0f0f0;
+      --bg-hero: linear-gradient(180deg, #f8f8f8 0%, #ffffff 100%);
+      --text-primary: #0a0a0a;
+      --text-secondary: #646464;
+      --text-tertiary: #a0a0a0;
+      --border: #e6e6e6;
+      --primary: #0a0a0a;
+      --primary-text: #ffffff;
+      --accent: #505050;
+      --danger: #dc2626;
+      --amber: #f59e0b;
+      --amber-bg: rgba(245,158,11,0.08);
+      --blue: #3b82f6;
+      --blue-bg: rgba(59,130,246,0.08);
+      --purple: #8b5cf6;
+      --purple-bg: rgba(139,92,246,0.08);
+      --logo: url('assets/brain-icon-dark.png');
+      --glow: rgba(0,0,0,0.06);
+      --phone-bg: #1a1a1a;
+      --phone-bezel: #0a0a0a;
+      --radius: 16px;
+      --max-w: 720px;
+      --max-w-wide: 1080px;
+    }
+
+    /* ═══════════════════════════════════════════════════════ */
+    /* TOKENS — DARK                                           */
+    /* ═══════════════════════════════════════════════════════ */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-base: #000000;
+        --bg-surface: #0a0a0a;
+        --bg-elevated: #161616;
+        --bg-hero: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+        --text-primary: #f5f5f5;
+        --text-secondary: #a0a0a0;
+        --text-tertiary: #646464;
+        --border: #1e1e1e;
+        --primary: #f5f5f5;
+        --primary-text: #000000;
+        --accent: #b4b4b4;
+        --danger: #ef4444;
+        --amber-bg: rgba(245,158,11,0.12);
+        --blue-bg: rgba(59,130,246,0.12);
+        --purple-bg: rgba(139,92,246,0.12);
+        --logo: url('assets/brain-icon-light.png');
+        --glow: rgba(255,255,255,0.04);
+        --phone-bg: #0a0a0a;
+        --phone-bezel: #2a2a2a;
+      }
+    }
+
+    /* ═══════════════════════════════════════════════════════ */
+    /* BASE                                                    */
+    /* ═══════════════════════════════════════════════════════ */
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg-base);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* ═══════════════════════════════════════════════════════ */
+    /* NAV                                                     */
+    /* ═══════════════════════════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 0.5px solid var(--border);
+      transition: background 0.3s;
+    }
+    @media (prefers-color-scheme: dark) {
+      nav { background: rgba(0,0,0,0.72); }
+    }
+    .nav-inner {
+      max-width: var(--max-w-wide);
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo {
+      width: 30px; height: 30px;
+      border-radius: 7px;
+      background-image: var(--logo);
+      background-size: cover;
+      flex-shrink: 0;
+    }
+    .nav-wordmark {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2px;
+      margin-left: auto;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: all 0.15s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--text-primary);
+      background: var(--glow);
+    }
+
+    /* ═══════════════════════════════════════════════════════ */
+    /* PAGE SECTIONS (hide/show)                               */
+    /* ═══════════════════════════════════════════════════════ */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ═══════════════════════════════════════════════════════ */
+    /* HERO                                                    */
+    /* ═══════════════════════════════════════════════════════ */
+    .hero-section {
+      background: var(--bg-hero);
+      padding: 140px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: var(--glow);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .hero-badge span {
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+    .hero-title {
+      font-size: clamp(36px, 7vw, 64px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.08;
+      margin-bottom: 16px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-tertiary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.5;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: var(--primary);
+      color: var(--primary-text);
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+    }
+    .hero-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    }
+    .hero-cta svg { flex-shrink: 0; }
+
+    /* ═══════════════════════════════════════════════════════ */
+    /* PHONE MOCKUP                                            */
+    /* ═══════════════════════════════════════════════════════ */
+    .phone-showcase {
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      perspective: 1200px;
+    }
+    .phone {
+      width: 220px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 3px solid var(--phone-bezel);
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.25),
+        0 0 0 1px rgba(255,255,255,0.05) inset;
+      transition: transform 0.4s cubic-bezier(.25,.46,.45,.94);
+      flex-shrink: 0;
+    }
+    .phone img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .phone:nth-child(1) { transform: rotateY(8deg) scale(0.92); }
+    .phone:nth-child(2) { transform: scale(1.02); z-index: 2; box-shadow: 0 30px 80px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.05) inset; }
+    .phone:nth-child(3) { transform: rotateY(-8deg) scale(0.92); }
+
+    .phone:hover {
+      transform: scale(1.04) !important;
+      z-index: 3;
+    }
+
+    /* ═══════════════════════════════════════════════════════ */
+    /* FEATURES GRID                                           */
+    /* ═══════════════════════════════════════════════════════ */
+    .features-section {
+      padding: 100px 24px;
+      max-width: var(--max-w-wide);
+      margin: 0 auto;
+    }
+    .features-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .features-header h2 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+    .features-header p {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .feature-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px var(--glow);
+    }
+    .feature-card.wide {
+      grid-column: span 2;
+      flex-direction: row;
+      align-items: center;
+      gap: 40px;
+    }
+    .feature-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .feature-icon.blue   { background: var(--blue-bg); color: var(--blue); }
+    .feature-icon.purple { background: var(--purple-bg); color: var(--purple); }
+    .feature-icon.amber  { background: var(--amber-bg); color: var(--amber); }
+    .feature-icon.dark   { background: var(--glow); color: var(--text-primary); }
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+    }
+    .feature-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .feature-phone {
+      width: 180px;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 2px solid var(--phone-bezel);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+      flex-shrink: 0;
+    }
+    .feature-phone img { width: 100%; display: block; }
+    .feature-text { flex: 1; min-width: 0; }
+
+    /* ═══════════════════════════════════════════════════════ */
+    /* HOW IT WORKS                                            */
+    /* ═══════════════════════════════════════════════════════ */
+    .how-section {
+      padding: 100px 24px;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .how-inner {
+      max-width: var(--max-w-wide);
+      margin: 0 auto;
+    }
+    .how-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .how-header h2 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+    .how-header p {
+      font-size: 17px;
+      color: var(--text-secondary);
+    }
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .how-step {
+      text-align: center;
+    }
+    .how-step-phone {
+      width: 200px;
+      margin: 0 auto 24px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 2.5px solid var(--phone-bezel);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+      transition: transform 0.3s;
+    }
+    .how-step-phone:hover { transform: scale(1.03); }
+    .how-step-phone img { width: 100%; display: block; }
+    .how-step-num {
+      display: inline-flex;
+      width: 32px; height: 32px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: var(--primary-text);
+      font-size: 14px;
+      font-weight: 800;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .how-step h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .how-step p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ═══════════════════════════════════════════════════════ */
+    /* PRIVACY STRIP                                           */
+    /* ═══════════════════════════════════════════════════════ */
+    .privacy-strip {
+      padding: 60px 24px;
+      max-width: var(--max-w-wide);
+      margin: 0 auto;
+    }
+    .privacy-strip-inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .priv-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+    .priv-card svg {
+      color: var(--text-tertiary);
+      margin-bottom: 12px;
+    }
+    .priv-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .priv-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ═══════════════════════════════════════════════════════ */
+    /* CTA                                                     */
+    /* ═══════════════════════════════════════════════════════ */
+    .cta-section {
+      padding: 80px 24px 100px;
+      text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+    .cta-section p {
+      font-size: 17px;
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+    }
+
+    /* ═══════════════════════════════════════════════════════ */
+    /* SITE FOOTER                                             */
+    /* ═══════════════════════════════════════════════════════ */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+    }
+    .site-footer-inner {
+      max-width: var(--max-w-wide);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .site-footer-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .site-footer-left .nav-logo { width: 22px; height: 22px; border-radius: 5px; }
+    .site-footer-left span {
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+    .site-footer-links {
+      display: flex;
+      gap: 20px;
+    }
+    .site-footer-links a {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .site-footer-links a:hover { color: var(--text-primary); }
+
+    /* ═══════════════════════════════════════════════════════ */
+    /* LEGAL PAGES (shared)                                    */
+    /* ═══════════════════════════════════════════════════════ */
+    .legal-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 120px 20px 80px;
+    }
+    .legal-hero {
+      text-align: center;
+      padding-bottom: 40px;
+    }
+    .legal-hero-icon {
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      margin: 0 auto 16px;
+      background-image: var(--logo);
+      background-size: cover;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+    .legal-hero h1 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .legal-hero p {
+      font-size: 15px;
+      color: var(--text-secondary);
+    }
+    .legal-meta {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin-bottom: 24px;
+    }
+    .body-text {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .body-text strong { color: var(--text-primary); font-weight: 600; }
+    .body-text h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 24px 0 8px;
+    }
+    .body-text ul, .body-text ol { padding-left: 20px; margin: 8px 0; }
+    .body-text li { margin-bottom: 4px; }
+    .body-text a { color: var(--blue); text-decoration: none; }
+    .body-text a:hover { text-decoration: underline; }
+
+    /* legal cards */
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 12px;
+    }
+    .card-warn { border-color: var(--amber); }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .card-icon {
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .card-icon.blue   { background: var(--blue-bg); color: var(--blue); }
+    .card-icon.purple { background: var(--purple-bg); color: var(--purple); }
+    .card-icon.amber  { background: var(--amber-bg); color: var(--amber); }
+    .card-title { font-size: 16px; font-weight: 700; }
+    .support-card {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .support-card .card-icon {
+      width: 48px; height: 48px;
+      margin: 0 auto 16px;
+      border-radius: 14px;
+    }
+    .support-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+    .support-card p { font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; }
+    .btn {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary-text);
+      background: var(--primary);
+      padding: 10px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .legal-footer {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 8px 4px;
+      margin-top: 8px;
+    }
+    .legal-footer svg { flex-shrink: 0; margin-top: 2px; color: var(--text-tertiary); }
+    .legal-footer p { font-size: 12px; color: var(--text-tertiary); line-height: 1.5; }
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+    }
+    .steps li {
+      counter-increment: step;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .steps li::before {
+      content: counter(step);
+      width: 26px; height: 26px;
+      border-radius: 8px;
+      background: var(--bg-elevated);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-primary);
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════════════════ */
+    /* ANIMATIONS                                              */
+    /* ═══════════════════════════════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .anim {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(.25,.46,.45,.94), transform 0.7s cubic-bezier(.25,.46,.45,.94);
+    }
+    .anim.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .anim-delay-1 { transition-delay: 0.1s; }
+    .anim-delay-2 { transition-delay: 0.2s; }
+    .anim-delay-3 { transition-delay: 0.3s; }
+
+    /* ═══════════════════════════════════════════════════════ */
+    /* RESPONSIVE                                              */
+    /* ═══════════════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .feature-card.wide {
+        grid-column: span 1;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .feature-phone { width: 160px; margin: 0 auto; }
+      .how-steps { grid-template-columns: 1fr; gap: 48px; }
+      .privacy-strip-inner { grid-template-columns: 1fr; }
+      .phone-showcase { gap: 12px; }
+      .phone { width: 150px; border-radius: 20px; border-width: 2px; }
+      .phone:nth-child(1) { transform: rotateY(6deg) scale(0.88); }
+      .phone:nth-child(3) { transform: rotateY(-6deg) scale(0.88); }
+    }
+    @media (max-width: 540px) {
+      .nav-links a { padding: 6px 8px; font-size: 12px; }
+      .hero-section { padding: 120px 16px 60px; }
+      .phone-showcase { gap: 8px; }
+      .phone { width: 120px; border-radius: 16px; }
+      .how-step-phone { width: 180px; }
+      .site-footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- NAV                                                      -->
+<!-- ════════════════════════════════════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo" role="img" aria-label="SecondBrain logo"></div>
+    <span class="nav-wordmark">SecondBrain</span>
+    <div class="nav-links">
+      <a href="#home" data-section="home" class="active">Home</a>
+      <a href="#privacy" data-section="privacy">Privacy</a>
+      <a href="#terms" data-section="terms">Terms</a>
+      <a href="#support" data-section="support">Support</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- HOME PAGE                                                -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div id="home" class="page active">
+
+  <!-- ── HERO ── -->
+  <div class="hero-section">
+    <div class="hero-badge"><span></span> Available on iOS</div>
+    <h1 class="hero-title">Your thoughts,<br /><em>organized by AI</em></h1>
+    <p class="hero-sub">Speak your mind. SecondBrain listens, organizes your notes, and creates calendar events — so you can focus on what matters.</p>
+    <a href="#" class="hero-cta">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download on the App Store
+    </a>
+
+    <div class="phone-showcase">
+      <div class="phone"><img src="assets/screen-record.png" alt="SecondBrain record screen" loading="lazy" /></div>
+      <div class="phone"><img src="assets/screen-ai-response.png" alt="SecondBrain AI response" loading="lazy" /></div>
+      <div class="phone"><img src="assets/screen-brain-graph.png" alt="SecondBrain knowledge graph" loading="lazy" /></div>
+    </div>
+  </div>
+
+  <!-- ── FEATURES ── -->
+  <div class="features-section">
+    <div class="features-header anim">
+      <h2>Everything your brain needs</h2>
+      <p>An AI assistant that truly understands what you say — and knows where to put it.</p>
+    </div>
+
+    <div class="features-grid">
+
+      <!-- Voice Recording -->
+      <div class="feature-card anim">
+        <div class="feature-icon blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+        </div>
+        <h3>Voice-first capture</h3>
+        <p>Tap to record. Speak naturally about anything — ideas, tasks, meeting notes, or random thoughts. Up to 5 minutes per recording.</p>
+      </div>
+
+      <!-- AI Organization -->
+      <div class="feature-card anim anim-delay-1">
+        <div class="feature-icon purple">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4c0 2 1 3.5 2 4.5L12 12l2-1.5c1-1 2-2.5 2-4.5a4 4 0 0 0-4-4z"/><path d="m15 13-2.5 2L15 18"/><path d="m9 13 2.5 2L9 18"/><path d="M12 22v-7"/></svg>
+        </div>
+        <h3>AI-powered organization</h3>
+        <p>Gemini understands what you said and automatically creates notes, picks the right folder, generates summaries, and extracts action items.</p>
+      </div>
+
+      <!-- Brain Graph — wide card -->
+      <div class="feature-card wide anim">
+        <div class="feature-phone">
+          <img src="assets/screen-brain-graph.png" alt="Brain knowledge graph" loading="lazy" />
+        </div>
+        <div class="feature-text">
+          <div class="feature-icon dark" style="margin-bottom:12px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><circle cx="4" cy="8" r="2"/><circle cx="20" cy="8" r="2"/><circle cx="4" cy="16" r="2"/><circle cx="20" cy="16" r="2"/><path d="M6 8.5 10.5 11"/><path d="M17.5 8.5 13.5 11"/><path d="M6 15.5 10.5 13"/><path d="M17.5 15.5 13.5 13"/></svg>
+          </div>
+          <h3>Visual knowledge graph</h3>
+          <p>See all your knowledge as an interactive radial tree. Navigate through projects, topics, and ideas — zoom, pan, and explore how your notes connect across folders.</p>
+        </div>
+      </div>
+
+      <!-- Calendar -->
+      <div class="feature-card anim">
+        <div class="feature-icon amber">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+        </div>
+        <h3>Smart calendar</h3>
+        <p>Mention a deadline or meeting in your voice note and SecondBrain automatically creates a calendar event with urgency levels and reminders.</p>
+      </div>
+
+      <!-- Notes -->
+      <div class="feature-card anim anim-delay-1">
+        <div class="feature-icon dark">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+        </div>
+        <h3>Structured markdown notes</h3>
+        <p>Every note is beautifully formatted in markdown with a title, summary, and linked calendar events — fully editable and organized in folders.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── HOW IT WORKS ── -->
+  <div class="how-section">
+    <div class="how-inner">
+      <div class="how-header anim">
+        <h2>Three steps. Zero effort.</h2>
+        <p>From thought to organized note in seconds.</p>
+      </div>
+
+      <div class="how-steps">
+        <div class="how-step anim">
+          <div class="how-step-phone">
+            <img src="assets/screen-listening.png" alt="Recording a voice note" loading="lazy" />
+          </div>
+          <div class="how-step-num">1</div>
+          <h3>Speak</h3>
+          <p>Tap the brain icon and talk. Say anything — a project update, a grocery list, a sudden idea.</p>
+        </div>
+
+        <div class="how-step anim anim-delay-1">
+          <div class="how-step-phone">
+            <img src="assets/screen-ai-response.png" alt="AI processing and response" loading="lazy" />
+          </div>
+          <div class="how-step-num">2</div>
+          <h3>AI organizes</h3>
+          <p>SecondBrain transcribes, understands context, creates a note in the right folder, and extracts any dates.</p>
+        </div>
+
+        <div class="how-step anim anim-delay-2">
+          <div class="how-step-phone">
+            <img src="assets/screen-note-detail.png" alt="Organized note with calendar event" loading="lazy" />
+          </div>
+          <div class="how-step-num">3</div>
+          <h3>Done</h3>
+          <p>Your note is saved, summarized, and any deadlines are on your calendar. Just like that.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PRIVACY STRIP ── -->
+  <div class="privacy-strip">
+    <div class="privacy-strip-inner">
+      <div class="priv-card anim">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <h4>No tracking</h4>
+        <p>Zero analytics. Zero ads. We don't track you across apps, websites, or anything else.</p>
+      </div>
+      <div class="priv-card anim anim-delay-1">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <h4>Your data stays yours</h4>
+        <p>End-to-end encrypted in transit. Row-level database isolation. Your notes are never shared or sold.</p>
+      </div>
+      <div class="priv-card anim anim-delay-2">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+        <h4>Delete anytime</h4>
+        <p>One tap deletes everything. Your account, notes, and all data — permanently, with no retention.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CTA ── -->
+  <div class="cta-section anim">
+    <h2>Ready to think out loud?</h2>
+    <p>Download SecondBrain and start capturing ideas the way your brain works.</p>
+    <a href="#" class="hero-cta">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download on the App Store
+    </a>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-left">
+        <div class="nav-logo" role="img" aria-label="SecondBrain"></div>
+        <span>&copy; 2026 SecondBrain. All rights reserved.</span>
+      </div>
+      <div class="site-footer-links">
+        <a href="#privacy" onclick="switchSection('privacy')">Privacy Policy</a>
+        <a href="#terms" onclick="switchSection('terms')">Terms of Use</a>
+        <a href="#support" onclick="switchSection('support')">Support</a>
+        <a href="#delete" onclick="switchSection('delete')">Delete Account</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- PRIVACY POLICY                                           -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div id="privacy" class="page">
+  <div class="legal-wrap">
+    <div class="legal-hero">
+      <div class="legal-hero-icon" role="img" aria-label="SecondBrain icon"></div>
+      <h1>Privacy Policy</h1>
+      <p>How SecondBrain handles your data</p>
+    </div>
+    <p class="legal-meta">Last updated: April 13, 2026</p>
+    <div class="body-text">
+      <p>SecondBrain ("we", "our", or "the app") is an AI-powered note-taking assistant for iOS. Your privacy matters to us. This policy explains what data we collect, how we use it, and the choices you have.</p>
+      <h3>1. Data We Collect</h3>
+      <p>We collect only the data necessary to provide the app's features:</p>
+      <ul>
+        <li><strong>Account information</strong> &mdash; email address and display name, collected during sign-up via Google, Apple, or email/password authentication.</li>
+        <li><strong>User-generated content</strong> &mdash; notes, folders, summaries, and calendar events you create within the app.</li>
+        <li><strong>Voice recordings</strong> &mdash; audio you record is processed in real time to create notes. Recordings are sent to Google Gemini for transcription and are not permanently stored on our servers.</li>
+        <li><strong>Timezone</strong> &mdash; used to correctly schedule calendar events.</li>
+      </ul>
+      <h3>2. How We Use Your Data</h3>
+      <ul>
+        <li><strong>AI processing</strong> &mdash; your text and audio are sent to Google Gemini to generate notes, summaries, and calendar events. Your data is processed in real time and is <strong>not used to train AI models</strong>.</li>
+        <li><strong>Storage</strong> &mdash; your notes, folders, and calendar events are stored in a Supabase PostgreSQL database, isolated by user account via Row-Level Security (RLS).</li>
+        <li><strong>Authentication</strong> &mdash; we use Supabase Auth with Google OAuth and Apple Sign-In to securely manage your account.</li>
+      </ul>
+      <h3>3. Third-Party Services</h3>
+      <p>We rely on the following services to operate the app:</p>
+      <ul>
+        <li><strong>Google Gemini</strong> &mdash; AI processing of voice and text.</li>
+        <li><strong>Supabase</strong> &mdash; database, authentication, and backend functions.</li>
+        <li><strong>Google OAuth / Apple Sign-In</strong> &mdash; secure authentication.</li>
+      </ul>
+      <p>Each service processes data in accordance with its own privacy policy.</p>
+      <h3>4. What We Do NOT Collect</h3>
+      <ul>
+        <li>We do <strong>not</strong> track you across apps or websites.</li>
+        <li>We do <strong>not</strong> use analytics or advertising SDKs.</li>
+        <li>We do <strong>not</strong> sell, share, or monetize your data in any way.</li>
+      </ul>
+      <h3>5. Data Security</h3>
+      <p>All data is transmitted over HTTPS. Database access is enforced by Row-Level Security policies, meaning each user can only access their own data. Authentication tokens are managed securely by Supabase Auth.</p>
+      <h3>6. Data Retention &amp; Deletion</h3>
+      <p>Your data is retained for as long as you maintain an active account. You may delete your entire account and all associated data at any time from within the app (Settings &rarr; Delete Account). Deletion is immediate and irreversible &mdash; all notes, folders, calendar events, and account information are permanently removed.</p>
+      <h3>7. Children's Privacy</h3>
+      <p>SecondBrain is not intended for children under the age of 13. We do not knowingly collect personal data from children.</p>
+      <h3>8. Changes to This Policy</h3>
+      <p>We may update this policy from time to time. Changes will be reflected on this page with an updated date. Continued use of the app constitutes acceptance of the revised policy.</p>
+      <h3>9. Contact</h3>
+      <p>If you have questions about this Privacy Policy, contact us at:<br />
+      <a href="mailto:federico.cesarini.consulting@gmail.com">federico.cesarini.consulting@gmail.com</a></p>
+    </div>
+    <div class="legal-footer">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+      <p>SecondBrain does not track users and does not use your data for advertising or AI model training.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- TERMS OF USE                                             -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div id="terms" class="page">
+  <div class="legal-wrap">
+    <div class="legal-hero">
+      <div class="legal-hero-icon" role="img" aria-label="SecondBrain icon"></div>
+      <h1>Terms of Use</h1>
+      <p>Rules and guidelines for using SecondBrain</p>
+    </div>
+    <p class="legal-meta">Last updated: April 13, 2026</p>
+    <div class="body-text">
+      <p>By downloading or using SecondBrain, you agree to these Terms of Use. If you do not agree, please do not use the app.</p>
+      <h3>1. Description of Service</h3>
+      <p>SecondBrain is an AI-powered note-taking assistant that processes voice recordings and text to organize notes, generate summaries, and create calendar events. The app uses Google Gemini for AI processing.</p>
+      <h3>2. AI-Generated Content Disclaimer</h3>
+      <div class="card card-warn" style="margin: 16px 0;">
+        <div class="card-header">
+          <div class="card-icon amber">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+          </div>
+          <span class="card-title">Important</span>
+        </div>
+        <div class="body-text" style="font-size:13px;">
+          AI-generated content &mdash; including notes, summaries, and calendar events &mdash; may contain inaccuracies or errors. Always review AI-generated content before relying on it. SecondBrain is <strong>not</strong> a substitute for professional advice of any kind, including medical, legal, financial, or therapeutic advice.
+        </div>
+      </div>
+      <h3>3. User Responsibilities</h3>
+      <ul>
+        <li>You are responsible for all content you create, record, or store in SecondBrain.</li>
+        <li>You must not use the app for any unlawful purpose.</li>
+        <li>You are solely responsible for how you use AI-generated content.</li>
+      </ul>
+      <h3>4. Account &amp; Data</h3>
+      <ul>
+        <li>You must provide accurate information when creating an account.</li>
+        <li>You are responsible for maintaining the security of your account credentials.</li>
+        <li>You may delete your account at any time, which permanently removes all associated data.</li>
+      </ul>
+      <h3>5. Intellectual Property</h3>
+      <p>You retain ownership of all content you create in SecondBrain. We do not claim any rights over your notes, recordings, or other user-generated content.</p>
+      <h3>6. Limitation of Liability</h3>
+      <p>SecondBrain is provided "as is" without warranties of any kind. We are not liable for any damages arising from the use of the app or reliance on AI-generated content, to the maximum extent permitted by applicable law.</p>
+      <h3>7. Termination</h3>
+      <p>We reserve the right to suspend or terminate accounts that violate these terms. You may stop using the app and delete your account at any time.</p>
+      <h3>8. Changes to These Terms</h3>
+      <p>We may modify these terms at any time. Continued use of the app after changes constitutes acceptance of the updated terms.</p>
+      <h3>9. Contact</h3>
+      <p>Questions about these Terms? Contact us at:<br />
+      <a href="mailto:federico.cesarini.consulting@gmail.com">federico.cesarini.consulting@gmail.com</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- SUPPORT                                                  -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div id="support" class="page">
+  <div class="legal-wrap">
+    <div class="legal-hero">
+      <div class="legal-hero-icon" role="img" aria-label="SecondBrain icon"></div>
+      <h1>Support</h1>
+      <p>We're here to help</p>
+    </div>
+    <div class="card support-card">
+      <div class="card-icon blue" style="margin: 0 auto 16px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      </div>
+      <h3>Email Support</h3>
+      <p>Have a question, found a bug, or need help with your account? Send us an email and we'll get back to you as soon as possible.</p>
+      <a href="mailto:federico.cesarini.consulting@gmail.com" class="btn">federico.cesarini.consulting@gmail.com</a>
+    </div>
+    <div class="card" style="margin-top: 12px;">
+      <div class="card-header">
+        <div class="card-icon purple">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+        </div>
+        <span class="card-title">FAQs</span>
+      </div>
+      <div class="body-text">
+        <h3 style="margin-top:0;">What is SecondBrain?</h3>
+        <p>SecondBrain is an AI-powered note-taking assistant that turns your voice recordings and text into organized notes, summaries, and calendar events.</p>
+        <h3>Is my data safe?</h3>
+        <p>Yes. All data is encrypted in transit, stored in an isolated database, and never shared or sold. We do not use analytics or tracking.</p>
+        <h3>How do I delete my account?</h3>
+        <p>Open the app, go to <strong>Settings &rarr; Delete Account</strong>. This permanently removes all your data. See the <a href="#delete" onclick="switchSection('delete')">Account Deletion</a> page for details.</p>
+        <h3>Does SecondBrain use my data to train AI?</h3>
+        <p>No. Your data is processed in real time by Google Gemini and is not used for model training.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- DELETE ACCOUNT                                           -->
+<!-- ════════════════════════════════════════════════════════ -->
+<div id="delete" class="page">
+  <div class="legal-wrap">
+    <div class="legal-hero">
+      <div class="legal-hero-icon" role="img" aria-label="SecondBrain icon"></div>
+      <h1>Account Deletion</h1>
+      <p>How to delete your account and all associated data</p>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon amber">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+        </div>
+        <span class="card-title">How to Delete Your Account</span>
+      </div>
+      <div class="body-text">
+        <p>You can permanently delete your SecondBrain account and all associated data directly from the app:</p>
+        <ol class="steps">
+          <li><span>Open SecondBrain on your device.</span></li>
+          <li><span>Navigate to <strong>Settings</strong> (gear icon).</span></li>
+          <li><span>Scroll down and tap <strong>Delete Account</strong>.</span></li>
+          <li><span>Confirm the deletion when prompted.</span></li>
+        </ol>
+      </div>
+    </div>
+    <div class="card card-warn" style="margin-top: 12px;">
+      <div class="card-header">
+        <div class="card-icon amber">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+        </div>
+        <span class="card-title">What Gets Deleted</span>
+      </div>
+      <div class="body-text" style="font-size:13px;">
+        <p>Account deletion is <strong>immediate and irreversible</strong>. The following data is permanently removed:</p>
+        <ul>
+          <li>Your account and authentication credentials</li>
+          <li>All notes and folders</li>
+          <li>All summaries and generated content</li>
+          <li>All calendar events created within SecondBrain</li>
+          <li>Display name and user settings</li>
+        </ul>
+        <p style="margin-top: 12px;">No data is retained after deletion. There is no recovery option.</p>
+      </div>
+    </div>
+    <div class="card" style="margin-top: 12px;">
+      <div class="card-header">
+        <div class="card-icon blue">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </div>
+        <span class="card-title">Need Help?</span>
+      </div>
+      <div class="body-text" style="font-size:13px;">
+        <p>If you're unable to access the app and need to delete your account, contact us at
+        <a href="mailto:federico.cesarini.consulting@gmail.com">federico.cesarini.consulting@gmail.com</a>
+        and we will process the deletion for you.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════ -->
+<!-- SCRIPTS                                                  -->
+<!-- ════════════════════════════════════════════════════════ -->
+<script>
+  function switchSection(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    const page = document.getElementById(id);
+    const link = document.querySelector(`.nav-links a[data-section="${id}"]`);
+    if (page) page.classList.add('active');
+    if (link) link.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    // Re-trigger animations
+    setTimeout(() => observeAnims(), 100);
+  }
+
+  // Nav clicks
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const id = a.dataset.section;
+      switchSection(id);
+      history.pushState(null, '', `#${id}`);
+    });
+  });
+
+  // Footer / inline links
+  document.querySelectorAll('.site-footer-links a').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const hash = a.getAttribute('href').replace('#', '');
+      switchSection(hash);
+      history.pushState(null, '', `#${hash}`);
+    });
+  });
+
+  // Hash routing
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = location.hash.replace('#', '');
+    if (hash && document.getElementById(hash)) {
+      switchSection(hash);
+    }
+    observeAnims();
+  });
+  window.addEventListener('popstate', () => {
+    const hash = location.hash.replace('#', '') || 'home';
+    switchSection(hash);
+  });
+
+  // Scroll animations
+  function observeAnims() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.anim:not(.visible)').forEach(el => observer.observe(el));
+  }
+</script>
+
+</body>
+</html>
