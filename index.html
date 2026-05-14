@@ -51,7 +51,7 @@
         "name": "SecondBrain",
         "url": "https://secondbrain.icu/",
         "logo": "https://secondbrain.icu/assets/icon.png",
-        "email": "federico.cesarini.consulting@gmail.com",
+        "email": "info@secondbrain.icu",
         "founder": { "@type": "Person", "name": "Federico Cesarini" }
       },
       {
@@ -1488,7 +1488,7 @@
         <p>We may update this policy from time to time. Changes will be reflected on this page with an updated date. Continued use of the app constitutes acceptance of the revised policy.</p>
         <h3>9. Contact</h3>
         <p>If you have questions about this Privacy Policy, contact us at:<br />
-        <a href="mailto:federico.cesarini.consulting@gmail.com">federico.cesarini.consulting@gmail.com</a></p>
+        <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a></p>
       </div>
       <div class="legal-footer">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
@@ -1546,7 +1546,7 @@
         <p>We may modify these terms at any time. Continued use of the app after changes constitutes acceptance of the updated terms.</p>
         <h3>9. Contact</h3>
         <p>Questions about these Terms? Contact us at:<br />
-        <a href="mailto:federico.cesarini.consulting@gmail.com">federico.cesarini.consulting@gmail.com</a></p>
+        <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a></p>
       </div>
     </div>
   </div>
@@ -1567,7 +1567,7 @@
         </div>
         <h3>Email support</h3>
         <p>Found a bug, have a question, or need help with your account? Drop us a line — we read every email.</p>
-        <a href="mailto:federico.cesarini.consulting@gmail.com" class="btn btn-primary">federico.cesarini.consulting@gmail.com</a>
+        <a href="mailto:info@secondbrain.icu" class="btn btn-primary">info@secondbrain.icu</a>
       </div>
 
       <div class="card">
@@ -1648,7 +1648,7 @@
         </div>
         <div class="body-text" style="font-size:14px;">
           <p>If you're unable to access the app and need to delete your account, contact us at
-          <a href="mailto:federico.cesarini.consulting@gmail.com">federico.cesarini.consulting@gmail.com</a>
+          <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a>
           and we will process the deletion for you.</p>
         </div>
       </div>
@@ -1684,7 +1684,7 @@
     <div class="foot-col">
       <h5>Help</h5>
       <a href="#support" data-route="support">Support</a>
-      <a href="mailto:federico.cesarini.consulting@gmail.com">Email us</a>
+      <a href="mailto:info@secondbrain.icu">Email us</a>
     </div>
   </div>
   <div class="foot-bottom">
@@ -1722,7 +1722,7 @@
         <input type="text" id="f-device" name="device" placeholder="e.g. Pixel 8 / Samsung S24" />
       </div>
       <button type="submit" class="modal-submit">Send beta request</button>
-      <p class="modal-fine">Your email client will open with a pre-written request to <span style="color:var(--text-mute)">federico.cesarini.consulting@gmail.com</span></p>
+      <p class="modal-fine">Your email client will open with a pre-written request to <span style="color:var(--text-mute)">info@secondbrain.icu</span></p>
     </form>
 
     <div class="modal-success" id="android-success">
@@ -1731,7 +1731,7 @@
       <p style="margin-bottom: 18px;">Send us this email and you're in.</p>
       <a id="android-mail-link" href="#" class="modal-submit" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none;">Open email</a>
       <button type="button" id="android-copy" class="btn btn-ghost" style="width:100%; justify-content:center; margin-top:10px; padding:12px;">Copy email</button>
-      <p class="modal-fine" id="android-copy-hint">to <span style="color:var(--text-mute)">federico.cesarini.consulting@gmail.com</span></p>
+      <p class="modal-fine" id="android-copy-hint">to <span style="color:var(--text-mute)">info@secondbrain.icu</span></p>
     </div>
   </div>
 </div>
@@ -1874,7 +1874,7 @@
       return;
     }
 
-    const recipient = 'federico.cesarini.consulting@gmail.com';
+    const recipient = 'info@secondbrain.icu';
     const subject = 'SecondBrain — Android beta request';
     const body = `Hi Federico,\n\nI'd like to join the SecondBrain Android beta.\n\n— Name: ${name}\n— Email: ${email}\n— Device: ${device || '(not specified)'}\n\nThanks!`;
     const mailto = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -1899,7 +1899,7 @@
       try {
         await navigator.clipboard.writeText(payload);
         copyBtn.textContent = 'Copied ✓';
-        hint.textContent = 'Paste it into your mail app and send to federico.cesarini.consulting@gmail.com';
+        hint.textContent = 'Paste it into your mail app and send to info@secondbrain.icu';
       } catch {
         copyBtn.textContent = 'Could not copy — select & copy manually';
       }
