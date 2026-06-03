@@ -71,15 +71,20 @@ const supabase = createClient(SUPABASE_URL, ANON_KEY, {
   auth: { flowType: 'pkce', detectSessionInUrl: true, persistSession: true },
 });
 
-const dc = new URLSearchParams(location.search).get('dc');
+// Carry the device code across the OAuth redirect in sessionStorage, NOT in
+// the URL, so redirectTo stays a clean `.../connect/` that matches the
+// Supabase Redirect URLs allowlist exactly (a `?dc=` query can fail the match
+// and cascade into a Google invalid_request).
+const dc = new URLSearchParams(location.search).get('dc') || sessionStorage.getItem('sb_dc');
 const $ = (id) => document.getElementById(id);
 const show = (id) => { for (const s of ['choose', 'busy', 'done', 'error']) $(s).classList.toggle('hidden', s !== id); };
 const fail = (msg) => { $('errorText').innerHTML = msg; show('error'); };
 
-const redirectTo = `${location.origin}${location.pathname}${dc ? `?dc=${encodeURIComponent(dc)}` : ''}`;
+const redirectTo = `${location.origin}${location.pathname}`;
 
 async function signIn(provider) {
   show('busy');
+  if (dc) sessionStorage.setItem('sb_dc', dc);
   const { error } = await supabase.auth.signInWithOAuth({ provider, options: { redirectTo } });
   if (error) fail(error.message);
 }
@@ -95,6 +100,7 @@ async function bind(session) {
   const json = await res.json().catch(() => ({}));
   // Don't leave a session lingering in a shared browser.
   await supabase.auth.signOut().catch(() => {});
+  sessionStorage.removeItem('sb_dc');
 
   if (res.status === 403 && json.error === 'pro_required') {
     $('doneTitle').textContent = 'Almost there';
