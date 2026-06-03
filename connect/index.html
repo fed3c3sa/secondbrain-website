@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Connect SecondBrain</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    font-family: -apple-system, system-ui, Segoe UI, Roboto, sans-serif;
+    background: #0b0b0b; color: #f5f5f5; padding: 24px;
+  }
+  .card {
+    width: 100%; max-width: 380px; text-align: center;
+    background: #141414; border: 1px solid #262626; border-radius: 20px; padding: 32px 28px;
+  }
+  .logo { font-size: 40px; margin-bottom: 8px; }
+  h1 { font-size: 22px; margin: 0 0 6px; }
+  p { color: #a3a3a3; font-size: 14px; line-height: 1.5; margin: 8px 0; }
+  button {
+    width: 100%; padding: 14px; margin-top: 12px; border-radius: 14px; border: 1px solid #2e2e2e;
+    background: #1e1e1e; color: #f5f5f5; font-size: 16px; font-weight: 600; cursor: pointer;
+  }
+  button:hover { background: #262626; }
+  button.apple { background: #f5f5f5; color: #0b0b0b; border-color: #f5f5f5; }
+  .hidden { display: none; }
+  .spinner { width: 28px; height: 28px; border: 3px solid #333; border-top-color: #f5f5f5; border-radius: 50%; animation: spin 0.9s linear infinite; margin: 16px auto; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  a { color: #7dd3fc; }
+  .ok { font-size: 40px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">🧠</div>
+    <h1>SecondBrain</h1>
+
+    <div id="choose" class="hidden">
+      <p>Sign in to connect your assistant to your memory.</p>
+      <button id="google">Continue with Google</button>
+      <button id="apple" class="apple">Continue with Apple</button>
+    </div>
+
+    <div id="busy" class="hidden">
+      <div class="spinner"></div>
+      <p id="busyText">Finishing sign-in…</p>
+    </div>
+
+    <div id="done" class="hidden">
+      <div class="ok">✅</div>
+      <h1 id="doneTitle">Connected</h1>
+      <p id="doneText">Return to your assistant and continue. You can close this tab.</p>
+    </div>
+
+    <div id="error" class="hidden">
+      <div class="ok">⚠️</div>
+      <p id="errorText">Something went wrong.</p>
+    </div>
+  </div>
+
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+const SUPABASE_URL = 'https://ntykytpngslkytfyuaee.supabase.co';
+const ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50eWt5dHBuZ3Nsa3l0Znl1YWVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwMzE1ODYsImV4cCI6MjA5MTYwNzU4Nn0.H8-o0luMghqeJltLOxg4hjhzyniDiTu9zA5fehCntJw';
+
+const supabase = createClient(SUPABASE_URL, ANON_KEY, {
+  auth: { flowType: 'pkce', detectSessionInUrl: true, persistSession: true },
+});
+
+const dc = new URLSearchParams(location.search).get('dc');
+const $ = (id) => document.getElementById(id);
+const show = (id) => { for (const s of ['choose', 'busy', 'done', 'error']) $(s).classList.toggle('hidden', s !== id); };
+const fail = (msg) => { $('errorText').innerHTML = msg; show('error'); };
+
+const redirectTo = `${location.origin}${location.pathname}${dc ? `?dc=${encodeURIComponent(dc)}` : ''}`;
+
+async function signIn(provider) {
+  show('busy');
+  const { error } = await supabase.auth.signInWithOAuth({ provider, options: { redirectTo } });
+  if (error) fail(error.message);
+}
+
+async function bind(session) {
+  $('busyText').textContent = 'Connecting your assistant…';
+  show('busy');
+  const res = await fetch(`${SUPABASE_URL}/functions/v1/mcp-connect`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', apikey: ANON_KEY, Authorization: `Bearer ${session.access_token}` },
+    body: JSON.stringify({ action: 'bind', device_code: dc }),
+  });
+  const json = await res.json().catch(() => ({}));
+  // Don't leave a session lingering in a shared browser.
+  await supabase.auth.signOut().catch(() => {});
+
+  if (res.status === 403 && json.error === 'pro_required') {
+    $('doneTitle').textContent = 'Almost there';
+    $('done').querySelector('.ok').textContent = '🔒';
+    $('doneText').innerHTML = `${json.message}<br><br><a href="${json.upgrade_url}">Open SecondBrain to upgrade</a>`;
+    show('done');
+    return;
+  }
+  if (!res.ok || !json.ok) { fail(json.error || 'Could not connect. Please try again from your assistant.'); return; }
+  show('done');
+}
+
+async function main() {
+  if (!dc) {
+    fail('Open this page from your assistant (it provides a one-time code), or run <code>npx @secondbrain/connect</code> in a terminal.');
+    return;
+  }
+  // After the OAuth redirect, supabase-js exchanges ?code automatically.
+  const { data: { session } } = await supabase.auth.getSession();
+  if (session) { await bind(session); return; }
+  $('google').onclick = () => signIn('google');
+  $('apple').onclick = () => signIn('apple');
+  show('choose');
+}
+
+main().catch((e) => fail(e.message));
+</script>
+</body>
+</html>
