@@ -167,6 +167,27 @@ const supabase = createClient(SUPABASE_URL, ANON_KEY, {
 // URL, so redirectTo stays a clean `.../connect/` that matches the Supabase
 // Redirect URLs allowlist exactly.
 const dc = new URLSearchParams(location.search).get('dc') || sessionStorage.getItem('sb_dc');
+
+// OAuth-authorize mode (cloud MCP clients like Claude Cowork / claude.ai).
+// The edge /oauth/authorize endpoint bounces the browser here with the OAuth
+// request in the query; we carry it across the Supabase redirect in
+// sessionStorage so redirectTo stays the clean, allow-listed /connect/ URL.
+function readOauthCtx() {
+  const p = new URLSearchParams(location.search);
+  if (p.get('sb_oauth') === '1' && p.get('client_id') && p.get('redirect_uri') && p.get('code_challenge')) {
+    return {
+      client_id: p.get('client_id'),
+      redirect_uri: p.get('redirect_uri'),
+      code_challenge: p.get('code_challenge'),
+      state: p.get('state') || '',
+      scope: p.get('scope') || '',
+      resource: p.get('resource') || '',
+    };
+  }
+  try { return JSON.parse(sessionStorage.getItem('sb_oauth_ctx') || 'null'); } catch { return null; }
+}
+const oauthCtx = readOauthCtx();
+
 const $ = (id) => document.getElementById(id);
 const show = (id) => { for (const s of ['choose', 'busy', 'done', 'error']) $(s).classList.toggle('hidden', s !== id); };
 const fail = (msg) => { $('errorText').innerHTML = msg; show('error'); };
@@ -178,6 +199,7 @@ async function signIn(provider) {
   $('busyText').textContent = `Continue with ${provider === 'apple' ? 'Apple' : 'Google'} in the next screen.`;
   show('busy');
   if (dc) sessionStorage.setItem('sb_dc', dc);
+  if (oauthCtx) sessionStorage.setItem('sb_oauth_ctx', JSON.stringify(oauthCtx));
   const { error } = await supabase.auth.signInWithOAuth({ provider, options: { redirectTo } });
   if (error) fail(error.message);
 }
@@ -206,10 +228,49 @@ async function bind(session) {
   show('done');
 }
 
+// OAuth-authorize completion: after sign-in, mint an authorization code and
+// redirect the browser back to the MCP client (Cowork / claude.ai).
+async function completeOauth(session) {
+  $('busyTitle').textContent = 'Connecting your assistant…';
+  $('busyText').textContent = 'Almost done.';
+  show('busy');
+  const res = await fetch(`${SUPABASE_URL}/functions/v1/oauth/issue-code`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', apikey: ANON_KEY, Authorization: `Bearer ${session.access_token}` },
+    body: JSON.stringify({
+      client_id: oauthCtx.client_id,
+      redirect_uri: oauthCtx.redirect_uri,
+      code_challenge: oauthCtx.code_challenge,
+      scope: oauthCtx.scope,
+      resource: oauthCtx.resource,
+    }),
+  });
+  const data = await res.json().catch(() => ({}));
+  await supabase.auth.signOut().catch(() => {});
+  sessionStorage.removeItem('sb_oauth_ctx');
+
+  if (res.status === 403 && data.error === 'pro_required') {
+    $('doneEmoji').textContent = '🔒';
+    $('doneTitle').textContent = 'One step left';
+    $('doneText').innerHTML = `${data.message}<br><br><a href="${data.upgrade_url}">Open SecondBrain to upgrade</a>`;
+    show('done');
+    return;
+  }
+  if (!res.ok || !data.code) {
+    fail(data.error_description || data.error || 'Could not connect. Please try again from your assistant.');
+    return;
+  }
+  const back = new URL(oauthCtx.redirect_uri);
+  back.searchParams.set('code', data.code);
+  if (oauthCtx.state) back.searchParams.set('state', oauthCtx.state);
+  location.replace(back.toString());
+}
+
 async function main() {
   const { data: { session } } = await supabase.auth.getSession();
+  if (session && oauthCtx) { await completeOauth(session); return; }
   if (session && dc) { await bind(session); return; }
-  if (session && !dc) {
+  if (session && !dc && !oauthCtx) {
     // Signed in but opened without a device code — nothing to bind.
     $('doneEmoji').textContent = '✅';
     $('doneTitle').textContent = "You're signed in";
@@ -217,7 +278,7 @@ async function main() {
     show('done');
     return;
   }
-  if (!dc) {
+  if (!dc && !oauthCtx) {
     fail('Open this link from your assistant (it carries a one-time code), or run <code>npx @secondbrain/connect</code> in a terminal.');
     return;
   }
