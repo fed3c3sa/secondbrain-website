@@ -8,7 +8,7 @@
   <link rel="apple-touch-icon" href="assets/icon.png" />
   <link rel="canonical" href="https://secondbrain.icu/" />
   <meta name="description" content="SecondBrain is the AI-powered memory layer for your phone. Speak. It remembers. Notes, calendar, contacts and follow-ups appear while you're still talking." />
-  <meta name="keywords" content="AI memory, smart notes, voice notes, AI assistant, second brain, iOS app, productivity, knowledge management" />
+  <meta name="keywords" content="AI memory, smart notes, voice notes, AI assistant, second brain, iOS app, productivity, knowledge management, shared memory layer, AI memory layer, Claude memory, ChatGPT memory, MCP, AI agent memory" />
   <meta name="author" content="Federico Cesarini" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#000000" />
@@ -745,6 +745,51 @@
     @media (max-width: 560px) { .mosaic { grid-template-columns: 1fr; } }
 
     /* ════════════════════════════════════════════════════════ */
+    /* SETUP (memory-layer connect steps)                       */
+    /* ════════════════════════════════════════════════════════ */
+    .setup {
+      max-width: 760px;
+      margin: 96px auto 0;
+      border: 1px solid var(--hairline);
+      border-radius: 24px;
+      background: var(--ink);
+      padding: 48px clamp(24px, 5vw, 56px);
+    }
+    .setup-head { margin-bottom: 28px; }
+    .setup-head .eyebrow { display: block; margin-bottom: 16px; }
+    .setup-head h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(26px, 3.4vw, 38px);
+      letter-spacing: -0.03em;
+      line-height: 1.04;
+      margin-bottom: 12px;
+    }
+    .setup-head h3 em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--text-mute);
+    }
+    .setup-head p { color: var(--text-mute); font-size: 15px; max-width: 520px; }
+    .setup-steps { margin-top: 8px; }
+    .setup-steps li {
+      color: var(--text-mute);
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 14px;
+      padding-top: 1px;
+    }
+    .setup-steps li strong { color: var(--text); font-weight: 500; }
+    .setup-steps a {
+      color: var(--text);
+      border-bottom: 1px solid var(--hairline-strong);
+      transition: border-color .2s var(--ease);
+    }
+    .setup-steps a:hover { border-color: var(--text); }
+    .setup-cta { margin-top: 26px; }
+
+    /* ════════════════════════════════════════════════════════ */
     /* PRIVACY MONOLITH                                         */
     /* ════════════════════════════════════════════════════════ */
     .monolith {
@@ -1399,13 +1444,83 @@
       </div>
     </section>
 
+    <!-- SHARED MEMORY LAYER -->
+    <section class="section" id="memory">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow anim">/ 04 — Memory layer</span>
+          <h2 class="anim d1">One memory. <em>Every AI.</em></h2>
+        </div>
+        <p class="anim d2">The shared memory that lives above every assistant you use, from Claude to ChatGPT to Claude Code.</p>
+      </div>
+
+      <div class="splits">
+
+        <div class="split anim">
+          <div class="split-text">
+            <span class="eyebrow">/ The problem</span>
+            <h3>Every AI starts from <em>zero.</em></h3>
+            <p>Open a ChatGPT chat, start a Claude project or launch a Claude Code session, and the assistant begins on a blank page. It remembers nothing you told it yesterday, last week, or inside another tool. <strong>A memory layer changes that.</strong> It sits above your assistants and lets them remember.</p>
+            <div class="split-tags">
+              <span class="split-tag">Claude</span>
+              <span class="split-tag">ChatGPT</span>
+              <span class="split-tag">Claude Code</span>
+            </div>
+          </div>
+          <div class="split-media"><img src="assets/05-brain.png" alt="One shared brain connecting every AI assistant." loading="lazy" /></div>
+        </div>
+
+        <div class="split reverse anim">
+          <div class="split-text">
+            <span class="eyebrow">/ Shared</span>
+            <h3>One brain, <em>shared by all.</em></h3>
+            <p>The memory is single and shared across every AI you use. Work on something with Claude Code and that knowledge is instantly available to ChatGPT. Make a decision in one chat and find it in the next session, on another assistant, on another device. <strong>One brain, used by all of your agents.</strong></p>
+          </div>
+          <div class="split-media"><img src="assets/07-sync.png" alt="Memory kept in sync across every assistant and device." loading="lazy" /></div>
+        </div>
+
+        <div class="split anim">
+          <div class="split-text">
+            <span class="eyebrow">/ Connected</span>
+            <h3>Wired to your <em>calendar and phone.</em></h3>
+            <p>It does not end with notes. SecondBrain is connected to your calendar and your phone. Your agents can create calendar events and send notifications straight to your mobile. Ask for something from your computer and find it as a reminder in your pocket, without lifting a finger.</p>
+          </div>
+          <div class="split-media"><img src="assets/06-calendar.png" alt="Agents create calendar events and phone reminders." loading="lazy" /></div>
+        </div>
+
+      </div>
+
+      <!-- SETUP -->
+      <div class="setup anim">
+        <div class="setup-head">
+          <span class="eyebrow">/ Setup</span>
+          <h3>Connected in <em>four steps.</em></h3>
+          <p>One simple install. From that moment on, all of your agents share the same memory.</p>
+        </div>
+        <ol class="steps setup-steps">
+          <li>Install the <a href="https://apps.apple.com/it/app/secondbrain-ai-smart-memory/id6762130376" target="_blank" rel="noopener">SecondBrain app</a> and upgrade to Pro.</li>
+          <li>Add the plugin for Claude, or the skill plus MCP for other AI providers.</li>
+          <li>Tell your agent to connect to SecondBrain and sign in.</li>
+          <li><strong>Done.</strong> Every one of your agents now shares the same memory.</li>
+        </ol>
+        <div class="setup-cta">
+          <a href="https://github.com/fed3c3sa/secondbrain-shared-memory" target="_blank" rel="noopener" class="btn btn-ghost">
+            <span class="glyph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.67 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17.91-.25 1.89-.38 2.86-.39.97.01 1.95.14 2.86.39 2.19-1.48 3.15-1.17 3.15-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.66.41.36.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.68.8.56C20.71 21.39 24 17.08 24 12 24 5.73 18.77.5 12 .5z"/></svg>
+            </span>
+            <span>Full setup guide on GitHub</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- PRIVACY MONOLITH -->
     <section style="padding-bottom: 120px;">
       <div class="monolith">
         <div class="monolith-inner anim">
           <div class="monolith-grid">
             <div class="monolith-head">
-              <span class="eyebrow" style="display:block; margin-bottom:18px;">/ 04 — Trust</span>
+              <span class="eyebrow" style="display:block; margin-bottom:18px;">/ 05 — Trust</span>
               <h3>Yours <em>alone.</em></h3>
               <p>No analytics. No ads. No training.</p>
             </div>
