@@ -190,7 +190,27 @@ const oauthCtx = readOauthCtx();
 
 const $ = (id) => document.getElementById(id);
 const show = (id) => { for (const s of ['choose', 'busy', 'done', 'error']) $(s).classList.toggle('hidden', s !== id); };
-const fail = (msg) => { $('errorText').innerHTML = msg; show('error'); };
+const fail = (msg) => { $('errorText').textContent = msg; show('error'); };
+
+// Render "message + upgrade link" without innerHTML so a compromised or
+// misbehaving backend response can never inject markup/script (XSS hardening).
+function renderUpgradeMessage(el, message, upgradeUrl) {
+  el.textContent = '';
+  el.append(document.createTextNode(message || 'Upgrade to SecondBrain Pro to connect.'));
+  let href = '';
+  try {
+    const u = new URL(upgradeUrl, location.origin);
+    if (['https:', 'http:', 'secondbrain:'].includes(u.protocol)) href = u.toString();
+  } catch { /* ignore malformed URLs */ }
+  if (href) {
+    el.append(document.createElement('br'), document.createElement('br'));
+    const a = document.createElement('a');
+    a.href = href;
+    a.rel = 'noopener';
+    a.textContent = 'Open SecondBrain to upgrade';
+    el.append(a);
+  }
+}
 
 const redirectTo = `${location.origin}${location.pathname}`;
 
@@ -220,7 +240,7 @@ async function bind(session) {
   if (res.status === 403 && json.error === 'pro_required') {
     $('doneEmoji').textContent = '🔒';
     $('doneTitle').textContent = 'One step left';
-    $('doneText').innerHTML = `${json.message}<br><br><a href="${json.upgrade_url}">Open SecondBrain to upgrade</a>`;
+    renderUpgradeMessage($('doneText'), json.message, json.upgrade_url);
     show('done');
     return;
   }
@@ -252,7 +272,7 @@ async function completeOauth(session) {
   if (res.status === 403 && data.error === 'pro_required') {
     $('doneEmoji').textContent = '🔒';
     $('doneTitle').textContent = 'One step left';
-    $('doneText').innerHTML = `${data.message}<br><br><a href="${data.upgrade_url}">Open SecondBrain to upgrade</a>`;
+    renderUpgradeMessage($('doneText'), data.message, data.upgrade_url);
     show('done');
     return;
   }
