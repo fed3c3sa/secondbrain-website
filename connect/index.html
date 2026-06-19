@@ -47,7 +47,7 @@
   }
   @keyframes pulse{0%,100%{opacity:.7}50%{opacity:1}}
   @keyframes float{0%,100%{transform:translate(-50%,-50%) translateY(0)}50%{transform:translate(-50%,-50%) translateY(-14px)}}
-  /* In-flow bob for the logo badge — no centering translate (that one is only for the absolutely-positioned ambient brain) */
+  /* In-flow bob for the logo badge · no centering translate (that one is only for the absolutely-positioned ambient brain) */
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 
   .card{
@@ -291,7 +291,7 @@ async function main() {
   if (session && oauthCtx) { await completeOauth(session); return; }
   if (session && dc) { await bind(session); return; }
   if (session && !dc && !oauthCtx) {
-    // Signed in but opened without a device code — nothing to bind.
+    // Signed in but opened without a device code · nothing to bind.
     $('doneEmoji').textContent = '✅';
     $('doneTitle').textContent = "You're signed in";
     $('doneText').textContent = 'Open this page from your assistant to finish connecting.';

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SecondBrain — AI Smart Memory</title>
+  <title>SecondBrain · AI Smart Memory</title>
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="apple-touch-icon" href="assets/icon.png" />
   <link rel="canonical" href="https://secondbrain.icu/" />
@@ -15,16 +15,16 @@
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="SecondBrain" />
-  <meta property="og:title" content="SecondBrain — AI Smart Memory" />
+  <meta property="og:title" content="SecondBrain · AI Smart Memory" />
   <meta property="og:description" content="Speak. It remembers. The AI memory layer for your phone." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://secondbrain.icu/" />
   <meta property="og:image" content="https://secondbrain.icu/assets/icon.png" />
-  <meta property="og:image:alt" content="SecondBrain — AI Smart Memory" />
+  <meta property="og:image:alt" content="SecondBrain · AI Smart Memory" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="SecondBrain — AI Smart Memory" />
+  <meta name="twitter:title" content="SecondBrain · AI Smart Memory" />
   <meta name="twitter:description" content="Speak. It remembers. The AI memory layer for your phone." />
   <meta name="twitter:image" content="https://secondbrain.icu/assets/icon.png" />
 
@@ -53,7 +53,7 @@
       },
       {
         "@type": "MobileApplication",
-        "name": "SecondBrain — AI Smart Memory",
+        "name": "SecondBrain · AI Smart Memory",
         "operatingSystem": "iOS",
         "applicationCategory": "ProductivityApplication",
         "url": "https://apps.apple.com/it/app/secondbrain-ai-smart-memory/id6762130376",
@@ -62,7 +62,7 @@
       },
       {
         "@type": "MobileApplication",
-        "name": "SecondBrain — AI Smart Memory",
+        "name": "SecondBrain · AI Smart Memory",
         "operatingSystem": "ANDROID",
         "applicationCategory": "ProductivityApplication",
         "url": "https://play.google.com/store/apps/details?id=app.secondbrain.android",
@@ -85,7 +85,7 @@
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
     /* ════════════════════════════════════════════════════════ */
-    /* TOKENS — single dark corporate theme                     */
+    /* TOKENS · single dark corporate theme                     */
     /* ════════════════════════════════════════════════════════ */
     :root {
       --black: #000000;
@@ -462,7 +462,7 @@
       letter-spacing: -0.01em;
     }
 
-    /* Secondary CTA — connect your AI (GitHub) */
+    /* Secondary CTA · connect your AI (GitHub) */
     .cta-connect {
       display: flex;
       justify-content: center;
@@ -999,7 +999,7 @@
     }
 
     /* ════════════════════════════════════════════════════════ */
-    /* MODAL — Android beta                                     */
+    /* MODAL · Android beta                                     */
     /* ════════════════════════════════════════════════════════ */
     .modal {
       position: fixed;
@@ -1286,9 +1286,172 @@
         transition-duration: .001s !important;
       }
     }
+
+    /* ════════════════════════════════════════════════════════ */
+    /* BILINGUAL (EN default · IT toggle)                        */
+    /* ════════════════════════════════════════════════════════ */
+    html[lang="en"] .lang-it { display: none !important; }
+    html[lang="it"] .lang-en { display: none !important; }
+
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px;
+      border-radius: 999px;
+      border: 1px solid var(--hairline);
+      background: rgba(255,255,255,0.04);
+    }
+    .lang-switch button {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      font-weight: 500;
+      padding: 6px 9px;
+      border-radius: 999px;
+      color: var(--text-faint);
+      transition: color .25s var(--ease), background .25s var(--ease);
+    }
+    .lang-switch button:hover { color: var(--text); }
+    .lang-switch button.active { color: #000; background: #fff; }
+
+    /* ════════════════════════════════════════════════════════ */
+    /* INSTALL SECTION                                           */
+    /* ════════════════════════════════════════════════════════ */
+    .claude-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .claude-badge {
+      width: 42px; height: 42px;
+      border-radius: 12px;
+      border: 1px solid rgba(217,119,87,0.30);
+      background: rgba(217,119,87,0.09);
+      display: inline-flex; align-items: center; justify-content: center;
+      flex: none;
+    }
+    .claude-badge img { width: 24px; height: 24px; }
+    .claude-row .claude-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+      line-height: 1.4;
+    }
+    .install-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.04fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: center;
+      margin-top: 8px;
+    }
+    .install-shot {
+      border: 1px solid var(--hairline);
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--ink-1);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    }
+    .install-shot img { width: 100%; height: auto; display: block; }
+    .install-shot figcaption {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      color: var(--text-faint);
+      padding: 12px 16px;
+      border-top: 1px solid var(--hairline);
+    }
+    .install-steps { counter-reset: step; list-style: none; padding: 0; margin: 0; }
+    .install-steps li {
+      counter-increment: step;
+      position: relative;
+      padding-left: 54px;
+      margin-bottom: 26px;
+    }
+    .install-steps li:last-child { margin-bottom: 0; }
+    .install-steps li::before {
+      content: counter(step);
+      position: absolute; left: 0; top: -2px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--hairline-strong);
+      background: rgba(255,255,255,0.03);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-weight: 600; font-size: 15px;
+      color: var(--text);
+    }
+    .install-steps h4 {
+      font-family: var(--font-display);
+      font-weight: 600; font-size: 18px;
+      letter-spacing: -0.015em; margin-bottom: 5px; line-height: 1.2;
+    }
+    .install-steps p { color: var(--text-mute); font-size: 15px; line-height: 1.55; }
+    code.kbd {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--hairline);
+      border-radius: 6px;
+      padding: 2px 6px;
+      color: var(--text);
+      word-break: break-word;
+    }
+    .install-note {
+      margin-top: 34px;
+      border: 1px solid var(--hairline);
+      border-radius: 18px;
+      background: var(--ink);
+      padding: 24px clamp(20px, 3vw, 32px);
+    }
+    .install-note .note-line {
+      color: var(--text-mute);
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      padding-left: 22px;
+      position: relative;
+    }
+    .install-note .note-line:last-of-type { margin-bottom: 20px; }
+    .install-note .note-line::before {
+      content: "";
+      position: absolute; left: 4px; top: 9px;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--text-faint);
+    }
+    .install-note .note-line strong { color: var(--text); font-weight: 600; }
+    @media (max-width: 880px) {
+      .install-grid { grid-template-columns: 1fr; gap: 36px; }
+      .install-shot { order: -1; }
+    }
+
+    /* Claude logomark feature tile (memory section) */
+    .claude-media {
+      max-width: 340px;
+      margin: 0 auto;
+      width: 100%;
+      min-height: 280px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 18px;
+      border: 1px solid var(--hairline);
+      border-radius: 28px;
+      background: radial-gradient(circle at 50% 42%, rgba(217,119,87,0.12), transparent 62%), var(--ink);
+    }
+    .claude-media img { width: 88px; height: 88px; filter: drop-shadow(0 0 24px rgba(217,119,87,0.35)); }
+    .claude-media span {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-mute);
+    }
   </style>
 </head>
 <body>
+<script>(function(){try{var l=localStorage.getItem('sb-lang');if(l!=='it'&&l!=='en')l='en';document.documentElement.lang=l;}catch(e){document.documentElement.lang='en';}})();</script>
 
 <!-- ════════════════════════════════════════════════════════ -->
 <!-- TOP BAR                                                  -->
@@ -1300,12 +1463,16 @@
       <span>SecondBrain</span>
     </a>
     <nav class="nav-center">
-      <a href="#home" data-route="home" class="active">Overview</a>
+      <a href="#home" data-route="home" class="active"><span class="lang-en">Overview</span><span class="lang-it">Panoramica</span></a>
+      <a href="#install-page-jump" data-route="home" data-scroll-to="install"><span class="lang-en">Connect AI</span><span class="lang-it">Collega l'AI</span></a>
       <a href="#privacy" data-route="privacy">Privacy</a>
-      <a href="#terms" data-route="terms">Terms</a>
-      <a href="#support" data-route="support">Support</a>
+      <a href="#support" data-route="support"><span class="lang-en">Support</span><span class="lang-it">Assistenza</span></a>
     </nav>
     <div class="nav-right">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="en" class="active">EN</button>
+        <button type="button" data-lang-btn="it">IT</button>
+      </div>
       <a href="https://www.instagram.com/secondbrain.memory/" target="_blank" rel="noopener" class="nav-icon" aria-label="Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <rect x="3" y="3" width="18" height="18" rx="5" ry="5"/>
@@ -1333,11 +1500,14 @@
         <div class="hero-mark" aria-hidden="true"></div>
 
         <h1 class="hero-title">
-          <span class="type" data-text="Start" data-delay="220"></span><br />
-          <em><span class="type" data-text="remembering." data-delay="350"></span></em><span class="type-caret" id="caret"></span>
+          <span class="type" data-text-en="Start" data-text-it="Inizia a" data-delay="220"></span><br />
+          <em><span class="type" data-text-en="remembering." data-text-it="ricordare." data-delay="350"></span></em><span class="type-caret" id="caret"></span>
         </h1>
 
-        <p class="hero-sub anim d1">Speak. <strong>SecondBrain</strong> remembers.</p>
+        <p class="hero-sub anim d1">
+          <span class="lang-en">Speak once. <strong>SecondBrain</strong> remembers it, in the app and across every AI you use.</span>
+          <span class="lang-it">Parla una volta. <strong>SecondBrain</strong> lo ricorda, nell'app e su ogni AI che usi.</span>
+        </p>
 
         <div class="cta-row anim d2">
           <a href="https://apps.apple.com/it/app/secondbrain-ai-smart-memory/id6762130376" target="_blank" rel="noopener" class="btn btn-primary">
@@ -1345,7 +1515,7 @@
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
             </span>
             <span class="btn-meta">
-              <span class="small">Download on</span>
+              <span class="small"><span class="lang-en">Download on</span><span class="lang-it">Scarica su</span></span>
               <span class="big">App Store</span>
             </span>
           </a>
@@ -1354,23 +1524,23 @@
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18a.4.4 0 0 0-.69-.4l-1.86 3.22a11.5 11.5 0 0 0-9.78 0L5.25 5.9a.4.4 0 0 0-.69.4L6.4 9.48A10.78 10.78 0 0 0 1 18.5h22a10.78 10.78 0 0 0-5.4-9.02M7 15.25a1 1 0 1 1 1-1 1 1 0 0 1-1 1m10 0a1 1 0 1 1 1-1 1 1 0 0 1-1 1"/></svg>
             </span>
             <span class="btn-meta">
-              <span class="small">Download on</span>
+              <span class="small"><span class="lang-en">Download on</span><span class="lang-it">Scarica su</span></span>
               <span class="big">Google Play</span>
             </span>
           </a>
         </div>
 
         <div class="cta-connect anim d3">
-          <a href="https://github.com/fed3c3sa/secondbrain-shared-memory" target="_blank" rel="noopener" class="btn btn-connect">
+          <a href="#install" class="btn btn-connect">
             <span class="dot" aria-hidden="true"></span>
             <span class="glyph" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.67 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17.91-.25 1.89-.38 2.86-.39.97.01 1.95.14 2.86.39 2.19-1.48 3.15-1.17 3.15-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.66.41.36.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.68.8.56C20.71 21.39 24 17.08 24 12 24 5.73 18.77.5 12 .5z"/></svg>
+              <img src="assets/claude-logo.svg" alt="" style="width:18px;height:18px;" />
             </span>
             <span class="btn-meta">
-              <span class="small">Shared memory · Claude, ChatGPT</span>
-              <span class="big">Connect on GitHub</span>
+              <span class="small"><span class="lang-en">Shared memory · Claude, ChatGPT</span><span class="lang-it">Memoria condivisa · Claude, ChatGPT</span></span>
+              <span class="big"><span class="lang-en">Connect your AI</span><span class="lang-it">Collega la tua AI</span></span>
             </span>
-            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg>
           </a>
         </div>
       </div>
@@ -1384,13 +1554,20 @@
     <section class="section" id="gallery">
       <div class="section-head">
         <div>
-          <span class="eyebrow anim">/ 01 — Product</span>
-          <h2 class="anim d1">A quieter <em>interface.</em>for a quieter<em>mind.</em></h2>
+          <span class="eyebrow anim"><span class="lang-en">/ 01 · Product</span><span class="lang-it">/ 01 · Prodotto</span></span>
+          <h2 class="anim d1">
+            <span class="lang-en">A quieter <em>interface.</em> for a quieter <em>mind.</em></span>
+            <span class="lang-it">Un'interfaccia <em>più calma.</em> per una mente <em>più calma.</em></span>
+          </h2>
         </div>
+        <p class="anim d2">
+          <span class="lang-en">Everything the app does, in nine screens.</span>
+          <span class="lang-it">Tutto quello che fa l'app, in nove schermate.</span>
+        </p>
       </div>
 
       <div class="gallery-wrap anim d2">
-        <div class="gallery" id="gallery">
+        <div class="gallery" id="gallery-track">
           <article class="slide"><img src="assets/01-capture.png" alt="Take your phone out and speak. SecondBrain will remember." loading="lazy" /></article>
           <article class="slide"><img src="assets/02-chat.png" alt="Just ask. Get perfect memories." loading="lazy" /></article>
           <article class="slide"><img src="assets/03-folders.png" alt="All in place, without lifting a finger." loading="lazy" /></article>
@@ -1416,58 +1593,58 @@
     <section class="section" style="padding-top: 0;">
       <div class="pillars">
         <div class="pillar anim">
-          <div class="pillar-num">01 / Capture</div>
-          <h3>Speak. <em>Don't type.</em></h3>
-          <p>One button. Five languages.</p>
+          <div class="pillar-num"><span class="lang-en">01 / Capture</span><span class="lang-it">01 / Cattura</span></div>
+          <h3><span class="lang-en">Speak. <em>Don't type.</em></span><span class="lang-it">Parla. <em>Non scrivere.</em></span></h3>
+          <p><span class="lang-en">One button. Five languages.</span><span class="lang-it">Un pulsante. Cinque lingue.</span></p>
         </div>
         <div class="pillar anim d1">
-          <div class="pillar-num">02 / Organise</div>
-          <h3>Filed <em>instantly.</em></h3>
-          <p>Notes, folders, calendar — done while you talk.</p>
+          <div class="pillar-num"><span class="lang-en">02 / Organise</span><span class="lang-it">02 / Organizza</span></div>
+          <h3><span class="lang-en">Filed <em>instantly.</em></span><span class="lang-it">In ordine, <em>subito.</em></span></h3>
+          <p><span class="lang-en">Notes, folders and calendar, sorted while you talk.</span><span class="lang-it">Note, cartelle e calendario, sistemati mentre parli.</span></p>
         </div>
         <div class="pillar anim d2">
-          <div class="pillar-num">03 / Recall</div>
-          <h3>Just <em>ask.</em></h3>
-          <p>Talk to your past. Get a real answer.</p>
+          <div class="pillar-num"><span class="lang-en">03 / Recall</span><span class="lang-it">03 / Ricorda</span></div>
+          <h3><span class="lang-en">Just <em>ask.</em></span><span class="lang-it">Basta <em>chiedere.</em></span></h3>
+          <p><span class="lang-en">Talk to your past. Get a real answer.</span><span class="lang-it">Parla col tuo passato. Ottieni una risposta vera.</span></p>
         </div>
       </div>
     </section>
 
-    <!-- SPLITS — feature deep-dives -->
+    <!-- SPLITS · feature deep-dives -->
     <section class="section">
       <div class="section-head">
         <div>
-          <span class="eyebrow anim">/ 02 — Capabilities</span>
-          <h2 class="anim d1">Built for your <em>mind.</em></h2>
+          <span class="eyebrow anim"><span class="lang-en">/ 02 · Capabilities</span><span class="lang-it">/ 02 · Cosa sa fare</span></span>
+          <h2 class="anim d1"><span class="lang-en">Built for your <em>mind.</em></span><span class="lang-it">Pensato per la tua <em>mente.</em></span></h2>
         </div>
-        <p class="anim d2">Voice in. Structure out.</p>
+        <p class="anim d2"><span class="lang-en">You speak. It does the rest.</span><span class="lang-it">Parli tu. Al resto pensa lui.</span></p>
       </div>
 
       <div class="splits">
 
         <div class="split anim">
           <div class="split-text">
-            <span class="eyebrow">/ Voice</span>
-            <h3>Talk like a <em>person.</em></h3>
-            <p>No menus. No fields. Just speak.</p>
+            <span class="eyebrow"><span class="lang-en">/ Voice</span><span class="lang-it">/ Voce</span></span>
+            <h3><span class="lang-en">Talk like a <em>person.</em></span><span class="lang-it">Parla come a una <em>persona.</em></span></h3>
+            <p><span class="lang-en">No menus. No fields. You speak, and it understands.</span><span class="lang-it">Niente menu. Niente moduli. Parli, e lui capisce.</span></p>
           </div>
           <div class="split-media"><img src="assets/02-chat.png" alt="Just ask. Get perfect memories." loading="lazy" /></div>
         </div>
 
         <div class="split reverse anim">
           <div class="split-text">
-            <span class="eyebrow">/ Structure</span>
-            <h3>A <em>perfect</em> note.</h3>
-            <p>Written while you talk.</p>
+            <span class="eyebrow"><span class="lang-en">/ Structure</span><span class="lang-it">/ Struttura</span></span>
+            <h3><span class="lang-en">A <em>perfect</em> note.</span><span class="lang-it">Una nota <em>perfetta.</em></span></h3>
+            <p><span class="lang-en">Headings, bullets and checklists, written while you talk.</span><span class="lang-it">Titoli, elenchi e cose da fare, scritti mentre parli.</span></p>
           </div>
           <div class="split-media"><img src="assets/04-notes.png" alt="Structured note from speech." loading="lazy" /></div>
         </div>
 
         <div class="split anim">
           <div class="split-text">
-            <span class="eyebrow">/ Knowledge</span>
-            <h3>Everything <em>connected.</em></h3>
-            <p>A map of your mind.</p>
+            <span class="eyebrow"><span class="lang-en">/ Knowledge</span><span class="lang-it">/ Conoscenza</span></span>
+            <h3><span class="lang-en">Everything <em>connected.</em></span><span class="lang-it">Tutto <em>collegato.</em></span></h3>
+            <p><span class="lang-en">A living map of everything you know.</span><span class="lang-it">Una mappa viva di tutto ciò che sai.</span></p>
           </div>
           <div class="split-media"><img src="assets/05-brain.png" alt="Your thoughts, connected." loading="lazy" /></div>
         </div>
@@ -1475,14 +1652,14 @@
       </div>
     </section>
 
-    <!-- MOSAIC — remaining capabilities -->
+    <!-- MOSAIC · remaining capabilities -->
     <section class="section" style="padding-top: 0;">
       <div class="section-head">
         <div>
-          <span class="eyebrow anim">/ 03 — Native</span>
-          <h2 class="anim d1">Lives <em>where you do.</em></h2>
+          <span class="eyebrow anim"><span class="lang-en">/ 03 · Native</span><span class="lang-it">/ 03 · Nativo</span></span>
+          <h2 class="anim d1"><span class="lang-en">Lives <em>where you do.</em></span><span class="lang-it">Vive <em>dove vivi tu.</em></span></h2>
         </div>
-        <p class="anim d2">Calendar. Control Center. Lock screen.</p>
+        <p class="anim d2"><span class="lang-en">Calendar. Control Center. Lock screen.</span><span class="lang-it">Calendario. Centro di Controllo. Schermata di blocco.</span></p>
       </div>
 
       <div class="mosaic anim">
@@ -1497,23 +1674,30 @@
     <section class="section" id="memory">
       <div class="section-head">
         <div>
-          <span class="eyebrow anim">/ 04 — Memory layer</span>
-          <h2 class="anim d1">One memory. <em>Every AI.</em></h2>
+          <span class="eyebrow anim"><span class="lang-en">/ 04 · Shared memory</span><span class="lang-it">/ 04 · Memoria condivisa</span></span>
+          <h2 class="anim d1"><span class="lang-en">One memory. <em>Every AI.</em></span><span class="lang-it">Una memoria. <em>Tutte le AI.</em></span></h2>
         </div>
-        <p class="anim d2">The shared memory that lives above every assistant you use, from Claude to ChatGPT to Claude Code.</p>
+        <p class="anim d2">
+          <span class="lang-en">Tell it to Claude, ChatGPT or any assistant once. It lands in a single shared brain that is yours, and they all remember it.</span>
+          <span class="lang-it">Dillo una volta a Claude, ChatGPT o a qualsiasi assistente. Finisce in un unico cervello condiviso, il tuo, e se lo ricordano tutti.</span>
+        </p>
       </div>
 
       <div class="splits">
 
         <div class="split anim">
           <div class="split-text">
-            <span class="eyebrow">/ The problem</span>
-            <h3>Every AI starts from <em>zero.</em></h3>
-            <p>Open a ChatGPT chat, start a Claude project or launch a Claude Code session, and the assistant begins on a blank page. It remembers nothing you told it yesterday, last week, or inside another tool. <strong>A memory layer changes that.</strong> It sits above your assistants and lets them remember.</p>
+            <span class="eyebrow"><span class="lang-en">/ The problem</span><span class="lang-it">/ Il problema</span></span>
+            <h3><span class="lang-en">Every AI starts from <em>zero.</em></span><span class="lang-it">Ogni AI riparte da <em>zero.</em></span></h3>
+            <p>
+              <span class="lang-en">Open ChatGPT, start a Claude project or launch a Claude Code session, and the assistant is back to a blank page. It forgets what you said yesterday, last week, or in another app. <strong>SecondBrain fixes that:</strong> it sits above your assistants and gives them a memory.</span>
+              <span class="lang-it">Apri ChatGPT, inizi un progetto con Claude o lanci una sessione di Claude Code, e l'assistente torna a una pagina bianca. Dimentica cosa hai detto ieri, la settimana scorsa o in un'altra app. <strong>SecondBrain risolve questo:</strong> sta sopra ai tuoi assistenti e dà loro una memoria.</span>
+            </p>
             <div class="split-tags">
               <span class="split-tag">Claude</span>
               <span class="split-tag">ChatGPT</span>
               <span class="split-tag">Claude Code</span>
+              <span class="split-tag">Gemini</span>
             </div>
           </div>
           <div class="split-media"><img src="assets/05-brain.png" alt="One shared brain connecting every AI assistant." loading="lazy" /></div>
@@ -1521,45 +1705,93 @@
 
         <div class="split reverse anim">
           <div class="split-text">
-            <span class="eyebrow">/ Shared</span>
-            <h3>One brain, <em>shared by all.</em></h3>
-            <p>The memory is single and shared across every AI you use. Work on something with Claude Code and that knowledge is instantly available to ChatGPT. Make a decision in one chat and find it in the next session, on another assistant, on another device. <strong>One brain, used by all of your agents.</strong></p>
+            <span class="eyebrow"><span class="lang-en">/ Shared</span><span class="lang-it">/ Condivisa</span></span>
+            <h3><span class="lang-en">One brain, <em>shared by all.</em></span><span class="lang-it">Un cervello, <em>per tutte.</em></span></h3>
+            <p>
+              <span class="lang-en">There is one memory, shared by every AI you use. Decide something with Claude Code and ChatGPT already knows it. Say it in one chat and find it in the next, on another assistant, on another device. <strong>Say it once, and they all remember.</strong></span>
+              <span class="lang-it">La memoria è una sola, condivisa da ogni AI che usi. Decidi qualcosa con Claude Code e ChatGPT lo sa già. Lo dici in una chat e lo ritrovi nella successiva, su un altro assistente, su un altro dispositivo. <strong>Lo dici una volta, e se lo ricordano tutte.</strong></span>
+            </p>
           </div>
           <div class="split-media"><img src="assets/07-sync.png" alt="Memory kept in sync across every assistant and device." loading="lazy" /></div>
         </div>
 
         <div class="split anim">
           <div class="split-text">
-            <span class="eyebrow">/ Connected</span>
-            <h3>Wired to your <em>calendar and phone.</em></h3>
-            <p>It does not end with notes. SecondBrain is connected to your calendar and your phone. Your agents can create calendar events and send notifications straight to your mobile. Ask for something from your computer and find it as a reminder in your pocket, without lifting a finger.</p>
+            <span class="eyebrow"><span class="lang-en">/ Claude</span><span class="lang-it">/ Claude</span></span>
+            <h3><span class="lang-en">Deepest with <em>Claude.</em></span><span class="lang-it">Al meglio con <em>Claude.</em></span></h3>
+            <p>
+              <span class="lang-en">A one-click plugin turns SecondBrain into Claude's long-term memory. Claude recalls what matters on its own, saves your decisions, people and deadlines without being asked, and can even create calendar events and send reminders straight to your phone.</span>
+              <span class="lang-it">Un plugin in un clic trasforma SecondBrain nella memoria a lungo termine di Claude. Claude recupera da solo ciò che conta, salva le tue decisioni, le persone e le scadenze senza che glielo chiedi, e può perfino creare eventi in calendario e inviare promemoria direttamente sul tuo telefono.</span>
+            </p>
+          </div>
+          <div class="split-media claude-media" aria-hidden="false">
+            <img src="assets/claude-logo.svg" alt="Claude" />
+            <span><span class="lang-en">Native Claude plugin</span><span class="lang-it">Plugin nativo per Claude</span></span>
+          </div>
+        </div>
+
+        <div class="split reverse anim">
+          <div class="split-text">
+            <span class="eyebrow"><span class="lang-en">/ Connected</span><span class="lang-it">/ Connessa</span></span>
+            <h3><span class="lang-en">Wired to your <em>calendar and phone.</em></span><span class="lang-it">Collegata al tuo <em>calendario e telefono.</em></span></h3>
+            <p>
+              <span class="lang-en">It does not end with notes. Your assistants can create calendar events and send notifications straight to your phone. Ask for something at your computer and find it as a reminder in your pocket, without lifting a finger.</span>
+              <span class="lang-it">Non finisce con le note. I tuoi assistenti possono creare eventi in calendario e inviare notifiche direttamente sul telefono. Chiedi una cosa dal computer e la ritrovi come promemoria in tasca, senza muovere un dito.</span>
+            </p>
           </div>
           <div class="split-media"><img src="assets/06-calendar.png" alt="Agents create calendar events and phone reminders." loading="lazy" /></div>
         </div>
 
       </div>
+    </section>
 
-      <!-- SETUP -->
-      <div class="setup anim">
-        <div class="setup-head">
-          <span class="eyebrow">/ Setup</span>
-          <h3>Connected in <em>four steps.</em></h3>
-          <p>One simple install. From that moment on, all of your agents share the same memory.</p>
+    <!-- INSTALL -->
+    <section class="section" id="install" style="padding-top: 0;">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow anim"><span class="lang-en">/ 05 · Install</span><span class="lang-it">/ 05 · Installazione</span></span>
+          <h2 class="anim d1"><span class="lang-en">Add it to Claude in <em>three steps.</em></span><span class="lang-it">Aggiungila a Claude in <em>tre passi.</em></span></h2>
         </div>
-        <ol class="steps setup-steps">
-          <li>Install the <a href="https://apps.apple.com/it/app/secondbrain-ai-smart-memory/id6762130376" target="_blank" rel="noopener">SecondBrain app</a> and upgrade to Pro.</li>
-          <li>Add the plugin for Claude, or the skill plus MCP for other AI providers.</li>
-          <li>Tell your agent to connect to SecondBrain and sign in.</li>
-          <li><strong>Done.</strong> Every one of your agents now shares the same memory.</li>
+        <p class="anim d2"><span class="lang-en">No keys, no tokens. One browser login, and Claude remembers.</span><span class="lang-it">Niente chiavi, niente token. Un accesso dal browser, e Claude ricorda.</span></p>
+      </div>
+
+      <div class="claude-row anim">
+        <span class="claude-badge"><img src="assets/claude-logo.svg" alt="Claude" /></span>
+        <span class="claude-label"><span class="lang-en">Works with Claude, Claude Code,<br/>ChatGPT, Gemini and more</span><span class="lang-it">Funziona con Claude, Claude Code,<br/>ChatGPT, Gemini e altri</span></span>
+      </div>
+
+      <div class="install-grid anim d1">
+        <ol class="install-steps">
+          <li>
+            <h4><span class="lang-en">Open Claude's plugins</span><span class="lang-it">Apri i plugin di Claude</span></h4>
+            <p><span class="lang-en">In Claude, open Settings, then the plugins panel. Press the plus next to "Your plugins" and choose <strong>Add marketplace</strong> (the menu in the screenshot).</span><span class="lang-it">In Claude apri le Impostazioni, poi il pannello dei plugin. Premi il piccolo "+" accanto a "Plugin personali" e scegli <strong>Aggiungi marketplace</strong> (il menu nello screenshot).</span></p>
+          </li>
+          <li>
+            <h4><span class="lang-en">Add the marketplace</span><span class="lang-it">Aggiungi il marketplace</span></h4>
+            <p><span class="lang-en">Paste <code class="kbd">fed3c3sa/secondbrain-shared-memory</code>, then install the <strong>SecondBrain</strong> plugin that appears.</span><span class="lang-it">Incolla <code class="kbd">fed3c3sa/secondbrain-shared-memory</code>, poi installa il plugin <strong>SecondBrain</strong> che compare.</span></p>
+          </li>
+          <li>
+            <h4><span class="lang-en">Connect and sign in</span><span class="lang-it">Collega e accedi</span></h4>
+            <p><span class="lang-en">Open Connectors, press <strong>Connect</strong> on SecondBrain, and log in with Apple or Google. That is it, nothing to copy.</span><span class="lang-it">Apri Connettori, premi <strong>Connect</strong> su SecondBrain e accedi con Apple o Google. Fatto, niente da copiare.</span></p>
+          </li>
         </ol>
-        <div class="setup-cta">
-          <a href="https://github.com/fed3c3sa/secondbrain-shared-memory" target="_blank" rel="noopener" class="btn btn-ghost">
-            <span class="glyph" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.67 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17.91-.25 1.89-.38 2.86-.39.97.01 1.95.14 2.86.39 2.19-1.48 3.15-1.17 3.15-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.66.41.36.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.68.8.56C20.71 21.39 24 17.08 24 12 24 5.73 18.77.5 12 .5z"/></svg>
-            </span>
-            <span>Full setup guide on GitHub</span>
-          </a>
-        </div>
+
+        <figure class="install-shot">
+          <img src="assets/claude-plugins-menu.png" alt="Claude plugins panel: the plus button opens Create plugin, then Add marketplace." loading="lazy" />
+          <figcaption><span class="lang-en">Claude · Settings → Plugins → + → Add marketplace</span><span class="lang-it">Claude · Impostazioni → Plugin personali → + → Aggiungi marketplace</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="install-note anim d2">
+        <p class="note-line"><span class="lang-en"><strong>On Claude Code?</strong> Type <code class="kbd">/plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, then <code class="kbd">/plugin install secondbrain@secondbrain</code>, run <code class="kbd">/mcp</code> and sign in.</span><span class="lang-it"><strong>Usi Claude Code?</strong> Scrivi <code class="kbd">/plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, poi <code class="kbd">/plugin install secondbrain@secondbrain</code>, lancia <code class="kbd">/mcp</code> e accedi.</span></p>
+        <p class="note-line"><span class="lang-en"><strong>On ChatGPT, Gemini or Cursor?</strong> Run <code class="kbd">npx secondbrain-connect</code> once and sign in in the browser.</span><span class="lang-it"><strong>Usi ChatGPT, Gemini o Cursor?</strong> Lancia <code class="kbd">npx secondbrain-connect</code> una volta e accedi dal browser.</span></p>
+        <p class="note-line"><span class="lang-en"><strong>One thing:</strong> the shared memory is a Pro feature. Turn on Pro in the app first, and sign in with the same Apple or Google account.</span><span class="lang-it"><strong>Una cosa:</strong> la memoria condivisa è una funzione Pro. Attiva prima Pro nell'app e accedi con lo stesso account Apple o Google.</span></p>
+        <a href="https://github.com/fed3c3sa/secondbrain-shared-memory" target="_blank" rel="noopener" class="btn btn-ghost">
+          <span class="glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.67 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17.91-.25 1.89-.38 2.86-.39.97.01 1.95.14 2.86.39 2.19-1.48 3.15-1.17 3.15-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.66.41.36.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.68.8.56C20.71 21.39 24 17.08 24 12 24 5.73 18.77.5 12 .5z"/></svg>
+          </span>
+          <span><span class="lang-en">Full setup guide on GitHub</span><span class="lang-it">Guida completa su GitHub</span></span>
+        </a>
       </div>
     </section>
 
@@ -1569,31 +1801,31 @@
         <div class="monolith-inner anim">
           <div class="monolith-grid">
             <div class="monolith-head">
-              <span class="eyebrow" style="display:block; margin-bottom:18px;">/ 05 — Trust</span>
-              <h3>Yours <em>alone.</em></h3>
-              <p>No analytics. No ads. No training.</p>
+              <span class="eyebrow" style="display:block; margin-bottom:18px;"><span class="lang-en">/ 06 · Trust</span><span class="lang-it">/ 06 · Fiducia</span></span>
+              <h3><span class="lang-en">Yours <em>alone.</em></span><span class="lang-it">Solo <em>tua.</em></span></h3>
+              <p><span class="lang-en">No analytics. No ads. No training.</span><span class="lang-it">Niente analisi. Niente pubblicità. Niente addestramento.</span></p>
             </div>
             <div class="promises">
               <div class="promise">
                 <div class="promise-icon">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
-                <h4>No tracking</h4>
-                <p>Zero analytics. Zero ads.</p>
+                <h4><span class="lang-en">No tracking</span><span class="lang-it">Nessun tracciamento</span></h4>
+                <p><span class="lang-en">Zero analytics. Zero ads.</span><span class="lang-it">Zero analisi. Zero pubblicità.</span></p>
               </div>
               <div class="promise">
                 <div class="promise-icon">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                 </div>
-                <h4>Encrypted</h4>
-                <p>Row-level isolated. Yours only.</p>
+                <h4><span class="lang-en">Encrypted</span><span class="lang-it">Crittografata</span></h4>
+                <p><span class="lang-en">Isolated per user. Yours only.</span><span class="lang-it">Isolata per utente. Solo tua.</span></p>
               </div>
               <div class="promise">
                 <div class="promise-icon">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
                 </div>
-                <h4>Delete anytime</h4>
-                <p>One tap. No retention.</p>
+                <h4><span class="lang-en">Delete anytime</span><span class="lang-it">Cancelli quando vuoi</span></h4>
+                <p><span class="lang-en">One tap. No copies kept.</span><span class="lang-it">Un tocco. Nessuna copia.</span></p>
               </div>
             </div>
           </div>
@@ -1605,16 +1837,16 @@
     <section class="final">
       <div class="final-inner anim">
         <span class="final-mark" aria-hidden="true"></span>
-        <span class="eyebrow">/ Available now</span>
-        <h2>Start <em>remembering.</em></h2>
-        <p>On iPhone and Android.</p>
+        <span class="eyebrow"><span class="lang-en">/ Available now</span><span class="lang-it">/ Disponibile ora</span></span>
+        <h2><span class="lang-en">Start <em>remembering.</em></span><span class="lang-it">Inizia a <em>ricordare.</em></span></h2>
+        <p><span class="lang-en">On iPhone and Android.</span><span class="lang-it">Su iPhone e Android.</span></p>
         <div class="cta-row">
           <a href="https://apps.apple.com/it/app/secondbrain-ai-smart-memory/id6762130376" target="_blank" rel="noopener" class="btn btn-primary">
             <span class="glyph" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
             </span>
             <span class="btn-meta">
-              <span class="small">Download on</span>
+              <span class="small"><span class="lang-en">Download on</span><span class="lang-it">Scarica su</span></span>
               <span class="big">App Store</span>
             </span>
           </a>
@@ -1623,23 +1855,23 @@
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18a.4.4 0 0 0-.69-.4l-1.86 3.22a11.5 11.5 0 0 0-9.78 0L5.25 5.9a.4.4 0 0 0-.69.4L6.4 9.48A10.78 10.78 0 0 0 1 18.5h22a10.78 10.78 0 0 0-5.4-9.02M7 15.25a1 1 0 1 1 1-1 1 1 0 0 1-1 1m10 0a1 1 0 1 1 1-1 1 1 0 0 1-1 1"/></svg>
             </span>
             <span class="btn-meta">
-              <span class="small">Download on</span>
+              <span class="small"><span class="lang-en">Download on</span><span class="lang-it">Scarica su</span></span>
               <span class="big">Google Play</span>
             </span>
           </a>
         </div>
 
         <div class="cta-connect">
-          <a href="https://github.com/fed3c3sa/secondbrain-shared-memory" target="_blank" rel="noopener" class="btn btn-connect">
+          <a href="#install" class="btn btn-connect">
             <span class="dot" aria-hidden="true"></span>
             <span class="glyph" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.67 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17.91-.25 1.89-.38 2.86-.39.97.01 1.95.14 2.86.39 2.19-1.48 3.15-1.17 3.15-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.66.41.36.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.68.8.56C20.71 21.39 24 17.08 24 12 24 5.73 18.77.5 12 .5z"/></svg>
+              <img src="assets/claude-logo.svg" alt="" style="width:18px;height:18px;" />
             </span>
             <span class="btn-meta">
-              <span class="small">Shared memory · Claude, ChatGPT</span>
-              <span class="big">Connect on GitHub</span>
+              <span class="small"><span class="lang-en">Shared memory · Claude, ChatGPT</span><span class="lang-it">Memoria condivisa · Claude, ChatGPT</span></span>
+              <span class="big"><span class="lang-en">Connect your AI</span><span class="lang-it">Collega la tua AI</span></span>
             </span>
-            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg>
           </a>
         </div>
       </div>
@@ -1651,57 +1883,115 @@
   <!-- ════════════════════════════════════════════════════════ -->
   <div id="privacy" class="page">
     <div class="legal-wrap">
-      <div class="legal-hero">
-        <span class="eyebrow">/ Legal — Privacy</span>
-        <h1>Privacy Policy</h1>
-        <p>How SecondBrain handles your data.</p>
+      <!-- EN -->
+      <div class="lang-en">
+        <div class="legal-hero">
+          <span class="eyebrow">/ Legal · Privacy</span>
+          <h1>Privacy Policy</h1>
+          <p>How SecondBrain handles your data.</p>
+        </div>
+        <p class="legal-meta">Last updated · April 13, 2026</p>
+        <div class="body-text">
+          <p>SecondBrain ("we", "our", or "the app") is an AI-powered note-taking assistant for iOS. Your privacy matters to us. This policy explains what data we collect, how we use it, and the choices you have.</p>
+          <h3>1. Data We Collect</h3>
+          <p>We collect only the data necessary to provide the app's features:</p>
+          <ul>
+            <li><strong>Account information</strong>, your email address and display name, collected during sign-up via Google, Apple, or email and password authentication.</li>
+            <li><strong>User-generated content</strong>, the notes, folders, summaries, and calendar events you create within the app.</li>
+            <li><strong>Voice recordings</strong>, audio you record is processed in real time to create notes. Recordings are sent to Google Gemini for transcription and are not permanently stored on our servers.</li>
+            <li><strong>Timezone</strong>, used to correctly schedule calendar events.</li>
+          </ul>
+          <h3>2. How We Use Your Data</h3>
+          <ul>
+            <li><strong>AI processing</strong>, your text and audio are sent to Google Gemini to generate notes, summaries, and calendar events. Your data is processed in real time and is <strong>not used to train AI models</strong>.</li>
+            <li><strong>Storage</strong>, your notes, folders, and calendar events are stored in a Supabase PostgreSQL database, isolated by user account via Row-Level Security (RLS).</li>
+            <li><strong>Authentication</strong>, we use Supabase Auth with Google OAuth and Apple Sign-In to securely manage your account.</li>
+          </ul>
+          <h3>3. Third-Party Services</h3>
+          <p>We rely on the following services to operate the app:</p>
+          <ul>
+            <li><strong>Google Gemini</strong>, AI processing of voice and text.</li>
+            <li><strong>Supabase</strong>, database, authentication, and backend functions.</li>
+            <li><strong>Google OAuth / Apple Sign-In</strong>, secure authentication.</li>
+          </ul>
+          <p>Each service processes data in accordance with its own privacy policy.</p>
+          <h3>4. What We Do NOT Collect</h3>
+          <ul>
+            <li>We do <strong>not</strong> track you across apps or websites.</li>
+            <li>We do <strong>not</strong> use analytics or advertising SDKs.</li>
+            <li>We do <strong>not</strong> sell, share, or monetize your data in any way.</li>
+          </ul>
+          <h3>5. Data Security</h3>
+          <p>All data is transmitted over HTTPS. Database access is enforced by Row-Level Security policies, meaning each user can only access their own data. Authentication tokens are managed securely by Supabase Auth.</p>
+          <h3>6. Data Retention &amp; Deletion</h3>
+          <p>Your data is retained for as long as you maintain an active account. You may delete your entire account and all associated data at any time from within the app (Settings, then Delete Account). Deletion is immediate and irreversible. All notes, folders, calendar events, and account information are permanently removed.</p>
+          <h3>7. Children's Privacy</h3>
+          <p>SecondBrain is not intended for children under the age of 13. We do not knowingly collect personal data from children.</p>
+          <h3>8. Changes to This Policy</h3>
+          <p>We may update this policy from time to time. Changes will be reflected on this page with an updated date. Continued use of the app constitutes acceptance of the revised policy.</p>
+          <h3>9. Contact</h3>
+          <p>If you have questions about this Privacy Policy, contact us at:<br />
+          <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a></p>
+        </div>
+        <div class="legal-footer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          <p>SecondBrain does not track users and does not use your data for advertising or AI model training.</p>
+        </div>
       </div>
-      <p class="legal-meta">Last updated · April 13, 2026</p>
-      <div class="body-text">
-        <p>SecondBrain ("we", "our", or "the app") is an AI-powered note-taking assistant for iOS. Your privacy matters to us. This policy explains what data we collect, how we use it, and the choices you have.</p>
-        <h3>1. Data We Collect</h3>
-        <p>We collect only the data necessary to provide the app's features:</p>
-        <ul>
-          <li><strong>Account information</strong> — email address and display name, collected during sign-up via Google, Apple, or email/password authentication.</li>
-          <li><strong>User-generated content</strong> — notes, folders, summaries, and calendar events you create within the app.</li>
-          <li><strong>Voice recordings</strong> — audio you record is processed in real time to create notes. Recordings are sent to Google Gemini for transcription and are not permanently stored on our servers.</li>
-          <li><strong>Timezone</strong> — used to correctly schedule calendar events.</li>
-        </ul>
-        <h3>2. How We Use Your Data</h3>
-        <ul>
-          <li><strong>AI processing</strong> — your text and audio are sent to Google Gemini to generate notes, summaries, and calendar events. Your data is processed in real time and is <strong>not used to train AI models</strong>.</li>
-          <li><strong>Storage</strong> — your notes, folders, and calendar events are stored in a Supabase PostgreSQL database, isolated by user account via Row-Level Security (RLS).</li>
-          <li><strong>Authentication</strong> — we use Supabase Auth with Google OAuth and Apple Sign-In to securely manage your account.</li>
-        </ul>
-        <h3>3. Third-Party Services</h3>
-        <p>We rely on the following services to operate the app:</p>
-        <ul>
-          <li><strong>Google Gemini</strong> — AI processing of voice and text.</li>
-          <li><strong>Supabase</strong> — database, authentication, and backend functions.</li>
-          <li><strong>Google OAuth / Apple Sign-In</strong> — secure authentication.</li>
-        </ul>
-        <p>Each service processes data in accordance with its own privacy policy.</p>
-        <h3>4. What We Do NOT Collect</h3>
-        <ul>
-          <li>We do <strong>not</strong> track you across apps or websites.</li>
-          <li>We do <strong>not</strong> use analytics or advertising SDKs.</li>
-          <li>We do <strong>not</strong> sell, share, or monetize your data in any way.</li>
-        </ul>
-        <h3>5. Data Security</h3>
-        <p>All data is transmitted over HTTPS. Database access is enforced by Row-Level Security policies, meaning each user can only access their own data. Authentication tokens are managed securely by Supabase Auth.</p>
-        <h3>6. Data Retention &amp; Deletion</h3>
-        <p>Your data is retained for as long as you maintain an active account. You may delete your entire account and all associated data at any time from within the app (Settings → Delete Account). Deletion is immediate and irreversible — all notes, folders, calendar events, and account information are permanently removed.</p>
-        <h3>7. Children's Privacy</h3>
-        <p>SecondBrain is not intended for children under the age of 13. We do not knowingly collect personal data from children.</p>
-        <h3>8. Changes to This Policy</h3>
-        <p>We may update this policy from time to time. Changes will be reflected on this page with an updated date. Continued use of the app constitutes acceptance of the revised policy.</p>
-        <h3>9. Contact</h3>
-        <p>If you have questions about this Privacy Policy, contact us at:<br />
-        <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a></p>
-      </div>
-      <div class="legal-footer">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-        <p>SecondBrain does not track users and does not use your data for advertising or AI model training.</p>
+      <!-- IT -->
+      <div class="lang-it">
+        <div class="legal-hero">
+          <span class="eyebrow">/ Note legali · Privacy</span>
+          <h1>Informativa sulla privacy</h1>
+          <p>Come SecondBrain tratta i tuoi dati.</p>
+        </div>
+        <p class="legal-meta">Ultimo aggiornamento · 13 aprile 2026</p>
+        <div class="body-text">
+          <p>SecondBrain ("noi", "nostro" o "l'app") è un assistente per prendere appunti basato sull'intelligenza artificiale, per iOS. La tua privacy conta per noi. Questa informativa spiega quali dati raccogliamo, come li usiamo e quali scelte hai.</p>
+          <h3>1. Dati che raccogliamo</h3>
+          <p>Raccogliamo solo i dati necessari a far funzionare l'app:</p>
+          <ul>
+            <li><strong>Informazioni dell'account</strong>, indirizzo email e nome visualizzato, raccolti durante la registrazione con Google, Apple oppure email e password.</li>
+            <li><strong>Contenuti che crei</strong>, le note, le cartelle, i riassunti e gli eventi di calendario che crei nell'app.</li>
+            <li><strong>Registrazioni vocali</strong>, l'audio che registri viene elaborato in tempo reale per creare le note. Le registrazioni vengono inviate a Google Gemini per la trascrizione e non vengono conservate in modo permanente sui nostri server.</li>
+            <li><strong>Fuso orario</strong>, usato per programmare correttamente gli eventi di calendario.</li>
+          </ul>
+          <h3>2. Come usiamo i tuoi dati</h3>
+          <ul>
+            <li><strong>Elaborazione AI</strong>, il tuo testo e il tuo audio vengono inviati a Google Gemini per generare note, riassunti ed eventi. I dati sono elaborati in tempo reale e <strong>non vengono usati per addestrare modelli di AI</strong>.</li>
+            <li><strong>Archiviazione</strong>, note, cartelle ed eventi sono salvati in un database PostgreSQL su Supabase, isolati per account tramite Row-Level Security (RLS).</li>
+            <li><strong>Autenticazione</strong>, usiamo Supabase Auth con Google OAuth e Apple Sign-In per gestire il tuo account in sicurezza.</li>
+          </ul>
+          <h3>3. Servizi di terze parti</h3>
+          <p>Per far funzionare l'app ci appoggiamo a questi servizi:</p>
+          <ul>
+            <li><strong>Google Gemini</strong>, elaborazione AI di voce e testo.</li>
+            <li><strong>Supabase</strong>, database, autenticazione e funzioni di backend.</li>
+            <li><strong>Google OAuth / Apple Sign-In</strong>, autenticazione sicura.</li>
+          </ul>
+          <p>Ogni servizio tratta i dati secondo la propria informativa sulla privacy.</p>
+          <h3>4. Cosa NON raccogliamo</h3>
+          <ul>
+            <li><strong>Non</strong> ti tracciamo tra app e siti.</li>
+            <li><strong>Non</strong> usiamo SDK di analisi o pubblicità.</li>
+            <li><strong>Non</strong> vendiamo, condividiamo o monetizziamo i tuoi dati in alcun modo.</li>
+          </ul>
+          <h3>5. Sicurezza dei dati</h3>
+          <p>Tutti i dati viaggiano su HTTPS. L'accesso al database è regolato da policy di Row-Level Security, quindi ogni utente può accedere solo ai propri dati. I token di autenticazione sono gestiti in sicurezza da Supabase Auth.</p>
+          <h3>6. Conservazione e cancellazione</h3>
+          <p>I tuoi dati restano finché mantieni un account attivo. Puoi cancellare l'intero account e tutti i dati associati in qualsiasi momento dall'app (Impostazioni, poi Elimina account). La cancellazione è immediata e irreversibile. Note, cartelle, eventi e informazioni dell'account vengono rimossi in modo permanente.</p>
+          <h3>7. Privacy dei minori</h3>
+          <p>SecondBrain non è pensato per bambini sotto i 13 anni. Non raccogliamo consapevolmente dati personali dei minori.</p>
+          <h3>8. Modifiche a questa informativa</h3>
+          <p>Potremmo aggiornare questa informativa di tanto in tanto. Le modifiche saranno indicate in questa pagina con una data aggiornata. L'uso continuato dell'app costituisce accettazione dell'informativa rivista.</p>
+          <h3>9. Contatti</h3>
+          <p>Per domande su questa Informativa sulla privacy, scrivici a:<br />
+          <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a></p>
+        </div>
+        <div class="legal-footer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          <p>SecondBrain non traccia gli utenti e non usa i tuoi dati per pubblicità o per addestrare modelli di AI.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1711,51 +2001,103 @@
   <!-- ════════════════════════════════════════════════════════ -->
   <div id="terms" class="page">
     <div class="legal-wrap">
-      <div class="legal-hero">
-        <span class="eyebrow">/ Legal — Terms</span>
-        <h1>Terms of Use</h1>
-        <p>Rules and guidelines for using SecondBrain.</p>
-      </div>
-      <p class="legal-meta">Last updated · April 13, 2026</p>
-      <div class="body-text">
-        <p>By downloading or using SecondBrain, you agree to these Terms of Use. If you do not agree, please do not use the app.</p>
-        <h3>1. Description of Service</h3>
-        <p>SecondBrain is an AI-powered note-taking assistant that processes voice recordings and text to organize notes, generate summaries, and create calendar events. The app uses Google Gemini for AI processing.</p>
-        <h3>2. AI-Generated Content Disclaimer</h3>
-        <div class="card card-warn">
-          <div class="card-header">
-            <div class="card-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
-            </div>
-            <span class="card-title">Important</span>
-          </div>
-          <p style="font-size:13.5px; color: var(--text-mute);">
-            AI-generated content — including notes, summaries, and calendar events — may contain inaccuracies or errors. Always review AI-generated content before relying on it. SecondBrain is <strong>not</strong> a substitute for professional advice of any kind, including medical, legal, financial, or therapeutic advice.
-          </p>
+      <!-- EN -->
+      <div class="lang-en">
+        <div class="legal-hero">
+          <span class="eyebrow">/ Legal · Terms</span>
+          <h1>Terms of Use</h1>
+          <p>Rules and guidelines for using SecondBrain.</p>
         </div>
-        <h3>3. User Responsibilities</h3>
-        <ul>
-          <li>You are responsible for all content you create, record, or store in SecondBrain.</li>
-          <li>You must not use the app for any unlawful purpose.</li>
-          <li>You are solely responsible for how you use AI-generated content.</li>
-        </ul>
-        <h3>4. Account &amp; Data</h3>
-        <ul>
-          <li>You must provide accurate information when creating an account.</li>
-          <li>You are responsible for maintaining the security of your account credentials.</li>
-          <li>You may delete your account at any time, which permanently removes all associated data.</li>
-        </ul>
-        <h3>5. Intellectual Property</h3>
-        <p>You retain ownership of all content you create in SecondBrain. We do not claim any rights over your notes, recordings, or other user-generated content.</p>
-        <h3>6. Limitation of Liability</h3>
-        <p>SecondBrain is provided "as is" without warranties of any kind. We are not liable for any damages arising from the use of the app or reliance on AI-generated content, to the maximum extent permitted by applicable law.</p>
-        <h3>7. Termination</h3>
-        <p>We reserve the right to suspend or terminate accounts that violate these terms. You may stop using the app and delete your account at any time.</p>
-        <h3>8. Changes to These Terms</h3>
-        <p>We may modify these terms at any time. Continued use of the app after changes constitutes acceptance of the updated terms.</p>
-        <h3>9. Contact</h3>
-        <p>Questions about these Terms? Contact us at:<br />
-        <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a></p>
+        <p class="legal-meta">Last updated · April 13, 2026</p>
+        <div class="body-text">
+          <p>By downloading or using SecondBrain, you agree to these Terms of Use. If you do not agree, please do not use the app.</p>
+          <h3>1. Description of Service</h3>
+          <p>SecondBrain is an AI-powered note-taking assistant that processes voice recordings and text to organize notes, generate summaries, and create calendar events. The app uses Google Gemini for AI processing.</p>
+          <h3>2. AI-Generated Content Disclaimer</h3>
+          <div class="card card-warn">
+            <div class="card-header">
+              <div class="card-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+              </div>
+              <span class="card-title">Important</span>
+            </div>
+            <p style="font-size:13.5px; color: var(--text-mute);">
+              AI-generated content, including notes, summaries, and calendar events, may contain inaccuracies or errors. Always review AI-generated content before relying on it. SecondBrain is <strong>not</strong> a substitute for professional advice of any kind, including medical, legal, financial, or therapeutic advice.
+            </p>
+          </div>
+          <h3>3. User Responsibilities</h3>
+          <ul>
+            <li>You are responsible for all content you create, record, or store in SecondBrain.</li>
+            <li>You must not use the app for any unlawful purpose.</li>
+            <li>You are solely responsible for how you use AI-generated content.</li>
+          </ul>
+          <h3>4. Account &amp; Data</h3>
+          <ul>
+            <li>You must provide accurate information when creating an account.</li>
+            <li>You are responsible for maintaining the security of your account credentials.</li>
+            <li>You may delete your account at any time, which permanently removes all associated data.</li>
+          </ul>
+          <h3>5. Intellectual Property</h3>
+          <p>You retain ownership of all content you create in SecondBrain. We do not claim any rights over your notes, recordings, or other user-generated content.</p>
+          <h3>6. Limitation of Liability</h3>
+          <p>SecondBrain is provided "as is" without warranties of any kind. We are not liable for any damages arising from the use of the app or reliance on AI-generated content, to the maximum extent permitted by applicable law.</p>
+          <h3>7. Termination</h3>
+          <p>We reserve the right to suspend or terminate accounts that violate these terms. You may stop using the app and delete your account at any time.</p>
+          <h3>8. Changes to These Terms</h3>
+          <p>We may modify these terms at any time. Continued use of the app after changes constitutes acceptance of the updated terms.</p>
+          <h3>9. Contact</h3>
+          <p>Questions about these Terms? Contact us at:<br />
+          <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a></p>
+        </div>
+      </div>
+      <!-- IT -->
+      <div class="lang-it">
+        <div class="legal-hero">
+          <span class="eyebrow">/ Note legali · Termini</span>
+          <h1>Termini d'uso</h1>
+          <p>Regole e indicazioni per usare SecondBrain.</p>
+        </div>
+        <p class="legal-meta">Ultimo aggiornamento · 13 aprile 2026</p>
+        <div class="body-text">
+          <p>Scaricando o usando SecondBrain accetti questi Termini d'uso. Se non li accetti, ti preghiamo di non usare l'app.</p>
+          <h3>1. Descrizione del servizio</h3>
+          <p>SecondBrain è un assistente per prendere appunti basato sull'AI che elabora registrazioni vocali e testo per organizzare note, generare riassunti e creare eventi di calendario. L'app usa Google Gemini per l'elaborazione AI.</p>
+          <h3>2. Avviso sui contenuti generati dall'AI</h3>
+          <div class="card card-warn">
+            <div class="card-header">
+              <div class="card-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+              </div>
+              <span class="card-title">Importante</span>
+            </div>
+            <p style="font-size:13.5px; color: var(--text-mute);">
+              I contenuti generati dall'AI, comprese note, riassunti ed eventi, possono contenere imprecisioni o errori. Verifica sempre i contenuti generati dall'AI prima di farci affidamento. SecondBrain <strong>non</strong> sostituisce una consulenza professionale di alcun tipo, inclusa quella medica, legale, finanziaria o terapeutica.
+            </p>
+          </div>
+          <h3>3. Responsabilità dell'utente</h3>
+          <ul>
+            <li>Sei responsabile di tutti i contenuti che crei, registri o salvi in SecondBrain.</li>
+            <li>Non devi usare l'app per scopi illegali.</li>
+            <li>Sei l'unico responsabile di come usi i contenuti generati dall'AI.</li>
+          </ul>
+          <h3>4. Account e dati</h3>
+          <ul>
+            <li>Devi fornire informazioni accurate quando crei un account.</li>
+            <li>Sei responsabile della sicurezza delle credenziali del tuo account.</li>
+            <li>Puoi eliminare l'account in qualsiasi momento: questo rimuove in modo permanente tutti i dati associati.</li>
+          </ul>
+          <h3>5. Proprietà intellettuale</h3>
+          <p>Mantieni la proprietà di tutti i contenuti che crei in SecondBrain. Non rivendichiamo alcun diritto sulle tue note, registrazioni o altri contenuti.</p>
+          <h3>6. Limitazione di responsabilità</h3>
+          <p>SecondBrain è fornito "così com'è", senza garanzie di alcun tipo. Non siamo responsabili per eventuali danni derivanti dall'uso dell'app o dall'affidamento sui contenuti generati dall'AI, nella misura massima consentita dalla legge applicabile.</p>
+          <h3>7. Cessazione</h3>
+          <p>Ci riserviamo il diritto di sospendere o chiudere gli account che violano questi termini. Puoi smettere di usare l'app ed eliminare l'account in qualsiasi momento.</p>
+          <h3>8. Modifiche ai termini</h3>
+          <p>Possiamo modificare questi termini in qualsiasi momento. L'uso continuato dell'app dopo le modifiche costituisce accettazione dei termini aggiornati.</p>
+          <h3>9. Contatti</h3>
+          <p>Domande su questi Termini? Scrivici a:<br />
+          <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a></p>
+        </div>
       </div>
     </div>
   </div>
@@ -1765,38 +2107,80 @@
   <!-- ════════════════════════════════════════════════════════ -->
   <div id="support" class="page">
     <div class="legal-wrap">
-      <div class="legal-hero">
-        <span class="eyebrow">/ Help</span>
-        <h1>Support</h1>
-        <p>Real humans, fast replies.</p>
-      </div>
-      <div class="card support-card">
-        <div class="card-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      <!-- EN -->
+      <div class="lang-en">
+        <div class="legal-hero">
+          <span class="eyebrow">/ Help</span>
+          <h1>Support</h1>
+          <p>Real humans, fast replies.</p>
         </div>
-        <h3>Email support</h3>
-        <p>Found a bug, have a question, or need help with your account? Drop us a line — we read every email.</p>
-        <a href="mailto:info@secondbrain.icu" class="btn btn-primary">info@secondbrain.icu</a>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
+        <div class="card support-card">
           <div class="card-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           </div>
-          <span class="card-title">FAQs</span>
+          <h3>Email support</h3>
+          <p>Found a bug, have a question, or need help with your account? Drop us a line, we read every email.</p>
+          <a href="mailto:info@secondbrain.icu" class="btn btn-primary">info@secondbrain.icu</a>
         </div>
-        <div class="body-text">
-          <h3 style="margin-top:0;">What is SecondBrain?</h3>
-          <p>SecondBrain is an AI-powered note-taking assistant that turns your voice recordings and text into organized notes, summaries, and calendar events.</p>
-          <h3>Is my data safe?</h3>
-          <p>Yes. All data is encrypted in transit, stored in an isolated database, and never shared or sold. We do not use analytics or tracking.</p>
-          <h3>How do I delete my account?</h3>
-          <p>Open the app, go to <strong>Settings → Delete Account</strong>. This permanently removes all your data. See the <a href="#delete" data-route="delete">Account Deletion</a> page for details.</p>
-          <h3>Does SecondBrain use my data to train AI?</h3>
-          <p>No. Your data is processed in real time by Google Gemini and is not used for model training.</p>
-          <h3>Is SecondBrain available on Android?</h3>
-          <p>Yes. SecondBrain is live on <a href="https://play.google.com/store/apps/details?id=app.secondbrain.android" target="_blank" rel="noopener">Google Play</a>, alongside the iPhone app on the App Store.</p>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+            </div>
+            <span class="card-title">FAQs</span>
+          </div>
+          <div class="body-text">
+            <h3 style="margin-top:0;">What is SecondBrain?</h3>
+            <p>SecondBrain is an AI-powered note-taking assistant that turns your voice recordings and text into organized notes, summaries, and calendar events.</p>
+            <h3>How does the shared memory work?</h3>
+            <p>Connect Claude, ChatGPT or another assistant to SecondBrain, and they all read and write one memory, your own notes. Tell it once and every assistant remembers it, in the next chat and on another device. It is a Pro feature.</p>
+            <h3>Is my data safe?</h3>
+            <p>Yes. All data is encrypted in transit, stored in an isolated database, and never shared or sold. We do not use analytics or tracking.</p>
+            <h3>How do I delete my account?</h3>
+            <p>Open the app, go to <strong>Settings, then Delete Account</strong>. This permanently removes all your data. See the <a href="#delete" data-route="delete">Account Deletion</a> page for details.</p>
+            <h3>Does SecondBrain use my data to train AI?</h3>
+            <p>No. Your data is processed in real time by Google Gemini and is not used for model training.</p>
+            <h3>Is SecondBrain available on Android?</h3>
+            <p>Yes. SecondBrain is live on <a href="https://play.google.com/store/apps/details?id=app.secondbrain.android" target="_blank" rel="noopener">Google Play</a>, alongside the iPhone app on the App Store.</p>
+          </div>
+        </div>
+      </div>
+      <!-- IT -->
+      <div class="lang-it">
+        <div class="legal-hero">
+          <span class="eyebrow">/ Aiuto</span>
+          <h1>Assistenza</h1>
+          <p>Persone vere, risposte veloci.</p>
+        </div>
+        <div class="card support-card">
+          <div class="card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <h3>Supporto via email</h3>
+          <p>Hai trovato un bug, hai una domanda o ti serve aiuto con l'account? Scrivici, leggiamo ogni email.</p>
+          <a href="mailto:info@secondbrain.icu" class="btn btn-primary">info@secondbrain.icu</a>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+            </div>
+            <span class="card-title">Domande frequenti</span>
+          </div>
+          <div class="body-text">
+            <h3 style="margin-top:0;">Cos'è SecondBrain?</h3>
+            <p>SecondBrain è un assistente per prendere appunti basato sull'AI che trasforma le tue registrazioni vocali e i tuoi testi in note, riassunti ed eventi di calendario, già organizzati.</p>
+            <h3>Come funziona la memoria condivisa?</h3>
+            <p>Colleghi Claude, ChatGPT o un altro assistente a SecondBrain, e tutti leggono e scrivono in un'unica memoria, le tue note. Lo dici una volta e ogni assistente se lo ricorda, nella chat successiva e su un altro dispositivo. È una funzione Pro.</p>
+            <h3>I miei dati sono al sicuro?</h3>
+            <p>Sì. Tutti i dati sono crittografati in transito, salvati in un database isolato e mai condivisi o venduti. Non usiamo analisi né tracciamento.</p>
+            <h3>Come elimino il mio account?</h3>
+            <p>Apri l'app, vai su <strong>Impostazioni, poi Elimina account</strong>. Questo rimuove in modo permanente tutti i tuoi dati. Vedi la pagina <a href="#delete" data-route="delete">Eliminazione account</a> per i dettagli.</p>
+            <h3>SecondBrain usa i miei dati per addestrare l'AI?</h3>
+            <p>No. I tuoi dati sono elaborati in tempo reale da Google Gemini e non sono usati per addestrare i modelli.</p>
+            <h3>SecondBrain è disponibile su Android?</h3>
+            <p>Sì. SecondBrain è su <a href="https://play.google.com/store/apps/details?id=app.secondbrain.android" target="_blank" rel="noopener">Google Play</a>, insieme all'app per iPhone sull'App Store.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1807,58 +2191,118 @@
   <!-- ════════════════════════════════════════════════════════ -->
   <div id="delete" class="page">
     <div class="legal-wrap">
-      <div class="legal-hero">
-        <span class="eyebrow">/ Account</span>
-        <h1>Account Deletion</h1>
-        <p>How to permanently delete your account and data.</p>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+      <!-- EN -->
+      <div class="lang-en">
+        <div class="legal-hero">
+          <span class="eyebrow">/ Account</span>
+          <h1>Account Deletion</h1>
+          <p>How to permanently delete your account and data.</p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+            </div>
+            <span class="card-title">How to delete your account</span>
           </div>
-          <span class="card-title">How to delete your account</span>
+          <div class="body-text">
+            <p>You can permanently delete your SecondBrain account and all associated data directly from the app:</p>
+            <ol class="steps">
+              <li>Open SecondBrain on your device.</li>
+              <li>Navigate to <strong>Settings</strong> (gear icon).</li>
+              <li>Scroll down and tap <strong>Delete Account</strong>.</li>
+              <li>Confirm the deletion when prompted.</li>
+            </ol>
+          </div>
         </div>
-        <div class="body-text">
-          <p>You can permanently delete your SecondBrain account and all associated data directly from the app:</p>
-          <ol class="steps">
-            <li>Open SecondBrain on your device.</li>
-            <li>Navigate to <strong>Settings</strong> (gear icon).</li>
-            <li>Scroll down and tap <strong>Delete Account</strong>.</li>
-            <li>Confirm the deletion when prompted.</li>
-          </ol>
+        <div class="card card-warn">
+          <div class="card-header">
+            <div class="card-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+            </div>
+            <span class="card-title">What gets deleted</span>
+          </div>
+          <div class="body-text" style="font-size:14px;">
+            <p>Account deletion is <strong>immediate and irreversible</strong>. The following data is permanently removed:</p>
+            <ul>
+              <li>Your account and authentication credentials</li>
+              <li>All notes and folders</li>
+              <li>All summaries and generated content</li>
+              <li>All calendar events created within SecondBrain</li>
+              <li>Display name and user settings</li>
+            </ul>
+            <p>No data is retained after deletion. There is no recovery option.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <span class="card-title">Need help?</span>
+          </div>
+          <div class="body-text" style="font-size:14px;">
+            <p>If you're unable to access the app and need to delete your account, contact us at
+            <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a>
+            and we will process the deletion for you.</p>
+          </div>
         </div>
       </div>
-      <div class="card card-warn">
-        <div class="card-header">
-          <div class="card-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+      <!-- IT -->
+      <div class="lang-it">
+        <div class="legal-hero">
+          <span class="eyebrow">/ Account</span>
+          <h1>Eliminazione account</h1>
+          <p>Come eliminare in modo permanente il tuo account e i tuoi dati.</p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/></svg>
+            </div>
+            <span class="card-title">Come eliminare il tuo account</span>
           </div>
-          <span class="card-title">What gets deleted</span>
-        </div>
-        <div class="body-text" style="font-size:14px;">
-          <p>Account deletion is <strong>immediate and irreversible</strong>. The following data is permanently removed:</p>
-          <ul>
-            <li>Your account and authentication credentials</li>
-            <li>All notes and folders</li>
-            <li>All summaries and generated content</li>
-            <li>All calendar events created within SecondBrain</li>
-            <li>Display name and user settings</li>
-          </ul>
-          <p>No data is retained after deletion. There is no recovery option.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          <div class="body-text">
+            <p>Puoi eliminare in modo permanente il tuo account SecondBrain e tutti i dati associati direttamente dall'app:</p>
+            <ol class="steps">
+              <li>Apri SecondBrain sul tuo dispositivo.</li>
+              <li>Vai su <strong>Impostazioni</strong> (icona dell'ingranaggio).</li>
+              <li>Scorri in basso e tocca <strong>Elimina account</strong>.</li>
+              <li>Conferma l'eliminazione quando richiesto.</li>
+            </ol>
           </div>
-          <span class="card-title">Need help?</span>
         </div>
-        <div class="body-text" style="font-size:14px;">
-          <p>If you're unable to access the app and need to delete your account, contact us at
-          <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a>
-          and we will process the deletion for you.</p>
+        <div class="card card-warn">
+          <div class="card-header">
+            <div class="card-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+            </div>
+            <span class="card-title">Cosa viene eliminato</span>
+          </div>
+          <div class="body-text" style="font-size:14px;">
+            <p>L'eliminazione dell'account è <strong>immediata e irreversibile</strong>. Vengono rimossi in modo permanente i seguenti dati:</p>
+            <ul>
+              <li>Il tuo account e le credenziali di autenticazione</li>
+              <li>Tutte le note e le cartelle</li>
+              <li>Tutti i riassunti e i contenuti generati</li>
+              <li>Tutti gli eventi di calendario creati in SecondBrain</li>
+              <li>Nome visualizzato e impostazioni utente</li>
+            </ul>
+            <p>Nessun dato viene conservato dopo l'eliminazione. Non c'è possibilità di recupero.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <span class="card-title">Serve aiuto?</span>
+          </div>
+          <div class="body-text" style="font-size:14px;">
+            <p>Se non riesci ad accedere all'app e devi eliminare l'account, scrivici a
+            <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a>
+            e procederemo noi all'eliminazione.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1876,29 +2320,30 @@
         <span class="brand-mark" aria-hidden="true"></span>
         <span>SecondBrain</span>
       </a>
-      <p>The AI memory layer for your phone.</p>
+      <p><span class="lang-en">One AI memory for your phone and every assistant you use.</span><span class="lang-it">Una memoria con l'AI per il tuo telefono e per ogni assistente che usi.</span></p>
     </div>
     <div class="foot-col">
-      <h5>Product</h5>
+      <h5><span class="lang-en">Product</span><span class="lang-it">Prodotto</span></h5>
       <a href="https://apps.apple.com/it/app/secondbrain-ai-smart-memory/id6762130376" target="_blank" rel="noopener">App Store</a>
       <a href="https://play.google.com/store/apps/details?id=app.secondbrain.android" target="_blank" rel="noopener">Google Play</a>
-      <a href="#home" data-route="home">Overview</a>
+      <a href="#home" data-route="home"><span class="lang-en">Overview</span><span class="lang-it">Panoramica</span></a>
     </div>
     <div class="foot-col">
-      <h5>Legal</h5>
+      <h5><span class="lang-en">Legal</span><span class="lang-it">Note legali</span></h5>
       <a href="#privacy" data-route="privacy">Privacy</a>
-      <a href="#terms" data-route="terms">Terms</a>
-      <a href="#delete" data-route="delete">Delete account</a>
+      <a href="#terms" data-route="terms"><span class="lang-en">Terms</span><span class="lang-it">Termini</span></a>
+      <a href="#delete" data-route="delete"><span class="lang-en">Delete account</span><span class="lang-it">Elimina account</span></a>
     </div>
     <div class="foot-col">
-      <h5>Help</h5>
-      <a href="#support" data-route="support">Support</a>
-      <a href="mailto:info@secondbrain.icu">Email us</a>
+      <h5><span class="lang-en">Help</span><span class="lang-it">Aiuto</span></h5>
+      <a href="#support" data-route="support"><span class="lang-en">Support</span><span class="lang-it">Assistenza</span></a>
+      <a href="https://github.com/fed3c3sa/secondbrain-shared-memory" target="_blank" rel="noopener"><span class="lang-en">Connect your AI</span><span class="lang-it">Collega la tua AI</span></a>
+      <a href="mailto:info@secondbrain.icu"><span class="lang-en">Email us</span><span class="lang-it">Scrivici</span></a>
     </div>
   </div>
   <div class="foot-bottom">
-    <span>© 2026 SecondBrain — All rights reserved</span>
-    <span>v 1.0 · Made with care</span>
+    <span><span class="lang-en">© 2026 SecondBrain · All rights reserved</span><span class="lang-it">© 2026 SecondBrain · Tutti i diritti riservati</span></span>
+    <span><span class="lang-en">v 1.1 · Made with care</span><span class="lang-it">v 1.1 · Fatto con cura</span></span>
   </div>
 </footer>
 
@@ -1914,12 +2359,12 @@
     <div class="modal-android" aria-hidden="true">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 9.48l1.84-3.18a.4.4 0 0 0-.69-.4l-1.86 3.22a11.5 11.5 0 0 0-9.78 0L5.25 5.9a.4.4 0 0 0-.69.4L6.4 9.48A10.78 10.78 0 0 0 1 18.5h22a10.78 10.78 0 0 0-5.4-9.02M7 15.25a1 1 0 1 1 1-1 1 1 0 0 1-1 1m10 0a1 1 0 1 1 1-1 1 1 0 0 1-1 1"/></svg>
     </div>
-    <h3 id="modal-title">Join the <em>Android beta</em>.</h3>
-    <p class="modal-sub">Drop your email. We'll send the beta link.</p>
+    <h3 id="modal-title"><span class="lang-en">Join the <em>Android beta</em>.</span><span class="lang-it">Entra nella <em>beta Android</em>.</span></h3>
+    <p class="modal-sub"><span class="lang-en">Drop your email. We'll send the beta link.</span><span class="lang-it">Lascia la tua email. Ti inviamo il link della beta.</span></p>
 
     <form id="android-form" novalidate>
       <div class="field">
-        <label for="f-name">Your name</label>
+        <label for="f-name"><span class="lang-en">Your name</span><span class="lang-it">Il tuo nome</span></label>
         <input type="text" id="f-name" name="name" autocomplete="name" placeholder="Jane Doe" required />
       </div>
       <div class="field">
@@ -1927,19 +2372,19 @@
         <input type="email" id="f-email" name="email" autocomplete="email" placeholder="you@email.com" required />
       </div>
       <div class="field">
-        <label for="f-device">Phone (optional)</label>
+        <label for="f-device"><span class="lang-en">Phone (optional)</span><span class="lang-it">Telefono (opzionale)</span></label>
         <input type="text" id="f-device" name="device" placeholder="e.g. Pixel 8 / Samsung S24" />
       </div>
-      <button type="submit" class="modal-submit">Send beta request</button>
-      <p class="modal-fine">Your email client will open with a pre-written request to <span style="color:var(--text-mute)">info@secondbrain.icu</span></p>
+      <button type="submit" class="modal-submit"><span class="lang-en">Send beta request</span><span class="lang-it">Invia richiesta beta</span></button>
+      <p class="modal-fine"><span class="lang-en">Your email client will open with a pre-written request to</span><span class="lang-it">Si aprirà il tuo client email con una richiesta già scritta a</span> <span style="color:var(--text-mute)">info@secondbrain.icu</span></p>
     </form>
 
     <div class="modal-success" id="android-success">
       <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      <h3 style="margin: 0 0 8px;">Almost there.</h3>
-      <p style="margin-bottom: 18px;">Send us this email and you're in.</p>
-      <a id="android-mail-link" href="#" class="modal-submit" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none;">Open email</a>
-      <button type="button" id="android-copy" class="btn btn-ghost" style="width:100%; justify-content:center; margin-top:10px; padding:12px;">Copy email</button>
+      <h3 style="margin: 0 0 8px;"><span class="lang-en">Almost there.</span><span class="lang-it">Ci siamo quasi.</span></h3>
+      <p style="margin-bottom: 18px;"><span class="lang-en">Send us this email and you're in.</span><span class="lang-it">Inviaci questa email e sei dentro.</span></p>
+      <a id="android-mail-link" href="#" class="modal-submit" style="display:inline-flex; align-items:center; justify-content:center; gap:8px; text-decoration:none;"><span class="lang-en">Open email</span><span class="lang-it">Apri email</span></a>
+      <button type="button" id="android-copy" class="btn btn-ghost" style="width:100%; justify-content:center; margin-top:10px; padding:12px;"><span class="lang-en">Copy email</span><span class="lang-it">Copia email</span></button>
       <p class="modal-fine" id="android-copy-hint">to <span style="color:var(--text-mute)">info@secondbrain.icu</span></p>
     </div>
   </div>
@@ -1949,16 +2394,36 @@
 <!-- SCRIPTS                                                  -->
 <!-- ════════════════════════════════════════════════════════ -->
 <script>
+  // ── Language ──────────────────────────────────────────────
+  function setLang(lang) {
+    if (lang !== 'it') lang = 'en';
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('sb-lang', lang); } catch (e) {}
+    document.querySelectorAll('[data-lang-btn]').forEach(b => {
+      b.classList.toggle('active', b.dataset.langBtn === lang);
+    });
+    runTyping();
+  }
+  document.querySelectorAll('[data-lang-btn]').forEach(b => {
+    b.addEventListener('click', () => setLang(b.dataset.langBtn));
+  });
+
   // ── Routing ───────────────────────────────────────────────
-  function go(id) {
+  function go(id, scrollTo) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.nav-center a').forEach(a => a.classList.remove('active'));
     const page = document.getElementById(id) || document.getElementById('home');
     page.classList.add('active');
     const link = document.querySelector(`.nav-center a[data-route="${id}"]`);
     if (link) link.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'instant' });
-    // Re-run reveals on new page content
+    if (scrollTo) {
+      requestAnimationFrame(() => {
+        const target = document.getElementById(scrollTo);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
     requestAnimationFrame(initReveal);
   }
 
@@ -1967,48 +2432,53 @@
     if (route) {
       e.preventDefault();
       const id = route.dataset.route;
-      go(id);
-      history.pushState(null, '', `#${id}`);
+      const scrollTo = route.dataset.scrollTo;
+      go(id, scrollTo);
+      history.pushState(null, '', scrollTo ? `#${scrollTo}` : `#${id}`);
     }
   });
 
   window.addEventListener('DOMContentLoaded', () => {
     const id = (location.hash || '#home').replace('#', '');
-    if (document.getElementById(id)) go(id);
+    if (document.getElementById(id) && document.getElementById(id).classList.contains('page')) go(id);
+    setLang(document.documentElement.lang === 'it' ? 'it' : 'en');
     initReveal();
-    runTyping();
   });
   window.addEventListener('popstate', () => {
     const id = (location.hash || '#home').replace('#', '');
-    go(id);
+    if (document.getElementById(id) && document.getElementById(id).classList.contains('page')) go(id);
   });
 
   // ── Typing animation ──────────────────────────────────────
+  let typeGen = 0;
   function runTyping() {
+    const gen = ++typeGen;
+    const lang = document.documentElement.lang === 'it' ? 'it' : 'en';
     const els = Array.from(document.querySelectorAll('.type'));
     const caret = document.getElementById('caret');
     if (!els.length) return;
+    els.forEach(el => { el.textContent = ''; });
+    if (caret) caret.classList.remove('done');
     let chain = Promise.resolve();
-    els.forEach((el, idx) => {
-      const text = el.dataset.text || '';
+    els.forEach((el) => {
+      const text = el.getAttribute('data-text-' + lang) || el.getAttribute('data-text-en') || '';
       const delay = parseInt(el.dataset.delay || '0', 10);
       chain = chain.then(() => new Promise(resolve => {
         setTimeout(() => {
+          if (gen !== typeGen) return resolve();
           let i = 0;
           const tick = () => {
+            if (gen !== typeGen) return resolve();
             if (i >= text.length) return resolve();
             el.textContent += text.charAt(i++);
-            const jitter = 30 + Math.random() * 60;
-            setTimeout(tick, jitter);
+            setTimeout(tick, 30 + Math.random() * 60);
           };
           tick();
-        }, idx === 0 ? delay : delay);
+        }, delay);
       }));
     });
     chain.then(() => {
-      if (caret) {
-        setTimeout(() => caret.classList.add('done'), 1200);
-      }
+      if (gen === typeGen && caret) setTimeout(() => { if (gen === typeGen) caret.classList.add('done'); }, 1200);
     });
   }
 
@@ -2028,12 +2498,14 @@
   }
 
   // ── Gallery scroll buttons ────────────────────────────────
-  const gallery = document.getElementById('gallery');
+  const galleryTrack = document.getElementById('gallery-track');
   document.querySelectorAll('[data-scroll]').forEach(btn => {
     btn.addEventListener('click', () => {
       const dir = parseInt(btn.dataset.scroll, 10);
-      const w = gallery.querySelector('.slide').offsetWidth + 20;
-      gallery.scrollBy({ left: dir * w * 1.2, behavior: 'smooth' });
+      const slide = galleryTrack.querySelector('.slide');
+      if (!slide) return;
+      const w = slide.offsetWidth + 20;
+      galleryTrack.scrollBy({ left: dir * w * 1.2, behavior: 'smooth' });
     });
   });
 
@@ -2061,7 +2533,6 @@
       openModal();
     });
   });
-  // Deep-link: #android-beta opens the modal
   if (location.hash === '#android-beta') openModal();
   window.addEventListener('hashchange', () => {
     if (location.hash === '#android-beta') openModal();
@@ -2084,11 +2555,10 @@
     }
 
     const recipient = 'info@secondbrain.icu';
-    const subject = 'SecondBrain — Android beta request';
-    const body = `Hi Federico,\n\nI'd like to join the SecondBrain Android beta.\n\n— Name: ${name}\n— Email: ${email}\n— Device: ${device || '(not specified)'}\n\nThanks!`;
+    const subject = 'SecondBrain · Android beta request';
+    const body = `Hi Federico,\n\nI'd like to join the SecondBrain Android beta.\n\nName: ${name}\nEmail: ${email}\nDevice: ${device || '(not specified)'}\n\nThanks!`;
     const mailto = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    // Trigger via anchor-click — most reliable across browsers
     const a = document.createElement('a');
     a.href = mailto;
     a.rel = 'noopener noreferrer';
@@ -2097,7 +2567,6 @@
     a.click();
     document.body.removeChild(a);
 
-    // Update success view: clickable link + copy fallback
     const link = document.getElementById('android-mail-link');
     const copyBtn = document.getElementById('android-copy');
     const hint = document.getElementById('android-copy-hint');
@@ -2107,10 +2576,10 @@
       const payload = `To: ${recipient}\nSubject: ${subject}\n\n${body}`;
       try {
         await navigator.clipboard.writeText(payload);
-        copyBtn.textContent = 'Copied ✓';
+        copyBtn.textContent = 'Copied';
         hint.textContent = 'Paste it into your mail app and send to info@secondbrain.icu';
       } catch {
-        copyBtn.textContent = 'Could not copy — select & copy manually';
+        copyBtn.textContent = 'Could not copy, select and copy manually';
       }
       setTimeout(() => { copyBtn.textContent = 'Copy email'; }, 4000);
     };
