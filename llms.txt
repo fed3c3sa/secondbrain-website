@@ -1,0 +1,23 @@
+# SecondBrain
+
+> SecondBrain is the AI second brain app for your phone. You speak once and it remembers — turning your voice into organized notes, calendar events and follow-ups — and gives your AI assistants (ChatGPT, Claude, Claude Code, Gemini, Cursor) a single shared long-term memory via the Model Context Protocol (MCP). Free on iPhone and Android; the shared memory layer is a Pro feature. Private by design: no analytics, no ads, no training on your data.
+
+## Site
+
+- [Home](https://secondbrain.icu/): What SecondBrain does — voice capture, automatic notes/calendar/follow-ups, and memory shared across every AI you use.
+- [FAQ](https://secondbrain.icu/#faq): What a second brain app is, whether SecondBrain is free, how shared memory works across ChatGPT and Claude, how to connect it, supported devices, privacy.
+- [Privacy Policy](https://secondbrain.icu/#privacy): No analytics, no ads, no training; encrypted, isolated per user; delete anytime.
+- [Terms of Use](https://secondbrain.icu/#terms)
+- [Support](https://secondbrain.icu/#support)
+
+## Connect to an AI assistant
+
+- Claude: add the marketplace `fed3c3sa/secondbrain-shared-memory`, install the SecondBrain plugin, then Connect and sign in with Apple or Google.
+- Claude Code: `/plugin marketplace add fed3c3sa/secondbrain-shared-memory`, then `/plugin install secondbrain@secondbrain`, then `/mcp` and sign in.
+- ChatGPT, Gemini, Cursor: run `npx secondbrain-connect` once and sign in in the browser.
+
+## Links
+
+- [App Store (iOS)](https://apps.apple.com/it/app/secondbrain-ai-smart-memory/id6762130376)
+- [Google Play (Android)](https://play.google.com/store/apps/details?id=app.secondbrain.android)
+- [GitHub — shared memory plugin & setup guide](https://github.com/fed3c3sa/secondbrain-shared-memory)
