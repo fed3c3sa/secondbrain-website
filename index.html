@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SecondBrain — The AI Second Brain App for Your Phone</title>
   <link rel="icon" type="image/png" href="assets/favicon.png" />
-  <link rel="apple-touch-icon" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="canonical" href="https://secondbrain.icu/" />
   <meta name="description" content="SecondBrain is the AI second brain app for your phone. Speak once and it remembers — notes, calendar and follow-ups — shared across ChatGPT, Claude and every AI you use." />
   <meta name="keywords" content="second brain app, AI second brain, AI memory app, shared AI memory, ChatGPT memory, Claude memory, MCP memory server, voice notes app" />
   <meta name="author" content="Federico Cesarini" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#000000" />
+  <meta name="color-scheme" content="dark" />
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="SecondBrain" />
@@ -25,7 +26,12 @@
   <meta property="og:image:alt" content="SecondBrain — the AI second brain app for your phone" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="it_IT" />
-  <meta property="og:updated_time" content="2026-06-30" />
+  <meta property="og:updated_time" content="2026-07-06" />
+  <meta property="og:video" content="https://www.youtube-nocookie.com/embed/miiynvYCZf4" />
+  <meta property="og:video:secure_url" content="https://www.youtube-nocookie.com/embed/miiynvYCZf4" />
+  <meta property="og:video:type" content="text/html" />
+  <meta property="og:video:width" content="1280" />
+  <meta property="og:video:height" content="720" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -46,7 +52,35 @@
         "name": "SecondBrain",
         "description": "AI-powered memory layer for your phone.",
         "publisher": { "@id": "https://secondbrain.icu/#organization" },
+        "inLanguage": ["en", "it"]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://secondbrain.icu/#webpage",
+        "url": "https://secondbrain.icu/",
+        "name": "SecondBrain — The AI Second Brain App for Your Phone",
+        "isPartOf": { "@id": "https://secondbrain.icu/#website" },
+        "about": { "@id": "https://secondbrain.icu/#organization" },
+        "primaryImageOfPage": "https://secondbrain.icu/assets/og-card.png",
+        "video": { "@id": "https://secondbrain.icu/#demo-video" },
+        "dateModified": "2026-07-06",
         "inLanguage": "en"
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://secondbrain.icu/#demo-video",
+        "name": "This AI has INFINITE Memory. Here's how to use it.",
+        "description": "A three-minute demo of SecondBrain, the AI second brain app: speak once on your phone and get structured notes, calendar events and follow-ups — then connect ChatGPT, Claude and Gemini to one shared long-term memory via MCP.",
+        "thumbnailUrl": [
+          "https://secondbrain.icu/assets/video-poster.webp",
+          "https://i.ytimg.com/vi/miiynvYCZf4/maxresdefault.jpg"
+        ],
+        "uploadDate": "2026-07-06T01:12:10-07:00",
+        "duration": "PT3M14S",
+        "contentUrl": "https://www.youtube.com/watch?v=miiynvYCZf4",
+        "embedUrl": "https://www.youtube-nocookie.com/embed/miiynvYCZf4",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://secondbrain.icu/#organization" }
       },
       {
         "@type": "Organization",
@@ -54,13 +88,14 @@
         "name": "SecondBrain",
         "alternateName": ["Second Brain", "SecondBrain App"],
         "url": "https://secondbrain.icu/",
-        "logo": "https://secondbrain.icu/assets/icon.png",
+        "logo": "https://secondbrain.icu/assets/logo-512.png",
         "email": "info@secondbrain.icu",
         "founder": { "@type": "Person", "name": "Federico Cesarini" },
         "sameAs": [
           "https://apps.apple.com/it/app/secondbrain-ai-smart-memory/id6762130376",
           "https://play.google.com/store/apps/details?id=app.secondbrain.android",
           "https://github.com/fed3c3sa/secondbrain-shared-memory",
+          "https://www.youtube.com/@SecondBrain-AISmartMemory",
           "https://www.instagram.com/secondbrain.memory/"
         ]
       },
@@ -179,7 +214,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300;400;500;600;700;800&family=Funnel+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@500;600&family=Funnel+Sans:wght@400;500&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@300;400;500&display=swap" />
 
   <style>
     /* ════════════════════════════════════════════════════════ */
@@ -242,10 +277,30 @@
     }
 
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    img { max-width: 100%; height: auto; display: block; }
     button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+    strong { font-weight: 600; }
 
     ::selection { background: #fff; color: #000; }
+
+    a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 2px solid rgba(255,255,255,0.65);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+    input:focus-visible, textarea:focus-visible { outline: 2px solid rgba(255,255,255,0.4); outline-offset: 2px; }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px; top: 0;
+      z-index: 300;
+      background: #fff; color: #000;
+      padding: 10px 18px;
+      border-radius: 0 0 12px 0;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .skip-link:focus { left: 0; }
 
     /* ════════════════════════════════════════════════════════ */
     /* TYPOGRAPHY HELPERS                                       */
@@ -298,7 +353,7 @@
     }
     .brand-mark {
       width: 22px; height: 22px;
-      background: url('assets/brain-icon-light.png') center/contain no-repeat;
+      background: url('assets/brain-icon-light.webp') center/contain no-repeat;
       filter: drop-shadow(0 0 8px rgba(255,255,255,0.18));
     }
     .nav-center {
@@ -417,7 +472,7 @@
     .hero-mark {
       width: 56px; height: 56px;
       margin: 0 auto 36px;
-      background: url('assets/brain-icon-light.png') center/contain no-repeat;
+      background: url('assets/brain-icon-light.webp') center/contain no-repeat;
       opacity: .92;
     }
     .hero-meta {
@@ -699,6 +754,140 @@
     @media (max-width: 880px) {
       .section { padding: 80px var(--pad); }
       .section-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 48px; }
+    }
+
+    /* ════════════════════════════════════════════════════════ */
+    /* VIDEO · demo film                                        */
+    /* ════════════════════════════════════════════════════════ */
+    .video-wrap {
+      position: relative;
+      max-width: var(--max-narrow);
+      margin: 0 auto;
+    }
+    .video-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -90px -140px;
+      background: radial-gradient(ellipse at center, rgba(64,66,104,0.20), transparent 62%);
+      filter: blur(48px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .video-frame {
+      position: relative;
+      z-index: 1;
+      aspect-ratio: 16 / 9;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--hairline-strong);
+      background: var(--ink-1);
+      box-shadow: 0 44px 120px rgba(0,0,0,0.55);
+    }
+    .video-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.09);
+      pointer-events: none;
+      z-index: 3;
+    }
+    .video-poster {
+      position: absolute;
+      inset: 0;
+      display: block;
+      cursor: pointer;
+    }
+    .video-poster img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 6s var(--ease-out);
+    }
+    .video-poster:hover img { transform: scale(1.03); }
+    .video-scrim {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(0,0,0,0.55), transparent 42%),
+        radial-gradient(circle at center, transparent 52%, rgba(0,0,0,0.28));
+      transition: opacity .4s var(--ease);
+    }
+    .video-play {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 86px; height: 86px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.95);
+      color: #000;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 16px 56px rgba(0,0,0,0.55), 0 0 0 10px rgba(255,255,255,0.07);
+      transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out);
+    }
+    .video-poster:hover .video-play {
+      transform: translate(-50%, -50%) scale(1.07);
+      box-shadow: 0 20px 64px rgba(0,0,0,0.6), 0 0 0 14px rgba(255,255,255,0.09);
+    }
+    .video-play svg { width: 28px; height: 28px; margin-left: 4px; }
+    .video-chip {
+      position: absolute;
+      left: 18px; bottom: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+      padding: 7px 13px;
+      border-radius: 999px;
+      border: 1px solid var(--hairline-strong);
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      border: 0;
+      z-index: 2;
+    }
+    .video-points {
+      max-width: var(--max-narrow);
+      margin: 48px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .video-point {
+      border-top: 1px solid var(--hairline);
+      padding-top: 20px;
+    }
+    .video-point .pt-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--text-ghost);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .video-point h3 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 17px;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+    .video-point p { color: var(--text-mute); font-size: 14px; line-height: 1.6; }
+    @media (max-width: 880px) {
+      .video-points { grid-template-columns: 1fr; gap: 22px; }
+      .video-play { width: 64px; height: 64px; }
+      .video-play svg { width: 22px; height: 22px; margin-left: 3px; }
+      .video-frame { border-radius: 18px; }
     }
 
     /* ════════════════════════════════════════════════════════ */
@@ -1105,7 +1294,7 @@
     .final-mark {
       display: inline-block;
       width: 48px; height: 48px;
-      background: url('assets/brain-icon-light.png') center/contain no-repeat;
+      background: url('assets/brain-icon-light.webp') center/contain no-repeat;
       opacity: .9;
       margin-bottom: 8px;
     }
@@ -1621,6 +1810,7 @@
 </head>
 <body>
 <script>(function(){try{var l=localStorage.getItem('sb-lang');if(l!=='it'&&l!=='en')l='en';document.documentElement.lang=l;}catch(e){document.documentElement.lang='en';}})();</script>
+<a class="skip-link" href="#main"><span class="lang-en">Skip to content</span><span class="lang-it">Vai al contenuto</span></a>
 
 <!-- ════════════════════════════════════════════════════════ -->
 <!-- TOP BAR                                                  -->
@@ -1633,6 +1823,7 @@
     </a>
     <nav class="nav-center">
       <a href="#home" data-route="home" class="active"><span class="lang-en">Overview</span><span class="lang-it">Panoramica</span></a>
+      <a href="#video-jump" data-route="home" data-scroll-to="video"><span class="lang-en">How it works</span><span class="lang-it">Come funziona</span></a>
       <a href="#install-page-jump" data-route="home" data-scroll-to="install"><span class="lang-en">Connect AI</span><span class="lang-it">Collega l'AI</span></a>
       <a href="#faq-jump" data-route="home" data-scroll-to="faq">FAQ</a>
       <a href="#privacy" data-route="privacy">Privacy</a>
@@ -1643,6 +1834,12 @@
         <button type="button" data-lang-btn="en" class="active">EN</button>
         <button type="button" data-lang-btn="it">IT</button>
       </div>
+      <a href="https://www.youtube.com/@SecondBrain-AISmartMemory" target="_blank" rel="noopener" class="nav-icon" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/>
+          <path d="m10 15 5-3-5-3z"/>
+        </svg>
+      </a>
       <a href="https://www.instagram.com/secondbrain.memory/" target="_blank" rel="noopener" class="nav-icon" aria-label="Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <rect x="3" y="3" width="18" height="18" rx="5" ry="5"/>
@@ -1661,7 +1858,7 @@
 <!-- ════════════════════════════════════════════════════════ -->
 <!-- HOME                                                     -->
 <!-- ════════════════════════════════════════════════════════ -->
-<main>
+<main id="main">
   <div id="home" class="page active">
 
     <!-- HERO -->
@@ -1671,20 +1868,21 @@
 
         <p class="hero-kicker">
           <span class="lang-en">The AI second brain app</span>
-          <span class="lang-it">L'app second brain con AI</span>
+          <span class="lang-it">L'app second brain con l'AI</span>
         </p>
 
         <h1 class="hero-title">
-          <span class="type" data-text-en="Start" data-text-it="Inizia a" data-delay="220">Start</span><br />
-          <em><span class="type" data-text-en="remembering." data-text-it="ricordare." data-delay="350">remembering.</span></em><span class="type-caret" id="caret"></span>
+          <span class="type" data-text-en="Start" data-text-it="Inizia a" data-delay="120">Start</span><br />
+          <em><span class="type" data-text-en="remembering." data-text-it="ricordare." data-delay="240">remembering.</span></em><span class="type-caret" id="caret"></span>
         </h1>
         <!-- Clear the seeded H1 text synchronously so JS users see the typing animation
-             from empty (no flash); no-JS crawlers/LLMs keep the real text above. -->
-        <script>document.querySelectorAll('.hero-title .type').forEach(function(s){s.textContent='';});</script>
+             from empty (no flash); no-JS crawlers/LLMs keep the real text above.
+             Skipped under prefers-reduced-motion: those users get the static headline. -->
+        <script>if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))document.querySelectorAll('.hero-title .type').forEach(function(s){s.textContent='';});</script>
 
         <p class="hero-sub anim d1">
-          <span class="lang-en">Speak once. <strong>SecondBrain</strong> remembers it, in the app and across every AI you use.</span>
-          <span class="lang-it">Parla una volta. <strong>SecondBrain</strong> lo ricorda, nell'app e su ogni AI che usi.</span>
+          <span class="lang-en">Speak once. <strong>SecondBrain</strong> writes the note, files it, books the event — and every AI you use remembers it too.</span>
+          <span class="lang-it">Parla una volta. <strong>SecondBrain</strong> scrive la nota, la archivia, segna l'evento — e ogni AI che usi se lo ricorda.</span>
         </p>
 
         <div class="cta-row anim d2">
@@ -1723,19 +1921,76 @@
         </div>
       </div>
 
-      <a href="#gallery" class="hero-scroll" aria-label="Scroll to product">
+      <a href="#video" class="hero-scroll" aria-label="Scroll to the demo video">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg>
       </a>
+    </section>
+
+    <!-- VIDEO · explainer demo -->
+    <section class="section" id="video" aria-labelledby="video-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow anim"><span class="lang-en">/ 01 · Watch</span><span class="lang-it">/ 01 · Guarda</span></span>
+          <h2 class="anim d1" id="video-title">
+            <span class="lang-en">Three minutes. <em>Infinite memory.</em></span>
+            <span class="lang-it">Tre minuti. <em>Memoria infinita.</em></span>
+          </h2>
+        </div>
+        <p class="anim d2">
+          <span class="lang-en">The whole story in one short demo — from a spoken thought to an AI that never forgets.</span>
+          <span class="lang-it">Tutta la storia in un breve video: da un pensiero detto a voce a un'AI che non dimentica più.</span>
+        </p>
+      </div>
+
+      <div class="video-wrap anim d1">
+        <div class="video-frame" id="video-frame">
+          <a href="https://www.youtube.com/watch?v=miiynvYCZf4" target="_blank" rel="noopener" class="video-poster" id="video-poster" aria-label="Play the SecondBrain demo video: This AI has INFINITE Memory. Here's how to use it. (3 min 14 s)">
+            <img src="assets/video-poster.webp" alt="Still from the SecondBrain demo video 'This AI has INFINITE Memory. Here's how to use it.'" width="1280" height="720" loading="lazy" decoding="async" />
+            <span class="video-scrim" aria-hidden="true"></span>
+            <span class="video-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg>
+            </span>
+            <span class="video-chip">3:14 · <span class="lang-en">Watch the demo</span><span class="lang-it">Guarda la demo</span></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="video-points anim d2">
+        <div class="video-point">
+          <span class="pt-num"><span class="lang-en">01 / Capture</span><span class="lang-it">01 / Cattura</span></span>
+          <h3><span class="lang-en">Speak it once</span><span class="lang-it">Dillo una volta</span></h3>
+          <p>
+            <span class="lang-en">A rambling voice note becomes a clean, structured note — filed in the right folder, with calendar events and follow-ups already created.</span>
+            <span class="lang-it">Un vocale disordinato diventa una nota pulita e strutturata — archiviata nella cartella giusta, con eventi e promemoria già creati.</span>
+          </p>
+        </div>
+        <div class="video-point">
+          <span class="pt-num"><span class="lang-en">02 / Recall</span><span class="lang-it">02 / Ricorda</span></span>
+          <h3><span class="lang-en">Ask your memory</span><span class="lang-it">Chiedi alla tua memoria</span></h3>
+          <p>
+            <span class="lang-en">Ask in plain words and get real answers from what you said days — or months — ago.</span>
+            <span class="lang-it">Chiedi con parole tue e ottieni risposte vere da ciò che hai detto giorni — o mesi — fa.</span>
+          </p>
+        </div>
+        <div class="video-point">
+          <span class="pt-num"><span class="lang-en">03 / Connect</span><span class="lang-it">03 / Collega</span></span>
+          <h3><span class="lang-en">One memory, every AI</span><span class="lang-it">Una memoria, tutte le AI</span></h3>
+          <p>
+            <span class="lang-en">Plug ChatGPT, Claude and Gemini into the same memory via MCP: tell one assistant, and they all know.</span>
+            <span class="lang-it">Collega ChatGPT, Claude e Gemini alla stessa memoria via MCP: lo dici a un assistente, e lo sanno tutti.</span>
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- GALLERY: 9 marketing slides -->
     <section class="section" id="gallery">
       <div class="section-head">
         <div>
-          <span class="eyebrow anim"><span class="lang-en">/ 01 · Product</span><span class="lang-it">/ 01 · Prodotto</span></span>
+          <span class="eyebrow anim"><span class="lang-en">/ 02 · Product</span><span class="lang-it">/ 02 · Prodotto</span></span>
           <h2 class="anim d1">
-            <span class="lang-en">A quieter <em>interface.</em> for a quieter <em>mind.</em></span>
-            <span class="lang-it">Un'interfaccia <em>più calma.</em> per una mente <em>più calma.</em></span>
+            <span class="lang-en">A quieter <em>interface,</em> for a quieter <em>mind.</em></span>
+            <span class="lang-it">Un'interfaccia <em>silenziosa,</em> per una mente <em>leggera.</em></span>
           </h2>
         </div>
         <p class="anim d2">
@@ -1746,15 +2001,15 @@
 
       <div class="gallery-wrap anim d2">
         <div class="gallery" id="gallery-track">
-          <article class="slide"><img src="assets/01-capture.png" alt="Take your phone out and speak. SecondBrain will remember." loading="lazy" /></article>
-          <article class="slide"><img src="assets/02-chat.png" alt="Just ask. Get perfect memories." loading="lazy" /></article>
-          <article class="slide"><img src="assets/03-folders.png" alt="All in place, without lifting a finger." loading="lazy" /></article>
-          <article class="slide"><img src="assets/04-notes.png" alt="From speech to a perfect note." loading="lazy" /></article>
-          <article class="slide"><img src="assets/05-brain.png" alt="Your thoughts, connected." loading="lazy" /></article>
-          <article class="slide"><img src="assets/06-calendar.png" alt="Your time, finally yours." loading="lazy" /></article>
-          <article class="slide"><img src="assets/07-sync.png" alt="Inside your iPhone, where it belongs." loading="lazy" /></article>
-          <article class="slide"><img src="assets/08-control.png" alt="One tap, from anywhere." loading="lazy" /></article>
-          <article class="slide"><img src="assets/09-photos.png" alt="You snap. SecondBrain does the math." loading="lazy" /></article>
+          <article class="slide"><img src="assets/01-capture-720.webp" width="720" height="1558" decoding="async" alt="SecondBrain app on iPhone recording a voice note with one tap" loading="lazy" /></article>
+          <article class="slide"><img src="assets/02-chat-720.webp" width="720" height="1558" decoding="async" alt="Asking SecondBrain a question and getting an answer from your own saved memories" loading="lazy" /></article>
+          <article class="slide"><img src="assets/03-folders-720.webp" width="720" height="1558" decoding="async" alt="Notes automatically organized into folders in the SecondBrain app" loading="lazy" /></article>
+          <article class="slide"><img src="assets/04-notes-720.webp" width="720" height="1558" decoding="async" alt="A structured note with headings and checklists, generated from speech by SecondBrain" loading="lazy" /></article>
+          <article class="slide"><img src="assets/05-brain-720.webp" width="720" height="1558" decoding="async" alt="SecondBrain knowledge graph connecting related notes like a second brain" loading="lazy" /></article>
+          <article class="slide"><img src="assets/06-calendar-720.webp" width="720" height="1558" decoding="async" alt="SecondBrain calendar view with events created automatically from voice notes" loading="lazy" /></article>
+          <article class="slide"><img src="assets/07-sync-720.webp" width="720" height="1558" decoding="async" alt="SecondBrain syncing two-way with Apple Calendar on iPhone" loading="lazy" /></article>
+          <article class="slide"><img src="assets/08-control-720.webp" width="720" height="1558" decoding="async" alt="Starting a SecondBrain voice capture from the iPhone Control Center" loading="lazy" /></article>
+          <article class="slide"><img src="assets/09-photos-720.webp" width="720" height="1558" decoding="async" alt="SecondBrain reading a photographed receipt and calculating totals automatically" loading="lazy" /></article>
         </div>
         <div class="gallery-controls">
           <button type="button" class="gallery-btn" data-scroll="-1" aria-label="Previous">
@@ -1783,7 +2038,7 @@
         <div class="pillar anim d2">
           <div class="pillar-num"><span class="lang-en">03 / Recall</span><span class="lang-it">03 / Ricorda</span></div>
           <h3><span class="lang-en">Just <em>ask.</em></span><span class="lang-it">Basta <em>chiedere.</em></span></h3>
-          <p><span class="lang-en">Talk to your past. Get a real answer.</span><span class="lang-it">Parla col tuo passato. Ottieni una risposta vera.</span></p>
+          <p><span class="lang-en">Talk to your past. Get a real answer.</span><span class="lang-it">Parla col tuo passato. Ti risponde davvero.</span></p>
         </div>
       </div>
     </section>
@@ -1792,7 +2047,7 @@
     <section class="section">
       <div class="section-head">
         <div>
-          <span class="eyebrow anim"><span class="lang-en">/ 02 · Capabilities</span><span class="lang-it">/ 02 · Cosa sa fare</span></span>
+          <span class="eyebrow anim"><span class="lang-en">/ 03 · Capabilities</span><span class="lang-it">/ 03 · Cosa sa fare</span></span>
           <h2 class="anim d1"><span class="lang-en">Built for your <em>mind.</em></span><span class="lang-it">Pensato per la tua <em>mente.</em></span></h2>
         </div>
         <p class="anim d2"><span class="lang-en">You speak. It does the rest.</span><span class="lang-it">Parli tu. Al resto pensa lui.</span></p>
@@ -1804,9 +2059,9 @@
           <div class="split-text">
             <span class="eyebrow"><span class="lang-en">/ Voice</span><span class="lang-it">/ Voce</span></span>
             <h3><span class="lang-en">Talk like a <em>person.</em></span><span class="lang-it">Parla come a una <em>persona.</em></span></h3>
-            <p><span class="lang-en">No menus. No fields. You speak, and it understands.</span><span class="lang-it">Niente menu. Niente moduli. Parli, e lui capisce.</span></p>
+            <p><span class="lang-en">No menus. No fields. You speak, and it understands.</span><span class="lang-it">Niente menu. Niente campi da compilare. Parli, e lui capisce.</span></p>
           </div>
-          <div class="split-media"><img src="assets/02-chat.png" alt="Just ask. Get perfect memories." loading="lazy" /></div>
+          <div class="split-media"><img src="assets/02-chat-720.webp" width="720" height="1558" decoding="async" alt="Asking SecondBrain a question and getting an answer from your own saved memories" loading="lazy" /></div>
         </div>
 
         <div class="split reverse anim">
@@ -1815,7 +2070,7 @@
             <h3><span class="lang-en">A <em>perfect</em> note.</span><span class="lang-it">Una nota <em>perfetta.</em></span></h3>
             <p><span class="lang-en">Headings, bullets and checklists, written while you talk.</span><span class="lang-it">Titoli, elenchi e cose da fare, scritti mentre parli.</span></p>
           </div>
-          <div class="split-media"><img src="assets/04-notes.png" alt="Structured note from speech." loading="lazy" /></div>
+          <div class="split-media"><img src="assets/04-notes-720.webp" width="720" height="1558" decoding="async" alt="Structured note created by SecondBrain from a voice recording" loading="lazy" /></div>
         </div>
 
         <div class="split anim">
@@ -1824,7 +2079,7 @@
             <h3><span class="lang-en">Everything <em>connected.</em></span><span class="lang-it">Tutto <em>collegato.</em></span></h3>
             <p><span class="lang-en">A living map of everything you know.</span><span class="lang-it">Una mappa viva di tutto ciò che sai.</span></p>
           </div>
-          <div class="split-media"><img src="assets/05-brain.png" alt="Your thoughts, connected." loading="lazy" /></div>
+          <div class="split-media"><img src="assets/05-brain-720.webp" width="720" height="1558" decoding="async" alt="SecondBrain knowledge graph connecting related notes like a second brain" loading="lazy" /></div>
         </div>
 
       </div>
@@ -1834,17 +2089,17 @@
     <section class="section" style="padding-top: 0;">
       <div class="section-head">
         <div>
-          <span class="eyebrow anim"><span class="lang-en">/ 03 · Native</span><span class="lang-it">/ 03 · Nativo</span></span>
+          <span class="eyebrow anim"><span class="lang-en">/ 04 · Native</span><span class="lang-it">/ 04 · Nativo</span></span>
           <h2 class="anim d1"><span class="lang-en">Lives <em>where you do.</em></span><span class="lang-it">Vive <em>dove vivi tu.</em></span></h2>
         </div>
         <p class="anim d2"><span class="lang-en">Calendar. Control Center. Lock screen.</span><span class="lang-it">Calendario. Centro di Controllo. Schermata di blocco.</span></p>
       </div>
 
       <div class="mosaic anim">
-        <article class="slide"><img src="assets/06-calendar.png" alt="One calm canvas for your time." loading="lazy" /></article>
-        <article class="slide"><img src="assets/07-sync.png" alt="Two-way Apple Calendar sync." loading="lazy" /></article>
-        <article class="slide"><img src="assets/08-control.png" alt="Capture from Control Center." loading="lazy" /></article>
-        <article class="slide"><img src="assets/09-photos.png" alt="Snap a receipt, get the math done." loading="lazy" /></article>
+        <article class="slide"><img src="assets/06-calendar-720.webp" width="720" height="1558" decoding="async" alt="SecondBrain calendar showing a clean monthly view of events" loading="lazy" /></article>
+        <article class="slide"><img src="assets/07-sync-720.webp" width="720" height="1558" decoding="async" alt="Apple Calendar two-way sync inside the SecondBrain app" loading="lazy" /></article>
+        <article class="slide"><img src="assets/08-control-720.webp" width="720" height="1558" decoding="async" alt="SecondBrain quick capture shortcut in the iPhone Control Center" loading="lazy" /></article>
+        <article class="slide"><img src="assets/09-photos-720.webp" width="720" height="1558" decoding="async" alt="SecondBrain turning a photo of a receipt into an expense note with totals" loading="lazy" /></article>
       </div>
     </section>
 
@@ -1852,7 +2107,7 @@
     <section class="section" id="memory">
       <div class="section-head">
         <div>
-          <span class="eyebrow anim"><span class="lang-en">/ 04 · Shared memory</span><span class="lang-it">/ 04 · Memoria condivisa</span></span>
+          <span class="eyebrow anim"><span class="lang-en">/ 05 · Shared memory</span><span class="lang-it">/ 05 · Memoria condivisa</span></span>
           <h2 class="anim d1"><span class="lang-en">One memory. <em>Every AI.</em></span><span class="lang-it">Una memoria. <em>Tutte le AI.</em></span></h2>
         </div>
         <p class="anim d2">
@@ -1878,7 +2133,7 @@
               <span class="split-tag">Gemini</span>
             </div>
           </div>
-          <div class="split-media"><img src="assets/05-brain.png" alt="One shared brain connecting every AI assistant." loading="lazy" /></div>
+          <div class="split-media"><img src="assets/05-brain-720.webp" width="720" height="1558" decoding="async" alt="Diagram of one shared SecondBrain memory connecting ChatGPT, Claude and Gemini" loading="lazy" /></div>
         </div>
 
         <div class="split reverse anim">
@@ -1890,7 +2145,7 @@
               <span class="lang-it">La memoria è una sola, condivisa da ogni AI che usi. Decidi qualcosa con Claude Code e ChatGPT lo sa già. Lo dici in una chat e lo ritrovi nella successiva, su un altro assistente, su un altro dispositivo. <strong>Lo dici una volta, e se lo ricordano tutte.</strong></span>
             </p>
           </div>
-          <div class="split-media"><img src="assets/07-sync.png" alt="Memory kept in sync across every assistant and device." loading="lazy" /></div>
+          <div class="split-media"><img src="assets/07-sync-720.webp" width="720" height="1558" decoding="async" alt="SecondBrain memory staying in sync across AI assistants and devices" loading="lazy" /></div>
         </div>
 
         <div class="split anim">
@@ -1899,7 +2154,7 @@
             <h3><span class="lang-en">Deepest with <em>Claude.</em></span><span class="lang-it">Al meglio con <em>Claude.</em></span></h3>
             <p>
               <span class="lang-en">A one-click plugin turns SecondBrain into Claude's long-term memory. Claude recalls what matters on its own, saves your decisions, people and deadlines without being asked, and can even create calendar events and send reminders straight to your phone.</span>
-              <span class="lang-it">Un plugin in un clic trasforma SecondBrain nella memoria a lungo termine di Claude. Claude recupera da solo ciò che conta, salva le tue decisioni, le persone e le scadenze senza che glielo chiedi, e può perfino creare eventi in calendario e inviare promemoria direttamente sul tuo telefono.</span>
+              <span class="lang-it">Un plugin in un clic trasforma SecondBrain nella memoria a lungo termine di Claude. Claude recupera da solo ciò che conta, salva le tue decisioni, le persone e le scadenze senza che tu glielo chieda, e può perfino creare eventi in calendario e inviare promemoria direttamente sul tuo telefono.</span>
             </p>
           </div>
           <div class="split-media claude-media" aria-hidden="false">
@@ -1917,7 +2172,7 @@
               <span class="lang-it">Non finisce con le note. I tuoi assistenti possono creare eventi in calendario e inviare notifiche direttamente sul telefono. Chiedi una cosa dal computer e la ritrovi come promemoria in tasca, senza muovere un dito.</span>
             </p>
           </div>
-          <div class="split-media"><img src="assets/06-calendar.png" alt="Agents create calendar events and phone reminders." loading="lazy" /></div>
+          <div class="split-media"><img src="assets/06-calendar-720.webp" width="720" height="1558" decoding="async" alt="AI assistants creating calendar events and phone reminders through SecondBrain" loading="lazy" /></div>
         </div>
 
       </div>
@@ -1927,7 +2182,7 @@
     <section class="section" id="install" style="padding-top: 0;">
       <div class="section-head">
         <div>
-          <span class="eyebrow anim"><span class="lang-en">/ 05 · Install</span><span class="lang-it">/ 05 · Installazione</span></span>
+          <span class="eyebrow anim"><span class="lang-en">/ 06 · Install</span><span class="lang-it">/ 06 · Installazione</span></span>
           <h2 class="anim d1"><span class="lang-en">Add it to Claude in <em>three steps.</em></span><span class="lang-it">Aggiungila a Claude in <em>tre passi.</em></span></h2>
         </div>
         <p class="anim d2"><span class="lang-en">No keys, no tokens. One browser login, and Claude remembers.</span><span class="lang-it">Niente chiavi, niente token. Un accesso dal browser, e Claude ricorda.</span></p>
@@ -1950,13 +2205,13 @@
           </li>
           <li>
             <h4><span class="lang-en">Connect and sign in</span><span class="lang-it">Collega e accedi</span></h4>
-            <p><span class="lang-en">Open Connectors, press <strong>Connect</strong> on SecondBrain, and log in with Apple or Google. That is it, nothing to copy.</span><span class="lang-it">Apri Connettori, premi <strong>Connect</strong> su SecondBrain e accedi con Apple o Google. Fatto, niente da copiare.</span></p>
+            <p><span class="lang-en">Open Connectors, press <strong>Connect</strong> on SecondBrain, and log in with Apple or Google. That's it — nothing to copy.</span><span class="lang-it">Apri Connettori, premi <strong>Connect</strong> su SecondBrain e accedi con Apple o Google. Fatto, niente da copiare.</span></p>
           </li>
         </ol>
 
         <figure class="install-shot">
-          <img class="lang-en" src="assets/claude-plugins-menu-en.png" alt="Claude plugins panel: the plus button opens Create plugin, then Add marketplace." loading="lazy" />
-          <img class="lang-it" src="assets/claude-plugins-menu.png" alt="Pannello plugin di Claude: il pulsante più apre Crea plugin, poi Aggiungi marketplace." loading="lazy" />
+          <img class="lang-en" src="assets/claude-plugins-menu-en.webp" width="1186" height="622" decoding="async" alt="Claude plugins panel: the plus button opens Create plugin, then Add marketplace." loading="lazy" />
+          <img class="lang-it" src="assets/claude-plugins-menu.webp" width="1186" height="622" decoding="async" alt="Pannello plugin di Claude: il pulsante più apre Crea plugin, poi Aggiungi marketplace." loading="lazy" />
           <figcaption><span class="lang-en">Claude · Settings → Plugins → + → Add marketplace</span><span class="lang-it">Claude · Impostazioni → Plugin personali → + → Aggiungi marketplace</span></figcaption>
         </figure>
       </div>
@@ -1980,9 +2235,9 @@
         <div class="monolith-inner anim">
           <div class="monolith-grid">
             <div class="monolith-head">
-              <span class="eyebrow" style="display:block; margin-bottom:18px;"><span class="lang-en">/ 06 · Trust</span><span class="lang-it">/ 06 · Fiducia</span></span>
+              <span class="eyebrow" style="display:block; margin-bottom:18px;"><span class="lang-en">/ 07 · Trust</span><span class="lang-it">/ 07 · Fiducia</span></span>
               <h3><span class="lang-en">Yours <em>alone.</em></span><span class="lang-it">Solo <em>tua.</em></span></h3>
-              <p><span class="lang-en">No analytics. No ads. No training.</span><span class="lang-it">Niente analisi. Niente pubblicità. Niente addestramento.</span></p>
+              <p><span class="lang-en">No analytics. No ads. No training.</span><span class="lang-it">Niente analytics. Niente pubblicità. Niente addestramento.</span></p>
             </div>
             <div class="promises">
               <div class="promise">
@@ -1990,7 +2245,7 @@
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
                 <h4><span class="lang-en">No tracking</span><span class="lang-it">Nessun tracciamento</span></h4>
-                <p><span class="lang-en">Zero analytics. Zero ads.</span><span class="lang-it">Zero analisi. Zero pubblicità.</span></p>
+                <p><span class="lang-en">Zero analytics. Zero ads.</span><span class="lang-it">Zero analytics. Zero pubblicità.</span></p>
               </div>
               <div class="promise">
                 <div class="promise-icon">
@@ -2016,7 +2271,7 @@
     <section class="section" id="faq" aria-labelledby="faq-title" style="padding-top: 0;">
       <div class="section-head">
         <div>
-          <span class="eyebrow anim"><span class="lang-en">/ 07 · FAQ</span><span class="lang-it">/ 07 · Domande</span></span>
+          <span class="eyebrow anim"><span class="lang-en">/ 08 · FAQ</span><span class="lang-it">/ 08 · Domande</span></span>
           <h2 class="anim d1" id="faq-title"><span class="lang-en">Questions, <em>answered.</em></span><span class="lang-it">Domande, <em>risposte.</em></span></h2>
         </div>
         <p class="anim d2"><span class="lang-en">What a second brain app is, and how SecondBrain works.</span><span class="lang-it">Cos'è un'app second brain e come funziona SecondBrain.</span></p>
@@ -2027,7 +2282,7 @@
           <summary><span class="lang-en">What is a second brain app?</span><span class="lang-it">Che cos'è un'app second brain?</span></summary>
           <div class="faq-answer">
             <p class="lang-en">A second brain app is a tool that captures everything you want to remember and stores it so you can recall it instantly. SecondBrain does this with your voice: you speak, and it turns what you said into organized notes, calendar events and reminders, then keeps them ready across your devices and AI assistants.</p>
-            <p class="lang-it">Un'app second brain è uno strumento che cattura tutto ciò che vuoi ricordare e lo conserva così da poterlo richiamare in un istante. SecondBrain lo fa con la tua voce: parli, e trasforma ciò che hai detto in note organizzate, eventi in calendario e promemoria, poi li tiene pronti su tutti i tuoi dispositivi e le tue AI.</p>
+            <p class="lang-it">Un'app second brain è uno strumento che cattura tutto ciò che vuoi ricordare e lo conserva così da poterlo richiamare in un istante. SecondBrain lo fa con la tua voce: parli, e trasforma ciò che hai detto in note organizzate, eventi in calendario e promemoria, poi li tiene pronti su tutti i tuoi dispositivi e su tutte le tue AI.</p>
           </div>
         </details>
 
@@ -2075,7 +2330,7 @@
           <summary><span class="lang-en">Is my data private?</span><span class="lang-it">I miei dati sono privati?</span></summary>
           <div class="faq-answer">
             <p class="lang-en">Yes. SecondBrain has no analytics, no ads and never trains on your data. Your memory is encrypted and isolated per user, so it is yours alone. You can delete everything at any time with one tap, and no copies are kept.</p>
-            <p class="lang-it">Sì. SecondBrain non ha analisi né pubblicità e non addestra mai sui tuoi dati. La tua memoria è crittografata e isolata per ogni utente, quindi è solo tua. Puoi cancellare tutto quando vuoi con un tocco, e non viene tenuta alcuna copia.</p>
+            <p class="lang-it">Sì. SecondBrain non usa analytics né pubblicità e non addestra mai l'AI sui tuoi dati. La tua memoria è crittografata e isolata per ogni utente, quindi è solo tua. Puoi cancellare tutto quando vuoi con un tocco, e non viene tenuta alcuna copia.</p>
           </div>
         </details>
 
@@ -2576,13 +2831,15 @@
         <span class="brand-mark" aria-hidden="true"></span>
         <span>SecondBrain</span>
       </a>
-      <p><span class="lang-en">One AI memory for your phone and every assistant you use.</span><span class="lang-it">Una memoria con l'AI per il tuo telefono e per ogni assistente che usi.</span></p>
+      <p><span class="lang-en">One AI memory for your phone and every assistant you use.</span><span class="lang-it">Un'unica memoria AI, per il tuo telefono e per ogni assistente che usi.</span></p>
     </div>
     <div class="foot-col">
       <h5><span class="lang-en">Product</span><span class="lang-it">Prodotto</span></h5>
       <a href="https://apps.apple.com/it/app/secondbrain-ai-smart-memory/id6762130376" target="_blank" rel="noopener">App Store</a>
       <a href="https://play.google.com/store/apps/details?id=app.secondbrain.android" target="_blank" rel="noopener">Google Play</a>
       <a href="#home" data-route="home"><span class="lang-en">Overview</span><span class="lang-it">Panoramica</span></a>
+      <a href="#video-jump" data-route="home" data-scroll-to="video"><span class="lang-en">How it works</span><span class="lang-it">Come funziona</span></a>
+      <a href="https://www.youtube.com/watch?v=miiynvYCZf4" target="_blank" rel="noopener"><span class="lang-en">Watch the demo</span><span class="lang-it">Guarda la demo</span></a>
     </div>
     <div class="foot-col">
       <h5><span class="lang-en">Legal</span><span class="lang-it">Note legali</span></h5>
@@ -2599,7 +2856,7 @@
   </div>
   <div class="foot-bottom">
     <span><span class="lang-en">© 2026 SecondBrain · All rights reserved</span><span class="lang-it">© 2026 SecondBrain · Tutti i diritti riservati</span></span>
-    <span><span class="lang-en">v 1.1 · Made with care</span><span class="lang-it">v 1.1 · Fatto con cura</span></span>
+    <span><span class="lang-en">v 1.2 · Made with care</span><span class="lang-it">v 1.2 · Fatto con cura</span></span>
   </div>
 </footer>
 
@@ -2707,12 +2964,19 @@
 
   // ── Typing animation ──────────────────────────────────────
   let typeGen = 0;
+  const reducedMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   function runTyping() {
     const gen = ++typeGen;
     const lang = document.documentElement.lang === 'it' ? 'it' : 'en';
     const els = Array.from(document.querySelectorAll('.type'));
     const caret = document.getElementById('caret');
     if (!els.length) return;
+    if (reducedMotion) {
+      // No animation: just swap the static headline to the active language.
+      els.forEach(el => { el.textContent = el.getAttribute('data-text-' + lang) || el.getAttribute('data-text-en') || ''; });
+      if (caret) caret.classList.add('done');
+      return;
+    }
     els.forEach(el => { el.textContent = ''; });
     if (caret) caret.classList.remove('done');
     let chain = Promise.resolve();
@@ -2727,7 +2991,7 @@
             if (gen !== typeGen) return resolve();
             if (i >= text.length) return resolve();
             el.textContent += text.charAt(i++);
-            setTimeout(tick, 30 + Math.random() * 60);
+            setTimeout(tick, 18 + Math.random() * 34);
           };
           tick();
         }, delay);
@@ -2751,6 +3015,23 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.anim:not(.in)').forEach(el => observer.observe(el));
+  }
+
+  // ── Video facade: load the YouTube player only on demand ──
+  const videoPoster = document.getElementById('video-poster');
+  if (videoPoster) {
+    videoPoster.addEventListener('click', (e) => {
+      e.preventDefault();
+      const frame = document.getElementById('video-frame');
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/miiynvYCZf4?autoplay=1&rel=0';
+      iframe.title = "SecondBrain demo — This AI has INFINITE Memory. Here's how to use it.";
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      frame.appendChild(iframe);
+      videoPoster.remove();
+    });
   }
 
   // ── Gallery scroll buttons ────────────────────────────────
