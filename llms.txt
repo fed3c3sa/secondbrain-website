@@ -1,6 +1,6 @@
 # SecondBrain
 
-> SecondBrain is the AI second brain app for your phone. You speak once and it remembers — turning your voice into organized notes, calendar events and follow-ups — and gives your AI assistants (ChatGPT, Claude, Claude Code, Gemini, Cursor) a single shared long-term memory via the Model Context Protocol (MCP). Free on iPhone and Android; the shared memory layer is a Pro feature. Private by design: no analytics, no ads, no training on your data.
+> SecondBrain is the AI second brain app for your phone and browser. You speak once and it remembers — turning your voice into organized notes, calendar events and follow-ups — and gives your AI assistants (ChatGPT, Claude, Claude Code, Gemini, Cursor) a single shared long-term memory via the Model Context Protocol (MCP). Free on iPhone, Android and the web (app.secondbrain.icu); the shared memory layer is a Pro feature. Private by design: no analytics, no ads, no training on your data.
 
 ## Site
 
@@ -19,6 +19,7 @@
 
 ## Links
 
+- [Web app](https://app.secondbrain.icu/)
 - [App Store (iOS)](https://apps.apple.com/it/app/secondbrain-ai-smart-memory/id6762130376)
 - [Google Play (Android)](https://play.google.com/store/apps/details?id=app.secondbrain.android)
 - [Demo video (YouTube, 3:14)](https://www.youtube.com/watch?v=miiynvYCZf4)
