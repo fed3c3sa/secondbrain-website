@@ -2440,9 +2440,9 @@
           <h2>Privacy Policy</h2>
           <p>How SecondBrain handles your data.</p>
         </div>
-        <p class="legal-meta">Last updated · April 13, 2026</p>
+        <p class="legal-meta">Last updated · July 13, 2026</p>
         <div class="body-text">
-          <p>SecondBrain ("we", "our", or "the app") is an AI-powered note-taking assistant for iOS. Your privacy matters to us. This policy explains what data we collect, how we use it, and the choices you have.</p>
+          <p>SecondBrain ("we", "our", or "the app") is an AI-powered note-taking assistant. Your privacy matters to us. This policy explains what data we collect, how we use it, and the choices you have.</p>
           <h3>1. Data We Collect</h3>
           <p>We collect only the data necessary to provide the app's features:</p>
           <ul>
@@ -2450,42 +2450,47 @@
             <li><strong>User-generated content</strong>, the notes, folders, summaries, and calendar events you create within the app.</li>
             <li><strong>Voice recordings</strong>, audio you record is processed in real time to create notes. Recordings are sent to Google Gemini for transcription and are not permanently stored on our servers.</li>
             <li><strong>Timezone</strong>, used to correctly schedule calendar events.</li>
+            <li><strong>Advertising and usage identifiers</strong>, only if you agree to the App Tracking prompt on your device. In that case a small set of app events (such as install and app open) and your device advertising identifier are shared with Meta so we can measure whether our ads bring people to the app. If you decline the prompt, no advertising identifier is collected and no cross-app tracking takes place. Your notes, voice, and calendar are never part of this.</li>
           </ul>
           <h3>2. How We Use Your Data</h3>
           <ul>
-            <li><strong>AI processing</strong>, your text and audio are sent to Google Gemini to generate notes, summaries, and calendar events. Your data is processed in real time and is <strong>not used to train AI models</strong>.</li>
-            <li><strong>Storage</strong>, your notes, folders, and calendar events are stored in a Supabase PostgreSQL database, isolated by user account via Row-Level Security (RLS).</li>
+            <li><strong>AI processing</strong>, your text and audio are sent to Google Gemini (paid API tier) to generate notes, summaries, and calendar events. Your content is processed in real time, is <strong>not used to train AI models</strong>, and is retained by Google only briefly for abuse and safety monitoring, per Google's paid API terms.</li>
+            <li><strong>Storage</strong>, your notes, folders, and calendar events are stored in a Supabase PostgreSQL database hosted in the European Union, isolated by user account via Row-Level Security (RLS).</li>
             <li><strong>Authentication</strong>, we use Supabase Auth with Google OAuth and Apple Sign-In to securely manage your account.</li>
+            <li><strong>Advertising measurement</strong>, if you allow tracking, Meta's SDK reports coarse app events so we can tell which ads work. It never receives your notes, voice, or calendar.</li>
           </ul>
           <h3>3. Third-Party Services</h3>
           <p>We rely on the following services to operate the app:</p>
           <ul>
-            <li><strong>Google Gemini</strong>, AI processing of voice and text.</li>
-            <li><strong>Supabase</strong>, database, authentication, and backend functions.</li>
+            <li><strong>Google Gemini</strong>, AI processing of voice and text (paid API tier, no training on your data).</li>
+            <li><strong>Supabase</strong>, database, authentication, and backend functions, hosted in the EU.</li>
             <li><strong>Google OAuth / Apple Sign-In</strong>, secure authentication.</li>
+            <li><strong>RevenueCat / Apple / Google Play</strong>, to manage subscriptions. They receive purchase data, never your notes.</li>
+            <li><strong>Meta</strong>, app-install ad attribution only, and only with your consent through the App Tracking prompt.</li>
           </ul>
           <p>Each service processes data in accordance with its own privacy policy.</p>
-          <h3>4. What We Do NOT Collect</h3>
+          <h3>4. What We Never Do With Your Content</h3>
           <ul>
-            <li>We do <strong>not</strong> track you across apps or websites.</li>
-            <li>We do <strong>not</strong> use analytics or advertising SDKs.</li>
-            <li>We do <strong>not</strong> sell, share, or monetize your data in any way.</li>
+            <li>We <strong>never</strong> use your notes, voice, or calendar for advertising.</li>
+            <li>We <strong>never</strong> use your content to train AI models.</li>
+            <li>We <strong>never</strong> sell your personal data.</li>
+            <li>The only tracking we do is optional ad-performance measurement through Meta, which you control with the App Tracking prompt and which never touches your notes, voice, or calendar.</li>
           </ul>
           <h3>5. Data Security</h3>
-          <p>All data is transmitted over HTTPS. Database access is enforced by Row-Level Security policies, meaning each user can only access their own data. Authentication tokens are managed securely by Supabase Auth.</p>
+          <p>All data is transmitted over HTTPS. Database access is enforced by Row-Level Security policies, meaning each user can only access their own data. Access tokens are stored hashed, and integration tokens can be revoked at any time. Authentication is managed securely by Supabase Auth.</p>
           <h3>6. Data Retention &amp; Deletion</h3>
-          <p>Your data is retained for as long as you maintain an active account. You may delete your entire account and all associated data at any time from within the app (Settings, then Delete Account). Deletion is immediate and irreversible. All notes, folders, calendar events, and account information are permanently removed.</p>
+          <p>Your data is retained for as long as you maintain an active account. You may delete your entire account and all associated data at any time from within the app (Settings, then Delete Account). Deletion is immediate and irreversible across our live database. Encrypted operational backups roll off on a short schedule (days, not months), after which the data is permanently gone. You can request a full export of your data at any time by emailing us.</p>
           <h3>7. Children's Privacy</h3>
           <p>SecondBrain is not intended for children under the age of 13. We do not knowingly collect personal data from children.</p>
           <h3>8. Changes to This Policy</h3>
           <p>We may update this policy from time to time. Changes will be reflected on this page with an updated date. Continued use of the app constitutes acceptance of the revised policy.</p>
           <h3>9. Contact</h3>
-          <p>If you have questions about this Privacy Policy, contact us at:<br />
+          <p>If you have questions about this Privacy Policy, or wish to report a security issue, contact us at:<br />
           <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a></p>
         </div>
         <div class="legal-footer">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-          <p>SecondBrain does not track users and does not use your data for advertising or AI model training.</p>
+          <p>SecondBrain never uses your notes or voice for advertising or AI training. Optional ad measurement is limited to app events and is fully under your control.</p>
         </div>
       </div>
       <!-- IT -->
@@ -2495,9 +2500,9 @@
           <h2>Informativa sulla privacy</h2>
           <p>Come SecondBrain tratta i tuoi dati.</p>
         </div>
-        <p class="legal-meta">Ultimo aggiornamento · 13 aprile 2026</p>
+        <p class="legal-meta">Ultimo aggiornamento · 13 luglio 2026</p>
         <div class="body-text">
-          <p>SecondBrain ("noi", "nostro" o "l'app") è un assistente per prendere appunti basato sull'intelligenza artificiale, per iOS. La tua privacy conta per noi. Questa informativa spiega quali dati raccogliamo, come li usiamo e quali scelte hai.</p>
+          <p>SecondBrain ("noi", "nostro" o "l'app") è un assistente per prendere appunti basato sull'intelligenza artificiale. La tua privacy conta per noi. Questa informativa spiega quali dati raccogliamo, come li usiamo e quali scelte hai.</p>
           <h3>1. Dati che raccogliamo</h3>
           <p>Raccogliamo solo i dati necessari a far funzionare l'app:</p>
           <ul>
@@ -2505,42 +2510,47 @@
             <li><strong>Contenuti che crei</strong>, le note, le cartelle, i riassunti e gli eventi di calendario che crei nell'app.</li>
             <li><strong>Registrazioni vocali</strong>, l'audio che registri viene elaborato in tempo reale per creare le note. Le registrazioni vengono inviate a Google Gemini per la trascrizione e non vengono conservate in modo permanente sui nostri server.</li>
             <li><strong>Fuso orario</strong>, usato per programmare correttamente gli eventi di calendario.</li>
+            <li><strong>Identificatori pubblicitari e d'uso</strong>, solo se accetti il messaggio di tracciamento del tuo dispositivo. In quel caso un piccolo insieme di eventi dell'app (come installazione e apertura) e l'identificatore pubblicitario del dispositivo vengono condivisi con Meta per misurare se le nostre inserzioni portano persone all'app. Se rifiuti, non viene raccolto alcun identificatore pubblicitario e non avviene alcun tracciamento tra app. Le tue note, la tua voce e il tuo calendario non ne fanno mai parte.</li>
           </ul>
           <h3>2. Come usiamo i tuoi dati</h3>
           <ul>
-            <li><strong>Elaborazione AI</strong>, il tuo testo e il tuo audio vengono inviati a Google Gemini per generare note, riassunti ed eventi. I dati sono elaborati in tempo reale e <strong>non vengono usati per addestrare modelli di AI</strong>.</li>
-            <li><strong>Archiviazione</strong>, note, cartelle ed eventi sono salvati in un database PostgreSQL su Supabase, isolati per account tramite Row-Level Security (RLS).</li>
+            <li><strong>Elaborazione AI</strong>, il tuo testo e il tuo audio vengono inviati a Google Gemini (versione a pagamento dell'API) per generare note, riassunti ed eventi. I dati sono elaborati in tempo reale, <strong>non vengono usati per addestrare modelli di AI</strong> e vengono conservati da Google solo per un breve periodo per il monitoraggio di abusi e sicurezza, secondo i termini dell'API a pagamento di Google.</li>
+            <li><strong>Archiviazione</strong>, note, cartelle ed eventi sono salvati in un database PostgreSQL su Supabase ospitato nell'Unione Europea, isolati per account tramite Row-Level Security (RLS).</li>
             <li><strong>Autenticazione</strong>, usiamo Supabase Auth con Google OAuth e Apple Sign-In per gestire il tuo account in sicurezza.</li>
+            <li><strong>Misurazione pubblicitaria</strong>, se autorizzi il tracciamento, l'SDK di Meta riporta eventi generici dell'app per capire quali inserzioni funzionano. Non riceve mai le tue note, la tua voce o il tuo calendario.</li>
           </ul>
           <h3>3. Servizi di terze parti</h3>
           <p>Per far funzionare l'app ci appoggiamo a questi servizi:</p>
           <ul>
-            <li><strong>Google Gemini</strong>, elaborazione AI di voce e testo.</li>
-            <li><strong>Supabase</strong>, database, autenticazione e funzioni di backend.</li>
+            <li><strong>Google Gemini</strong>, elaborazione AI di voce e testo (API a pagamento, nessun addestramento sui tuoi dati).</li>
+            <li><strong>Supabase</strong>, database, autenticazione e funzioni di backend, ospitati nell'UE.</li>
             <li><strong>Google OAuth / Apple Sign-In</strong>, autenticazione sicura.</li>
+            <li><strong>RevenueCat / Apple / Google Play</strong>, per gestire gli abbonamenti. Ricevono i dati d'acquisto, mai le tue note.</li>
+            <li><strong>Meta</strong>, solo attribuzione delle installazioni pubblicitarie e solo con il tuo consenso tramite il messaggio di tracciamento.</li>
           </ul>
           <p>Ogni servizio tratta i dati secondo la propria informativa sulla privacy.</p>
-          <h3>4. Cosa NON raccogliamo</h3>
+          <h3>4. Cosa non facciamo mai con i tuoi contenuti</h3>
           <ul>
-            <li><strong>Non</strong> ti tracciamo tra app e siti.</li>
-            <li><strong>Non</strong> usiamo SDK di analisi o pubblicità.</li>
-            <li><strong>Non</strong> vendiamo, condividiamo o monetizziamo i tuoi dati in alcun modo.</li>
+            <li><strong>Non</strong> usiamo mai le tue note, la tua voce o il tuo calendario per la pubblicità.</li>
+            <li><strong>Non</strong> usiamo mai i tuoi contenuti per addestrare modelli di AI.</li>
+            <li><strong>Non</strong> vendiamo mai i tuoi dati personali.</li>
+            <li>L'unico tracciamento che facciamo è la misurazione, facoltativa, dell'efficacia delle inserzioni tramite Meta, che controlli con il messaggio di tracciamento e che non tocca mai le tue note, la tua voce o il tuo calendario.</li>
           </ul>
           <h3>5. Sicurezza dei dati</h3>
-          <p>Tutti i dati viaggiano su HTTPS. L'accesso al database è regolato da policy di Row-Level Security, quindi ogni utente può accedere solo ai propri dati. I token di autenticazione sono gestiti in sicurezza da Supabase Auth.</p>
+          <p>Tutti i dati viaggiano su HTTPS. L'accesso al database è regolato da policy di Row-Level Security, quindi ogni utente può accedere solo ai propri dati. I token di accesso sono salvati in forma hashata e i token delle integrazioni possono essere revocati in qualsiasi momento. L'autenticazione è gestita in sicurezza da Supabase Auth.</p>
           <h3>6. Conservazione e cancellazione</h3>
-          <p>I tuoi dati restano finché mantieni un account attivo. Puoi cancellare l'intero account e tutti i dati associati in qualsiasi momento dall'app (Impostazioni, poi Elimina account). La cancellazione è immediata e irreversibile. Note, cartelle, eventi e informazioni dell'account vengono rimossi in modo permanente.</p>
+          <p>I tuoi dati restano finché mantieni un account attivo. Puoi cancellare l'intero account e tutti i dati associati in qualsiasi momento dall'app (Impostazioni, poi Elimina account). La cancellazione è immediata e irreversibile sul database in produzione. I backup operativi cifrati vengono ruotati in tempi brevi (giorni, non mesi), dopodiché i dati spariscono in modo permanente. Puoi richiedere in qualsiasi momento un'esportazione completa dei tuoi dati scrivendoci.</p>
           <h3>7. Privacy dei minori</h3>
           <p>SecondBrain non è pensato per bambini sotto i 13 anni. Non raccogliamo consapevolmente dati personali dei minori.</p>
           <h3>8. Modifiche a questa informativa</h3>
           <p>Potremmo aggiornare questa informativa di tanto in tanto. Le modifiche saranno indicate in questa pagina con una data aggiornata. L'uso continuato dell'app costituisce accettazione dell'informativa rivista.</p>
           <h3>9. Contatti</h3>
-          <p>Per domande su questa Informativa sulla privacy, scrivici a:<br />
+          <p>Per domande su questa Informativa sulla privacy, o per segnalare un problema di sicurezza, scrivici a:<br />
           <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a></p>
         </div>
         <div class="legal-footer">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
-          <p>SecondBrain non traccia gli utenti e non usa i tuoi dati per pubblicità o per addestrare modelli di AI.</p>
+          <p>SecondBrain non usa mai le tue note o la tua voce per pubblicità o per addestrare modelli di AI. La misurazione pubblicitaria, facoltativa, si limita agli eventi dell'app ed è totalmente sotto il tuo controllo.</p>
         </div>
       </div>
     </div>
