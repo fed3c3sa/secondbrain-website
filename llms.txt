@@ -1,11 +1,11 @@
 # SecondBrain
 
-> SecondBrain is the AI second brain app for your phone and browser. You speak once and it remembers — turning your voice into organized notes, calendar events and follow-ups — and gives your AI assistants (ChatGPT, Claude, Claude Code, Gemini, Cursor) a single shared long-term memory via the Model Context Protocol (MCP). Free on iPhone, Android and the web (app.secondbrain.icu); the shared memory layer is a Pro feature. Private by design: no analytics, no ads, no training on your data.
+> SecondBrain is the AI second brain app for your phone and browser. You speak once and it remembers: it turns your voice into organized notes, calendar events and follow-ups, and gives your AI assistants (ChatGPT, Claude, Claude Code, Gemini, Cursor) a single shared long-term memory via the Model Context Protocol (MCP). Free on iPhone, Android and the web (app.secondbrain.icu); the shared memory layer is a Pro feature. Private by design: no analytics, no ads, no training on your data.
 
 ## Site
 
-- [Home](https://secondbrain.icu/): What SecondBrain does — voice capture, automatic notes/calendar/follow-ups, and memory shared across every AI you use.
-- [How it works (video)](https://secondbrain.icu/#video): A 3-minute demo, "This AI has INFINITE Memory. Here's how to use it." — voice capture to structured note, recall by asking, and one memory shared across ChatGPT, Claude and Gemini.
+- [Home](https://secondbrain.icu/): What SecondBrain does: voice capture, automatic notes/calendar/follow-ups, and memory shared across every AI you use.
+- [How it works (video)](https://secondbrain.icu/#video): A 3-minute demo, "This AI has INFINITE Memory. Here's how to use it.", going from voice capture to structured note, recall by asking, and one memory shared across ChatGPT, Claude and Gemini.
 - [FAQ](https://secondbrain.icu/#faq): What a second brain app is, whether SecondBrain is free, how shared memory works across ChatGPT and Claude, how to connect it, supported devices, privacy.
 - [Privacy Policy](https://secondbrain.icu/#privacy): No analytics, no ads, no training; encrypted, isolated per user; delete anytime.
 - [Terms of Use](https://secondbrain.icu/#terms)
@@ -24,4 +24,4 @@
 - [Google Play (Android)](https://play.google.com/store/apps/details?id=app.secondbrain.android)
 - [Demo video (YouTube, 3:14)](https://www.youtube.com/watch?v=miiynvYCZf4)
 - [YouTube channel](https://www.youtube.com/@SecondBrain-AISmartMemory)
-- [GitHub — shared memory plugin & setup guide](https://github.com/fed3c3sa/secondbrain-shared-memory)
+- [GitHub: shared memory plugin and setup guide](https://github.com/fed3c3sa/secondbrain-shared-memory)
