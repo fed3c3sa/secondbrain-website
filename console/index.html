@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>SecondBrain break-even</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --baseline: #c3c2b7;
+  --border: rgba(11,11,11,0.10);
+  --spend: #2a78d6;      /* categorical slot 1: ad spend */
+  --net: #1baf7a;        /* categorical slot 2: net revenue */
+  --signups: #4a3aa7;    /* categorical slot 5: signups */
+  --good: #0ca30c;
+  --good-text: #006300;
+  --critical: #d03b3b;
+  --meter-track: #cde2fb;
+  --meter-fill: #2a78d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme="light"])) {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --baseline: #383835;
+    --border: rgba(255,255,255,0.10);
+    --spend: #3987e5;
+    --net: #199e70;
+    --signups: #9085e9;
+    --good: #0ca30c;
+    --good-text: #0ca30c;
+    --critical: #d03b3b;
+    --meter-track: #184f95;
+    --meter-fill: #6da7ec;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --ink: #ffffff;
+  --ink-2: #c3c2b7;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --baseline: #383835;
+  --border: rgba(255,255,255,0.10);
+  --spend: #3987e5;
+  --net: #199e70;
+  --signups: #9085e9;
+  --good: #0ca30c;
+  --good-text: #0ca30c;
+  --critical: #d03b3b;
+  --meter-track: #184f95;
+  --meter-fill: #6da7ec;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 20px 16px 64px; }
+header.top { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+header.top h1 { font-size: 17px; font-weight: 650; margin: 0; }
+header.top .meta { color: var(--muted); font-size: 12px; }
+header.top .spacer { flex: 1; }
+button {
+  font: inherit; color: var(--ink-2); background: var(--surface);
+  border: 1px solid var(--border); border-radius: 8px; padding: 5px 12px; cursor: pointer;
+}
+button:hover { color: var(--ink); }
+.banner {
+  background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--critical);
+  border-radius: 10px; padding: 10px 14px; margin: 0 0 16px; color: var(--ink-2); font-size: 13px;
+}
+.banner ul { margin: 4px 0 0; padding-left: 18px; }
+.grid { display: grid; gap: 12px; }
+.cards { grid-template-columns: repeat(auto-fill, minmax(158px, 1fr)); }
+.card, figure.chart {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 14px 16px; margin: 0;
+}
+.card .label { color: var(--muted); font-size: 12px; }
+.card .value { font-size: 22px; font-weight: 650; margin-top: 2px; }
+.card .delta { font-size: 12px; color: var(--ink-2); margin-top: 2px; }
+.card .delta.good { color: var(--good-text); }
+.card .delta.bad { color: var(--critical); }
+.hero { display: flex; gap: 28px; align-items: flex-end; flex-wrap: wrap; padding: 20px 20px 16px; }
+.hero .big { font-size: 52px; font-weight: 700; line-height: 1.05; }
+.hero .chip {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600;
+  padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border);
+}
+.hero .chip.good { color: var(--good-text); }
+.hero .chip.bad { color: var(--critical); }
+.hero .sub { color: var(--ink-2); font-size: 13px; max-width: 420px; }
+section { margin-top: 26px; }
+section > h2 { font-size: 13px; font-weight: 650; color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.04em; margin: 0 0 10px; }
+figure.chart figcaption { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+figure.chart figcaption .title { font-weight: 600; font-size: 13.5px; }
+.legend { display: flex; gap: 14px; font-size: 12px; color: var(--ink-2); }
+.legend .key { display: inline-flex; align-items: center; gap: 6px; }
+.legend .key i { width: 14px; height: 2.5px; border-radius: 2px; display: inline-block; }
+.legend .key i.rect { height: 9px; width: 9px; border-radius: 2.5px; }
+figure.chart .tools { margin-left: auto; }
+figure.chart .tools button { padding: 2px 9px; font-size: 12px; border-radius: 6px; }
+.plot { position: relative; }
+.plot svg { display: block; width: 100%; height: auto; }
+.tooltip {
+  position: absolute; pointer-events: none; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 8px; padding: 7px 10px;
+  font-size: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.14); display: none; z-index: 3; min-width: 130px;
+}
+.tooltip .t-date { color: var(--muted); margin-bottom: 3px; }
+.tooltip .t-row { display: flex; align-items: center; gap: 7px; }
+.tooltip .t-row i { width: 10px; height: 2.5px; border-radius: 2px; }
+.tooltip .t-row .v { font-weight: 650; margin-left: auto; }
+table.data { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.data th { text-align: right; color: var(--muted); font-weight: 550; padding: 6px 8px; border-bottom: 1px solid var(--grid); }
+table.data th:first-child, table.data td:first-child { text-align: left; }
+table.data td { text-align: right; padding: 6px 8px; border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; }
+table.data tr:last-child td { border-bottom: none; }
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: baseline; }
+.filters { display: flex; gap: 8px; margin: 26px 0 12px; align-items: center; }
+.filters .lbl { color: var(--muted); font-size: 12px; margin-right: 4px; }
+.filters button[aria-pressed="true"] { color: var(--ink); font-weight: 650; border-color: var(--baseline); }
+.meter { background: var(--meter-track); border-radius: 4px; height: 8px; width: 110px; overflow: hidden; }
+.meter > i { display: block; height: 100%; background: var(--meter-fill); border-radius: 4px; }
+.refetching { opacity: 0.55; transition: opacity .2s; }
+.src { color: var(--muted); font-size: 12px; margin-top: 28px; }
+.src b { color: var(--ink-2); font-weight: 600; }
+@media (max-width: 640px) { .hero .big { font-size: 40px; } }
+</style>
+</head>
+<body>
+<div class="wrap" id="app">
+  <header class="top">
+    <h1>SecondBrain break-even</h1>
+    <span class="meta" id="generated-at"></span>
+    <span class="spacer"></span>
+    <button id="btn-refresh" type="button">Refresh</button>
+    <button id="btn-theme" type="button" aria-label="Toggle theme">Theme</button>
+    <button id="btn-signout" type="button" hidden>Sign out</button>
+  </header>
+  <div id="banner"></div>
+  <div id="login" hidden>
+    <div class="card" style="max-width:360px;margin:56px auto;text-align:center">
+      <div style="font-weight:650;font-size:15px;margin-bottom:6px">Private dashboard</div>
+      <div style="color:var(--muted);font-size:13px;margin-bottom:16px">Sign in with the owner account to continue.</div>
+      <button type="button" data-provider="google" style="width:100%;padding:10px;margin-bottom:8px">Continue with Google</button>
+      <button type="button" data-provider="apple" style="width:100%;padding:10px">Continue with Apple</button>
+      <div id="login-err" style="color:var(--critical);font-size:12px;margin-top:12px"></div>
+    </div>
+  </div>
+  <div id="content"><p class="meta" id="loading">Loading data from Meta, RevenueCat, Stripe and Supabase...</p></div>
+</div>
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+const SB = createClient('https://ntykytpngslkytfyuaee.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50eWt5dHBuZ3Nsa3l0Znl1YWVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwMzE1ODYsImV4cCI6MjA5MTYwNzU4Nn0.H8-o0luMghqeJltLOxg4hjhzyniDiTu9zA5fehCntJw', { auth: { flowType: 'pkce' } });
+const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-dashboard/data';
+'use strict';
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const NS = 'http://www.w3.org/2000/svg';
+  const state = { payload: null, win: '30', theme: localStorage.getItem('dash-theme') || 'auto' };
+
+  const applyTheme = () => {
+    if (state.theme === 'auto') delete document.documentElement.dataset.theme;
+    else document.documentElement.dataset.theme = state.theme;
+  };
+  applyTheme();
+  $('btn-theme').addEventListener('click', () => {
+    state.theme = state.theme === 'auto' ? 'dark' : state.theme === 'dark' ? 'light' : 'auto';
+    localStorage.setItem('dash-theme', state.theme);
+    applyTheme();
+    if (state.payload) render();
+  });
+
+  const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  const eur = (v, digits) => {
+    if (v === null || v === undefined || !isFinite(v)) return String.fromCharCode(0x2013);
+    const max = digits ?? (Math.abs(v) >= 1000 ? 0 : 2);
+    const min = max > 0 && Math.abs(v % 1) > 0.004 ? 2 : 0;
+    return new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR', maximumFractionDigits: max, minimumFractionDigits: min }).format(v);
+  };
+  const int = (v) => v === null || v === undefined || !isFinite(v) ? String.fromCharCode(0x2013) : new Intl.NumberFormat('en-IE').format(Math.round(v));
+  const pct = (v) => v === null || v === undefined || !isFinite(v) ? String.fromCharCode(0x2013) : (Math.round(v * 100) / 100) + '%';
+  const fmtDate = (d) => { const dt = new Date(d + 'T00:00:00Z'); return dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' }); };
+  const el = (tag, attrs, text) => {
+    const n = document.createElement(tag);
+    for (const k in attrs || {}) n.setAttribute(k, attrs[k]);
+    if (text !== undefined) n.textContent = text;
+    return n;
+  };
+  const svgEl = (tag, attrs) => {
+    const n = document.createElementNS(NS, tag);
+    for (const k in attrs || {}) n.setAttribute(k, attrs[k]);
+    return n;
+  };
+
+  function niceTicks(max) {
+    if (!(max > 0)) return [0, 1];
+    const raw = max / 4;
+    const mag = Math.pow(10, Math.floor(Math.log10(raw)));
+    const step = [1, 2, 2.5, 5, 10].map((m) => m * mag).find((s) => s >= raw) || mag * 10;
+    const ticks = [];
+    for (let v = 0; v <= max * 1.001; v += step) ticks.push(Math.round(v * 100) / 100);
+    if (ticks[ticks.length - 1] < max) ticks.push(ticks[ticks.length - 1] + step);
+    return ticks;
+  }
+
+  /* Multi-series daily line chart with crosshair tooltip and table twin. */
+  function lineChart(rows, series, opts) {
+    const fig = el('figure', { class: 'chart' });
+    const cap = el('figcaption');
+    cap.appendChild(el('span', { class: 'title' }, opts.title));
+    if (series.length > 1) {
+      const legend = el('div', { class: 'legend' });
+      for (const s of series) {
+        const key = el('span', { class: 'key' });
+        const swatch = el('i');
+        swatch.style.background = css(s.color);
+        key.appendChild(swatch);
+        key.appendChild(document.createTextNode(s.name));
+        legend.appendChild(key);
+      }
+      cap.appendChild(legend);
+    }
+    const tools = el('div', { class: 'tools' });
+    const tblBtn = el('button', { type: 'button', 'aria-pressed': 'false' }, 'Table');
+    tools.appendChild(tblBtn);
+    cap.appendChild(tools);
+    fig.appendChild(cap);
+
+    const plot = el('div', { class: 'plot' });
+    fig.appendChild(plot);
+
+    const W = 960, H = 300, padL = 54, padR = 86, padT = 12, padB = 28;
+    const iw = W - padL - padR, ih = H - padT - padB;
+    const n = rows.length;
+    const max = Math.max(1, ...series.flatMap((s) => rows.map((r) => r[s.key] || 0)));
+    const ticks = niceTicks(max);
+    const yMax = ticks[ticks.length - 1];
+    const x = (i) => padL + (n <= 1 ? iw / 2 : (i / (n - 1)) * iw);
+    const y = (v) => padT + ih - (v / yMax) * ih;
+
+    const svg = svgEl('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': opts.title });
+    for (const t of ticks) {
+      svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: y(t), y2: y(t), stroke: css('--grid'), 'stroke-width': 1 }));
+      const lbl = svgEl('text', { x: padL - 8, y: y(t) + 4, 'text-anchor': 'end', fill: css('--muted'), 'font-size': 11 });
+      lbl.textContent = opts.money ? eur(t, 0) : int(t);
+      svg.appendChild(lbl);
+    }
+    svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: y(0), y2: y(0), stroke: css('--baseline'), 'stroke-width': 1 }));
+    const nLabels = Math.min(6, n);
+    for (let li = 0; li < nLabels; li++) {
+      const i = Math.round(li * (n - 1) / Math.max(1, nLabels - 1));
+      const lbl = svgEl('text', { x: x(i), y: H - 8, 'text-anchor': 'middle', fill: css('--muted'), 'font-size': 11 });
+      lbl.textContent = fmtDate(rows[i].date);
+      svg.appendChild(lbl);
+    }
+    for (const s of series) {
+      const d = rows.map((r, i) => (i ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(r[s.key] || 0).toFixed(1)).join(' ');
+      svg.appendChild(svgEl('path', { d, fill: 'none', stroke: css(s.color), 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
+      const last = rows[n - 1];
+      const ex = x(n - 1), ey = y(last[s.key] || 0);
+      svg.appendChild(svgEl('circle', { cx: ex, cy: ey, r: 4, fill: css(s.color), stroke: css('--surface'), 'stroke-width': 2 }));
+      const endLbl = svgEl('text', { x: ex + 9, y: ey + 4, fill: css('--ink-2'), 'font-size': 11.5, 'font-weight': 600 });
+      endLbl.textContent = opts.money ? eur(last[s.key] || 0, 0) : int(last[s.key] || 0);
+      svg.appendChild(endLbl);
+    }
+    const cross = svgEl('line', { y1: padT, y2: padT + ih, stroke: css('--baseline'), 'stroke-width': 1, visibility: 'hidden' });
+    svg.appendChild(cross);
+    const hoverDots = series.map((s) => {
+      const c = svgEl('circle', { r: 4.5, fill: css(s.color), stroke: css('--surface'), 'stroke-width': 2, visibility: 'hidden' });
+      svg.appendChild(c);
+      return c;
+    });
+    const overlay = svgEl('rect', { x: padL, y: padT, width: iw, height: ih, fill: 'transparent' });
+    svg.appendChild(overlay);
+    plot.appendChild(svg);
+
+    const tip = el('div', { class: 'tooltip' });
+    plot.appendChild(tip);
+    const hide = () => { tip.style.display = 'none'; cross.setAttribute('visibility', 'hidden'); hoverDots.forEach((d) => d.setAttribute('visibility', 'hidden')); };
+    overlay.addEventListener('pointerleave', hide);
+    overlay.addEventListener('pointermove', (ev) => {
+      const rect = svg.getBoundingClientRect();
+      const px = (ev.clientX - rect.left) * (W / rect.width);
+      const i = Math.max(0, Math.min(n - 1, Math.round((px - padL) / (iw || 1) * (n - 1))));
+      const r = rows[i];
+      cross.setAttribute('x1', x(i)); cross.setAttribute('x2', x(i));
+      cross.setAttribute('visibility', 'visible');
+      tip.textContent = '';
+      tip.appendChild(el('div', { class: 't-date' }, fmtDate(r.date) + ' ' + r.date.slice(0, 4)));
+      series.forEach((s, si) => {
+        hoverDots[si].setAttribute('cx', x(i));
+        hoverDots[si].setAttribute('cy', y(r[s.key] || 0));
+        hoverDots[si].setAttribute('visibility', 'visible');
+        const row = el('div', { class: 't-row' });
+        const sw = el('i'); sw.style.background = css(s.color);
+        row.appendChild(sw);
+        row.appendChild(el('span', {}, s.name));
+        row.appendChild(el('span', { class: 'v' }, opts.money ? eur(r[s.key] || 0) : int(r[s.key] || 0)));
+        tip.appendChild(row);
+      });
+      tip.style.display = 'block';
+      const tipX = Math.min(rect.width - tip.offsetWidth - 8, Math.max(8, (x(i) / W) * rect.width + 14));
+      tip.style.left = tipX + 'px';
+      tip.style.top = '10px';
+    });
+
+    const table = el('table', { class: 'data', hidden: 'hidden' });
+    const thead = el('thead'); const hr = el('tr');
+    hr.appendChild(el('th', {}, 'Date'));
+    for (const s of series) hr.appendChild(el('th', {}, s.name));
+    thead.appendChild(hr); table.appendChild(thead);
+    const tbody = el('tbody');
+    for (let i = n - 1; i >= 0; i--) {
+      const tr = el('tr');
+      tr.appendChild(el('td', {}, rows[i].date));
+      for (const s of series) tr.appendChild(el('td', {}, opts.money ? eur(rows[i][s.key] || 0) : int(rows[i][s.key] || 0)));
+      tbody.appendChild(tr);
+      if (n - i > 120) break;
+    }
+    table.appendChild(tbody);
+    fig.appendChild(table);
+    tblBtn.addEventListener('click', () => {
+      const showTable = table.hidden;
+      table.hidden = !showTable; plot.hidden = showTable;
+      tblBtn.setAttribute('aria-pressed', String(showTable));
+    });
+    return fig;
+  }
+
+  /* Single-series column chart with per-bar tooltip and table twin. */
+  function barChart(rows, key, color, opts) {
+    const fig = el('figure', { class: 'chart' });
+    const cap = el('figcaption');
+    cap.appendChild(el('span', { class: 'title' }, opts.title));
+    const tools = el('div', { class: 'tools' });
+    const tblBtn = el('button', { type: 'button', 'aria-pressed': 'false' }, 'Table');
+    tools.appendChild(tblBtn); cap.appendChild(tools); fig.appendChild(cap);
+    const plot = el('div', { class: 'plot' }); fig.appendChild(plot);
+
+    const W = 960, H = 220, padL = 44, padR = 12, padT = 10, padB = 28;
+    const iw = W - padL - padR, ih = H - padT - padB;
+    const n = rows.length;
+    const max = Math.max(1, ...rows.map((r) => r[key] || 0));
+    const ticks = niceTicks(max);
+    const yMax = ticks[ticks.length - 1];
+    const bandW = iw / Math.max(1, n);
+    const barW = Math.min(24, Math.max(1.5, bandW - 2));
+    const y = (v) => padT + ih - (v / yMax) * ih;
+
+    const svg = svgEl('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': opts.title });
+    for (const t of ticks) {
+      svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: y(t), y2: y(t), stroke: css('--grid'), 'stroke-width': 1 }));
+      const lbl = svgEl('text', { x: padL - 7, y: y(t) + 4, 'text-anchor': 'end', fill: css('--muted'), 'font-size': 11 });
+      lbl.textContent = int(t);
+      svg.appendChild(lbl);
+    }
+    svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: y(0), y2: y(0), stroke: css('--baseline'), 'stroke-width': 1 }));
+    const nLabels = Math.min(6, n);
+    for (let li = 0; li < nLabels; li++) {
+      const i = Math.round(li * (n - 1) / Math.max(1, nLabels - 1));
+      const lbl = svgEl('text', { x: padL + i * bandW + bandW / 2, y: H - 8, 'text-anchor': 'middle', fill: css('--muted'), 'font-size': 11 });
+      lbl.textContent = fmtDate(rows[i].date);
+      svg.appendChild(lbl);
+    }
+    const tip = el('div', { class: 'tooltip' });
+    rows.forEach((r, i) => {
+      const v = r[key] || 0;
+      const bx = padL + i * bandW + (bandW - barW) / 2;
+      const by = y(v), bh = Math.max(0, y(0) - by);
+      const rTop = Math.min(4, barW / 2, bh);
+      const d = 'M' + bx + ' ' + (by + bh) + ' v' + (-(bh - rTop)) +
+        ' q0 ' + (-rTop) + ' ' + rTop + ' ' + (-rTop) + ' h' + (barW - 2 * rTop) +
+        ' q' + rTop + ' 0 ' + rTop + ' ' + rTop + ' v' + (bh - rTop) + ' z';
+      const bar = svgEl('path', { d: bh > 0 ? d : 'M0 0', fill: css(color) });
+      const hit = svgEl('rect', { x: padL + i * bandW, y: padT, width: bandW, height: ih, fill: 'transparent' });
+      hit.addEventListener('pointerenter', () => {
+        bar.setAttribute('opacity', '0.75');
+        tip.textContent = '';
+        tip.appendChild(el('div', { class: 't-date' }, fmtDate(r.date) + ' ' + r.date.slice(0, 4)));
+        const row = el('div', { class: 't-row' });
+        row.appendChild(el('span', {}, opts.seriesName));
+        row.appendChild(el('span', { class: 'v' }, int(v)));
+        tip.appendChild(row);
+        tip.style.display = 'block';
+        const rect = svg.getBoundingClientRect();
+        tip.style.left = Math.min(rect.width - 140, Math.max(8, ((bx + barW / 2) / W) * rect.width)) + 'px';
+        tip.style.top = '8px';
+      });
+      hit.addEventListener('pointerleave', () => { bar.removeAttribute('opacity'); tip.style.display = 'none'; });
+      svg.appendChild(bar);
+      svg.appendChild(hit);
+    });
+    plot.appendChild(svg);
+    plot.appendChild(tip);
+
+    const table = el('table', { class: 'data', hidden: 'hidden' });
+    const hr = el('tr');
+    hr.appendChild(el('th', {}, 'Date'));
+    hr.appendChild(el('th', {}, opts.seriesName));
+    const thead = el('thead'); thead.appendChild(hr); table.appendChild(thead);
+    const tbody = el('tbody');
+    for (let i = n - 1; i >= 0 && n - i <= 120; i--) {
+      const tr = el('tr');
+      tr.appendChild(el('td', {}, rows[i].date));
+      tr.appendChild(el('td', {}, int(rows[i][key] || 0)));
+      tbody.appendChild(tr);
+    }
+    table.appendChild(tbody); fig.appendChild(table);
+    tblBtn.addEventListener('click', () => {
+      const showTable = table.hidden;
+      table.hidden = !showTable; plot.hidden = showTable;
+      tblBtn.setAttribute('aria-pressed', String(showTable));
+    });
+    return fig;
+  }
+
+  function statTile(label, value, delta, deltaClass) {
+    const card = el('div', { class: 'card' });
+    card.appendChild(el('div', { class: 'label' }, label));
+    card.appendChild(el('div', { class: 'value' }, value));
+    if (delta) card.appendChild(el('div', { class: 'delta' + (deltaClass ? ' ' + deltaClass : '') }, delta));
+    return card;
+  }
+
+  const FUNNEL_LABELS = {
+    impressions: 'Ad impressions', clicks: 'Ad clicks', installs: 'Installs (Meta)',
+    new_customers: 'New customers (RC)', trials: 'Trials started', payers: 'New payers',
+  };
+
+  function render() {
+    const p = state.payload;
+    $('generated-at').textContent = 'updated ' + new Date(p.generatedAt).toLocaleString('en-GB');
+
+    const banner = $('banner');
+    banner.textContent = '';
+    if (p.warnings && p.warnings.length) {
+      const box = el('div', { class: 'banner' });
+      box.appendChild(el('b', {}, 'Warnings'));
+      const ul = el('ul');
+      for (const w of p.warnings) ul.appendChild(el('li', {}, w));
+      box.appendChild(ul);
+      banner.appendChild(box);
+    }
+
+    const c = el('div');
+    const be = p.breakEven;
+
+    /* Hero */
+    const hero = el('div', { class: 'card hero' });
+    const left = el('div');
+    left.appendChild(el('div', { class: 'label', style: 'color:var(--muted);font-size:12px' },
+      'Break-even gap since ' + (be.sinceDate ? fmtDate(be.sinceDate) + ' ' + be.sinceDate.slice(0, 4) : 'ads started') + ' (net revenue minus ad spend)'));
+    left.appendChild(el('div', { class: 'big' }, eur(be.gap)));
+    const chip = el('span', { class: 'chip ' + (be.brokenEven ? 'good' : 'bad') },
+      be.brokenEven ? String.fromCharCode(0x2713) + ' Break-even reached' : String.fromCharCode(0x25BC) + ' Under water');
+    left.appendChild(chip);
+    hero.appendChild(left);
+    const right = el('div', { class: 'sub' });
+    const cov = be.coverage === null ? null : Math.round(be.coverage * 100);
+    right.appendChild(el('div', {}, 'Net revenue ' + eur(be.totalNet) + ' vs ad spend ' + eur(be.totalSpend) +
+      (cov !== null ? ' (' + cov + '% covered)' : '')));
+    let projText;
+    if (be.projectionState === 'broken_even') projText = 'Revenue has covered all ad spend to date.';
+    else if (be.projectionState === 'projected') projText = 'At current run rates (' + eur(be.netRatePerDay) + '/day net vs ' + eur(be.spendRatePerDay) + '/day spend), break-even lands around ' + fmtDate(be.projectedDate) + ' ' + be.projectedDate.slice(0, 4) + ' (' + be.daysToBreakEven + ' days).';
+    else if (be.projectionState === 'diverging') projText = 'Spend rate (' + eur(be.spendRatePerDay) + '/day) currently exceeds net revenue rate (' + eur(be.netRatePerDay) + '/day): the gap is widening, no break-even date at current trajectory.';
+    else projText = 'No ad spend found yet.';
+    right.appendChild(el('div', { style: 'margin-top:6px' }, projText));
+    hero.appendChild(right);
+    c.appendChild(hero);
+
+    /* Cumulative chart (all-time by nature, above the filter row) */
+    if (p.rows.length > 1) {
+      const sec = el('section');
+      sec.appendChild(lineChart(p.rows, [
+        { key: 'cumNet', name: 'Cumulative net revenue', color: '--net' },
+        { key: 'cumSpend', name: 'Cumulative ad spend', color: '--spend' },
+      ], { title: 'Race to break-even', money: true }));
+      c.appendChild(sec);
+    }
+
+    /* Snapshot tiles */
+    const snapSec = el('section');
+    snapSec.appendChild(el('h2', {}, 'Now'));
+    const snap = el('div', { class: 'grid cards' });
+    const s = p.snapshot;
+    snap.appendChild(statTile('MRR', eur(s.mrr)));
+    snap.appendChild(statTile('Active paid subs', int(s.activeSubscriptions)));
+    snap.appendChild(statTile('Active trials', int(s.activeTrials)));
+    snap.appendChild(statTile('Revenue last 28d (gross)', eur(s.revenueLast28d)));
+    snap.appendChild(statTile('LTV / payer (net est.)', eur(s.ltvPerPayer)));
+    if (s.db) snap.appendChild(statTile('App users', int(s.db.totalUsers), int(s.db.entitled) + ' entitled in DB'));
+    snapSec.appendChild(snap);
+    c.appendChild(snapSec);
+
+    /* Filter row */
+    const filters = el('div', { class: 'filters' });
+    filters.appendChild(el('span', { class: 'lbl' }, 'Range'));
+    for (const [k, label] of [['7', 'Last 7 days'], ['30', 'Last 30 days'], ['90', 'Last 90 days'], ['all', 'All time']]) {
+      const b = el('button', { type: 'button', 'aria-pressed': String(state.win === k) }, label);
+      b.addEventListener('click', () => { state.win = k; render(); });
+      filters.appendChild(b);
+    }
+    c.appendChild(filters);
+
+    const w = p.windows[state.win];
+    const winRows = state.win === 'all' ? p.rows : p.rows.slice(-Number(state.win));
+
+    /* Window tiles */
+    const winSec = el('section');
+    const tiles = el('div', { class: 'grid cards' });
+    tiles.appendChild(statTile('Ad spend', eur(w.totals.spend)));
+    tiles.appendChild(statTile('Net revenue', eur(w.totals.net),
+      'iOS ' + eur(w.totals.iosNet) + ' | web ' + eur(w.totals.webNet)));
+    const winCov = w.totals.spend > 0 ? Math.round(w.totals.net / w.totals.spend * 100) : null;
+    tiles.appendChild(statTile('Coverage', winCov === null ? String.fromCharCode(0x2013) : winCov + '%',
+      winCov === null ? undefined : (winCov >= 100 ? 'above break-even' : 'of spend recovered'), winCov !== null && winCov >= 100 ? 'good' : winCov !== null ? 'bad' : undefined));
+    tiles.appendChild(statTile('CAC / payer', eur(w.needed.currentCac), w.needed.ltvToCac !== null ? 'LTV:CAC ' + w.needed.ltvToCac : undefined,
+      w.needed.ltvToCac === null ? undefined : w.needed.ltvToCac >= 1 ? 'good' : 'bad'));
+    tiles.appendChild(statTile('Store take (est.)', pct(w.effectiveTakeRatePct), 'VAT + Apple commission, iOS'));
+    tiles.appendChild(statTile('Signups', int(w.totals.signups)));
+    winSec.appendChild(tiles);
+    c.appendChild(winSec);
+
+    /* Daily chart */
+    if (winRows.length > 1) {
+      const sec = el('section');
+      sec.appendChild(lineChart(winRows, [
+        { key: 'net', name: 'Net revenue / day', color: '--net' },
+        { key: 'spend', name: 'Ad spend / day', color: '--spend' },
+      ], { title: 'Daily spend vs daily net revenue', money: true }));
+      c.appendChild(sec);
+    }
+
+    /* Funnel table */
+    const funSec = el('section');
+    funSec.appendChild(el('h2', {}, 'Funnel (' + (state.win === 'all' ? 'all time' : 'last ' + state.win + ' days') + ')'));
+    const funCard = el('div', { class: 'card' });
+    const funTable = el('table', { class: 'data' });
+    const fh = el('tr');
+    for (const h of ['Stage', 'Count', 'From previous', '', 'Cost per']) fh.appendChild(el('th', {}, h));
+    const fthead = el('thead'); fthead.appendChild(fh); funTable.appendChild(fthead);
+    const ftbody = el('tbody');
+    for (const stage of w.funnel) {
+      const tr = el('tr');
+      tr.appendChild(el('td', {}, FUNNEL_LABELS[stage.key] || stage.key));
+      tr.appendChild(el('td', {}, int(stage.count)));
+      tr.appendChild(el('td', {}, stage.rate === null ? '' : pct(stage.rate)));
+      const meterTd = el('td');
+      if (stage.rate !== null) {
+        const meter = el('div', { class: 'meter' });
+        const fill = el('i');
+        fill.style.width = Math.max(2, Math.min(100, stage.rate)) + '%';
+        meter.appendChild(fill);
+        meterTd.appendChild(meter);
+      }
+      tr.appendChild(meterTd);
+      tr.appendChild(el('td', {}, stage.costPer === null ? '' : eur(stage.costPer)));
+      ftbody.appendChild(tr);
+    }
+    funTable.appendChild(ftbody);
+    funCard.appendChild(funTable);
+    funSec.appendChild(funCard);
+    c.appendChild(funSec);
+
+    /* What's needed */
+    const needSec = el('section');
+    needSec.appendChild(el('h2', {}, 'What break-even needs (rates scaled to 30 days)'));
+    const needGrid = el('div', { class: 'grid cards' });
+    const nd = w.needed;
+    needGrid.appendChild(statTile('Monthly spend rate', eur(nd.monthlySpend)));
+    needGrid.appendChild(statTile('Monthly net rate', eur(nd.monthlyNet),
+      nd.monthlyGapEur > 0 ? eur(nd.monthlyGapEur) + '/mo short' : 'covers spend', nd.monthlyGapEur > 0 ? 'bad' : 'good'));
+    needGrid.appendChild(statTile('Net ARPU / payer / mo', eur(nd.netArpuPerPayer)));
+    needGrid.appendChild(statTile('Payers needed', int(nd.requiredActivePayers),
+      nd.additionalPayersNeeded !== null ? '+' + int(nd.additionalPayersNeeded) + ' more than today' : undefined));
+    needGrid.appendChild(statTile('Install to payer', pct(nd.installToPayerRate)));
+    needGrid.appendChild(statTile('Max sustainable CPI', eur(nd.maxSustainableCpi), 'LTV x install-to-payer rate'));
+    needSec.appendChild(needGrid);
+    c.appendChild(needSec);
+
+    /* Signups chart */
+    if (winRows.length > 1) {
+      const sec = el('section');
+      sec.appendChild(barChart(winRows, 'signups', '--signups', { title: 'Signups per day', seriesName: 'Signups' }));
+      c.appendChild(sec);
+    }
+
+    /* Monthly table */
+    const moSec = el('section');
+    moSec.appendChild(el('h2', {}, 'Monthly'));
+    const moCard = el('div', { class: 'card' });
+    const mt = el('table', { class: 'data' });
+    const mh = el('tr');
+    for (const h of ['Month', 'Ad spend', 'Gross revenue', 'Net revenue', 'ROAS (net)', 'Signups', 'New payers']) mh.appendChild(el('th', {}, h));
+    const mthead = el('thead'); mthead.appendChild(mh); mt.appendChild(mthead);
+    const mtbody = el('tbody');
+    for (const m of [...p.monthly].reverse()) {
+      const tr = el('tr');
+      tr.appendChild(el('td', {}, m.month));
+      tr.appendChild(el('td', {}, eur(m.spend)));
+      tr.appendChild(el('td', {}, eur(m.gross)));
+      tr.appendChild(el('td', {}, eur(m.net)));
+      const roasTd = el('td');
+      if (m.roas !== null) {
+        const d = el('span', { class: 'dot' });
+        d.style.background = css(m.roas >= 1 ? '--good' : '--critical');
+        roasTd.appendChild(d);
+        roasTd.appendChild(document.createTextNode(m.roas.toFixed(2)));
+      } else roasTd.textContent = String.fromCharCode(0x2013);
+      tr.appendChild(roasTd);
+      tr.appendChild(el('td', {}, int(m.signups)));
+      tr.appendChild(el('td', {}, int(m.newPayers)));
+      mtbody.appendChild(tr);
+    }
+    mt.appendChild(mtbody);
+    moCard.appendChild(mt);
+    moSec.appendChild(moCard);
+    c.appendChild(moSec);
+
+    /* Sanity + sources */
+    const src = el('div', { class: 'src' });
+    const parts = [];
+    if (s.db) parts.push('DB entitled ' + s.db.entitled + ' (strict active ' + s.db.activeStatus + ', on trial ' + s.db.onTrial + ', lapsed ' + s.db.lapsed + ') vs RC active subs ' + (s.activeSubscriptions ?? '?'));
+    for (const [name, st] of Object.entries(p.sources)) parts.push(name + ': ' + (st.configured === false ? 'off' : st.ok ? 'ok' : 'FAILED'));
+    src.appendChild(el('b', {}, 'Sources '));
+    src.appendChild(document.createTextNode(parts.join(' | ')));
+    c.appendChild(src);
+
+    const content = $('content');
+    content.textContent = '';
+    content.appendChild(c);
+    content.classList.remove('refetching');
+  }
+
+  function showLogin(show, errText) {
+    $('login').hidden = !show;
+    $('login-err').textContent = errText || '';
+    if (show) $('content').textContent = '';
+  }
+
+  /* Resolve how to call the data endpoint: explicit ?key= wins (function
+     mode / curl-style), otherwise a Supabase session (static viewer). */
+  async function resolveRequest(refresh) {
+    const key = new URLSearchParams(location.search).get('key');
+    const q = new URLSearchParams({ data: '1' });
+    if (refresh) q.set('refresh', '1');
+    if (key) {
+      q.set('key', key);
+      const base = DATA_URL || location.pathname.replace(/\/+$/, '');
+      return { url: base + '?' + q.toString(), headers: {} };
+    }
+    if (SB) {
+      const { data } = await SB.auth.getSession();
+      if (!data || !data.session) return null;
+      return { url: DATA_URL + '?' + q.toString(), headers: { Authorization: 'Bearer ' + data.session.access_token }, session: true };
+    }
+    return { url: location.pathname.replace(/\/+$/, '') + '?' + q.toString(), headers: {} };
+  }
+
+  async function load(refresh) {
+    const content = $('content');
+    if (state.payload) content.classList.add('refetching');
+    const req = await resolveRequest(refresh);
+    if (!req) { showLogin(true); return; }
+    showLogin(false);
+    $('btn-signout').hidden = !req.session;
+    try {
+      const res = await fetch(req.url, { headers: req.headers });
+      if (res.status === 401 && req.session) {
+        state.payload = null;
+        showLogin(true, 'This account is not authorized.');
+        return;
+      }
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      state.payload = await res.json();
+      render();
+    } catch (err) {
+      const msg = el('p', { class: 'banner' }, 'Failed to load data: ' + (err && err.message ? err.message : String(err)));
+      if (!state.payload) { content.textContent = ''; content.appendChild(msg); }
+      else content.classList.remove('refetching');
+    }
+  }
+
+  $('btn-refresh').addEventListener('click', () => load(true));
+  if (SB) {
+    document.querySelectorAll('[data-provider]').forEach((b) => {
+      b.addEventListener('click', () => {
+        SB.auth.signInWithOAuth({
+          provider: b.getAttribute('data-provider'),
+          options: { redirectTo: location.origin + location.pathname },
+        });
+      });
+    });
+    $('btn-signout').addEventListener('click', async () => {
+      await SB.auth.signOut();
+      location.reload();
+    });
+    SB.auth.onAuthStateChange((ev) => {
+      if (ev === 'SIGNED_IN' && !state.payload) load(false);
+    });
+  }
+  load(false);
+  setInterval(() => load(false), 10 * 60 * 1000);
+})();
+</script>
+</body>
+</html>
