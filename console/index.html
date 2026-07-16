@@ -17,8 +17,12 @@
   --baseline: #c3c2b7;
   --border: rgba(11,11,11,0.10);
   --spend: #2a78d6;      /* categorical slot 1: ad spend */
-  --net: #1baf7a;        /* categorical slot 2: net revenue */
+  --net: #1baf7a;        /* categorical slot 2: net revenue + MRR */
   --signups: #4a3aa7;    /* categorical slot 5: signups */
+  --trials: #eda100;     /* categorical slot 3: trials (stock + flow) */
+  --paid: #008300;       /* categorical slot 4: paid subs (stock + flow) */
+  --installs: #e87ba4;   /* categorical slot 7: installs */
+  --customers: #eb6834;  /* categorical slot 8: new customers */
   --good: #0ca30c;
   --good-text: #006300;
   --critical: #d03b3b;
@@ -39,6 +43,10 @@
     --spend: #3987e5;
     --net: #199e70;
     --signups: #9085e9;
+    --trials: #c98500;
+    --paid: #008300;
+    --installs: #d55181;
+    --customers: #d95926;
     --good: #0ca30c;
     --good-text: #0ca30c;
     --critical: #d03b3b;
@@ -59,6 +67,10 @@
   --spend: #3987e5;
   --net: #199e70;
   --signups: #9085e9;
+  --trials: #c98500;
+  --paid: #008300;
+  --installs: #d55181;
+  --customers: #d95926;
   --good: #0ca30c;
   --good-text: #0ca30c;
   --critical: #d03b3b;
@@ -134,9 +146,14 @@ table.data th:first-child, table.data td:first-child { text-align: left; }
 table.data td { text-align: right; padding: 6px 8px; border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; }
 table.data tr:last-child td { border-bottom: none; }
 .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: baseline; }
-.filters { display: flex; gap: 8px; margin: 26px 0 12px; align-items: center; }
+.filters { display: flex; gap: 8px; margin: 26px 0 12px; align-items: center; flex-wrap: wrap; }
 .filters .lbl { color: var(--muted); font-size: 12px; margin-right: 4px; }
 .filters button[aria-pressed="true"] { color: var(--ink); font-weight: 650; border-color: var(--baseline); }
+.filters .custom { display: inline-flex; gap: 6px; align-items: center; margin-left: 8px; padding-left: 12px; border-left: 1px solid var(--grid); }
+.filters input[type="date"] {
+  font: inherit; font-size: 12.5px; color: var(--ink-2); background: var(--surface);
+  border: 1px solid var(--border); border-radius: 8px; padding: 4px 8px;
+}
 .meter { background: var(--meter-track); border-radius: 4px; height: 8px; width: 110px; overflow: hidden; }
 .meter > i { display: block; height: 100%; background: var(--meter-fill); border-radius: 4px; }
 .refetching { opacity: 0.55; transition: opacity .2s; }
@@ -175,7 +192,12 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
 (() => {
   const $ = (id) => document.getElementById(id);
   const NS = 'http://www.w3.org/2000/svg';
-  const state = { payload: null, win: '30', theme: localStorage.getItem('dash-theme') || 'auto' };
+  const state = {
+    payload: null,
+    range: { preset: '30' }, // {preset: '7'|'30'|'90'|'all'} or {from, to}
+    granularity: 'week', // spend-vs-revenue by-period chart
+    theme: localStorage.getItem('dash-theme') || 'auto',
+  };
 
   const applyTheme = () => {
     if (state.theme === 'auto') delete document.documentElement.dataset.theme;
@@ -210,6 +232,105 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
     for (const k in attrs || {}) n.setAttribute(k, attrs[k]);
     return n;
   };
+
+  const sum = (rows, key) => rows.reduce((t, r) => t + (r[key] || 0), 0);
+  const r2 = (v) => Math.round(v * 100) / 100;
+
+  /* Rows inside the selected range. */
+  function windowRows(rows) {
+    if (state.range.preset) {
+      return state.range.preset === 'all' ? rows : rows.slice(-Number(state.range.preset));
+    }
+    return rows.filter((r) => r.date >= state.range.from && r.date <= state.range.to);
+  }
+
+  /* Client-side mirror of the server's computeWindowStats so ANY custom
+     date range works without a round trip (full daily rows ship in the
+     payload). */
+  function winStats(rows, snapshot) {
+    const spend = r2(sum(rows, 'spend'));
+    const net = r2(sum(rows, 'net'));
+    const iosNet = r2(sum(rows, 'iosNet'));
+    const iosGross = r2(sum(rows, 'iosGross'));
+    const installs = sum(rows, 'installs');
+    const newPayers = sum(rows, 'newPayers');
+    const stages = [
+      ['impressions', sum(rows, 'impressions')],
+      ['clicks', sum(rows, 'clicks')],
+      ['installs', installs],
+      ['new_customers', sum(rows, 'newCustomers')],
+      ['trials', sum(rows, 'trialsNew')],
+      ['payers', newPayers],
+    ];
+    const funnel = stages.map(([key, count], i) => {
+      const prev = i > 0 ? stages[i - 1][1] : 0;
+      return {
+        key, count,
+        rate: i > 0 && prev > 0 ? r2(count / prev * 100) : null,
+        costPer: count > 0 ? r2(spend / count) : null,
+      };
+    });
+    const days = rows.length || 1;
+    const monthlySpend = spend / days * 30;
+    const monthlyNet = net / days * 30;
+    const arpu = snapshot.activePayers > 0 ? monthlyNet / snapshot.activePayers : null;
+    const required = arpu && arpu > 0 ? Math.ceil(monthlySpend / arpu) : null;
+    const instRate = installs > 0 ? newPayers / installs : null;
+    const ltv = snapshot.ltvPerPayer || 0;
+    const cac = newPayers > 0 ? r2(spend / newPayers) : null;
+    const first = rows[0] || {};
+    const last = rows[rows.length - 1] || {};
+    return {
+      totals: {
+        spend, net, iosNet, webNet: r2(sum(rows, 'webNet')),
+        gross: r2(iosGross + sum(rows, 'webGross')),
+        signups: sum(rows, 'signups'),
+        trialsNew: sum(rows, 'trialsNew'),
+        newPayers,
+        trialConversions: sum(rows, 'trialConversions'),
+      },
+      stocks: {
+        activeSubs: { start: first.activeSubs || 0, end: last.activeSubs || 0 },
+        activeTrials: { start: first.activeTrials || 0, end: last.activeTrials || 0 },
+        mrr: { start: first.mrr || 0, end: last.mrr || 0 },
+      },
+      funnel,
+      needed: {
+        monthlySpend: r2(monthlySpend),
+        monthlyNet: r2(monthlyNet),
+        monthlyGapEur: r2(monthlySpend - monthlyNet),
+        netArpuPerPayer: arpu !== null ? r2(arpu) : null,
+        requiredActivePayers: required,
+        additionalPayersNeeded: required !== null ? Math.max(0, required - snapshot.activePayers) : null,
+        installToPayerRate: instRate !== null ? r2(instRate * 100) : null,
+        maxSustainableCpi: instRate !== null && ltv > 0 ? r2(ltv * instRate) : null,
+        currentCac: cac,
+        ltvToCac: cac && cac > 0 && ltv > 0 ? r2(ltv / cac) : null,
+      },
+      effectiveTakeRatePct: iosGross > 0 ? r2((1 - iosNet / iosGross) * 100) : null,
+    };
+  }
+
+  /* Group daily rows into day/week(Mon)/month periods for the by-period
+     spend vs revenue comparison. */
+  function rollupPeriods(rows, granularity) {
+    const keyOf = (date) => {
+      if (granularity === 'day') return date;
+      if (granularity === 'month') return date.slice(0, 7);
+      const d = new Date(date + 'T00:00:00Z');
+      d.setUTCDate(d.getUTCDate() - ((d.getUTCDay() + 6) % 7));
+      return d.toISOString().slice(0, 10);
+    };
+    const byKey = new Map();
+    for (const row of rows) {
+      const k = keyOf(row.date);
+      let g = byKey.get(k);
+      if (!g) { g = { period: k, spend: 0, net: 0 }; byKey.set(k, g); }
+      g.spend += row.spend;
+      g.net += row.net;
+    }
+    return [...byKey.values()].map((g) => ({ period: g.period, spend: r2(g.spend), net: r2(g.net) }));
+  }
 
   function niceTicks(max) {
     if (!(max > 0)) return [0, 1];
@@ -433,6 +554,125 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
     return fig;
   }
 
+  /* Grouped-bar comparison of money series per period, with a granularity
+     toggle (display mode, so it lives in the chart tools like Table). */
+  function groupedBarChart(periods, series, opts) {
+    const fig = el('figure', { class: 'chart' });
+    const cap = el('figcaption');
+    cap.appendChild(el('span', { class: 'title' }, opts.title));
+    const legend = el('div', { class: 'legend' });
+    for (const s of series) {
+      const key = el('span', { class: 'key' });
+      const swatch = el('i', { class: 'rect' });
+      swatch.style.background = css(s.color);
+      key.appendChild(swatch);
+      key.appendChild(document.createTextNode(s.name));
+      legend.appendChild(key);
+    }
+    cap.appendChild(legend);
+    const tools = el('div', { class: 'tools' });
+    for (const g of ['day', 'week', 'month']) {
+      const b = el('button', { type: 'button', 'aria-pressed': String(state.granularity === g), style: 'margin-right:4px' }, g);
+      b.addEventListener('click', () => { state.granularity = g; render(); });
+      tools.appendChild(b);
+    }
+    const tblBtn = el('button', { type: 'button', 'aria-pressed': 'false' }, 'Table');
+    tools.appendChild(tblBtn);
+    cap.appendChild(tools);
+    fig.appendChild(cap);
+
+    const plot = el('div', { class: 'plot' });
+    fig.appendChild(plot);
+    const W = 960, H = 260, padL = 54, padR = 12, padT = 12, padB = 28;
+    const iw = W - padL - padR, ih = H - padT - padB;
+    const n = periods.length;
+    const max = Math.max(1, ...periods.flatMap((p) => series.map((s) => p[s.key] || 0)));
+    const ticks = niceTicks(max);
+    const yMax = ticks[ticks.length - 1];
+    const bandW = iw / Math.max(1, n);
+    const barW = Math.min(24, Math.max(1.5, (bandW - 2) / series.length - 2));
+    const y = (v) => padT + ih - (v / yMax) * ih;
+
+    const svg = svgEl('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img', 'aria-label': opts.title });
+    for (const t of ticks) {
+      svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: y(t), y2: y(t), stroke: css('--grid'), 'stroke-width': 1 }));
+      const lbl = svgEl('text', { x: padL - 8, y: y(t) + 4, 'text-anchor': 'end', fill: css('--muted'), 'font-size': 11 });
+      lbl.textContent = eur(t, 0);
+      svg.appendChild(lbl);
+    }
+    svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: y(0), y2: y(0), stroke: css('--baseline'), 'stroke-width': 1 }));
+    const nLabels = Math.min(8, n);
+    for (let li = 0; li < nLabels; li++) {
+      const i = Math.round(li * (n - 1) / Math.max(1, nLabels - 1));
+      const lbl = svgEl('text', { x: padL + i * bandW + bandW / 2, y: H - 8, 'text-anchor': 'middle', fill: css('--muted'), 'font-size': 11 });
+      lbl.textContent = periods[i].period.length === 7 ? periods[i].period : fmtDate(periods[i].period);
+      svg.appendChild(lbl);
+    }
+    const tip = el('div', { class: 'tooltip' });
+    periods.forEach((p, i) => {
+      const groupW = series.length * barW + (series.length - 1) * 2;
+      const gx = padL + i * bandW + (bandW - groupW) / 2;
+      const bars = [];
+      series.forEach((s, si) => {
+        const v = p[s.key] || 0;
+        const bx = gx + si * (barW + 2);
+        const by = y(v), bh = Math.max(0, y(0) - by);
+        const rTop = Math.min(4, barW / 2, bh);
+        const d = 'M' + bx + ' ' + (by + bh) + ' v' + (-(bh - rTop)) +
+          ' q0 ' + (-rTop) + ' ' + rTop + ' ' + (-rTop) + ' h' + (barW - 2 * rTop) +
+          ' q' + rTop + ' 0 ' + rTop + ' ' + rTop + ' v' + (bh - rTop) + ' z';
+        const bar = svgEl('path', { d: bh > 0 ? d : 'M0 0', fill: css(s.color) });
+        svg.appendChild(bar);
+        bars.push(bar);
+      });
+      const hit = svgEl('rect', { x: padL + i * bandW, y: padT, width: bandW, height: ih, fill: 'transparent' });
+      hit.addEventListener('pointerenter', () => {
+        bars.forEach((b) => b.setAttribute('opacity', '0.8'));
+        tip.textContent = '';
+        tip.appendChild(el('div', { class: 't-date' }, (opts.periodLabel || 'Period') + ' ' + p.period));
+        for (const s of series) {
+          const row = el('div', { class: 't-row' });
+          const sw = el('i'); sw.style.background = css(s.color);
+          row.appendChild(sw);
+          row.appendChild(el('span', {}, s.name));
+          row.appendChild(el('span', { class: 'v' }, eur(p[s.key] || 0)));
+          tip.appendChild(row);
+        }
+        tip.style.display = 'block';
+        const rect = svg.getBoundingClientRect();
+        tip.style.left = Math.min(rect.width - 150, Math.max(8, ((gx + groupW / 2) / W) * rect.width)) + 'px';
+        tip.style.top = '8px';
+      });
+      hit.addEventListener('pointerleave', () => { bars.forEach((b) => b.removeAttribute('opacity')); tip.style.display = 'none'; });
+      svg.appendChild(hit);
+    });
+    plot.appendChild(svg);
+    plot.appendChild(tip);
+
+    const table = el('table', { class: 'data', hidden: 'hidden' });
+    const hr = el('tr');
+    hr.appendChild(el('th', {}, 'Period'));
+    for (const s of series) hr.appendChild(el('th', {}, s.name));
+    hr.appendChild(el('th', {}, 'Net - spend'));
+    const thead = el('thead'); thead.appendChild(hr); table.appendChild(thead);
+    const tbody = el('tbody');
+    for (let i = n - 1; i >= 0 && n - i <= 60; i--) {
+      const tr = el('tr');
+      tr.appendChild(el('td', {}, periods[i].period));
+      for (const s of series) tr.appendChild(el('td', {}, eur(periods[i][s.key] || 0)));
+      tr.appendChild(el('td', {}, eur(r2((periods[i].net || 0) - (periods[i].spend || 0)))));
+      tbody.appendChild(tr);
+    }
+    table.appendChild(tbody);
+    fig.appendChild(table);
+    tblBtn.addEventListener('click', () => {
+      const showTable = table.hidden;
+      table.hidden = !showTable; plot.hidden = showTable;
+      tblBtn.setAttribute('aria-pressed', String(showTable));
+    });
+    return fig;
+  }
+
   function statTile(label, value, delta, deltaClass) {
     const card = el('div', { class: 'card' });
     card.appendChild(el('div', { class: 'label' }, label));
@@ -471,7 +711,7 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
       'Break-even gap since ' + (be.sinceDate ? fmtDate(be.sinceDate) + ' ' + be.sinceDate.slice(0, 4) : 'ads started') + ' (net revenue minus ad spend)'));
     left.appendChild(el('div', { class: 'big' }, eur(be.gap)));
     const chip = el('span', { class: 'chip ' + (be.brokenEven ? 'good' : 'bad') },
-      be.brokenEven ? String.fromCharCode(0x2713) + ' Break-even reached' : String.fromCharCode(0x25BC) + ' Under water');
+      be.brokenEven ? String.fromCharCode(0x2713) + ' Break-even reached' : 'Below break-even');
     left.appendChild(chip);
     hero.appendChild(left);
     const right = el('div', { class: 'sub' });
@@ -481,7 +721,7 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
     let projText;
     if (be.projectionState === 'broken_even') projText = 'Revenue has covered all ad spend to date.';
     else if (be.projectionState === 'projected') projText = 'At current run rates (' + eur(be.netRatePerDay) + '/day net vs ' + eur(be.spendRatePerDay) + '/day spend), break-even lands around ' + fmtDate(be.projectedDate) + ' ' + be.projectedDate.slice(0, 4) + ' (' + be.daysToBreakEven + ' days).';
-    else if (be.projectionState === 'diverging') projText = 'Spend rate (' + eur(be.spendRatePerDay) + '/day) currently exceeds net revenue rate (' + eur(be.netRatePerDay) + '/day): the gap is widening, no break-even date at current trajectory.';
+    else if (be.projectionState === 'diverging') projText = 'Run rates: ' + eur(be.netRatePerDay) + '/day net (trailing 28d) vs ' + eur(be.spendRatePerDay) + '/day spend (trailing 7d). A break-even date appears once the net rate passes the spend rate.';
     else projText = 'No ad spend found yet.';
     right.appendChild(el('div', { style: 'margin-top:6px' }, projText));
     hero.appendChild(right);
@@ -511,18 +751,41 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
     snapSec.appendChild(snap);
     c.appendChild(snapSec);
 
-    /* Filter row */
+    /* Filter row: presets + free date range. Scopes every chart, tile and
+       table below it. */
     const filters = el('div', { class: 'filters' });
     filters.appendChild(el('span', { class: 'lbl' }, 'Range'));
     for (const [k, label] of [['7', 'Last 7 days'], ['30', 'Last 30 days'], ['90', 'Last 90 days'], ['all', 'All time']]) {
-      const b = el('button', { type: 'button', 'aria-pressed': String(state.win === k) }, label);
-      b.addEventListener('click', () => { state.win = k; render(); });
+      const b = el('button', { type: 'button', 'aria-pressed': String(state.range.preset === k) }, label);
+      b.addEventListener('click', () => { state.range = { preset: k }; render(); });
       filters.appendChild(b);
     }
+    const custom = el('span', { class: 'custom' });
+    const minDate = p.rows.length ? p.rows[0].date : '';
+    const maxDate = p.rows.length ? p.rows[p.rows.length - 1].date : '';
+    const winRowsPreview = windowRows(p.rows);
+    const fromIn = el('input', { type: 'date', min: minDate, max: maxDate,
+      value: state.range.from || (winRowsPreview[0] ? winRowsPreview[0].date : minDate) });
+    const toIn = el('input', { type: 'date', min: minDate, max: maxDate,
+      value: state.range.to || maxDate });
+    const applyBtn = el('button', { type: 'button',
+      'aria-pressed': String(!state.range.preset) }, 'Apply');
+    applyBtn.addEventListener('click', () => {
+      const from = fromIn.value, to = toIn.value;
+      if (!from || !to || from > to) return;
+      state.range = { from, to };
+      render();
+    });
+    custom.appendChild(fromIn);
+    custom.appendChild(el('span', { class: 'lbl' }, 'to'));
+    custom.appendChild(toIn);
+    custom.appendChild(applyBtn);
+    filters.appendChild(custom);
     c.appendChild(filters);
 
-    const w = p.windows[state.win];
-    const winRows = state.win === 'all' ? p.rows : p.rows.slice(-Number(state.win));
+    const winRows = windowRows(p.rows);
+    const snapshot = { activePayers: s.activeSubscriptions || 0, ltvPerPayer: s.ltvPerPayer || 0 };
+    const w = winStats(winRows, snapshot);
 
     /* Window tiles */
     const winSec = el('section');
@@ -537,8 +800,27 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
       w.needed.ltvToCac === null ? undefined : w.needed.ltvToCac >= 1 ? 'good' : 'bad'));
     tiles.appendChild(statTile('Store take (est.)', pct(w.effectiveTakeRatePct), 'VAT + Apple commission, iOS'));
     tiles.appendChild(statTile('Signups', int(w.totals.signups)));
+    tiles.appendChild(statTile('Trials started', int(w.totals.trialsNew),
+      w.totals.trialConversions + ' converted to paid in range'));
+    const convRate = w.totals.trialsNew > 0 ? r2(w.totals.trialConversions / w.totals.trialsNew * 100) : null;
+    tiles.appendChild(statTile('Trial to paid', pct(convRate), 'conversions / trials started'));
+    tiles.appendChild(statTile('New payers', int(w.totals.newPayers),
+      w.totals.trialConversions + ' from trial, ' + (w.totals.newPayers - w.totals.trialConversions) + ' direct'));
+    const mrrDelta = r2(w.stocks.mrr.end - w.stocks.mrr.start);
+    tiles.appendChild(statTile('MRR', eur(w.stocks.mrr.end),
+      (mrrDelta >= 0 ? '+' : '') + eur(mrrDelta) + ' in range', mrrDelta >= 0 ? 'good' : 'bad'));
+    const subsDelta = w.stocks.activeSubs.end - w.stocks.activeSubs.start;
+    tiles.appendChild(statTile('Active paid subs', int(w.stocks.activeSubs.end),
+      (subsDelta >= 0 ? '+' : '') + subsDelta + ' in range', subsDelta >= 0 ? 'good' : 'bad'));
+    const trialsDelta = w.stocks.activeTrials.end - w.stocks.activeTrials.start;
+    tiles.appendChild(statTile('Active trials', int(w.stocks.activeTrials.end),
+      (trialsDelta >= 0 ? '+' : '') + trialsDelta + ' in range'));
     winSec.appendChild(tiles);
     c.appendChild(winSec);
+
+    const rangeLabel = state.range.preset
+      ? (state.range.preset === 'all' ? 'all time' : 'last ' + state.range.preset + ' days')
+      : state.range.from + ' to ' + state.range.to;
 
     /* Daily chart */
     if (winRows.length > 1) {
@@ -550,9 +832,45 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
       c.appendChild(sec);
     }
 
+    /* Spend vs revenue rolled up by period */
+    if (winRows.length > 1) {
+      const periods = rollupPeriods(winRows, state.granularity);
+      if (periods.length > 1) {
+        const sec = el('section');
+        sec.appendChild(groupedBarChart(periods, [
+          { key: 'spend', name: 'Ad spend', color: '--spend' },
+          { key: 'net', name: 'Net revenue', color: '--net' },
+        ], { title: 'Spend vs net revenue by ' + state.granularity, periodLabel: state.granularity === 'week' ? 'Week of' : 'Period' }));
+        c.appendChild(sec);
+      }
+    }
+
+    /* Subscriptions & trials: stock levels + acquisition flows */
+    if (winRows.length > 1) {
+      const sec1 = el('section');
+      sec1.appendChild(lineChart(winRows, [
+        { key: 'activeSubs', name: 'Active paid subs', color: '--paid' },
+        { key: 'activeTrials', name: 'Active trials', color: '--trials' },
+      ], { title: 'Active paid subscriptions and trials', money: false }));
+      c.appendChild(sec1);
+
+      const sec2 = el('section');
+      sec2.appendChild(lineChart(winRows, [
+        { key: 'trialsNew', name: 'Trials started / day', color: '--trials' },
+        { key: 'newPayers', name: 'New payers / day', color: '--paid' },
+      ], { title: 'Trials started vs new payers', money: false }));
+      c.appendChild(sec2);
+
+      const sec3 = el('section');
+      sec3.appendChild(lineChart(winRows, [
+        { key: 'mrr', name: 'MRR', color: '--net' },
+      ], { title: 'Monthly recurring revenue', money: true }));
+      c.appendChild(sec3);
+    }
+
     /* Funnel table */
     const funSec = el('section');
-    funSec.appendChild(el('h2', {}, 'Funnel (' + (state.win === 'all' ? 'all time' : 'last ' + state.win + ' days') + ')'));
+    funSec.appendChild(el('h2', {}, 'Funnel (' + rangeLabel + ')'));
     const funCard = el('div', { class: 'card' });
     const funTable = el('table', { class: 'data' });
     const fh = el('tr');
@@ -597,10 +915,14 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
     needSec.appendChild(needGrid);
     c.appendChild(needSec);
 
-    /* Signups chart */
+    /* Acquisition: signups (DB), installs (Meta), new customers (RC) */
     if (winRows.length > 1) {
       const sec = el('section');
-      sec.appendChild(barChart(winRows, 'signups', '--signups', { title: 'Signups per day', seriesName: 'Signups' }));
+      sec.appendChild(lineChart(winRows, [
+        { key: 'signups', name: 'Signups (DB)', color: '--signups' },
+        { key: 'installs', name: 'Installs (Meta)', color: '--installs' },
+        { key: 'newCustomers', name: 'New customers (RC)', color: '--customers' },
+      ], { title: 'Acquisition per day', money: false }));
       c.appendChild(sec);
     }
 
