@@ -26,7 +26,7 @@
   <meta property="og:image:alt" content="SecondBrain, the AI second brain app for your phone" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="it_IT" />
-  <meta property="og:updated_time" content="2026-07-15" />
+  <meta property="og:updated_time" content="2026-07-16" />
   <meta property="og:video" content="https://www.youtube-nocookie.com/embed/miiynvYCZf4" />
   <meta property="og:video:secure_url" content="https://www.youtube-nocookie.com/embed/miiynvYCZf4" />
   <meta property="og:video:type" content="text/html" />
@@ -51,20 +51,38 @@
         "url": "https://secondbrain.icu/",
         "name": "SecondBrain",
         "description": "AI-powered memory layer for your phone.",
-        "publisher": { "@id": "https://secondbrain.icu/#organization" },
-        "inLanguage": ["en", "it"]
+        "publisher": {
+          "@id": "https://secondbrain.icu/#organization"
+        },
+        "inLanguage": [
+          "en",
+          "it"
+        ]
       },
       {
         "@type": "WebPage",
         "@id": "https://secondbrain.icu/#webpage",
         "url": "https://secondbrain.icu/",
         "name": "SecondBrain: The AI Second Brain App for Your Phone",
-        "isPartOf": { "@id": "https://secondbrain.icu/#website" },
-        "about": { "@id": "https://secondbrain.icu/#organization" },
+        "isPartOf": {
+          "@id": "https://secondbrain.icu/#website"
+        },
+        "about": {
+          "@id": "https://secondbrain.icu/#organization"
+        },
         "primaryImageOfPage": "https://secondbrain.icu/assets/og-card.png",
-        "video": { "@id": "https://secondbrain.icu/#demo-video" },
-        "dateModified": "2026-07-15",
-        "inLanguage": "en"
+        "video": {
+          "@id": "https://secondbrain.icu/#demo-video"
+        },
+        "dateModified": "2026-07-16",
+        "inLanguage": "en",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [
+            ".hero-sub .lang-en",
+            ".faq-answer .lang-en"
+          ]
+        }
       },
       {
         "@type": "VideoObject",
@@ -80,17 +98,27 @@
         "contentUrl": "https://www.youtube.com/watch?v=miiynvYCZf4",
         "embedUrl": "https://www.youtube-nocookie.com/embed/miiynvYCZf4",
         "inLanguage": "en",
-        "publisher": { "@id": "https://secondbrain.icu/#organization" }
+        "publisher": {
+          "@id": "https://secondbrain.icu/#organization"
+        }
       },
       {
         "@type": "Organization",
         "@id": "https://secondbrain.icu/#organization",
         "name": "SecondBrain",
-        "alternateName": ["Second Brain", "SecondBrain App"],
+        "alternateName": [
+          "Second Brain",
+          "SecondBrain App"
+        ],
         "url": "https://secondbrain.icu/",
-        "logo": "https://secondbrain.icu/assets/logo-512.png",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://secondbrain.icu/assets/logo-512.png"
+        },
         "email": "info@secondbrain.icu",
-        "founder": { "@type": "Person", "name": "Federico Cesarini" },
+        "founder": {
+          "@id": "https://secondbrain.icu/#federico-cesarini"
+        },
         "sameAs": [
           "https://app.secondbrain.icu/",
           "https://apps.apple.com/it/app/secondbrain-ai-smart-memory/id6762130376",
@@ -98,12 +126,55 @@
           "https://github.com/fed3c3sa/secondbrain-shared-memory",
           "https://www.youtube.com/@SecondBrain-AISmartMemory",
           "https://www.instagram.com/secondbrain.memory/"
+        ],
+        "description": "SecondBrain is the AI second brain app for your phone. Speak once and it remembers: notes, calendar events and follow-ups, with a memory shared across ChatGPT, Claude and every AI you use via the Model Context Protocol (MCP).",
+        "slogan": "Just talk. SecondBrain remembers.",
+        "knowsAbout": [
+          "AI memory",
+          "Shared AI memory",
+          "Voice notes",
+          "Personal knowledge management",
+          "Model Context Protocol",
+          "AI assistants"
+        ],
+        "brand": {
+          "@type": "Brand",
+          "name": "SecondBrain"
+        },
+        "areaServed": "Worldwide",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "info@secondbrain.icu",
+          "availableLanguage": [
+            "English",
+            "Italian"
+          ]
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://secondbrain.icu/#federico-cesarini",
+        "name": "Federico Cesarini",
+        "url": "https://secondbrain.icu/",
+        "jobTitle": "Founder",
+        "worksFor": {
+          "@id": "https://secondbrain.icu/#organization"
+        },
+        "sameAs": [
+          "https://github.com/fed3c3sa"
         ]
       },
       {
         "@type": "MobileApplication",
         "name": "SecondBrain",
-        "alternateName": ["Second Brain", "SecondBrain App", "SecondBrain · AI Smart Memory"],
+        "alternateName": [
+          "Second Brain",
+          "SecondBrain App",
+          "SecondBrain · AI Smart Memory",
+          "SecondBrain: AI Voice Notes",
+          "SecondBrain: Note Vocali AI"
+        ],
         "description": "The AI second brain app for your phone. Speak once and it remembers: notes, calendar and follow-ups, with a memory shared across ChatGPT, Claude and every AI you use.",
         "operatingSystem": "iOS",
         "applicationCategory": "ProductivityApplication",
@@ -120,17 +191,30 @@
         ],
         "featureList": [
           "Voice capture that becomes structured notes",
-          "Automatic calendar events, contacts and follow-ups while you talk",
+          "Automatic calendar events and follow-ups while you talk",
           "Memory shared across ChatGPT, Claude and other AI assistants via the Model Context Protocol (MCP)",
           "Private, encrypted, isolated per user. No ads, no tracking, no training"
         ],
-        "publisher": { "@id": "https://secondbrain.icu/#organization" },
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        "publisher": {
+          "@id": "https://secondbrain.icu/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "@id": "https://secondbrain.icu/#app-ios",
+        "applicationSuite": "SecondBrain",
+        "datePublished": "2026-04-15"
       },
       {
         "@type": "MobileApplication",
         "name": "SecondBrain",
-        "alternateName": ["Second Brain", "SecondBrain App", "SecondBrain · AI Smart Memory"],
+        "alternateName": [
+          "Second Brain",
+          "SecondBrain App",
+          "SecondBrain · AI Smart Memory"
+        ],
         "description": "The AI second brain app for your phone. Speak once and it remembers: notes, calendar and follow-ups, with a memory shared across ChatGPT, Claude and every AI you use.",
         "operatingSystem": "ANDROID",
         "applicationCategory": "ProductivityApplication",
@@ -147,17 +231,29 @@
         ],
         "featureList": [
           "Voice capture that becomes structured notes",
-          "Automatic calendar events, contacts and follow-ups while you talk",
+          "Automatic calendar events and follow-ups while you talk",
           "Memory shared across ChatGPT, Claude and other AI assistants via the Model Context Protocol (MCP)",
           "Private, encrypted, isolated per user. No ads, no tracking, no training"
         ],
-        "publisher": { "@id": "https://secondbrain.icu/#organization" },
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        "publisher": {
+          "@id": "https://secondbrain.icu/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "@id": "https://secondbrain.icu/#app-android",
+        "applicationSuite": "SecondBrain"
       },
       {
         "@type": "WebApplication",
         "name": "SecondBrain",
-        "alternateName": ["Second Brain", "SecondBrain App", "SecondBrain Web App"],
+        "alternateName": [
+          "Second Brain",
+          "SecondBrain App",
+          "SecondBrain Web App"
+        ],
         "description": "The SecondBrain web app: your AI second brain in the browser. Capture by voice or text and it remembers: notes, calendar and follow-ups, with a memory shared across ChatGPT, Claude and every AI you use.",
         "operatingSystem": "Any",
         "browserRequirements": "Requires a modern web browser",
@@ -174,12 +270,20 @@
         ],
         "featureList": [
           "Voice capture that becomes structured notes",
-          "Automatic calendar events, contacts and follow-ups while you talk",
+          "Automatic calendar events and follow-ups while you talk",
           "Memory shared across ChatGPT, Claude and other AI assistants via the Model Context Protocol (MCP)",
           "Private, encrypted, isolated per user. No ads, no tracking, no training"
         ],
-        "publisher": { "@id": "https://secondbrain.icu/#organization" },
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        "publisher": {
+          "@id": "https://secondbrain.icu/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "@id": "https://secondbrain.icu/#app-web",
+        "applicationSuite": "SecondBrain"
       },
       {
         "@type": "FAQPage",
@@ -248,6 +352,54 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Notes apps wait for you to type, organize and re-read. SecondBrain works from your voice and does the filing for you, then makes that memory available to your AI assistants. Instead of searching a document, you just ask Claude or ChatGPT and get the answer from your own memory."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does SecondBrain compare to AI memory tools like Mem or Rewind?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most AI memory tools focus on one surface: capturing typed notes, recording your screen, or storing chat history inside a single app. SecondBrain is built around two things: voice capture that becomes structured notes, calendar events and reminders on your phone, and one shared memory your AI assistants read and write through MCP. The result is a memory you speak into once and can reach from Claude, ChatGPT, Gemini, Cursor or Claude Code, instead of a memory locked to one tool."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is SecondBrain different from ChatGPT's or Claude's built-in memory?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Built-in memory in ChatGPT or Claude stays inside that one assistant and that one account. SecondBrain keeps a single memory that you own and connects it to Claude, ChatGPT, Gemini, Cursor and Claude Code through the Model Context Protocol, so a note you save in one is available in all of them. It also captures from your voice on iPhone and Android, not only from a chat window."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the Model Context Protocol (MCP) connection work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Model Context Protocol (MCP) is an open standard that lets AI assistants call external tools and data sources. SecondBrain runs an MCP server that your assistant connects to after you sign in with Apple or Google, with no API keys to copy. Once connected, the assistant can save to and recall from your SecondBrain memory during a chat, and that same memory is shared across every assistant you connect."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is SecondBrain related to Tiago Forte's Building a Second Brain method?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The term second brain was popularized by Tiago Forte's book Building a Second Brain, which teaches a manual method for capturing and organizing notes. SecondBrain shares the same goal of a trusted external memory, but it works from your voice and files notes, events and reminders automatically, then makes that memory available to your AI assistants. It is an independent app and is not affiliated with Tiago Forte or his course."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where is my data stored?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "SecondBrain stores your notes, folders and calendar events in a Supabase PostgreSQL database hosted in the European Union, isolated per account with Row-Level Security so you can only reach your own data. Voice and text are processed in real time by Google Gemini on its paid API tier, which does not train on your content. Everything travels over HTTPS, and you can delete your account and all its data at any time from the app."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I export my data or take it with me?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can request a full export of your notes and data at any time by emailing info@secondbrain.icu. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days."
             }
           }
         ]
@@ -1361,7 +1513,7 @@
 </head>
 <body>
 <script>(function(){try{var l=localStorage.getItem('sb-lang');if(l!=='it'&&l!=='en')l='en';document.documentElement.lang=l;}catch(e){document.documentElement.lang='en';}})();</script>
-<a class="skip-link" href="#main"><span class="lang-en">Skip to content</span><span class="lang-it">Vai al contenuto</span></a>
+<a class="skip-link" href="#main"><span class="lang-en">Skip to content</span> <span class="lang-it">Vai al contenuto</span></a>
 
 <!-- ════════════════════════════════════════════════════════ -->
 <!-- TOP BAR                                                  -->
@@ -1373,13 +1525,13 @@
       <span>SecondBrain</span>
     </a>
     <nav class="nav-center">
-      <a href="#home" data-route="home" class="active"><span class="lang-en">Overview</span><span class="lang-it">Panoramica</span></a>
-      <a href="#video-jump" data-route="home" data-scroll-to="video"><span class="lang-en">How it works</span><span class="lang-it">Come funziona</span></a>
-      <a href="#install-page-jump" data-route="home" data-scroll-to="install"><span class="lang-en">Connect AI</span><span class="lang-it">Collega l'AI</span></a>
+      <a href="#home" data-route="home" class="active"><span class="lang-en">Overview</span> <span class="lang-it">Panoramica</span></a>
+      <a href="#video-jump" data-route="home" data-scroll-to="video"><span class="lang-en">How it works</span> <span class="lang-it">Come funziona</span></a>
+      <a href="#install-page-jump" data-route="home" data-scroll-to="install"><span class="lang-en">Connect AI</span> <span class="lang-it">Collega l'AI</span></a>
       <a href="https://app.secondbrain.icu/" target="_blank" rel="noopener">Web app</a>
       <a href="#faq-jump" data-route="home" data-scroll-to="faq">FAQ</a>
       <a href="#privacy" data-route="privacy">Privacy</a>
-      <a href="#support" data-route="support"><span class="lang-en">Support</span><span class="lang-it">Assistenza</span></a>
+      <a href="#support" data-route="support"><span class="lang-en">Support</span> <span class="lang-it">Assistenza</span></a>
     </nav>
     <div class="nav-right">
       <div class="lang-switch" role="group" aria-label="Language">
@@ -1469,7 +1621,7 @@
             <span class="video-play" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg>
             </span>
-            <span class="video-chip">3:14 · <span class="lang-en">Watch the demo</span><span class="lang-it">Guarda la demo</span></span>
+            <span class="video-chip">3:14 · <span class="lang-en">Watch the demo</span> <span class="lang-it">Guarda la demo</span></span>
           </a>
         </div>
       </div>
@@ -1478,7 +1630,7 @@
     <!-- THE APP · seven screens -->
     <section class="section" id="features">
       <div class="section-head">
-        <span class="eyebrow anim"><span class="lang-en">The app</span><span class="lang-it">L'app</span></span>
+        <span class="eyebrow anim"><span class="lang-en">The app</span> <span class="lang-it">L'app</span></span>
         <h2 class="anim d1">
           <span class="lang-en">Take a look.</span>
           <span class="lang-it">Dai un'occhiata.</span>
@@ -1509,7 +1661,7 @@
     <!-- SHARED MEMORY LAYER -->
     <section class="section" id="memory">
       <div class="section-head">
-        <span class="eyebrow anim"><span class="lang-en">Shared memory</span><span class="lang-it">Memoria condivisa</span></span>
+        <span class="eyebrow anim"><span class="lang-en">Shared memory</span> <span class="lang-it">Memoria condivisa</span></span>
         <h2 class="anim d1">
           <span class="lang-en">One memory. Every AI.</span>
           <span class="lang-it">Una memoria. Tutte le AI.</span>
@@ -1524,8 +1676,8 @@
 
         <div class="split anim">
           <div class="split-text">
-            <span class="eyebrow"><span class="lang-en">The problem</span><span class="lang-it">Il problema</span></span>
-            <h3><span class="lang-en">Every AI starts from zero.</span><span class="lang-it">Ogni AI riparte da zero.</span></h3>
+            <span class="eyebrow"><span class="lang-en">The problem</span> <span class="lang-it">Il problema</span></span>
+            <h3><span class="lang-en">Every AI starts from zero.</span> <span class="lang-it">Ogni AI riparte da zero.</span></h3>
             <p>
               <span class="lang-en">Every chat starts blank. SecondBrain gives your assistants one shared memory: <strong>yours.</strong></span>
               <span class="lang-it">Ogni chat riparte da una pagina bianca. SecondBrain dà ai tuoi assistenti un'unica memoria condivisa: <strong>la tua.</strong></span>
@@ -1543,7 +1695,7 @@
         <div class="split reverse anim">
           <div class="split-text">
             <span class="eyebrow">Claude</span>
-            <h3><span class="lang-en">Deepest with Claude.</span><span class="lang-it">Dà il meglio con Claude.</span></h3>
+            <h3><span class="lang-en">Deepest with Claude.</span> <span class="lang-it">Dà il meglio con Claude.</span></h3>
             <p>
               <span class="lang-en">One plugin makes SecondBrain Claude's long-term memory. It saves, recalls and sets reminders on its own.</span>
               <span class="lang-it">Un plugin trasforma SecondBrain nella memoria a lungo termine di Claude: salva, ricorda e crea promemoria da solo.</span>
@@ -1551,7 +1703,7 @@
           </div>
           <div class="split-media claude-media">
             <img src="assets/claude-logo.svg" alt="Claude" />
-            <span><span class="lang-en">Native Claude plugin</span><span class="lang-it">Plugin nativo per Claude</span></span>
+            <span><span class="lang-en">Native Claude plugin</span> <span class="lang-it">Plugin nativo per Claude</span></span>
           </div>
         </div>
 
@@ -1561,7 +1713,7 @@
     <!-- INSTALL -->
     <section class="section" id="install">
       <div class="section-head">
-        <span class="eyebrow anim"><span class="lang-en">Connect your AI</span><span class="lang-it">Collega la tua AI</span></span>
+        <span class="eyebrow anim"><span class="lang-en">Connect your AI</span> <span class="lang-it">Collega la tua AI</span></span>
         <h2 class="anim d1">
           <span class="lang-en">Claude, in three steps.</span>
           <span class="lang-it">Claude, in tre passi.</span>
@@ -1575,35 +1727,35 @@
       <div class="install-grid anim d1">
         <ol class="install-steps">
           <li>
-            <h4><span class="lang-en">Open Claude's plugins</span><span class="lang-it">Apri i plugin di Claude</span></h4>
-            <p><span class="lang-en">Settings → Plugins → "+" → <strong>Add marketplace</strong>.</span><span class="lang-it">Impostazioni → Plugin → "+" → <strong>Aggiungi marketplace</strong>.</span></p>
+            <h4><span class="lang-en">Open Claude's plugins</span> <span class="lang-it">Apri i plugin di Claude</span></h4>
+            <p><span class="lang-en">Settings → Plugins → "+" → <strong>Add marketplace</strong>.</span> <span class="lang-it">Impostazioni → Plugin → "+" → <strong>Aggiungi marketplace</strong>.</span></p>
           </li>
           <li>
-            <h4><span class="lang-en">Paste the marketplace</span><span class="lang-it">Incolla il marketplace</span></h4>
-            <p><span class="lang-en"><code class="kbd">fed3c3sa/secondbrain-shared-memory</code>, then install the <strong>SecondBrain</strong> plugin.</span><span class="lang-it"><code class="kbd">fed3c3sa/secondbrain-shared-memory</code>, poi installa il plugin <strong>SecondBrain</strong>.</span></p>
+            <h4><span class="lang-en">Paste the marketplace</span> <span class="lang-it">Incolla il marketplace</span></h4>
+            <p><span class="lang-en"><code class="kbd">fed3c3sa/secondbrain-shared-memory</code>, then install the <strong>SecondBrain</strong> plugin.</span> <span class="lang-it"><code class="kbd">fed3c3sa/secondbrain-shared-memory</code>, poi installa il plugin <strong>SecondBrain</strong>.</span></p>
           </li>
           <li>
-            <h4><span class="lang-en">Sign in</span><span class="lang-it">Accedi</span></h4>
-            <p><span class="lang-en">Press <strong>Connect</strong> and log in with Apple or Google. Done.</span><span class="lang-it">Premi <strong>Connect</strong> e accedi con Apple o Google. Fatto.</span></p>
+            <h4><span class="lang-en">Sign in</span> <span class="lang-it">Accedi</span></h4>
+            <p><span class="lang-en">Press <strong>Connect</strong> and log in with Apple or Google. Done.</span> <span class="lang-it">Premi <strong>Connect</strong> e accedi con Apple o Google. Fatto.</span></p>
           </li>
         </ol>
 
         <figure class="install-shot">
           <img class="lang-en" src="assets/claude-plugins-menu-en.webp" width="1186" height="622" decoding="async" alt="Claude plugins panel: the plus button opens Create plugin, then Add marketplace." loading="lazy" />
           <img class="lang-it" src="assets/claude-plugins-menu.webp" width="1186" height="622" decoding="async" alt="Pannello plugin di Claude: il pulsante più apre Crea plugin, poi Aggiungi marketplace." loading="lazy" />
-          <figcaption><span class="lang-en">Claude · Settings → Plugins → + → Add marketplace</span><span class="lang-it">Claude · Impostazioni → Plugin personali → + → Aggiungi marketplace</span></figcaption>
+          <figcaption><span class="lang-en">Claude · Settings → Plugins → + → Add marketplace</span> <span class="lang-it">Claude · Impostazioni → Plugin personali → + → Aggiungi marketplace</span></figcaption>
         </figure>
       </div>
 
       <div class="install-note anim d2">
-        <p class="note-line"><span class="lang-en"><strong>Claude Code:</strong> <code class="kbd">/plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, then <code class="kbd">/plugin install secondbrain@secondbrain</code> and <code class="kbd">/mcp</code> to sign in.</span><span class="lang-it"><strong>Claude Code:</strong> <code class="kbd">/plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, poi <code class="kbd">/plugin install secondbrain@secondbrain</code> e <code class="kbd">/mcp</code> per accedere.</span></p>
-        <p class="note-line"><span class="lang-en"><strong>ChatGPT, Gemini or Cursor:</strong> run <code class="kbd">npx secondbrain-connect</code> once.</span><span class="lang-it"><strong>ChatGPT, Gemini o Cursor:</strong> esegui <code class="kbd">npx secondbrain-connect</code> una volta.</span></p>
-        <p class="note-line"><span class="lang-en">Shared memory is a <strong>Pro</strong> feature. Turn it on in the app first.</span><span class="lang-it">La memoria condivisa è una funzione <strong>Pro</strong>: attivala prima nell'app.</span></p>
+        <p class="note-line"><span class="lang-en"><strong>Claude Code:</strong> <code class="kbd">/plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, then <code class="kbd">/plugin install secondbrain@secondbrain</code> and <code class="kbd">/mcp</code> to sign in.</span> <span class="lang-it"><strong>Claude Code:</strong> <code class="kbd">/plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, poi <code class="kbd">/plugin install secondbrain@secondbrain</code> e <code class="kbd">/mcp</code> per accedere.</span></p>
+        <p class="note-line"><span class="lang-en"><strong>ChatGPT, Gemini or Cursor:</strong> run <code class="kbd">npx secondbrain-connect</code> once.</span> <span class="lang-it"><strong>ChatGPT, Gemini o Cursor:</strong> esegui <code class="kbd">npx secondbrain-connect</code> una volta.</span></p>
+        <p class="note-line"><span class="lang-en">Shared memory is a <strong>Pro</strong> feature. Turn it on in the app first.</span> <span class="lang-it">La memoria condivisa è una funzione <strong>Pro</strong>: attivala prima nell'app.</span></p>
         <a href="https://github.com/fed3c3sa/secondbrain-shared-memory" target="_blank" rel="noopener" class="btn btn-ghost">
           <span class="glyph" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.67 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17.91-.25 1.89-.38 2.86-.39.97.01 1.95.14 2.86.39 2.19-1.48 3.15-1.17 3.15-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.66.41.36.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.68.8.56C20.71 21.39 24 17.08 24 12 24 5.73 18.77.5 12 .5z"/></svg>
           </span>
-          <span><span class="lang-en">Full setup guide on GitHub</span><span class="lang-it">Guida completa su GitHub</span></span>
+          <span><span class="lang-en">Full setup guide on GitHub</span> <span class="lang-it">Guida completa su GitHub</span></span>
         </a>
       </div>
     </section>
@@ -1611,29 +1763,29 @@
     <!-- TRUST -->
     <section class="section" id="trust">
       <div class="trust-panel anim">
-        <h2><span class="lang-en">Private by design.</span><span class="lang-it">Pensata per la tua privacy.</span></h2>
-        <p><span class="lang-en">No analytics. No ads. No training.</span><span class="lang-it">Niente analytics. Niente pubblicità. Nessun addestramento sui tuoi dati.</span></p>
+        <h2><span class="lang-en">Private by design.</span> <span class="lang-it">Pensata per la tua privacy.</span></h2>
+        <p><span class="lang-en">No analytics. No ads. No training.</span> <span class="lang-it">Niente analytics. Niente pubblicità. Nessun addestramento sui tuoi dati.</span></p>
         <div class="promises">
           <div class="promise">
             <div class="promise-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <h4><span class="lang-en">No tracking</span><span class="lang-it">Nessun tracciamento</span></h4>
-            <p><span class="lang-en">Zero analytics. Zero ads.</span><span class="lang-it">Zero analytics. Zero pubblicità.</span></p>
+            <h4><span class="lang-en">No tracking</span> <span class="lang-it">Nessun tracciamento</span></h4>
+            <p><span class="lang-en">Zero analytics. Zero ads.</span> <span class="lang-it">Zero analytics. Zero pubblicità.</span></p>
           </div>
           <div class="promise">
             <div class="promise-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             </div>
-            <h4><span class="lang-en">Encrypted</span><span class="lang-it">Crittografata</span></h4>
-            <p><span class="lang-en">Isolated per user. Yours only.</span><span class="lang-it">Isolata per utente. Solo tua.</span></p>
+            <h4><span class="lang-en">Encrypted</span> <span class="lang-it">Crittografata</span></h4>
+            <p><span class="lang-en">Isolated per user. Yours only.</span> <span class="lang-it">Isolata per utente. Solo tua.</span></p>
           </div>
           <div class="promise">
             <div class="promise-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
             </div>
-            <h4><span class="lang-en">Delete anytime</span><span class="lang-it">Cancelli quando vuoi</span></h4>
-            <p><span class="lang-en">One tap. No copies kept.</span><span class="lang-it">Un tocco. Nessuna copia.</span></p>
+            <h4><span class="lang-en">Delete anytime</span> <span class="lang-it">Cancelli quando vuoi</span></h4>
+            <p><span class="lang-en">One tap. No copies kept.</span> <span class="lang-it">Un tocco. Nessuna copia.</span></p>
           </div>
         </div>
       </div>
@@ -1643,12 +1795,12 @@
     <section class="section" id="faq" aria-labelledby="faq-title">
       <div class="section-head">
         <span class="eyebrow anim">FAQ</span>
-        <h2 class="anim d1" id="faq-title"><span class="lang-en">Questions, answered.</span><span class="lang-it">Domande e risposte.</span></h2>
+        <h2 class="anim d1" id="faq-title"><span class="lang-en">Questions, answered.</span> <span class="lang-it">Domande e risposte.</span></h2>
       </div>
 
       <div class="faq-list anim d1">
         <details class="faq-item">
-          <summary><span class="lang-en">What is a second brain app?</span><span class="lang-it">Che cos'è un'app second brain?</span></summary>
+          <summary><span class="lang-en">What is a second brain app?</span> <span class="lang-it">Che cos'è un'app second brain?</span></summary>
           <div class="faq-answer">
             <p class="lang-en">A second brain app is a tool that captures everything you want to remember and stores it so you can recall it instantly. SecondBrain does this with your voice: you speak, and it turns what you said into organized notes, calendar events and reminders, then keeps them ready across your devices and AI assistants.</p>
             <p class="lang-it">Un'app second brain è uno strumento che cattura tutto ciò che vuoi ricordare e lo conserva così da poterlo richiamare in un istante. SecondBrain lo fa con la tua voce: parli, e trasforma ciò che hai detto in note organizzate, eventi in calendario e promemoria, poi li tiene pronti su tutti i tuoi dispositivi e su tutte le tue AI.</p>
@@ -1656,7 +1808,7 @@
         </details>
 
         <details class="faq-item">
-          <summary><span class="lang-en">What is SecondBrain?</span><span class="lang-it">Che cos'è SecondBrain?</span></summary>
+          <summary><span class="lang-en">What is SecondBrain?</span> <span class="lang-it">Che cos'è SecondBrain?</span></summary>
           <div class="faq-answer">
             <p class="lang-en">SecondBrain is an AI second brain app for iPhone and Android. You speak once and it remembers: it writes structured notes, files them, and creates calendar events and follow-ups while you talk. It also gives your AI assistants a shared long-term memory, so what you tell one is known by them all.</p>
             <p class="lang-it">SecondBrain è un'app second brain con AI per iPhone e Android. Parli una volta e lui ricorda: scrive note strutturate, le archivia e crea eventi in calendario e promemoria mentre parli. Dà inoltre ai tuoi assistenti AI una memoria condivisa a lungo termine, così ciò che dici a uno lo sanno tutti.</p>
@@ -1664,7 +1816,7 @@
         </details>
 
         <details class="faq-item">
-          <summary><span class="lang-en">Is SecondBrain free?</span><span class="lang-it">SecondBrain è gratis?</span></summary>
+          <summary><span class="lang-en">Is SecondBrain free?</span> <span class="lang-it">SecondBrain è gratis?</span></summary>
           <div class="faq-answer">
             <p class="lang-en">Yes. The SecondBrain app is free to download and use on iPhone and Android. A Pro subscription unlocks the shared memory layer that connects your AI assistants, like Claude and ChatGPT, to one private memory. You turn on Pro in the app.</p>
             <p class="lang-it">Sì. L'app SecondBrain è gratuita da scaricare e usare su iPhone e Android. L'abbonamento Pro sblocca la memoria condivisa, quella che collega assistenti come Claude e ChatGPT a un'unica memoria privata. Pro si attiva direttamente nell'app.</p>
@@ -1672,7 +1824,7 @@
         </details>
 
         <details class="faq-item">
-          <summary><span class="lang-en">How does SecondBrain share memory across ChatGPT, Claude and other AI assistants?</span><span class="lang-it">Come condivide SecondBrain la memoria tra ChatGPT, Claude e gli altri assistenti AI?</span></summary>
+          <summary><span class="lang-en">How does SecondBrain share memory across ChatGPT, Claude and other AI assistants?</span> <span class="lang-it">Come condivide SecondBrain la memoria tra ChatGPT, Claude e gli altri assistenti AI?</span></summary>
           <div class="faq-answer">
             <p class="lang-en">SecondBrain connects to your assistants through the Model Context Protocol (MCP). Tell something to Claude, ChatGPT or Claude Code once and it lands in a single shared memory that is yours. Every assistant you connect can then recall it, on any device, without you repeating yourself.</p>
             <p class="lang-it">SecondBrain si collega ai tuoi assistenti tramite il Model Context Protocol (MCP). Dici qualcosa a Claude, ChatGPT o Claude Code una volta e finisce in un'unica memoria condivisa, la tua. Ogni assistente che colleghi può poi richiamarla, su qualsiasi dispositivo, senza che tu lo ripeta.</p>
@@ -1680,7 +1832,7 @@
         </details>
 
         <details class="faq-item">
-          <summary><span class="lang-en">How do I connect SecondBrain to Claude or ChatGPT?</span><span class="lang-it">Come collego SecondBrain a Claude o ChatGPT?</span></summary>
+          <summary><span class="lang-en">How do I connect SecondBrain to Claude or ChatGPT?</span> <span class="lang-it">Come collego SecondBrain a Claude o ChatGPT?</span></summary>
           <div class="faq-answer">
             <p class="lang-en">In Claude, add the marketplace <code>fed3c3sa/secondbrain-shared-memory</code>, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. For ChatGPT, Gemini or Cursor, run <code>npx secondbrain-connect</code> once and sign in in the browser.</p>
             <p class="lang-it">In Claude aggiungi il marketplace <code>fed3c3sa/secondbrain-shared-memory</code>, installa il plugin SecondBrain, poi premi Connect e accedi con Apple o Google. Niente chiavi, niente token. Per ChatGPT, Gemini o Cursor basta eseguire <code>npx secondbrain-connect</code> una volta e accedere dal browser.</p>
@@ -1688,7 +1840,7 @@
         </details>
 
         <details class="faq-item">
-          <summary><span class="lang-en">Which devices does SecondBrain work on?</span><span class="lang-it">Su quali dispositivi funziona SecondBrain?</span></summary>
+          <summary><span class="lang-en">Which devices does SecondBrain work on?</span> <span class="lang-it">Su quali dispositivi funziona SecondBrain?</span></summary>
           <div class="faq-answer">
             <p class="lang-en">SecondBrain runs on iPhone and Android. The shared memory also works with desktop AI tools such as Claude, Claude Code, ChatGPT, Gemini and Cursor, so a memory you create on your phone is available wherever you use AI.</p>
             <p class="lang-it">SecondBrain funziona su iPhone e Android. La memoria condivisa funziona anche al computer, con Claude, Claude Code, ChatGPT, Gemini e Cursor: quello che salvi dal telefono lo ritrovi ovunque usi l'AI.</p>
@@ -1696,7 +1848,7 @@
         </details>
 
         <details class="faq-item">
-          <summary><span class="lang-en">Is my data private?</span><span class="lang-it">I miei dati sono privati?</span></summary>
+          <summary><span class="lang-en">Is my data private?</span> <span class="lang-it">I miei dati sono privati?</span></summary>
           <div class="faq-answer">
             <p class="lang-en">Yes. SecondBrain has no analytics, no ads and never trains on your data. Your memory is encrypted and isolated per user, so it is yours alone. You can delete everything at any time with one tap, and no copies are kept.</p>
             <p class="lang-it">Sì. SecondBrain non usa analytics né pubblicità e non addestra mai l'AI sui tuoi dati. La tua memoria è crittografata e isolata per ogni utente, quindi è solo tua. E puoi cancellare tutto quando vuoi, con un tocco: non resta nessuna copia.</p>
@@ -1704,10 +1856,58 @@
         </details>
 
         <details class="faq-item">
-          <summary><span class="lang-en">How is SecondBrain different from a notes app like Notion or Obsidian?</span><span class="lang-it">In cosa è diverso SecondBrain da un'app di note come Notion o Obsidian?</span></summary>
+          <summary><span class="lang-en">How is SecondBrain different from a notes app like Notion or Obsidian?</span> <span class="lang-it">In cosa è diverso SecondBrain da un'app di note come Notion o Obsidian?</span></summary>
           <div class="faq-answer">
             <p class="lang-en">Notes apps wait for you to type, organize and re-read. SecondBrain works from your voice and does the filing for you, then makes that memory available to your AI assistants. Instead of searching a document, you just ask Claude or ChatGPT and get the answer from your own memory.</p>
             <p class="lang-it">Le app di note aspettano che tu scriva, organizzi e rilegga. SecondBrain parte dalla tua voce e archivia al posto tuo, poi rende quella memoria disponibile ai tuoi assistenti AI. Invece di cercare in un documento, chiedi a Claude o ChatGPT e ottieni la risposta dalla tua memoria.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="lang-en">How does SecondBrain compare to AI memory tools like Mem or Rewind?</span> <span class="lang-it">E rispetto a strumenti di memoria AI come Mem o Rewind?</span></summary>
+          <div class="faq-answer">
+            <p class="lang-en">Most AI memory tools focus on one surface: capturing typed notes, recording your screen, or storing chat history inside a single app. SecondBrain is built around two things: voice capture that becomes structured notes, calendar events and reminders on your phone, and one shared memory your AI assistants read and write through MCP. The result is a memory you speak into once and can reach from Claude, ChatGPT, Gemini, Cursor or Claude Code, instead of a memory locked to one tool.</p>
+            <p class="lang-it">Quasi tutti gli strumenti di memoria AI coprono una sola superficie: note scritte, registrazione dello schermo o cronologia delle chat dentro una singola app. SecondBrain è costruito attorno a due cose: la cattura vocale che diventa note strutturate, eventi e promemoria sul telefono, e un'unica memoria che i tuoi assistenti AI leggono e scrivono tramite MCP. Il risultato è una memoria in cui parli una volta sola e che ritrovi da Claude, ChatGPT, Gemini, Cursor o Claude Code, invece di una memoria chiusa in un solo strumento.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="lang-en">How is SecondBrain different from ChatGPT's or Claude's built-in memory?</span> <span class="lang-it">In cosa è diverso dalla memoria integrata di ChatGPT o Claude?</span></summary>
+          <div class="faq-answer">
+            <p class="lang-en">Built-in memory in ChatGPT or Claude stays inside that one assistant and that one account. SecondBrain keeps a single memory that you own and connects it to Claude, ChatGPT, Gemini, Cursor and Claude Code through the Model Context Protocol, so a note you save in one is available in all of them. It also captures from your voice on iPhone and Android, not only from a chat window.</p>
+            <p class="lang-it">La memoria integrata di ChatGPT o di Claude resta chiusa dentro quell'assistente e quell'account. SecondBrain tiene un'unica memoria, tua, e la collega a Claude, ChatGPT, Gemini, Cursor e Claude Code tramite il Model Context Protocol: una nota salvata in uno è disponibile in tutti. E in più cattura dalla tua voce su iPhone e Android, non solo da una finestra di chat.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="lang-en">How does the Model Context Protocol (MCP) connection work?</span> <span class="lang-it">Come funziona il collegamento tramite Model Context Protocol (MCP)?</span></summary>
+          <div class="faq-answer">
+            <p class="lang-en">The Model Context Protocol (MCP) is an open standard that lets AI assistants call external tools and data sources. SecondBrain runs an MCP server that your assistant connects to after you sign in with Apple or Google, with no API keys to copy. Once connected, the assistant can save to and recall from your SecondBrain memory during a chat, and that same memory is shared across every assistant you connect.</p>
+            <p class="lang-it">Il Model Context Protocol (MCP) è uno standard aperto che permette agli assistenti AI di usare strumenti e fonti di dati esterni. SecondBrain espone un server MCP a cui il tuo assistente si collega dopo l'accesso con Apple o Google, senza chiavi API da copiare. Una volta collegato, l'assistente può salvare e richiamare la tua memoria SecondBrain durante la chat, e quella stessa memoria è condivisa con ogni assistente che colleghi.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="lang-en">Is SecondBrain related to Tiago Forte's Building a Second Brain method?</span> <span class="lang-it">SecondBrain c'entra con il metodo Building a Second Brain di Tiago Forte?</span></summary>
+          <div class="faq-answer">
+            <p class="lang-en">The term second brain was popularized by Tiago Forte's book Building a Second Brain, which teaches a manual method for capturing and organizing notes. SecondBrain shares the same goal of a trusted external memory, but it works from your voice and files notes, events and reminders automatically, then makes that memory available to your AI assistants. It is an independent app and is not affiliated with Tiago Forte or his course.</p>
+            <p class="lang-it">Il termine second brain è diventato famoso con il libro Building a Second Brain di Tiago Forte, che insegna un metodo manuale per catturare e organizzare le note. SecondBrain condivide lo stesso obiettivo, una memoria esterna di cui fidarti, ma parte dalla tua voce e archivia note, eventi e promemoria da solo, poi rende quella memoria disponibile ai tuoi assistenti AI. È un'app indipendente, non affiliata a Tiago Forte né al suo corso.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="lang-en">Where is my data stored?</span> <span class="lang-it">Dove sono salvati i miei dati?</span></summary>
+          <div class="faq-answer">
+            <p class="lang-en">SecondBrain stores your notes, folders and calendar events in a Supabase PostgreSQL database hosted in the European Union, isolated per account with Row-Level Security so you can only reach your own data. Voice and text are processed in real time by Google Gemini on its paid API tier, which does not train on your content. Everything travels over HTTPS, and you can delete your account and all its data at any time from the app.</p>
+            <p class="lang-it">SecondBrain salva note, cartelle ed eventi di calendario in un database PostgreSQL su Supabase, ospitato nell'Unione Europea e isolato per account tramite Row-Level Security: puoi accedere solo ai tuoi dati. Voce e testo vengono elaborati in tempo reale da Google Gemini (API a pagamento), che non addestra i modelli sui tuoi contenuti. Tutto viaggia su HTTPS e puoi eliminare l'account con tutti i dati quando vuoi, direttamente dall'app.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="lang-en">Can I export my data or take it with me?</span> <span class="lang-it">Posso esportare i miei dati o portarli via?</span></summary>
+          <div class="faq-answer">
+            <p class="lang-en">Yes. You can request a full export of your notes and data at any time by emailing info@secondbrain.icu. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days.</p>
+            <p class="lang-it">Sì. Puoi chiedere in qualsiasi momento un'esportazione completa delle tue note e dei tuoi dati scrivendo a info@secondbrain.icu. Puoi anche eliminare l'intero account con tutti i dati dall'app, da Impostazioni e poi Elimina account: la rimozione è immediata sul database in produzione e i backup cifrati vengono eliminati entro pochi giorni.</p>
           </div>
         </details>
       </div>
@@ -1717,8 +1917,8 @@
     <section class="final">
       <div class="final-inner anim">
         <span class="final-mark" aria-hidden="true"></span>
-        <h2><span class="lang-en">Start remembering.</span><span class="lang-it">Inizia a ricordare.</span></h2>
-        <p><span class="lang-en">On iPhone, Android and the web.</span><span class="lang-it">Su iPhone, Android e sul web.</span></p>
+        <h2><span class="lang-en">Start remembering.</span> <span class="lang-it">Inizia a ricordare.</span></h2>
+        <p><span class="lang-en">On iPhone, Android and the web.</span> <span class="lang-it">Su iPhone, Android e sul web.</span></p>
         <div class="cta-row">
           <a href="https://apps.apple.com/it/app/secondbrain-ai-smart-memory/id6762130376" target="_blank" rel="noopener" class="btn btn-primary">
             <span class="glyph" aria-hidden="true">
@@ -2195,32 +2395,37 @@
         <span class="brand-mark" aria-hidden="true"></span>
         <span>SecondBrain</span>
       </a>
-      <p><span class="lang-en">One AI memory for your phone and every assistant you use.</span><span class="lang-it">Un'unica memoria AI, per il tuo telefono e per ogni assistente che usi.</span></p>
+      <p><span class="lang-en">One AI memory for your phone and every assistant you use.</span> <span class="lang-it">Un'unica memoria AI, per il tuo telefono e per ogni assistente che usi.</span></p>
+      <p><span class="lang-en">Built in Italy by <a href="https://github.com/fed3c3sa" target="_blank" rel="noopener">Federico Cesarini</a>.</span> <span class="lang-it">Fatto in Italia da <a href="https://github.com/fed3c3sa" target="_blank" rel="noopener">Federico Cesarini</a>.</span></p>
     </div>
     <div class="foot-col">
-      <h5><span class="lang-en">Product</span><span class="lang-it">Prodotto</span></h5>
+      <h5><span class="lang-en">Product</span> <span class="lang-it">Prodotto</span></h5>
       <a href="https://app.secondbrain.icu/" target="_blank" rel="noopener">Web app</a>
       <a href="https://apps.apple.com/it/app/secondbrain-ai-smart-memory/id6762130376" target="_blank" rel="noopener">App Store</a>
       <a href="https://play.google.com/store/apps/details?id=app.secondbrain.android" target="_blank" rel="noopener">Google Play</a>
-      <a href="#home" data-route="home"><span class="lang-en">Overview</span><span class="lang-it">Panoramica</span></a>
-      <a href="#video-jump" data-route="home" data-scroll-to="video"><span class="lang-en">How it works</span><span class="lang-it">Come funziona</span></a>
-      <a href="https://www.youtube.com/watch?v=miiynvYCZf4" target="_blank" rel="noopener"><span class="lang-en">Watch the demo</span><span class="lang-it">Guarda la demo</span></a>
+      <a href="#home" data-route="home"><span class="lang-en">Overview</span> <span class="lang-it">Panoramica</span></a>
+      <a href="#video-jump" data-route="home" data-scroll-to="video"><span class="lang-en">How it works</span> <span class="lang-it">Come funziona</span></a>
+      <a href="https://www.youtube.com/watch?v=miiynvYCZf4" target="_blank" rel="noopener"><span class="lang-en">Watch the demo</span> <span class="lang-it">Guarda la demo</span></a>
+      <a href="/chatgpt-claude-shared-memory/"><span class="lang-en">ChatGPT + Claude memory</span> <span class="lang-it">Memoria ChatGPT + Claude</span></a>
+      <a href="/mcp-memory-server/"><span class="lang-en">MCP memory server</span> <span class="lang-it">Server di memoria MCP</span></a>
+      <a href="/voice-second-brain-apps/"><span class="lang-en">Voice second brain apps</span> <span class="lang-it">App second brain vocali</span></a>
+      <a href="/it/memoria-ai/"><span class="lang-en">Guida in italiano</span> <span class="lang-it">Memoria AI: la guida</span></a>
     </div>
     <div class="foot-col">
-      <h5><span class="lang-en">Legal</span><span class="lang-it">Note legali</span></h5>
+      <h5><span class="lang-en">Legal</span> <span class="lang-it">Note legali</span></h5>
       <a href="#privacy" data-route="privacy">Privacy</a>
-      <a href="#terms" data-route="terms"><span class="lang-en">Terms</span><span class="lang-it">Termini</span></a>
-      <a href="#delete" data-route="delete"><span class="lang-en">Delete account</span><span class="lang-it">Elimina account</span></a>
+      <a href="#terms" data-route="terms"><span class="lang-en">Terms</span> <span class="lang-it">Termini</span></a>
+      <a href="#delete" data-route="delete"><span class="lang-en">Delete account</span> <span class="lang-it">Elimina account</span></a>
     </div>
     <div class="foot-col">
-      <h5><span class="lang-en">Help</span><span class="lang-it">Aiuto</span></h5>
-      <a href="#support" data-route="support"><span class="lang-en">Support</span><span class="lang-it">Assistenza</span></a>
-      <a href="https://github.com/fed3c3sa/secondbrain-shared-memory" target="_blank" rel="noopener"><span class="lang-en">Connect your AI</span><span class="lang-it">Collega la tua AI</span></a>
-      <a href="mailto:info@secondbrain.icu"><span class="lang-en">Email us</span><span class="lang-it">Scrivici</span></a>
+      <h5><span class="lang-en">Help</span> <span class="lang-it">Aiuto</span></h5>
+      <a href="#support" data-route="support"><span class="lang-en">Support</span> <span class="lang-it">Assistenza</span></a>
+      <a href="https://github.com/fed3c3sa/secondbrain-shared-memory" target="_blank" rel="noopener"><span class="lang-en">Connect your AI</span> <span class="lang-it">Collega la tua AI</span></a>
+      <a href="mailto:info@secondbrain.icu"><span class="lang-en">Email us</span> <span class="lang-it">Scrivici</span></a>
     </div>
   </div>
   <div class="foot-bottom">
-    <span><span class="lang-en">© 2026 SecondBrain · All rights reserved</span><span class="lang-it">© 2026 SecondBrain · Tutti i diritti riservati</span></span>
+    <span><span class="lang-en">© 2026 SecondBrain · All rights reserved</span> <span class="lang-it">© 2026 SecondBrain · Tutti i diritti riservati</span></span>
     <span class="foot-social">
       <a href="https://www.youtube.com/@SecondBrain-AISmartMemory" target="_blank" rel="noopener" aria-label="YouTube">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>

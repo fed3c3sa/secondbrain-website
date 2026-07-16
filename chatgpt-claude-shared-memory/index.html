@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Share One Memory Between ChatGPT and Claude (2026)</title>
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="canonical" href="https://secondbrain.icu/chatgpt-claude-shared-memory/" />
+  <meta name="description" content="ChatGPT and Claude cannot read each other's memory. Here is how to give them one shared long-term memory with an MCP memory app: setup in about two minutes, no API keys, works from your phone too." />
+  <meta name="author" content="Federico Cesarini" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="theme-color" content="#f5f5f7" />
+  <meta name="color-scheme" content="light dark" />
+
+  <meta property="og:site_name" content="SecondBrain" />
+  <meta property="og:title" content="How to Share One Memory Between ChatGPT and Claude" />
+  <meta property="og:description" content="Give ChatGPT, Claude, Gemini and Cursor one shared long-term memory over MCP. About two minutes, no API keys." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://secondbrain.icu/chatgpt-claude-shared-memory/" />
+  <meta property="og:image" content="https://secondbrain.icu/assets/og-card.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How to Share One Memory Between ChatGPT and Claude" />
+  <meta name="twitter:description" content="One shared long-term memory for every AI assistant you use, over MCP. About two minutes, no API keys." />
+  <meta name="twitter:image" content="https://secondbrain.icu/assets/og-card.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://secondbrain.icu/chatgpt-claude-shared-memory/#webpage",
+        "url": "https://secondbrain.icu/chatgpt-claude-shared-memory/",
+        "name": "How to Share One Memory Between ChatGPT and Claude (2026)",
+        "description": "ChatGPT and Claude cannot read each other's memory. How to give them one shared long-term memory with an MCP memory app: setup in about two minutes, no API keys, from your phone too.",
+        "isPartOf": { "@id": "https://secondbrain.icu/#website" },
+        "author": { "@id": "https://secondbrain.icu/#federico-cesarini" },
+        "publisher": { "@id": "https://secondbrain.icu/#organization" },
+        "datePublished": "2026-07-16",
+        "dateModified": "2026-07-16",
+        "inLanguage": "en",
+        "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".tldr"] }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "SecondBrain", "item": "https://secondbrain.icu/" },
+          { "@type": "ListItem", "position": 2, "name": "Share one memory between ChatGPT and Claude", "item": "https://secondbrain.icu/chatgpt-claude-shared-memory/" }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://secondbrain.icu/chatgpt-claude-shared-memory/#howto",
+        "name": "How to connect Claude and ChatGPT to one shared memory with SecondBrain",
+        "description": "Give Claude, ChatGPT, Gemini and Cursor one shared long-term memory through the Model Context Protocol, with no API keys.",
+        "totalTime": "PT2M",
+        "step": [
+          { "@type": "HowToStep", "position": 1, "name": "Get SecondBrain and turn on Pro", "text": "Download SecondBrain free on iPhone, Android or the web at app.secondbrain.icu, then enable the Pro subscription in the app: the shared memory layer is a Pro feature." },
+          { "@type": "HowToStep", "position": 2, "name": "Connect Claude", "text": "In Claude, open Settings, then Plugins, press the plus button and choose Add marketplace. Paste fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, press Connect and sign in with Apple or Google. No API keys or tokens." },
+          { "@type": "HowToStep", "position": 3, "name": "Connect ChatGPT, Gemini or Cursor", "text": "Run npx secondbrain-connect once in a terminal and sign in in the browser. The command configures every supported assistant to reach the same memory." }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://secondbrain.icu/chatgpt-claude-shared-memory/#faq",
+        "inLanguage": "en",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can ChatGPT and Claude share memory natively?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. ChatGPT's memory lives in your OpenAI account and Claude's memory lives in your Anthropic account, and neither can read the other. The only way to share one memory between them is an external memory both can reach, which is what an MCP memory service provides." }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need an API key to set this up?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Not with SecondBrain. You sign in once with Apple or Google, both in the Claude plugin and in the npx secondbrain-connect setup for ChatGPT, Gemini and Cursor. There are no API keys to create, copy or rotate." }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the shared memory work from my phone?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. SecondBrain is an iPhone and Android app, so you capture by voice on your phone and the memory is available to Claude, ChatGPT, Gemini, Cursor and Claude Code on your computer. A fact you speak on the go is recalled in any connected assistant." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is it safe to give AI assistants access to a memory server?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Scope matters. SecondBrain's MCP server only exposes your own memory, isolated per account, with revocable tokens. Data is stored in the European Union on Supabase, is never used to train models, and can be deleted entirely from the app at any time. Assistants see only what the memory tools return, not your account." }
+          }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://secondbrain.icu/#organization",
+        "name": "SecondBrain",
+        "url": "https://secondbrain.icu/",
+        "logo": { "@type": "ImageObject", "url": "https://secondbrain.icu/assets/logo-512.png" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://secondbrain.icu/#federico-cesarini",
+        "name": "Federico Cesarini",
+        "url": "https://secondbrain.icu/",
+        "jobTitle": "Founder",
+        "sameAs": ["https://github.com/fed3c3sa"]
+      }
+    ]
+  }
+  </script>
+
+  <script>try{if(localStorage.getItem('sb-theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    :root {
+      color-scheme: light;
+      --bg: #f5f5f7; --bg-soft: #fbfbfd; --card: #ffffff;
+      --text: #1d1d1f; --text-2: #515154; --text-3: #6e6e73;
+      --hairline: rgba(0,0,0,0.08); --hairline-strong: rgba(0,0,0,0.16);
+      --fill-1: rgba(0,0,0,0.045); --fill-2: rgba(0,0,0,0.085);
+      --accent: #0071e3; --accent-hover: #0077ed;
+      --glass: rgba(251,251,253,0.75);
+      --btn: #1d1d1f; --btn-text: #ffffff;
+      --max: 1200px; --pad: clamp(20px, 4vw, 56px);
+      --font: -apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue', 'Segoe UI', Roboto, Arial, sans-serif;
+      --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, monospace;
+      --ease: cubic-bezier(.2,.7,.2,1);
+      --mark: url('/assets/brain-icon-dark.webp');
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #000000; --bg-soft: #0a0a0b; --card: #141416;
+      --text: #f5f5f7; --text-2: #a6a6ad; --text-3: #86868b;
+      --hairline: rgba(255,255,255,0.10); --hairline-strong: rgba(255,255,255,0.20);
+      --fill-1: rgba(255,255,255,0.065); --fill-2: rgba(255,255,255,0.11);
+      --accent: #2997ff; --accent-hover: #47a6ff;
+      --glass: rgba(18,18,20,0.7);
+      --btn: #f5f5f7; --btn-text: #000000;
+      --mark: url('/assets/brain-icon-light.webp');
+    }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    .skip-link { position: absolute; left: -9999px; top: 0; z-index: 300; background: var(--btn); color: var(--btn-text); padding: 10px 18px; border-radius: 0 0 12px 0; }
+    .skip-link:focus { left: 0; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+    .top-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--glass); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--hairline); }
+    .bar-inner { max-width: var(--max); margin: 0 auto; padding: 14px var(--pad); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -0.02em; font-size: 16px; }
+    .brand-mark { width: 22px; height: 22px; background: var(--mark) center/contain no-repeat; }
+    .bar-links { display: flex; align-items: center; gap: 18px; font-size: 14px; color: var(--text-2); }
+    .bar-links a:hover { color: var(--text); }
+    .nav-icon { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 999px; background: var(--fill-1); color: var(--text-2); border: none; cursor: pointer; }
+    .nav-icon:hover { background: var(--fill-2); color: var(--text); }
+    .nav-icon svg { width: 16px; height: 16px; }
+    .icon-sun { display: none; }
+    html[data-theme="dark"] .icon-sun { display: block; }
+    html[data-theme="dark"] .icon-moon { display: none; }
+
+    .article { max-width: 800px; margin: 0 auto; padding: 130px var(--pad) 40px; }
+    .crumb { font-size: 13.5px; color: var(--text-3); margin-bottom: 18px; }
+    .crumb a:hover { color: var(--text); }
+    h1 { font-weight: 600; font-size: clamp(30px, 5vw, 46px); letter-spacing: -0.02em; line-height: 1.12; }
+    .byline { font-size: 14px; color: var(--text-3); margin-top: 14px; }
+    .byline a { color: var(--text-2); font-weight: 500; }
+    .byline a:hover { color: var(--accent); }
+    .tldr { margin: 30px 0; padding: 22px 26px; background: var(--card); border: 1px solid var(--hairline); border-radius: 20px; font-size: 16.5px; line-height: 1.65; color: var(--text-2); }
+    .tldr strong { color: var(--text); }
+    h2 { font-weight: 600; font-size: clamp(22px, 3vw, 28px); letter-spacing: -0.015em; line-height: 1.2; margin: 48px 0 14px; }
+    h3 { font-weight: 600; font-size: 18px; letter-spacing: -0.01em; margin: 30px 0 8px; }
+    .article p { color: var(--text-2); margin-bottom: 14px; }
+    .article p strong, .article li strong { color: var(--text); font-weight: 600; }
+    .article ul, .article ol { color: var(--text-2); padding-left: 22px; margin: 0 0 14px; }
+    .article li { margin-bottom: 8px; }
+    .article p a, .article li a, .faq-answer a { color: var(--accent); font-weight: 500; }
+    .article p a:hover, .article li a:hover { text-decoration: underline; }
+    code { font-family: var(--mono); font-size: 0.86em; color: var(--text); background: var(--fill-1); padding: 1px 6px; border-radius: 6px; }
+
+    .cmp { margin: 24px 0; overflow-x: auto; border: 1px solid var(--hairline); border-radius: 20px; background: var(--card); }
+    table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14.5px; }
+    caption { text-align: left; font-size: 13px; color: var(--text-3); padding: 12px 16px 0; }
+    th { text-align: left; font-weight: 600; font-size: 13.5px; color: var(--text); padding: 14px 16px; border-bottom: 1px solid var(--hairline); background: var(--bg-soft); white-space: nowrap; }
+    td { padding: 13px 16px; border-bottom: 1px solid var(--hairline); color: var(--text-2); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    td:first-child { color: var(--text); font-weight: 600; }
+
+    .faq-list { border-top: 1px solid var(--hairline); margin-top: 8px; }
+    .faq-item { border-bottom: 1px solid var(--hairline); }
+    .faq-item summary { list-style: none; cursor: pointer; position: relative; padding: 22px 52px 22px 0; font-weight: 600; font-size: 17px; letter-spacing: -0.01em; color: var(--text); }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-size: 24px; font-weight: 300; line-height: 1; color: var(--text-3); transition: transform .3s var(--ease); }
+    .faq-item[open] summary::after { transform: translateY(-50%) rotate(45deg); color: var(--accent); }
+    .faq-answer { padding: 0 52px 24px 0; max-width: 660px; color: var(--text-2); font-size: 15.5px; line-height: 1.68; }
+
+    .cta-band { margin: 56px 0 20px; padding: 40px 32px; text-align: center; background: var(--card); border: 1px solid var(--hairline); border-radius: 24px; }
+    .cta-band h2 { margin: 0 0 8px; }
+    .cta-band p { color: var(--text-2); margin-bottom: 20px; }
+    .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 9px; padding: 13px 22px; border-radius: 999px; font-size: 15px; font-weight: 500; transition: transform .3s var(--ease), background .25s var(--ease); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .btn-ghost { background: var(--fill-1); color: var(--text); }
+    .btn-ghost:hover { background: var(--fill-2); transform: translateY(-1px); }
+
+    .site-foot { border-top: 1px solid var(--hairline); margin-top: 40px; }
+    .foot-inner { max-width: 800px; margin: 0 auto; padding: 28px var(--pad); display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; justify-content: space-between; font-size: 13.5px; color: var(--text-3); }
+    .foot-inner nav { display: flex; flex-wrap: wrap; gap: 16px; }
+    .foot-inner a:hover { color: var(--text); }
+    @media (max-width: 880px) {
+      .article { padding-top: 110px; }
+      .faq-item summary { padding-right: 40px; }
+      .faq-answer { padding-right: 0; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="top-bar">
+  <div class="bar-inner">
+    <a href="/" class="brand"><span class="brand-mark" aria-hidden="true"></span><span>SecondBrain</span></a>
+    <nav class="bar-links" aria-label="Site">
+      <a href="/">Home</a>
+      <a href="/#faq">FAQ</a>
+      <button type="button" class="nav-icon" id="theme-toggle" aria-label="Switch to dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="article">
+  <p class="crumb"><a href="/">SecondBrain</a> · Guides · ChatGPT + Claude shared memory</p>
+  <h1>How to share one memory between ChatGPT and Claude</h1>
+  <p class="byline">By <a href="https://github.com/fed3c3sa" target="_blank" rel="noopener">Federico Cesarini</a>, maker of SecondBrain · Updated July 16, 2026</p>
+
+  <div class="tldr"><strong>The short answer:</strong> ChatGPT and Claude cannot read each other's built-in memory. To share one memory across both, connect them to the same external memory over the Model Context Protocol (MCP). A managed MCP memory app like SecondBrain links Claude, ChatGPT, Gemini, Cursor and Claude Code to a single private memory in about two minutes, with no API keys, and you can add to that memory by voice from your phone.</div>
+
+  <h2>Why your AI assistants do not remember you</h2>
+  <p>Every major assistant now ships some form of memory, but each one is a silo. ChatGPT's memory belongs to your OpenAI account. Claude's memory belongs to your Anthropic account. Gemini keeps its own. None of them can read the others, so you end up re-explaining your projects, preferences and context to every tool, on every device. Switching assistants means starting from zero.</p>
+
+  <h2>The fix: one external memory over MCP</h2>
+  <p>The Model Context Protocol (MCP) is an open standard, introduced by Anthropic in November 2024 and since adopted across the industry, that lets AI assistants call external tools and data sources. Point several assistants at the same <a href="/mcp-memory-server/">MCP memory server</a> and they all read and write one memory: yours. Tell Claude something once and ChatGPT can recall it, and the other way around.</p>
+  <p>You can self-host an open-source memory server if you are technical. If you want it to just work, a managed service handles hosting, sign-in and sync. SecondBrain is a managed MCP memory with a twist: the memory is also a voice-first phone app, so most of what your assistants know, you simply said out loud at some point.</p>
+
+  <h2>Set it up in about two minutes</h2>
+
+  <h3>1. Get SecondBrain and turn on Pro</h3>
+  <p>Download SecondBrain free on <a href="https://apps.apple.com/it/app/secondbrain-ai-smart-memory/id6762130376" target="_blank" rel="noopener">iPhone</a> or <a href="https://play.google.com/store/apps/details?id=app.secondbrain.android" target="_blank" rel="noopener">Android</a>, or open the <a href="https://app.secondbrain.icu/" target="_blank" rel="noopener">web app</a>. The shared memory layer is a Pro feature, so enable Pro in the app first.</p>
+
+  <h3>2. Connect Claude</h3>
+  <ol>
+    <li>In Claude, open Settings → Plugins → "+" → <strong>Add marketplace</strong>.</li>
+    <li>Paste <code>fed3c3sa/secondbrain-shared-memory</code> and install the <strong>SecondBrain</strong> plugin.</li>
+    <li>Press <strong>Connect</strong> and sign in with Apple or Google. No keys, no tokens.</li>
+  </ol>
+  <p>In <strong>Claude Code</strong>, run <code>/plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, then <code>/plugin install secondbrain@secondbrain</code>, then <code>/mcp</code> to sign in.</p>
+
+  <h3>3. Connect ChatGPT, Gemini or Cursor</h3>
+  <p>Run <code>npx secondbrain-connect</code> once in a terminal and sign in in the browser. The command configures the assistants you use to reach the same memory. The full setup guide lives on <a href="https://github.com/fed3c3sa/secondbrain-shared-memory" target="_blank" rel="noopener">GitHub</a>.</p>
+
+  <h2>What actually gets shared</h2>
+  <div class="cmp">
+    <table>
+      <thead>
+        <tr><th>What you save</th><th>How it gets in</th><th>Who can recall it</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Notes and facts</td><td>Speak or type in the app, or ask any connected assistant to remember</td><td>Every connected assistant, plus the app</td></tr>
+        <tr><td>Calendar events</td><td>Created automatically while you talk, or by an assistant</td><td>The app's calendar, with two-way iPhone Calendar sync</td></tr>
+        <tr><td>Reminders and follow-ups</td><td>Detected in your voice notes, or set by an assistant</td><td>The app, plus any assistant that asks</td></tr>
+        <tr><td>Preferences and context</td><td>Saved once in any assistant</td><td>Every other assistant, so you stop repeating yourself</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Other ways to do it</h2>
+  <p>Being fair about the alternatives:</p>
+  <ul>
+    <li><strong>Self-hosted MCP memory servers</strong> such as Basic Memory or OpenMemory by Mem0 are free and open source. You run and maintain them yourself, and capture is typing-first. A good fit for developers; see the <a href="/mcp-memory-server/">plain-English guide to MCP memory servers</a>.</li>
+    <li><strong>Browser extensions</strong> that sync chat memory across AI websites exist as well. They live in the browser, so they do not help in native apps, in coding tools, or from your phone.</li>
+    <li><strong>A pasted context file</strong> (a personal readme you paste into each new chat) is free and simple, but manual: it goes stale, and nothing you say on the go ever reaches it.</li>
+  </ul>
+
+  <h2>Questions people ask</h2>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>Can ChatGPT and Claude share memory natively?</summary>
+      <div class="faq-answer"><p>No. ChatGPT's memory lives in your OpenAI account and Claude's memory lives in your Anthropic account, and neither can read the other. The only way to share one memory between them is an external memory both can reach, which is what an MCP memory service provides.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>Do I need an API key to set this up?</summary>
+      <div class="faq-answer"><p>Not with SecondBrain. You sign in once with Apple or Google, both in the Claude plugin and in the <code>npx secondbrain-connect</code> setup for ChatGPT, Gemini and Cursor. There are no API keys to create, copy or rotate.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>Does the shared memory work from my phone?</summary>
+      <div class="faq-answer"><p>Yes. SecondBrain is an iPhone and Android app, so you capture by voice on your phone and the memory is available to Claude, ChatGPT, Gemini, Cursor and Claude Code on your computer. A fact you speak on the go is recalled in any connected assistant.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>Is it safe to give AI assistants access to a memory server?</summary>
+      <div class="faq-answer"><p>Scope matters. SecondBrain's MCP server only exposes your own memory, isolated per account, with revocable tokens. Data is stored in the European Union on Supabase, is never used to train models, and can be deleted entirely from the app at any time. Assistants see only what the memory tools return, not your account.</p></div>
+    </details>
+  </div>
+
+  <div class="cta-band">
+    <h2>Stop repeating yourself</h2>
+    <p>One memory for ChatGPT, Claude, Gemini, Cursor and Claude Code. Free to start.</p>
+    <div class="cta-row">
+      <a href="https://apps.apple.com/it/app/secondbrain-ai-smart-memory/id6762130376" target="_blank" rel="noopener" class="btn btn-primary">App Store</a>
+      <a href="https://play.google.com/store/apps/details?id=app.secondbrain.android" target="_blank" rel="noopener" class="btn btn-ghost">Google Play</a>
+      <a href="https://app.secondbrain.icu/" target="_blank" rel="noopener" class="btn btn-ghost">Web app</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="foot-inner">
+    <span>© 2026 SecondBrain · Built in Italy by Federico Cesarini</span>
+    <nav aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/voice-second-brain-apps/">Voice second brain apps</a>
+      <a href="/mcp-memory-server/">MCP memory server</a>
+      <a href="/#privacy">Privacy</a>
+      <a href="/#support">Support</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  const themeToggle = document.getElementById('theme-toggle');
+  function setTheme(theme) {
+    if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    else document.documentElement.removeAttribute('data-theme');
+    try { localStorage.setItem('sb-theme', theme); } catch (e) {}
+    if (themeMeta) themeMeta.content = theme === 'dark' ? '#000000' : '#f5f5f7';
+    if (themeToggle) themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+  if (themeToggle) themeToggle.addEventListener('click', () => {
+    setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+  setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+</script>
+</body>
+</html>

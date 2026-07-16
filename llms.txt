@@ -1,21 +1,41 @@
 # SecondBrain
 
-> SecondBrain is the AI second brain app for your phone and browser. You speak once and it remembers: it turns your voice into organized notes, calendar events and follow-ups, and gives your AI assistants (ChatGPT, Claude, Claude Code, Gemini, Cursor) a single shared long-term memory via the Model Context Protocol (MCP). Free on iPhone, Android and the web (app.secondbrain.icu); the shared memory layer is a Pro feature. Private by design: no analytics, no ads, no training on your data.
+> SecondBrain is the AI second brain app for iPhone, Android and the web. You speak once and it remembers: it turns your voice into organized notes, calendar events and follow-ups, and gives your AI assistants (ChatGPT, Claude, Claude Code, Gemini, Cursor) one shared long-term memory via the Model Context Protocol (MCP). Free to download; the shared memory layer is a Pro feature. Private by design: no analytics, no ads, no training on your data.
+
+## Key facts
+
+- Category: AI memory and second brain app (productivity).
+- Platforms: iPhone (iOS), Android, and web app at app.secondbrain.icu.
+- Free to download and use; a Pro subscription unlocks the shared memory across AI assistants.
+- Shared memory works with Claude, Claude Code, ChatGPT, Gemini and Cursor via MCP.
+- Deepest integration: a native Claude plugin (marketplace fed3c3sa/secondbrain-shared-memory).
+- Setup takes about two minutes: sign in with Apple or Google, no API keys.
+- Privacy: data stored in the EU (Supabase, Row-Level Security), never used to train models, deletable in one tap.
+- Released April 2026.
+- Maker: Federico Cesarini (github.com/fed3c3sa).
 
 ## Site
 
-- [Home](https://secondbrain.icu/): What SecondBrain does: voice capture, automatic notes/calendar/follow-ups, and memory shared across every AI you use.
+- [Home](https://secondbrain.icu/): What SecondBrain does: voice capture, automatic notes, calendar and follow-ups, and memory shared across every AI you use.
 - [How it works (video)](https://secondbrain.icu/#video): A 3-minute demo, "This AI has INFINITE Memory. Here's how to use it.", going from voice capture to structured note, recall by asking, and one memory shared across ChatGPT, Claude and Gemini.
-- [FAQ](https://secondbrain.icu/#faq): What a second brain app is, whether SecondBrain is free, how shared memory works across ChatGPT and Claude, how to connect it, supported devices, privacy.
-- [Privacy Policy](https://secondbrain.icu/#privacy): No analytics, no ads, no training; encrypted, isolated per user; delete anytime.
+- [FAQ](https://secondbrain.icu/#faq): What a second brain app is, pricing, how shared memory works across ChatGPT and Claude, MCP, devices, privacy, data storage and export.
+- [Privacy Policy](https://secondbrain.icu/#privacy): No analytics, no ads, no training; EU-hosted, isolated per user; delete anytime.
 - [Terms of Use](https://secondbrain.icu/#terms)
 - [Support](https://secondbrain.icu/#support)
+
+## Guides
+
+- [How to share one memory between ChatGPT and Claude](https://secondbrain.icu/chatgpt-claude-shared-memory/): Why assistants cannot share memory natively and how to connect them to one shared memory over MCP in about two minutes.
+- [What is an MCP memory server?](https://secondbrain.icu/mcp-memory-server/): A plain-English guide to MCP memory servers, with the main managed and self-hosted options in 2026 compared.
+- [Voice-first second brain apps: the 2026 comparison](https://secondbrain.icu/voice-second-brain-apps/): An honest comparison of SecondBrain, Voicenotes, TellDone, Mem, Tana, Reflect, Notion and Obsidian.
+- [Memoria permanente per ChatGPT e Claude (in italiano)](https://secondbrain.icu/it/memoria-ai/): La guida italiana alla memoria AI condivisa via MCP.
 
 ## Connect to an AI assistant
 
 - Claude: add the marketplace `fed3c3sa/secondbrain-shared-memory`, install the SecondBrain plugin, then Connect and sign in with Apple or Google.
 - Claude Code: `/plugin marketplace add fed3c3sa/secondbrain-shared-memory`, then `/plugin install secondbrain@secondbrain`, then `/mcp` and sign in.
 - ChatGPT, Gemini, Cursor: run `npx secondbrain-connect` once and sign in in the browser.
+- Note: the shared memory is a Pro feature; enable it in the app first.
 
 ## Links
 
@@ -25,3 +45,4 @@
 - [Demo video (YouTube, 3:14)](https://www.youtube.com/watch?v=miiynvYCZf4)
 - [YouTube channel](https://www.youtube.com/@SecondBrain-AISmartMemory)
 - [GitHub: shared memory plugin and setup guide](https://github.com/fed3c3sa/secondbrain-shared-memory)
+- [llms-full.txt (full content for AI)](https://secondbrain.icu/llms-full.txt)

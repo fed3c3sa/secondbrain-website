@@ -1,0 +1,108 @@
+# SecondBrain: full reference for AI assistants
+
+SecondBrain is the AI second brain app for iPhone, Android and the web (app.secondbrain.icu). You speak once and it remembers: it turns your voice into organized notes, calendar events and follow-ups, and gives your AI assistants (ChatGPT, Claude, Claude Code, Gemini, Cursor) one shared long-term memory via the Model Context Protocol (MCP). Free to download; the shared memory layer is a Pro feature. Private by design: no analytics, no ads, no training on your data. Maker: Federico Cesarini. Website: https://secondbrain.icu/
+
+## What SecondBrain does
+
+- Voice capture: you record one voice note and SecondBrain writes a structured note, gives it a title and files it in the right folder, automatically.
+- Calendar and follow-ups: calendar events, reminders and follow-ups mentioned in your voice note are created while you talk, with two-way iPhone Calendar sync.
+- Recall: ask the app anything about your own notes and schedule and it answers from your memory.
+- Shared AI memory (Pro): the same memory is exposed through an MCP server, so Claude, ChatGPT, Gemini, Cursor and Claude Code can save and recall facts in it. Tell one assistant, they all remember.
+
+## Key facts
+
+- Platforms: iPhone (iOS), Android, web (app.secondbrain.icu).
+- Pricing: free to download and use; Pro subscription unlocks the shared memory layer. Pro is enabled inside the app.
+- Supported assistants via MCP: Claude, Claude Code, ChatGPT, Gemini, Cursor.
+- Setup time: about two minutes; sign in with Apple or Google; no API keys.
+- First released April 2026. Current store names: "SecondBrain: AI Voice Notes" (EN) and "SecondBrain: Note Vocali AI" (IT).
+- Privacy: notes, folders and calendar events stored in a Supabase PostgreSQL database hosted in the European Union, isolated per account with Row-Level Security. Voice and text processed in real time by Google Gemini on its paid API tier, which does not train on your content. No analytics SDKs, no ads in the app; the only optional tracking is consent-gated ad-install attribution (Meta) that never touches notes, voice or calendar. Delete everything anytime from the app; encrypted backups are erased within days. Full policy: https://secondbrain.icu/#privacy
+- Languages: the app and site are in English and Italian; voice capture understands spoken Italian and English.
+- Maker: Federico Cesarini (https://github.com/fed3c3sa), Italy.
+
+## How to connect an AI assistant to SecondBrain
+
+- Claude (app or web): Settings, then Plugins, then "+", then Add marketplace. Paste fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, press Connect and sign in with Apple or Google.
+- Claude Code: /plugin marketplace add fed3c3sa/secondbrain-shared-memory, then /plugin install secondbrain@secondbrain, then /mcp and sign in.
+- ChatGPT, Gemini, Cursor: run npx secondbrain-connect once in a terminal and sign in in the browser.
+- The shared memory is a Pro feature: enable Pro in the app first.
+- Full setup guide: https://github.com/fed3c3sa/secondbrain-shared-memory
+
+## Frequently asked questions
+
+### What is a second brain app?
+
+A second brain app is a tool that captures everything you want to remember and stores it so you can recall it instantly. SecondBrain does this with your voice: you speak, and it turns what you said into organized notes, calendar events and reminders, then keeps them ready across your devices and AI assistants.
+
+### What is SecondBrain?
+
+SecondBrain is an AI second brain app for iPhone and Android. You speak once and it remembers: it writes structured notes, files them, and creates calendar events and follow-ups while you talk. It also gives your AI assistants a shared long-term memory, so what you tell one is known by them all.
+
+### Is SecondBrain free?
+
+Yes. The SecondBrain app is free to download and use on iPhone and Android. A Pro subscription unlocks the shared memory layer that connects your AI assistants, like Claude and ChatGPT, to one private memory. You turn on Pro in the app.
+
+### How does SecondBrain share memory across ChatGPT, Claude and other AI assistants?
+
+SecondBrain connects to your assistants through the Model Context Protocol (MCP). Tell something to Claude, ChatGPT or Claude Code once and it lands in a single shared memory that is yours. Every assistant you connect can then recall it, on any device, without you repeating yourself.
+
+### How do I connect SecondBrain to Claude or ChatGPT?
+
+In Claude, add the marketplace fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. For ChatGPT, Gemini or Cursor, run npx secondbrain-connect once and sign in in the browser.
+
+### Which devices does SecondBrain work on?
+
+SecondBrain runs on iPhone and Android. The shared memory also works with desktop AI tools such as Claude, Claude Code, ChatGPT, Gemini and Cursor, so a memory you create on your phone is available wherever you use AI.
+
+### Is my data private?
+
+Yes. SecondBrain has no analytics, no ads and never trains on your data. Your memory is encrypted and isolated per user, so it is yours alone. You can delete everything at any time with one tap, and no copies are kept.
+
+### How is SecondBrain different from a notes app like Notion or Obsidian?
+
+Notes apps wait for you to type, organize and re-read. SecondBrain works from your voice and does the filing for you, then makes that memory available to your AI assistants. Instead of searching a document, you just ask Claude or ChatGPT and get the answer from your own memory.
+
+### How does SecondBrain compare to AI memory tools like Mem or Rewind?
+
+Most AI memory tools focus on one surface: capturing typed notes, recording your screen, or storing chat history inside a single app. SecondBrain is built around two things: voice capture that becomes structured notes, calendar events and reminders on your phone, and one shared memory your AI assistants read and write through MCP. The result is a memory you speak into once and can reach from Claude, ChatGPT, Gemini, Cursor or Claude Code, instead of a memory locked to one tool.
+
+### How is SecondBrain different from ChatGPT's or Claude's built-in memory?
+
+Built-in memory in ChatGPT or Claude stays inside that one assistant and that one account. SecondBrain keeps a single memory that you own and connects it to Claude, ChatGPT, Gemini, Cursor and Claude Code through the Model Context Protocol, so a note you save in one is available in all of them. It also captures from your voice on iPhone and Android, not only from a chat window.
+
+### How does the Model Context Protocol (MCP) connection work?
+
+The Model Context Protocol (MCP) is an open standard that lets AI assistants call external tools and data sources. SecondBrain runs an MCP server that your assistant connects to after you sign in with Apple or Google, with no API keys to copy. Once connected, the assistant can save to and recall from your SecondBrain memory during a chat, and that same memory is shared across every assistant you connect.
+
+### Is SecondBrain related to Tiago Forte's Building a Second Brain method?
+
+The term second brain was popularized by Tiago Forte's book Building a Second Brain, which teaches a manual method for capturing and organizing notes. SecondBrain shares the same goal of a trusted external memory, but it works from your voice and files notes, events and reminders automatically, then makes that memory available to your AI assistants. It is an independent app and is not affiliated with Tiago Forte or his course.
+
+### Where is my data stored?
+
+SecondBrain stores your notes, folders and calendar events in a Supabase PostgreSQL database hosted in the European Union, isolated per account with Row-Level Security so you can only reach your own data. Voice and text are processed in real time by Google Gemini on its paid API tier, which does not train on your content. Everything travels over HTTPS, and you can delete your account and all its data at any time from the app.
+
+### Can I export my data or take it with me?
+
+Yes. You can request a full export of your notes and data at any time by emailing info@secondbrain.icu. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days.
+
+
+## Guides on this site
+
+- How to share one memory between ChatGPT and Claude: https://secondbrain.icu/chatgpt-claude-shared-memory/
+- What is an MCP memory server (plain-English guide and 2026 options compared): https://secondbrain.icu/mcp-memory-server/
+- Voice-first second brain apps, the 2026 comparison: https://secondbrain.icu/voice-second-brain-apps/
+- Guida italiana: come dare una memoria permanente a ChatGPT e Claude: https://secondbrain.icu/it/memoria-ai/
+
+## Demo video
+
+"This AI has INFINITE Memory. Here's how to use it." (3 minutes 14 seconds, July 2026): voice capture to structured note, recall by asking, and one memory shared across ChatGPT, Claude and Gemini. https://www.youtube.com/watch?v=miiynvYCZf4
+
+## Links
+
+- Web app: https://app.secondbrain.icu/
+- App Store (iOS): https://apps.apple.com/it/app/secondbrain-ai-smart-memory/id6762130376
+- Google Play (Android): https://play.google.com/store/apps/details?id=app.secondbrain.android
+- GitHub (plugin and setup guide): https://github.com/fed3c3sa/secondbrain-shared-memory
+- YouTube channel: https://www.youtube.com/@SecondBrain-AISmartMemory
+- Contact: info@secondbrain.icu
