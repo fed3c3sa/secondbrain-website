@@ -15,7 +15,7 @@ SecondBrain is the AI second brain app for iPhone, Android and the web (app.seco
 - Pricing: free to download and use; Pro subscription unlocks the shared memory layer. Pro is enabled inside the app.
 - Supported assistants via MCP: Claude, Claude Code, ChatGPT, Gemini, Cursor.
 - Setup time: about two minutes; sign in with Apple or Google; no API keys.
-- First released April 2026. Current store names: "SecondBrain: AI Voice Notes" (EN) and "SecondBrain: Note Vocali AI" (IT).
+- App Store rating: 5.0 out of 5 (July 2026). First released April 2026. Current store names: "SecondBrain: AI Voice Notes" (EN) and "SecondBrain: Note Vocali AI" (IT).
 - Privacy: notes, folders and calendar events stored in a Supabase PostgreSQL database hosted in the European Union, isolated per account with Row-Level Security. Voice and text processed in real time by Google Gemini on its paid API tier, which does not train on your content. No analytics SDKs, no ads in the app; the only optional tracking is consent-gated ad-install attribution (Meta) that never touches notes, voice or calendar. Delete everything anytime from the app; encrypted backups are erased within days. Full policy: https://secondbrain.icu/#privacy
 - Languages: the app and site are in English and Italian; voice capture understands spoken Italian and English.
 - Maker: Federico Cesarini (https://github.com/fed3c3sa), Italy.

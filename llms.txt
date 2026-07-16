@@ -11,7 +11,7 @@
 - Deepest integration: a native Claude plugin (marketplace fed3c3sa/secondbrain-shared-memory).
 - Setup takes about two minutes: sign in with Apple or Google, no API keys.
 - Privacy: data stored in the EU (Supabase, Row-Level Security), never used to train models, deletable in one tap.
-- Released April 2026.
+- App Store rating: 5.0 out of 5 (July 2026). Released April 2026.
 - Maker: Federico Cesarini (github.com/fed3c3sa).
 
 ## Site
