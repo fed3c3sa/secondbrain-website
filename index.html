@@ -555,6 +555,40 @@
     }
 
     /* ════════════════════════════════════════════════════════ */
+    /* STORY · full-screen section, video scrubbed by scroll    */
+    /* The tall wrapper sets how much scrolling plays the whole */
+    /* video; the inner frame stays pinned while it runs, then  */
+    /* releases and the page continues normally.                */
+    /* ════════════════════════════════════════════════════════ */
+    .story {
+      position: relative;
+      height: 340vh;
+    }
+    .story-pin {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      height: 100svh;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #8e887c, #b9b6ae); /* the video's own edge tones */
+    }
+    .story-pin video {
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+    }
+    @media (max-aspect-ratio: 5/6) {
+      /* portrait phones: letterbox instead of cropping the story's text */
+      .story-pin video { object-fit: contain; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .story { height: auto; }
+      .story-pin { position: static; height: auto; background: none; }
+      .story-pin video { height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+    }
+
+    /* ════════════════════════════════════════════════════════ */
     /* NAV · floating glass bar                                 */
     /* ════════════════════════════════════════════════════════ */
     .top-bar {
@@ -1627,6 +1661,16 @@
       </div>
     </section>
 
+    <!-- STORY · full-screen video, scroll plays it through       -->
+    <!-- Every frame is a keyframe (-g 1), so seeking is instant. -->
+    <section class="story" id="story" aria-hidden="true">
+      <div class="story-pin">
+        <video id="story-video" muted playsinline preload="auto" poster="assets/scroll-story-poster.webp" disablepictureinpicture disableremoteplayback tabindex="-1">
+          <source src="assets/scroll-story.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </section>
+
     <!-- THE APP · seven screens -->
     <section class="section" id="features">
       <div class="section-head">
@@ -2628,6 +2672,53 @@
       galleryTrack.scrollBy({ left: dir * w * 1.2, behavior: 'smooth' });
     });
   });
+
+  // ── Story section: pinned full screen, scroll scrubs it ───
+  // While the section is pinned, scrolling down plays the video
+  // forward and scrolling up rewinds it; once it ends the page
+  // scrolls on normally. Reduced motion shows a static frame.
+  const storySection = document.getElementById('story');
+  const storyVideo = document.getElementById('story-video');
+  if (storySection && storyVideo && !reducedMotion) {
+    let stTarget = 0, stCurrent = 0, stRaf = null, stPrimed = false;
+
+    const stProgress = () => {
+      const r = storySection.getBoundingClientRect();
+      const span = r.height - window.innerHeight; // scroll distance while pinned
+      return span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 0;
+    };
+
+    const stTick = () => {
+      stCurrent += (stTarget - stCurrent) * 0.14; // ease toward the scroll position
+      if (storyVideo.readyState >= 1 && storyVideo.duration && !storyVideo.seeking) {
+        storyVideo.currentTime = stCurrent * (storyVideo.duration - 0.06);
+      }
+      if (Math.abs(stTarget - stCurrent) > 0.0004 || storyVideo.seeking) {
+        stRaf = requestAnimationFrame(stTick);
+      } else {
+        stRaf = null;
+      }
+    };
+
+    const stUpdate = () => {
+      stTarget = stProgress();
+      if (stRaf === null) stRaf = requestAnimationFrame(stTick);
+    };
+
+    // iOS Safari paints no frame until playback has started once: prime silently.
+    const stPrime = () => {
+      if (stPrimed) return;
+      stPrimed = true;
+      const p = storyVideo.play();
+      if (p && p.then) p.then(() => { storyVideo.pause(); stUpdate(); }).catch(() => { stPrimed = false; });
+    };
+
+    storyVideo.addEventListener('loadedmetadata', stUpdate);
+    storyVideo.addEventListener('loadeddata', stPrime);
+    window.addEventListener('touchstart', stPrime, { once: true, passive: true });
+    window.addEventListener('scroll', stUpdate, { passive: true });
+    window.addEventListener('resize', stUpdate, { passive: true });
+  }
 </script>
 
 </body>
