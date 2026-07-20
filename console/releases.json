@@ -1,0 +1,83 @@
+{
+  "readme": "iOS App Store releases from the refactored-ios-version branch of ~/Desktop/personal/secondbrain. Shown as vertical markers on the console charts; tapping a tag opens the changelog. liveDate = date the final build of the version was pushed to the branch + 1 day (average App Store review time). Changes are written in plain product language for a non-technical reader: describe what changed for users (paywall, onboarding, features), not code internals. To add a release: prepend an entry (newest first) summarizing the commits since the previous version bump, then sync the copy in secondbrain-dashboard/viewer/ and push this site.",
+  "releases": [
+    {
+      "version": "2.3.2",
+      "build": 1,
+      "pushedAt": "2026-07-17",
+      "liveDate": "2026-07-18",
+      "title": "Assistant reliability fixes",
+      "changes": [
+        "Fixed a bug where the assistant could stay stuck on 'thinking' even after the answer was ready",
+        "Fixed voice recording sometimes not starting when the app was opened straight into quick record"
+      ]
+    },
+    {
+      "version": "2.3.0",
+      "build": 2,
+      "pushedAt": "2026-07-13",
+      "liveDate": "2026-07-14",
+      "title": "New paywall and glass design",
+      "changes": [
+        "Completely redesigned paywall: growth charts, new glass look, yearly plan shown first",
+        "Paywall adapts the free-trial length automatically and is fully translated",
+        "New iOS 'Liquid Glass' look across the app, plus accessibility improvements",
+        "Voice notes are now always answered in the language you spoke, not the app language",
+        "Folder fixes: deleting a folder removes everything inside it, moved notes land in the right place, no more orphan notes",
+        "The assistant orb went back to the classic solid style"
+      ]
+    },
+    {
+      "version": "2.2.0",
+      "build": 3,
+      "pushedAt": "2026-07-06",
+      "liveDate": "2026-07-07",
+      "title": "Personalized onboarding",
+      "changes": [
+        "New onboarding that asks who you are and what you need, then shows a paywall tailored to that persona with a dynamic offer",
+        "Onboarding questions rebuilt around real usage data",
+        "Fixed a paywall bug where an empty offer screen could appear",
+        "Free plan AI limit changed to 5 requests per day, 7 per week",
+        "Big internal cleanup to make future updates faster and less buggy (nothing visible to users)"
+      ]
+    },
+    {
+      "version": "2.1.1",
+      "build": 1,
+      "pushedAt": "2026-07-01",
+      "liveDate": "2026-07-02",
+      "title": "Better voice messages",
+      "changes": [
+        "Record a voice message and attach a typed note, sent together in one tap",
+        "Voice messages can now last up to 2 minutes",
+        "Audio files can be shared into SecondBrain from other apps",
+        "Fixed photos and audio not loading right after opening the app, added a long-press menu on messages"
+      ]
+    },
+    {
+      "version": "2.1.0",
+      "build": 18,
+      "pushedAt": "2026-06-30",
+      "liveDate": "2026-07-01",
+      "title": "New animated onboarding",
+      "changes": [
+        "Brand new animated onboarding on iPhone and Android, translated in every supported language (replaces the old static screenshots)",
+        "Fixed the AI sometimes writing notes in the wrong language"
+      ]
+    },
+    {
+      "version": "2.0.0",
+      "build": 17,
+      "pushedAt": "2026-06-25",
+      "liveDate": "2026-06-26",
+      "title": "Voice-first redesign",
+      "changes": [
+        "The app became voice-first: redesigned assistant screen, new navigation with glass effect, new 3D loading animation",
+        "Share content from other apps straight into SecondBrain",
+        "Free plan set to 3 AI messages per day",
+        "Better notifications for urgent items and AI tasks",
+        "Lots of visual polish: assistant orb centering, lower tab bar, image previews in messages"
+      ]
+    }
+  ]
+}
