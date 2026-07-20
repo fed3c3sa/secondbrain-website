@@ -160,10 +160,10 @@ table.data tr:last-child td { border-bottom: none; }
 .src { color: var(--muted); font-size: 12px; margin-top: 28px; }
 .src b { color: var(--ink-2); font-weight: 600; }
 g.rel { cursor: pointer; }
-g.rel:hover rect, g.rel:focus rect { stroke: var(--ink-2); }
+g.rel:hover rect.pill, g.rel:focus rect.pill { stroke: var(--ink-2); }
 g.rel:focus { outline: none; }
 g.adev { cursor: pointer; }
-g.adev:hover path, g.adev:focus path { opacity: 0.7; }
+g.adev:hover rect.pill, g.adev:focus rect.pill { fill: var(--meter-track); }
 g.adev:focus { outline: none; }
 .modal ul li b { color: var(--ink); }
 .modal ul li .t { color: var(--muted); font-size: 12px; }
@@ -453,24 +453,63 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
     document.body.appendChild(back);
   }
 
-  /* Blue diamonds on the baseline: days with Meta ad account changes
-     (created / budget / paused / deleted). Tap for the day's detail. */
+  /* What the bottom tag says when a day's ad changes are all one kind. */
+  const AD_TAG_LABELS = { created: 'New ad', budget: 'Budget', status: 'On/Off', deleted: 'Deleted', limit: 'Limit' };
+
+  /* Days with Meta ad account changes (created / budget / paused /
+     deleted): a blue dashed bar the full height of the plot plus a labeled
+     tag button at the bottom (releases live at the top in gray). Adjacent
+     tags alternate between two rows. Tap for the day's detail. */
   function addAdEventMarkers(svg, rows, xAt, padT, ih) {
     const days = (state.payload && state.payload.adEvents) || [];
     if (!days.length || rows.length < 2) return;
     const idx = new Map(rows.map((r, i) => [r.date, i]));
+    const marks = [];
     for (const day of days) {
       const i = idx.get(day.date);
-      if (i === undefined || !day.events || !day.events.length) continue;
-      const mx = xAt(i), my = padT + ih;
+      if (i !== undefined && day.events && day.events.length) marks.push({ day, i });
+    }
+    marks.sort((a, b) => a.i - b.i);
+    let lastX = -Infinity, level = 0;
+    for (const m of marks) {
+      const mx = xAt(m.i);
+      const n = m.day.events.length;
+      const kinds = [...new Set(m.day.events.map((e) => e.kind))];
+      let label = kinds.length === 1 ? (AD_TAG_LABELS[kinds[0]] || 'Ads') : 'Ads';
+      if (n > 1) label += ' ' + n;
+      const w = label.length * 6.4 + 14;
+      level = mx - lastX < w + 14 ? (level + 1) % 2 : 0;
+      lastX = mx;
+      const tagY = padT + ih - 17 - level * 20;
       const g = svgEl('g', { class: 'adev', role: 'button', tabindex: 0,
-        'aria-label': day.events.length + ' ad change' + (day.events.length === 1 ? '' : 's') + ' on ' + day.date + ', tap for details' });
-      g.appendChild(svgEl('path', {
-        d: 'M' + mx + ' ' + (my - 4.5) + ' l4.5 4.5 l-4.5 4.5 l-4.5 -4.5 z',
-        fill: css('--spend'), stroke: css('--surface'), 'stroke-width': 1,
+        'aria-label': n + ' ad change' + (n === 1 ? '' : 's') + ' on ' + m.day.date + ', tap for details' });
+      const rule = svgEl('line', {
+        x1: mx, x2: mx, y1: padT, y2: tagY,
+        stroke: css('--spend'), 'stroke-width': 1.5, 'stroke-dasharray': '4 3', opacity: 0.5,
+      });
+      rule.style.pointerEvents = 'none';
+      g.appendChild(rule);
+      const stem = svgEl('line', {
+        x1: mx, x2: mx, y1: tagY + 16, y2: padT + ih,
+        stroke: css('--spend'), 'stroke-width': 1.5, opacity: 0.8,
+      });
+      stem.style.pointerEvents = 'none';
+      g.appendChild(stem);
+      g.appendChild(svgEl('rect', {
+        class: 'pill', x: mx - w / 2, y: tagY, width: w, height: 16, rx: 8,
+        fill: css('--surface'), stroke: css('--spend'), 'stroke-width': 1.2,
       }));
-      g.appendChild(svgEl('circle', { cx: mx, cy: my, r: 11, fill: 'transparent' }));
-      const open = () => openAdDay(day);
+      const txt = svgEl('text', {
+        x: mx, y: tagY + 11.5, 'text-anchor': 'middle',
+        fill: css('--spend'), 'font-size': 10, 'font-weight': 700,
+      });
+      txt.textContent = label;
+      g.appendChild(txt);
+      // Generous invisible hit area so the tag is easy to tap on a phone.
+      g.appendChild(svgEl('rect', {
+        x: mx - w / 2 - 5, y: tagY - 5, width: w + 10, height: 26, fill: 'transparent',
+      }));
+      const open = () => openAdDay(m.day);
       g.addEventListener('click', open);
       g.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); open(); } });
       svg.appendChild(g);
@@ -506,7 +545,7 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
       rule.style.pointerEvents = 'none';
       g.appendChild(rule);
       g.appendChild(svgEl('rect', {
-        x: mx - w / 2, y: tagY, width: w, height: 15, rx: 7.5,
+        class: 'pill', x: mx - w / 2, y: tagY, width: w, height: 15, rx: 7.5,
         fill: css('--surface'), stroke: css('--border'), 'stroke-width': 1,
       }));
       const txt = svgEl('text', {
@@ -1197,7 +1236,7 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
     }
     if (p.adEvents && p.adEvents.length) {
       src.appendChild(el('div', { style: 'margin-top:4px' },
-        'Blue diamonds on the baseline mark Meta ad account changes (new campaigns or ads, budget changes, pauses, deletions). Tap one for the detail.'));
+        'Blue bars with a tag at the bottom of the charts mark Meta ad account changes (new campaigns or ads, budget changes, pauses, deletions). Tap a tag for the detail.'));
     }
     c.appendChild(src);
 
