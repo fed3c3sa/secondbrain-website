@@ -1191,6 +1191,49 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
       c.appendChild(sec);
     }
 
+    /* Per-app-version funnel, straight from RevenueCat: every trial and
+       payment credited to the version installed when it happened. */
+    if (p.rcByVersion && p.rcByVersion.length) {
+      const sec = el('section');
+      sec.appendChild(el('h2', {}, 'By app version (RevenueCat, all time)'));
+      const card = el('div', { class: 'card' });
+      const hasDl = p.rcByVersion.some((r) => r.newCustomers !== null && r.newCustomers !== undefined);
+      const t = el('table', { class: 'data' });
+      const hr = el('tr');
+      const heads = ['Version'].concat(hasDl ? ['Downloads'] : [], ['Trials started', 'Trial conversions', 'New payers', 'Paid / trial']);
+      for (const h of heads) hr.appendChild(el('th', {}, h));
+      const thead = el('thead'); thead.appendChild(hr); t.appendChild(thead);
+      const tbody = el('tbody');
+      const relByVersion = new Map(state.releases.map((r) => [r.version, r]));
+      for (const r of p.rcByVersion) {
+        const tr = el('tr');
+        const vTd = el('td');
+        const rel = relByVersion.get(r.version);
+        if (rel) {
+          const btn = el('button', { type: 'button', class: 'ver',
+            style: 'padding:1px 9px;font-size:12px;border-radius:999px' }, 'v' + r.version);
+          btn.addEventListener('click', () => openRelease(rel));
+          vTd.appendChild(btn);
+        } else {
+          vTd.textContent = 'v' + r.version;
+        }
+        tr.appendChild(vTd);
+        if (hasDl) tr.appendChild(el('td', {}, int(r.newCustomers)));
+        tr.appendChild(el('td', {}, int(r.trials)));
+        tr.appendChild(el('td', {}, int(r.trialConversions)));
+        tr.appendChild(el('td', {}, int(r.newPayers)));
+        tr.appendChild(el('td', {}, r.trials > 0 ? pct(r2(r.trialConversions / r.trials * 100)) : String.fromCharCode(0x2013)));
+        tbody.appendChild(tr);
+      }
+      t.appendChild(tbody);
+      card.appendChild(t);
+      sec.appendChild(card);
+      sec.appendChild(el('div', { class: 'src', style: 'margin-top:8px' },
+        'Each trial or payment is credited to the app version installed when it happened, so a conversion often lands one version after its trial started. Versions with a changelog are tappable.' +
+        (hasDl ? '' : ' RevenueCat does not split downloads by version; use the acquisition charts above for download volume.')));
+      c.appendChild(sec);
+    }
+
     /* Monthly table */
     const moSec = el('section');
     moSec.appendChild(el('h2', {}, 'Monthly'));
