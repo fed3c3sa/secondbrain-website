@@ -28,6 +28,17 @@
       ]
     },
     {
+      "version": "2.2.1",
+      "build": 1,
+      "pushedAt": "2026-07-10",
+      "liveDate": "2026-07-11",
+      "title": "Smarter trial offers",
+      "changes": [
+        "The free-trial length shown on the paywall now adapts automatically to the offer",
+        "Paywall copy fully translated in every supported language"
+      ]
+    },
+    {
       "version": "2.2.0",
       "build": 3,
       "pushedAt": "2026-07-06",
