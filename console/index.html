@@ -162,6 +162,11 @@ table.data tr:last-child td { border-bottom: none; }
 g.rel { cursor: pointer; }
 g.rel:hover rect, g.rel:focus rect { stroke: var(--ink-2); }
 g.rel:focus { outline: none; }
+g.adev { cursor: pointer; }
+g.adev:hover path, g.adev:focus path { opacity: 0.7; }
+g.adev:focus { outline: none; }
+.modal ul li b { color: var(--ink); }
+.modal ul li .t { color: var(--muted); font-size: 12px; }
 .modal-back {
   position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 20;
   display: flex; align-items: center; justify-content: center; padding: 18px;
@@ -408,6 +413,70 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
     document.body.appendChild(back);
   }
 
+  /* Which dot color a Meta ad-change kind gets in the details modal. */
+  const AD_KIND_COLORS = { created: '--good', budget: '--spend', status: '--trials', deleted: '--critical', limit: '--spend' };
+
+  /* Tap on an ad-change diamond: list that day's Meta ad account changes,
+     ad/campaign name first. */
+  function openAdDay(day) {
+    closeRelease();
+    const back = el('div', { class: 'modal-back', id: 'rel-modal' });
+    const card = el('div', { class: 'modal', role: 'dialog', 'aria-label': 'Ad changes on ' + day.date });
+    const head = el('div', { class: 'm-head' });
+    head.appendChild(el('h3', {}, 'Ad changes'));
+    head.appendChild(el('span', { class: 'm-title' }, fmtLong(day.date)));
+    const closeBtn = el('button', { type: 'button', 'aria-label': 'Close' }, String.fromCharCode(0x2715));
+    closeBtn.addEventListener('click', closeRelease);
+    head.appendChild(closeBtn);
+    card.appendChild(head);
+    card.appendChild(el('div', { class: 'm-meta' },
+      day.events.length + (day.events.length === 1 ? ' change' : ' changes') + ' in the Meta ad account'));
+    const ul = el('ul');
+    for (const ev of day.events) {
+      const li = el('li');
+      const dot = el('span', { class: 'dot' });
+      dot.style.background = css(AD_KIND_COLORS[ev.kind] || '--spend');
+      li.appendChild(dot);
+      if (ev.object) {
+        li.appendChild(el('b', {}, ev.object));
+        li.appendChild(document.createTextNode(': '));
+      }
+      li.appendChild(document.createTextNode(ev.label + (ev.detail ? ', ' + ev.detail : '')));
+      const hhmm = ev.time && ev.time.length >= 16 ? ev.time.slice(11, 16) : '';
+      if (hhmm) li.appendChild(el('span', { class: 't' }, ' ' + hhmm));
+      ul.appendChild(li);
+    }
+    card.appendChild(ul);
+    back.appendChild(card);
+    back.addEventListener('click', (ev) => { if (ev.target === back) closeRelease(); });
+    document.addEventListener('keydown', onReleaseKey);
+    document.body.appendChild(back);
+  }
+
+  /* Blue diamonds on the baseline: days with Meta ad account changes
+     (created / budget / paused / deleted). Tap for the day's detail. */
+  function addAdEventMarkers(svg, rows, xAt, padT, ih) {
+    const days = (state.payload && state.payload.adEvents) || [];
+    if (!days.length || rows.length < 2) return;
+    const idx = new Map(rows.map((r, i) => [r.date, i]));
+    for (const day of days) {
+      const i = idx.get(day.date);
+      if (i === undefined || !day.events || !day.events.length) continue;
+      const mx = xAt(i), my = padT + ih;
+      const g = svgEl('g', { class: 'adev', role: 'button', tabindex: 0,
+        'aria-label': day.events.length + ' ad change' + (day.events.length === 1 ? '' : 's') + ' on ' + day.date + ', tap for details' });
+      g.appendChild(svgEl('path', {
+        d: 'M' + mx + ' ' + (my - 4.5) + ' l4.5 4.5 l-4.5 4.5 l-4.5 -4.5 z',
+        fill: css('--spend'), stroke: css('--surface'), 'stroke-width': 1,
+      }));
+      g.appendChild(svgEl('circle', { cx: mx, cy: my, r: 11, fill: 'transparent' }));
+      const open = () => openAdDay(day);
+      g.addEventListener('click', open);
+      g.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); open(); } });
+      svg.appendChild(g);
+    }
+  }
+
   /* Vertical release markers on daily charts: dashed rule + version tag at
      the release's estimated App Store live date. Appended after the hover
      overlay so the tags stay clickable. Adjacent tags alternate between two
@@ -527,6 +596,7 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
     const overlay = svgEl('rect', { x: padL, y: padT, width: iw, height: ih, fill: 'transparent' });
     svg.appendChild(overlay);
     addReleaseMarkers(svg, rows, x, padT, ih);
+    addAdEventMarkers(svg, rows, x, padT, ih);
     plot.appendChild(svg);
 
     const tip = el('div', { class: 'tooltip' });
@@ -646,6 +716,7 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
       svg.appendChild(hit);
     });
     addReleaseMarkers(svg, rows, (i) => padL + i * bandW + bandW / 2, padT, ih);
+    addAdEventMarkers(svg, rows, (i) => padL + i * bandW + bandW / 2, padT, ih);
     plot.appendChild(svg);
     plot.appendChild(tip);
 
@@ -1123,6 +1194,10 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
     if (state.releases.length) {
       src.appendChild(el('div', { style: 'margin-top:4px' },
         'Dashed vertical lines mark App Store releases (push to the iOS branch + 1 day for review). Tap a version tag to see what changed.'));
+    }
+    if (p.adEvents && p.adEvents.length) {
+      src.appendChild(el('div', { style: 'margin-top:4px' },
+        'Blue diamonds on the baseline mark Meta ad account changes (new campaigns or ads, budget changes, pauses, deletions). Tap one for the detail.'));
     }
     c.appendChild(src);
 
