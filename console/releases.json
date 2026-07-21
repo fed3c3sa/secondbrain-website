@@ -2,6 +2,20 @@
   "readme": "iOS App Store releases from the refactored-ios-version branch of ~/Desktop/personal/secondbrain. Shown as vertical markers on the console charts; tapping a tag opens the changelog. liveDate = date the final build of the version was pushed to the branch + 1 day (average App Store review time). Changes are written in plain product language for a non-technical reader: describe what changed for users (paywall, onboarding, features), not code internals. To add a release: prepend an entry (newest first) summarizing the commits since the previous version bump, then sync the copy in secondbrain-dashboard/viewer/ and push this site.",
   "releases": [
     {
+      "version": "2.3.4",
+      "build": 1,
+      "pushedAt": "2026-07-21",
+      "liveDate": "2026-07-22",
+      "title": "Paywall back to the proven design",
+      "changes": [
+        "Paywall returned to the layout users responded to best: clear yearly price with the welcome discount, free-trial badge, and what Pro does for you",
+        "The yearly plan now also shows its per-month equivalent",
+        "Shorter onboarding: from your answers straight to your personalized offer",
+        "Clearer trial button: try SecondBrain Pro free, with the exact trial length shown",
+        "Declining the free trial now shows one clear confirmation: no payment today, cancel anytime"
+      ]
+    },
+    {
       "version": "2.3.2",
       "build": 1,
       "pushedAt": "2026-07-17",
