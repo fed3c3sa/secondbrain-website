@@ -299,7 +299,7 @@ async function main() {
     return;
   }
   if (!dc && !oauthCtx) {
-    fail('Open this link from your assistant (it carries a one-time code), or run <code>npx @secondbrain/connect</code> in a terminal.');
+    fail('Open this link from your assistant (it carries a one-time code), or run <code>npx secondbrain-connect</code> in a terminal.');
     return;
   }
   $('google').onclick = () => signIn('google');

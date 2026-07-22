@@ -1,6 +1,6 @@
 # SecondBrain: full reference for AI assistants
 
-SecondBrain is the AI second brain app for iPhone, Android and the web (app.secondbrain.icu). You speak once and it remembers: it turns your voice into organized notes, calendar events and follow-ups, and gives your AI assistants (ChatGPT, Claude, Claude Code, Gemini, Cursor) one shared long-term memory via the Model Context Protocol (MCP). Free to download; the shared memory layer is a Pro feature. Private by design: no analytics, no ads, no training on your data. Maker: Federico Cesarini. Website: https://secondbrain.icu/
+SecondBrain is the AI second brain app for iPhone, Android and the web (app.secondbrainmemory.com). You speak once and it remembers: it turns your voice into organized notes, calendar events and follow-ups, and gives your AI assistants (ChatGPT, Claude, Claude Code, Gemini, Cursor) one shared long-term memory via the Model Context Protocol (MCP). Free to download; the shared memory layer is a Pro feature. Private by design: no analytics, no ads, no training on your data. Maker: Federico Cesarini. Website: https://secondbrainmemory.com/
 
 ## What SecondBrain does
 
@@ -11,12 +11,12 @@ SecondBrain is the AI second brain app for iPhone, Android and the web (app.seco
 
 ## Key facts
 
-- Platforms: iPhone (iOS), Android, web (app.secondbrain.icu).
+- Platforms: iPhone (iOS), Android, web (app.secondbrainmemory.com).
 - Pricing: free to download and use; Pro subscription unlocks the shared memory layer. Pro is enabled inside the app.
 - Supported assistants via MCP: Claude, Claude Code, ChatGPT, Gemini, Cursor.
 - Setup time: about two minutes; sign in with Apple or Google; no API keys.
 - App Store rating: 5.0 out of 5 (July 2026). First released April 2026. Current store names: "SecondBrain: AI Voice Notes" (EN) and "SecondBrain: Note Vocali AI" (IT).
-- Privacy: notes, folders and calendar events stored in a Supabase PostgreSQL database hosted in the European Union, isolated per account with Row-Level Security. Voice and text processed in real time by Google Gemini on its paid API tier, which does not train on your content. No analytics SDKs, no ads in the app; the only optional tracking is consent-gated ad-install attribution (Meta) that never touches notes, voice or calendar. Delete everything anytime from the app; encrypted backups are erased within days. Full policy: https://secondbrain.icu/#privacy
+- Privacy: notes, folders and calendar events stored in a Supabase PostgreSQL database hosted in the European Union, isolated per account with Row-Level Security. Voice and text processed in real time by Google Gemini on its paid API tier, which does not train on your content. No analytics SDKs, no ads in the app; the only optional tracking is consent-gated ad-install attribution (Meta) that never touches notes, voice or calendar. Delete everything anytime from the app; encrypted backups are erased within days. Full policy: https://secondbrainmemory.com/#privacy
 - Languages: the app and site are in English and Italian; voice capture understands spoken Italian and English.
 - Maker: Federico Cesarini (https://github.com/fed3c3sa), Italy.
 
@@ -84,15 +84,15 @@ SecondBrain stores your notes, folders and calendar events in a Supabase Postgre
 
 ### Can I export my data or take it with me?
 
-Yes. You can request a full export of your notes and data at any time by emailing info@secondbrain.icu. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days.
+Yes. You can request a full export of your notes and data at any time by emailing info@secondbrainmemory.com. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days.
 
 
 ## Guides on this site
 
-- How to share one memory between ChatGPT and Claude: https://secondbrain.icu/chatgpt-claude-shared-memory/
-- What is an MCP memory server (plain-English guide and 2026 options compared): https://secondbrain.icu/mcp-memory-server/
-- Voice-first second brain apps, the 2026 comparison: https://secondbrain.icu/voice-second-brain-apps/
-- Guida italiana: come dare una memoria permanente a ChatGPT e Claude: https://secondbrain.icu/it/memoria-ai/
+- How to share one memory between ChatGPT and Claude: https://secondbrainmemory.com/chatgpt-claude-shared-memory/
+- What is an MCP memory server (plain-English guide and 2026 options compared): https://secondbrainmemory.com/mcp-memory-server/
+- Voice-first second brain apps, the 2026 comparison: https://secondbrainmemory.com/voice-second-brain-apps/
+- Guida italiana: come dare una memoria permanente a ChatGPT e Claude: https://secondbrainmemory.com/it/memoria-ai/
 
 ## Demo video
 
@@ -100,9 +100,9 @@ Yes. You can request a full export of your notes and data at any time by emailin
 
 ## Links
 
-- Web app: https://app.secondbrain.icu/
+- Web app: https://app.secondbrainmemory.com/
 - App Store (iOS): https://apps.apple.com/it/app/secondbrain-ai-smart-memory/id6762130376
 - Google Play (Android): https://play.google.com/store/apps/details?id=app.secondbrain.android
 - GitHub (plugin and setup guide): https://github.com/fed3c3sa/secondbrain-shared-memory
 - YouTube channel: https://www.youtube.com/@SecondBrain-AISmartMemory
-- Contact: info@secondbrain.icu
+- Contact: info@secondbrainmemory.com
