@@ -1403,17 +1403,21 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
       trow('Cached read cost', usd4(f.cost.cached), usd4(pr.cost.cached));
       trow('Output + thinking cost', usd4(f.cost.output), usd4(pr.cost.output));
       trow('Total AI cost', usd4(f.cost.total), usd4(pr.cost.total));
-      trow('Avg / user (' + days + ' days)', usd4(f.avgCost), usd4(pr.avgCost));
-      trow('Avg / user / day', usd4(f.avgPerDay), usd4(pr.avgPerDay));
-      trow('Avg / user / month (30-day scale)', usd4(f.avgPerMonth), usd4(pr.avgPerMonth));
+      trow('Avg / ALL users (' + days + ' days)', usd4(f.avgCost), usd4(pr.avgCost));
+      trow('Avg / all users / day', usd4(f.avgPerDay), usd4(pr.avgPerDay));
+      trow('Avg / all users / month (30-day scale)', usd4(f.avgPerMonth), usd4(pr.avgPerMonth));
+      trow('Avg / ACTIVE user (' + days + ' days)', usd4(f.avgCostActive), usd4(pr.avgCostActive));
+      trow('Avg / active user / day', usd4(f.avgPerDayActive), usd4(pr.avgPerDayActive));
+      trow('Avg / active user / month (30-day scale)', usd4(f.avgPerMonthActive), usd4(pr.avgPerMonthActive));
       t.appendChild(tbody);
       card.appendChild(t);
       sec.appendChild(card);
       sec.appendChild(el('div', { class: 'src', style: 'margin-top:8px' },
         'Lifetime Gemini cost over the ' + days + ' tracked days, bucketed by the user\'s CURRENT entitlement ' +
-        '(a converted trial\'s free-period usage counts as pro here). Averages divide by ALL users in the bucket, ' +
-        'including accounts that never used the AI: avg / user = total cost / all users; / day divides by ' + days +
-        ' tracked days; / month is that rate x 30. Thinking is billed at the output rate.'));
+        '(a converted trial\'s free-period usage counts as pro here). "All users" averages divide by every account ' +
+        'in the bucket, including sign-ins that never used the AI; "active user" averages divide only by accounts ' +
+        'with at least one AI request. / day divides by ' + days + ' tracked days; / month is that rate x 30. ' +
+        'Thinking is billed at the output rate.'));
       c.appendChild(sec);
     }
 
