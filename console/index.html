@@ -1392,7 +1392,8 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
         tr.appendChild(el('td', {}, pv));
         tbody.appendChild(tr);
       };
-      trow('Users with AI usage', int(f.users), int(pr.users));
+      trow('All users', int(f.allUsers), int(pr.allUsers));
+      trow('Users with AI usage', int(f.activeUsers), int(pr.activeUsers));
       trow('Input tokens (uncached)', int(f.tokens.input), int(pr.tokens.input));
       trow('Cached input tokens', int(f.tokens.cached), int(pr.tokens.cached));
       trow('Output tokens', int(f.tokens.output), int(pr.tokens.output));
@@ -1409,9 +1410,10 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
       card.appendChild(t);
       sec.appendChild(card);
       sec.appendChild(el('div', { class: 'src', style: 'margin-top:8px' },
-        'Lifetime Gemini cost per user over the ' + days + ' tracked days, bucketed by the user\'s CURRENT ' +
-        'entitlement (a converted trial\'s free-period usage counts as pro here). Avg / user = total cost / users; ' +
-        '/ day divides by ' + days + ' tracked days; / month is that rate x 30. Thinking is billed at the output rate.'));
+        'Lifetime Gemini cost over the ' + days + ' tracked days, bucketed by the user\'s CURRENT entitlement ' +
+        '(a converted trial\'s free-period usage counts as pro here). Averages divide by ALL users in the bucket, ' +
+        'including accounts that never used the AI: avg / user = total cost / all users; / day divides by ' + days +
+        ' tracked days; / month is that rate x 30. Thinking is billed at the output rate.'));
       c.appendChild(sec);
     }
 
