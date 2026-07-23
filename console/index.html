@@ -254,6 +254,14 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
     const min = max > 0 && Math.abs(v % 1) > 0.004 ? 2 : 0;
     return new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR', maximumFractionDigits: max, minimumFractionDigits: min }).format(v);
   };
+  /* AI (Gemini) costs are billed by Google in USD: kept in USD on purpose,
+     never mixed into the EUR revenue/spend series. */
+  const usd = (v, digits) => {
+    if (v === null || v === undefined || !isFinite(v)) return String.fromCharCode(0x2013);
+    const max = digits ?? (Math.abs(v) >= 1000 ? 0 : 2);
+    const min = max > 0 && Math.abs(v % 1) > 0.004 ? 2 : 0;
+    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: max, minimumFractionDigits: min }).format(v);
+  };
   const int = (v) => v === null || v === undefined || !isFinite(v) ? String.fromCharCode(0x2013) : new Intl.NumberFormat('en-IE').format(Math.round(v));
   const pct = (v) => v === null || v === undefined || !isFinite(v) ? String.fromCharCode(0x2013) : (Math.round(v * 100) / 100) + '%';
   const fmtDate = (d) => { const dt = new Date(d + 'T00:00:00Z'); return dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' }); };
@@ -565,8 +573,12 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
     }
   }
 
-  /* Multi-series daily line chart with crosshair tooltip and table twin. */
+  /* Multi-series daily line chart with crosshair tooltip and table twin.
+     opts.fmt overrides the money formatter (default eur); non-eur charts get
+     2-decimal ticks/end labels because their values sit in single digits. */
   function lineChart(rows, series, opts) {
+    const mfmt = opts.fmt || eur;
+    const axisDigits = opts.fmt ? 2 : 0;
     const fig = el('figure', { class: 'chart' });
     const cap = el('figcaption');
     cap.appendChild(el('span', { class: 'title' }, opts.title));
@@ -604,7 +616,7 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
     for (const t of ticks) {
       svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: y(t), y2: y(t), stroke: css('--grid'), 'stroke-width': 1 }));
       const lbl = svgEl('text', { x: padL - 8, y: y(t) + 4, 'text-anchor': 'end', fill: css('--muted'), 'font-size': 11 });
-      lbl.textContent = opts.money ? eur(t, 0) : int(t);
+      lbl.textContent = opts.money ? mfmt(t, axisDigits) : int(t);
       svg.appendChild(lbl);
     }
     svg.appendChild(svgEl('line', { x1: padL, x2: W - padR, y1: y(0), y2: y(0), stroke: css('--baseline'), 'stroke-width': 1 }));
@@ -622,7 +634,7 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
       const ex = x(n - 1), ey = y(last[s.key] || 0);
       svg.appendChild(svgEl('circle', { cx: ex, cy: ey, r: 4, fill: css(s.color), stroke: css('--surface'), 'stroke-width': 2 }));
       const endLbl = svgEl('text', { x: ex + 9, y: ey + 4, fill: css('--ink-2'), 'font-size': 11.5, 'font-weight': 600 });
-      endLbl.textContent = opts.money ? eur(last[s.key] || 0, 0) : int(last[s.key] || 0);
+      endLbl.textContent = opts.money ? mfmt(last[s.key] || 0, axisDigits) : int(last[s.key] || 0);
       svg.appendChild(endLbl);
     }
     const cross = svgEl('line', { y1: padT, y2: padT + ih, stroke: css('--baseline'), 'stroke-width': 1, visibility: 'hidden' });
@@ -659,7 +671,7 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
         const sw = el('i'); sw.style.background = css(s.color);
         row.appendChild(sw);
         row.appendChild(el('span', {}, s.name));
-        row.appendChild(el('span', { class: 'v' }, opts.money ? eur(r[s.key] || 0) : int(r[s.key] || 0)));
+        row.appendChild(el('span', { class: 'v' }, opts.money ? mfmt(r[s.key] || 0) : int(r[s.key] || 0)));
         tip.appendChild(row);
       });
       tip.style.display = 'block';
@@ -677,7 +689,7 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
     for (let i = n - 1; i >= 0; i--) {
       const tr = el('tr');
       tr.appendChild(el('td', {}, rows[i].date));
-      for (const s of series) tr.appendChild(el('td', {}, opts.money ? eur(rows[i][s.key] || 0) : int(rows[i][s.key] || 0)));
+      for (const s of series) tr.appendChild(el('td', {}, opts.money ? mfmt(rows[i][s.key] || 0) : int(rows[i][s.key] || 0)));
       tbody.appendChild(tr);
       if (n - i > 120) break;
     }
@@ -1191,6 +1203,45 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
       c.appendChild(sec);
     }
 
+    /* AI cost (Gemini): what serving free vs pro users costs per day, in
+       USD (Google bills in USD). Priced per model where the split exists
+       (from 23 Jul 2026), estimated from the observed model mix before. */
+    const tc = p.tokenCosts;
+    if (tc && tc.ok && tc.daily && tc.daily.length) {
+      const sec = el('section');
+      sec.appendChild(el('h2', {}, 'AI cost (Gemini)'));
+      const tokRows = windowRows(tc.daily);
+      if (tokRows.length) {
+        const freeCost = r2(sum(tokRows, 'free'));
+        const proCost = r2(sum(tokRows, 'pro'));
+        const totalCost = r2(freeCost + proCost);
+        const perDay = totalCost / Math.max(1, tokRows.length);
+        const lastTok = tokRows[tokRows.length - 1];
+        const tokTiles = el('div', { class: 'grid cards' });
+        tokTiles.appendChild(statTile('AI spend in range', usd(totalCost),
+          'free ' + usd(freeCost) + ' | pro ' + usd(proCost)));
+        tokTiles.appendChild(statTile('AI spend / day (avg)', usd(perDay),
+          '~' + usd(r2(perDay * 30)) + '/mo at this rate'));
+        tokTiles.appendChild(statTile('AI spend, last day', usd(r2(lastTok.free + lastTok.pro)),
+          fmtDate(lastTok.date) + ', ' + int(lastTok.freeCalls + lastTok.proCalls) + ' AI requests'));
+        sec.appendChild(tokTiles);
+      }
+      if (tokRows.length > 1) {
+        sec.appendChild(lineChart(tokRows, [
+          { key: 'pro', name: 'Pro users', color: '--paid' },
+          { key: 'free', name: 'Free users', color: '--trials' },
+        ], { title: 'Daily AI spend: free vs pro', money: true, fmt: usd }));
+      }
+      const priceNote = (tc.pricing || [])
+        .map((m) => m.model + ' $' + m.input + ' in / $' + m.output + ' out / $' + m.cached + ' cached per 1M')
+        .join('; ');
+      sec.appendChild(el('div', { class: 'src', style: 'margin-top:8px' },
+        'Gemini API cost of serving the app, USD. Token tracking since ' + (tc.sinceDate ? fmtLong(tc.sinceDate) : '?') +
+        (tc.modelSinceDate ? '; exact per-model split from ' + fmtLong(tc.modelSinceDate) + ', earlier days estimated from the observed model mix.' : '.') +
+        (priceNote ? ' Prices: ' + priceNote + '.' : '')));
+      c.appendChild(sec);
+    }
+
     /* Per-app-version funnel, straight from RevenueCat: every trial and
        payment credited to the version installed when it happened. */
     if (p.rcByVersion && p.rcByVersion.length) {
@@ -1265,6 +1316,45 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
     moCard.appendChild(mt);
     moSec.appendChild(moCard);
     c.appendChild(moSec);
+
+    /* AI cost per user, all recorded history: what the average free vs pro
+       user costs in Gemini tokens (lifetime + monthly run rate). */
+    if (tc && tc.ok && tc.perUser) {
+      const sec = el('section');
+      sec.appendChild(el('h2', {}, 'AI cost per user (all history)'));
+      const card = el('div', { class: 'card' });
+      const t = el('table', { class: 'data' });
+      const hr = el('tr');
+      for (const h of ['', 'Users with AI usage', 'Tokens', 'Total AI cost', 'Avg / user', 'Avg / user / month'])
+        hr.appendChild(el('th', {}, h));
+      const thead = el('thead'); thead.appendChild(hr); t.appendChild(thead);
+      const tbody = el('tbody');
+      const mTok = (v) => v >= 1e6 ? (Math.round(v / 1e5) / 10) + 'M' : int(v);
+      const usdFine = (v) => usd(v, Math.abs(v) >= 0.1 || v === 0 ? 2 : 3);
+      for (const [label, color, b] of [['Free', '--trials', tc.perUser.free], ['Pro', '--paid', tc.perUser.pro]]) {
+        const tr = el('tr');
+        const nameTd = el('td');
+        const dot = el('span', { class: 'dot' });
+        dot.style.background = css(color);
+        nameTd.appendChild(dot);
+        nameTd.appendChild(document.createTextNode(label));
+        tr.appendChild(nameTd);
+        tr.appendChild(el('td', {}, int(b.users)));
+        tr.appendChild(el('td', {}, mTok(b.totalTokens)));
+        tr.appendChild(el('td', {}, usd(b.totalCost)));
+        tr.appendChild(el('td', {}, usdFine(b.avgCost)));
+        tr.appendChild(el('td', {}, usdFine(b.avgPerDay * 30)));
+        tbody.appendChild(tr);
+      }
+      t.appendChild(tbody);
+      card.appendChild(t);
+      sec.appendChild(card);
+      sec.appendChild(el('div', { class: 'src', style: 'margin-top:8px' },
+        'Lifetime Gemini cost per user since ' + (tc.sinceDate ? fmtLong(tc.sinceDate) : 'tracking started') +
+        ', bucketed by the user\'s CURRENT entitlement (a converted trial\'s free-period usage counts as pro here). ' +
+        'Avg / user / month scales each user\'s spend to 30 days.'));
+      c.appendChild(sec);
+    }
 
     /* Sanity + sources */
     const src = el('div', { class: 'src' });
