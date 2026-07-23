@@ -262,6 +262,8 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
     const min = max > 0 && Math.abs(v % 1) > 0.004 ? 2 : 0;
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: max, minimumFractionDigits: min }).format(v);
   };
+  /* Unrounded money for the AI cost tables: up to 4 decimals. */
+  const usd4 = (v) => usd(v, Math.abs(v) < 1000 ? 4 : 0);
   const int = (v) => v === null || v === undefined || !isFinite(v) ? String.fromCharCode(0x2013) : new Intl.NumberFormat('en-IE').format(Math.round(v));
   const pct = (v) => v === null || v === undefined || !isFinite(v) ? String.fromCharCode(0x2013) : (Math.round(v * 100) / 100) + '%';
   const fmtDate = (d) => { const dt = new Date(d + 'T00:00:00Z'); return dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' }); };
@@ -1232,12 +1234,55 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
           { key: 'free', name: 'Free users', color: '--trials' },
         ], { title: 'Daily AI spend: free vs pro', money: true, fmt: usd }));
       }
+      /* Token and cost breakdown for the selected range: every billing line
+         (input net of cache, cached reads, output, thinking) with its exact
+         cost, so the totals above are verifiable by hand. */
+      if (tokRows.length) {
+        const zero = () => ({ tok: { input: 0, cached: 0, output: 0, thoughts: 0, total: 0 }, cost: { input: 0, cached: 0, output: 0, total: 0 } });
+        const sumDetail = (key) => tokRows.reduce((t, r) => {
+          const d = r[key];
+          if (!d) return t;
+          for (const k in t.tok) t.tok[k] += d.tokens[k] || 0;
+          for (const k in t.cost) t.cost[k] += d.cost[k] || 0;
+          return t;
+        }, zero());
+        const fd = sumDetail('freeDetail');
+        const pd = sumDetail('proDetail');
+        const card = el('div', { class: 'card', style: 'margin-top:12px' });
+        const t = el('table', { class: 'data' });
+        const hr = el('tr');
+        for (const h of ['Breakdown (' + rangeLabel + ')', 'Free', 'Pro', 'Total']) hr.appendChild(el('th', {}, h));
+        const thead = el('thead'); thead.appendChild(hr); t.appendChild(thead);
+        const tbody = el('tbody');
+        const trow = (label, f, pval, tot) => {
+          const tr = el('tr');
+          tr.appendChild(el('td', {}, label));
+          tr.appendChild(el('td', {}, f));
+          tr.appendChild(el('td', {}, pval));
+          tr.appendChild(el('td', {}, tot));
+          tbody.appendChild(tr);
+        };
+        trow('Input tokens (uncached)', int(fd.tok.input), int(pd.tok.input), int(fd.tok.input + pd.tok.input));
+        trow('Cached input tokens', int(fd.tok.cached), int(pd.tok.cached), int(fd.tok.cached + pd.tok.cached));
+        trow('Output tokens', int(fd.tok.output), int(pd.tok.output), int(fd.tok.output + pd.tok.output));
+        trow('Thinking tokens', int(fd.tok.thoughts), int(pd.tok.thoughts), int(fd.tok.thoughts + pd.tok.thoughts));
+        trow('Total tokens', int(fd.tok.total), int(pd.tok.total), int(fd.tok.total + pd.tok.total));
+        trow('Input cost', usd4(fd.cost.input), usd4(pd.cost.input), usd4(fd.cost.input + pd.cost.input));
+        trow('Cached read cost', usd4(fd.cost.cached), usd4(pd.cost.cached), usd4(fd.cost.cached + pd.cost.cached));
+        trow('Output + thinking cost', usd4(fd.cost.output), usd4(pd.cost.output), usd4(fd.cost.output + pd.cost.output));
+        trow('Total cost', usd4(fd.cost.total), usd4(pd.cost.total), usd4(fd.cost.total + pd.cost.total));
+        t.appendChild(tbody);
+        card.appendChild(t);
+        sec.appendChild(card);
+      }
       const priceNote = (tc.pricing || [])
         .map((m) => m.model + ' $' + m.input + ' in / $' + m.output + ' out / $' + m.cached + ' cached per 1M')
         .join('; ');
       sec.appendChild(el('div', { class: 'src', style: 'margin-top:8px' },
-        'Gemini API cost of serving the app, USD. Token tracking since ' + (tc.sinceDate ? fmtLong(tc.sinceDate) : '?') +
-        (tc.modelSinceDate ? '; exact per-model split from ' + fmtLong(tc.modelSinceDate) + ', earlier days estimated from the observed model mix.' : '.') +
+        'Gemini API cost of serving the app, USD. Token tracking live since ' + (tc.sinceDate ? fmtLong(tc.sinceDate) : '?') +
+        ' (' + (tc.trackedDays || '?') + ' days)' +
+        (tc.modelSinceDate ? '; exact per-model split from ' + fmtLong(tc.modelSinceDate) + ', earlier days priced at the observed model mix.' : '.') +
+        ' Thinking tokens are billed at the output rate.' +
         (priceNote ? ' Prices: ' + priceNote + '.' : '')));
       c.appendChild(sec);
     }
@@ -1317,42 +1362,56 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
     moSec.appendChild(moCard);
     c.appendChild(moSec);
 
-    /* AI cost per user, all recorded history: what the average free vs pro
-       user costs in Gemini tokens (lifetime + monthly run rate). */
+    /* AI cost per user, all recorded history: full token/cost split per
+       bucket plus real averages (bucket total / users / tracked days - no
+       extrapolation tricks, everything recomputable by hand). */
     if (tc && tc.ok && tc.perUser) {
+      const days = tc.trackedDays || 1;
       const sec = el('section');
-      sec.appendChild(el('h2', {}, 'AI cost per user (all history)'));
+      sec.appendChild(el('h2', {}, 'AI cost per user (all history: ' + days + ' days since ' +
+        (tc.sinceDate ? fmtLong(tc.sinceDate) : '?') + ')'));
       const card = el('div', { class: 'card' });
       const t = el('table', { class: 'data' });
       const hr = el('tr');
-      for (const h of ['', 'Users with AI usage', 'Tokens', 'Total AI cost', 'Avg / user', 'Avg / user / month'])
-        hr.appendChild(el('th', {}, h));
-      const thead = el('thead'); thead.appendChild(hr); t.appendChild(thead);
-      const tbody = el('tbody');
-      const mTok = (v) => v >= 1e6 ? (Math.round(v / 1e5) / 10) + 'M' : int(v);
-      const usdFine = (v) => usd(v, Math.abs(v) >= 0.1 || v === 0 ? 2 : 3);
-      for (const [label, color, b] of [['Free', '--trials', tc.perUser.free], ['Pro', '--paid', tc.perUser.pro]]) {
-        const tr = el('tr');
-        const nameTd = el('td');
+      hr.appendChild(el('th', {}, ''));
+      for (const [label, color] of [['Free', '--trials'], ['Pro', '--paid']]) {
+        const th = el('th');
         const dot = el('span', { class: 'dot' });
         dot.style.background = css(color);
-        nameTd.appendChild(dot);
-        nameTd.appendChild(document.createTextNode(label));
-        tr.appendChild(nameTd);
-        tr.appendChild(el('td', {}, int(b.users)));
-        tr.appendChild(el('td', {}, mTok(b.totalTokens)));
-        tr.appendChild(el('td', {}, usd(b.totalCost)));
-        tr.appendChild(el('td', {}, usdFine(b.avgCost)));
-        tr.appendChild(el('td', {}, usdFine(b.avgPerDay * 30)));
-        tbody.appendChild(tr);
+        th.appendChild(dot);
+        th.appendChild(document.createTextNode(label));
+        hr.appendChild(th);
       }
+      const thead = el('thead'); thead.appendChild(hr); t.appendChild(thead);
+      const tbody = el('tbody');
+      const f = tc.perUser.free, pr = tc.perUser.pro;
+      const trow = (label, fv, pv) => {
+        const tr = el('tr');
+        tr.appendChild(el('td', {}, label));
+        tr.appendChild(el('td', {}, fv));
+        tr.appendChild(el('td', {}, pv));
+        tbody.appendChild(tr);
+      };
+      trow('Users with AI usage', int(f.users), int(pr.users));
+      trow('Input tokens (uncached)', int(f.tokens.input), int(pr.tokens.input));
+      trow('Cached input tokens', int(f.tokens.cached), int(pr.tokens.cached));
+      trow('Output tokens', int(f.tokens.output), int(pr.tokens.output));
+      trow('Thinking tokens', int(f.tokens.thoughts), int(pr.tokens.thoughts));
+      trow('Total tokens', int(f.tokens.total), int(pr.tokens.total));
+      trow('Input cost', usd4(f.cost.input), usd4(pr.cost.input));
+      trow('Cached read cost', usd4(f.cost.cached), usd4(pr.cost.cached));
+      trow('Output + thinking cost', usd4(f.cost.output), usd4(pr.cost.output));
+      trow('Total AI cost', usd4(f.cost.total), usd4(pr.cost.total));
+      trow('Avg / user (' + days + ' days)', usd4(f.avgCost), usd4(pr.avgCost));
+      trow('Avg / user / day', usd4(f.avgPerDay), usd4(pr.avgPerDay));
+      trow('Avg / user / month (30-day scale)', usd4(f.avgPerMonth), usd4(pr.avgPerMonth));
       t.appendChild(tbody);
       card.appendChild(t);
       sec.appendChild(card);
       sec.appendChild(el('div', { class: 'src', style: 'margin-top:8px' },
-        'Lifetime Gemini cost per user since ' + (tc.sinceDate ? fmtLong(tc.sinceDate) : 'tracking started') +
-        ', bucketed by the user\'s CURRENT entitlement (a converted trial\'s free-period usage counts as pro here). ' +
-        'Avg / user / month scales each user\'s spend to 30 days.'));
+        'Lifetime Gemini cost per user over the ' + days + ' tracked days, bucketed by the user\'s CURRENT ' +
+        'entitlement (a converted trial\'s free-period usage counts as pro here). Avg / user = total cost / users; ' +
+        '/ day divides by ' + days + ' tracked days; / month is that rate x 30. Thinking is billed at the output rate.'));
       c.appendChild(sec);
     }
 
