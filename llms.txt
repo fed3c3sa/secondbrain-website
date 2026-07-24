@@ -40,7 +40,7 @@
 ## Links
 
 - [Web app](https://app.secondbrainmemory.com/)
-- [App Store (iOS)](https://apps.apple.com/it/app/secondbrain-ai-smart-memory/id6762130376)
+- [App Store (iOS)](https://apps.apple.com/us/app/secondbrain-ai-memory/id6762130376)
 - [Google Play (Android)](https://play.google.com/store/apps/details?id=app.secondbrain.android)
 - [Demo video (YouTube, 3:14)](https://www.youtube.com/watch?v=miiynvYCZf4)
 - [YouTube channel](https://www.youtube.com/@SecondBrain-AISmartMemory)
