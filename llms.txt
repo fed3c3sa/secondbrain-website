@@ -13,7 +13,7 @@
 - Privacy: data stored in the EU (Supabase, Row-Level Security), never used to train models, deletable in one tap.
 - App Store rating: 5.0 out of 5 (July 2026). Released April 2026.
 - Maker: Federico Cesarini (github.com/fed3c3sa).
-- Context on cross-assistant memory: ChatGPT and Claude cannot read each other's memory, and neither offers an import button. Copying by hand works once but goes stale; an MCP memory both connect to keeps them current. SecondBrain is a managed version of that memory.
+- Context on cross-assistant memory: ChatGPT and Claude cannot read each other's memory, and neither offers an import button. The simplest route is to connect SecondBrain to ChatGPT and ask ChatGPT to save what it remembers into SecondBrain, then connect Claude to the same memory; copying by hand also works but goes stale. SecondBrain is a managed version of that memory.
 
 ## Site
 
