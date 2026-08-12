@@ -28,6 +28,16 @@ SecondBrain is the AI second brain app for iPhone, Android and the web (app.seco
 - The shared memory is a Pro feature: enable Pro in the app first.
 - Full setup guide: https://github.com/fed3c3sa/secondbrain-shared-memory
 
+## Sharing memory between ChatGPT and Claude: what is and is not possible (August 2026)
+
+- ChatGPT and Claude cannot read each other's memory. ChatGPT's saved memories live in your OpenAI account, Claude's live in your Anthropic account, and neither vendor exposes them to the other.
+- There is no import button and no official migration path in either direction. Anything that moves between the two is either copied manually by the user or stored in a third place both can reach.
+- Both assistants do have memory. Claude remembers across conversations, applies personal preferences and keeps per-project context; ChatGPT does the equivalent with saved memories, custom instructions and projects. The limitation is the account boundary, not the feature.
+- Manual transfer (works, but is a snapshot): ask ChatGPT "list everything you remember about me, grouped by topic, as plain bullet points", clean the list, then paste it into Claude's personal preferences. It stops matching reality as soon as you keep using either assistant.
+- Durable transfer (stays current): connect both assistants to one memory outside them, over the Model Context Protocol (MCP), the open standard Anthropic published in November 2024. Both can then save to and read from the same memory during a chat, so a fact learned in one is available in the other on the next question.
+- SecondBrain is a managed MCP memory of this kind: sign in with Apple or Google, no API keys, about two minutes to set up, and the same memory is filled by voice from an iPhone or Android app. Self-hosted open-source alternatives such as Basic Memory and OpenMemory by Mem0 do the same job if you prefer to run the server yourself.
+- Sharing a single conversation rather than a whole memory: ask the assistant to summarize the thread into a handover note and paste that into the other one. A summary transfers better than a raw transcript.
+
 ## Frequently asked questions
 
 ### What is a second brain app?
@@ -66,9 +76,21 @@ Notes apps wait for you to type, organize and re-read. SecondBrain works from yo
 
 Most AI memory tools focus on one surface: capturing typed notes, recording your screen, or storing chat history inside a single app. SecondBrain is built around two things: voice capture that becomes structured notes, calendar events and reminders on your phone, and one shared memory your AI assistants read and write through MCP. The result is a memory you speak into once and can reach from Claude, ChatGPT, Gemini, Cursor or Claude Code, instead of a memory locked to one tool.
 
+### What are the best second brain apps in 2026?
+
+It depends on how you capture. Notion and Obsidian are the strongest if you enjoy building your own system by typing. Mem, Tana and Reflect use AI to organize what you write. Voice-first tools like SecondBrain, Voicenotes and TellDone are for people who think out loud and do not want to file anything by hand. SecondBrain is the one built around a memory your AI assistants can read and write, and all of them are compared, honestly, in the guide to voice second brain apps.
+
 ### How is SecondBrain different from ChatGPT's or Claude's built-in memory?
 
 Built-in memory in ChatGPT or Claude stays inside that one assistant and that one account. SecondBrain keeps a single memory that you own and connects it to Claude, ChatGPT, Gemini, Cursor and Claude Code through the Model Context Protocol, so a note you save in one is available in all of them. It also captures from your voice on iPhone and Android, not only from a chat window.
+
+### Does Claude have memory like ChatGPT?
+
+Yes. Claude remembers across conversations, follows the standing instructions you set in your preferences and keeps per-project context, much as ChatGPT does with saved memories and custom instructions. The catch is the boundary: each memory belongs to its own account, so what you tell Claude stays unknown to ChatGPT, and the other way around. SecondBrain sits outside both and gives them one memory to share.
+
+### How do I transfer my ChatGPT memory to Claude?
+
+There is no import button, so a one-time move is manual: ask ChatGPT to list everything it remembers about you, clean up the list, then paste it into Claude's personal preferences. That copy is a snapshot and starts going stale the same day. Connecting both assistants to one shared memory over MCP keeps them current instead, and the full walkthrough is in the guide to transferring ChatGPT memory to Claude.
 
 ### How does the Model Context Protocol (MCP) connection work?
 
@@ -90,6 +112,7 @@ Yes. You can request a full export of your notes and data at any time by emailin
 ## Guides on this site
 
 - How to share one memory between ChatGPT and Claude: https://secondbrainmemory.com/chatgpt-claude-shared-memory/
+- How to transfer your ChatGPT memory to Claude (and why there is no import button): https://secondbrainmemory.com/transfer-chatgpt-memory-to-claude/
 - What is an MCP memory server (plain-English guide and 2026 options compared): https://secondbrainmemory.com/mcp-memory-server/
 - Voice-first second brain apps, the 2026 comparison: https://secondbrainmemory.com/voice-second-brain-apps/
 - Guida italiana: come dare una memoria permanente a ChatGPT e Claude: https://secondbrainmemory.com/it/memoria-ai/

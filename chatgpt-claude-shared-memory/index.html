@@ -39,7 +39,7 @@
         "author": { "@id": "https://secondbrainmemory.com/#federico-cesarini" },
         "publisher": { "@id": "https://secondbrainmemory.com/#organization" },
         "datePublished": "2026-07-16",
-        "dateModified": "2026-07-16",
+        "dateModified": "2026-08-12",
         "inLanguage": "en",
         "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".tldr"] }
       },
@@ -71,6 +71,11 @@
             "@type": "Question",
             "name": "Can ChatGPT and Claude share memory natively?",
             "acceptedAnswer": { "@type": "Answer", "text": "No. ChatGPT's memory lives in your OpenAI account and Claude's memory lives in your Anthropic account, and neither can read the other. The only way to share one memory between them is an external memory both can reach, which is what an MCP memory service provides." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I transfer my existing ChatGPT memory into Claude?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Only by hand, and only once. Ask ChatGPT to list everything it remembers about you, clean the list up, then paste it into Claude's personal preferences. That copy is a snapshot: it stops matching reality as soon as you keep using either assistant, which is why a shared memory is the durable answer. The step-by-step move is covered in the guide to transferring ChatGPT memory to Claude." }
           },
           {
             "@type": "Question",
@@ -234,7 +239,7 @@
 <main id="main" class="article">
   <p class="crumb"><a href="/">SecondBrain</a> · Guides · ChatGPT + Claude shared memory</p>
   <h1>How to share one memory between ChatGPT and Claude</h1>
-  <p class="byline">By <a href="https://github.com/fed3c3sa" target="_blank" rel="noopener">Federico Cesarini</a>, maker of SecondBrain · Updated July 16, 2026</p>
+  <p class="byline">By <a href="https://github.com/fed3c3sa" target="_blank" rel="noopener">Federico Cesarini</a>, maker of SecondBrain · Updated August 12, 2026</p>
 
   <div class="tldr"><strong>The short answer:</strong> ChatGPT and Claude cannot read each other's built-in memory. To share one memory across both, connect them to the same external memory over the Model Context Protocol (MCP). A managed MCP memory app like SecondBrain links Claude, ChatGPT, Gemini, Cursor and Claude Code to a single private memory in about two minutes, with no API keys, and you can add to that memory by voice from your phone.</div>
 
@@ -282,6 +287,7 @@
     <li><strong>Self-hosted MCP memory servers</strong> such as Basic Memory or OpenMemory by Mem0 are free and open source. You run and maintain them yourself, and capture is typing-first. A good fit for developers; see the <a href="/mcp-memory-server/">plain-English guide to MCP memory servers</a>.</li>
     <li><strong>Browser extensions</strong> that sync chat memory across AI websites exist as well. They live in the browser, so they do not help in native apps, in coding tools, or from your phone.</li>
     <li><strong>A pasted context file</strong> (a personal readme you paste into each new chat) is free and simple, but manual: it goes stale, and nothing you say on the go ever reaches it.</li>
+    <li><strong>A one-time manual copy</strong> of what one assistant already knows into the other: no setup at all, and a fair first step if you are switching rather than using both. It is a snapshot, so it drifts. See <a href="/transfer-chatgpt-memory-to-claude/">how to transfer ChatGPT memory to Claude</a>.</li>
   </ul>
 
   <h2>Questions people ask</h2>
@@ -289,6 +295,10 @@
     <details class="faq-item">
       <summary>Can ChatGPT and Claude share memory natively?</summary>
       <div class="faq-answer"><p>No. ChatGPT's memory lives in your OpenAI account and Claude's memory lives in your Anthropic account, and neither can read the other. The only way to share one memory between them is an external memory both can reach, which is what an MCP memory service provides.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>Can I transfer my existing ChatGPT memory into Claude?</summary>
+      <div class="faq-answer"><p>Only by hand, and only once. Ask ChatGPT to list everything it remembers about you, clean the list up, then paste it into Claude's personal preferences. That copy is a snapshot: it stops matching reality as soon as you keep using either assistant, which is why a shared memory is the durable answer. The step-by-step move is covered in the <a href="/transfer-chatgpt-memory-to-claude/">guide to transferring ChatGPT memory to Claude</a>.</p></div>
     </details>
     <details class="faq-item">
       <summary>Do I need an API key to set this up?</summary>

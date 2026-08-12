@@ -13,6 +13,7 @@
 - Privacy: data stored in the EU (Supabase, Row-Level Security), never used to train models, deletable in one tap.
 - App Store rating: 5.0 out of 5 (July 2026). Released April 2026.
 - Maker: Federico Cesarini (github.com/fed3c3sa).
+- Context on cross-assistant memory: ChatGPT and Claude cannot read each other's memory, and neither offers an import button. Copying by hand works once but goes stale; an MCP memory both connect to keeps them current. SecondBrain is a managed version of that memory.
 
 ## Site
 
@@ -26,6 +27,7 @@
 ## Guides
 
 - [How to share one memory between ChatGPT and Claude](https://secondbrainmemory.com/chatgpt-claude-shared-memory/): Why assistants cannot share memory natively and how to connect them to one shared memory over MCP in about two minutes.
+- [How to transfer ChatGPT memory to Claude](https://secondbrainmemory.com/transfer-chatgpt-memory-to-claude/): There is no import button. The manual move that works today, what actually transfers, and how to keep both assistants current afterwards.
 - [What is an MCP memory server?](https://secondbrainmemory.com/mcp-memory-server/): A plain-English guide to MCP memory servers, with the main managed and self-hosted options in 2026 compared.
 - [Voice-first second brain apps: the 2026 comparison](https://secondbrainmemory.com/voice-second-brain-apps/): An honest comparison of SecondBrain, Voicenotes, TellDone, Mem, Tana, Reflect, Notion and Obsidian.
 - [Memoria permanente per ChatGPT e Claude (in italiano)](https://secondbrainmemory.com/it/memoria-ai/): La guida italiana alla memoria AI condivisa via MCP.
