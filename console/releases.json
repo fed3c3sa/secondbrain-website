@@ -2,6 +2,17 @@
   "readme": "iOS App Store releases from the refactored-ios-version branch of ~/Desktop/personal/secondbrain. Shown as vertical markers on the console charts; tapping a tag opens the changelog. liveDate = date the final build of the version was pushed to the branch + 1 day (average App Store review time). Changes are written in plain product language for a non-technical reader: describe what changed for users (paywall, onboarding, features), not code internals. To add a release: prepend an entry (newest first) summarizing the commits since the previous version bump, then sync the copy in secondbrain-dashboard/viewer/ and push this site.",
   "releases": [
     {
+      "version": "2.4.2",
+      "build": 1,
+      "pushedAt": "2026-08-17",
+      "liveDate": "2026-08-18",
+      "title": "Notes still get written when the AI has a bad day",
+      "changes": [
+        "When the AI service behind note writing is slow or unavailable, the app now moves down to another version of it instead of failing your recording. You get the note, written slightly differently, rather than an error",
+        "Internal cleanup"
+      ]
+    },
+    {
       "version": "2.4.1",
       "build": 1,
       "pushedAt": "2026-08-17",
