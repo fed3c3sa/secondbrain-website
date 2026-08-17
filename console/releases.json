@@ -2,6 +2,34 @@
   "readme": "iOS App Store releases from the refactored-ios-version branch of ~/Desktop/personal/secondbrain. Shown as vertical markers on the console charts; tapping a tag opens the changelog. liveDate = date the final build of the version was pushed to the branch + 1 day (average App Store review time). Changes are written in plain product language for a non-technical reader: describe what changed for users (paywall, onboarding, features), not code internals. To add a release: prepend an entry (newest first) summarizing the commits since the previous version bump, then sync the copy in secondbrain-dashboard/viewer/ and push this site.",
   "releases": [
     {
+      "version": "2.4.1",
+      "build": 1,
+      "pushedAt": "2026-08-17",
+      "liveDate": "2026-08-18",
+      "title": "Fix for notes showing raw formatting",
+      "changes": [
+        "Fixed notes that opened as plain text, showing symbols like ### and ** on screen with formatting buttons that did nothing. It affected about one note in five",
+        "Lines written one under the other, like the details of an appointment, now stay on separate lines while you edit",
+        "Email addresses, web links and links to your other notes are kept exactly as written",
+        "New notes are written in a format the app can always display and edit"
+      ]
+    },
+    {
+      "version": "2.4.0",
+      "build": 1,
+      "pushedAt": "2026-08-16",
+      "liveDate": "2026-08-17",
+      "title": "Notes you can edit like a document",
+      "changes": [
+        "Notes are always editable: the edit button is gone, changes save on their own after you stop typing, and text is shown formatted instead of as raw symbols",
+        "Pro members can export every note as files, in one zip, from Settings",
+        "The app now works without a connection: notes and folders stay on screen and a thin bar says the connection is gone",
+        "Fixed quick voice recording from Back Tap and Control Center capturing nothing when the app was closed, and files shared into the app getting lost the same way",
+        "Fixed the calendar opening on the wrong day or staying empty until you switched view",
+        "Support address corrected to info@secondbrain.icu, plus a Settings link to the Claude and ChatGPT setup guide"
+      ]
+    },
+    {
       "version": "2.3.4",
       "build": 1,
       "pushedAt": "2026-07-21",
