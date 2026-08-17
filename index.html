@@ -210,13 +210,15 @@
           "https://secondbrainmemory.com/assets/shot-calendar.png",
           "https://secondbrainmemory.com/assets/shot-today.png",
           "https://secondbrainmemory.com/assets/shot-sync.png",
-          "https://secondbrainmemory.com/assets/shot-ask.png"
+          "https://secondbrainmemory.com/assets/shot-ask.png",
+          "https://secondbrainmemory.com/assets/shot-export.png"
         ],
         "featureList": [
           "Voice capture that becomes structured notes",
           "Automatic calendar events and follow-ups while you talk",
           "Memory shared across ChatGPT, Claude and other AI assistants via the Model Context Protocol (MCP)",
-          "Private, encrypted, isolated per user. No ads, no tracking, no training"
+          "Private, encrypted, isolated per user. No ads, no tracking, no training",
+          "Export every note as Markdown (.md files in a .zip), Pro"
         ],
         "publisher": {
           "@id": "https://secondbrainmemory.com/#organization"
@@ -446,7 +448,55 @@
             "name": "Can I export my data or take it with me?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. You can request a full export of your notes and data at any time by emailing info@secondbrain.icu. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days."
+              "text": "Yes. On iPhone, SecondBrain Pro exports every note as Markdown from Settings, as a .zip holding one .md file per note in your own folder tree. For anything beyond notes, or on another platform, you can request a full export of your data by emailing info@secondbrain.icu. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I export my notes from SecondBrain?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Open Settings in SecondBrain on your iPhone, tap Export all notes, and choose where to save the file. SecondBrain builds a .zip containing one Markdown (.md) file per note, arranged in the same folder tree you see in the app, and hands it to the iOS share sheet so you can save it to Files, iCloud Drive or anywhere else. Export is a Pro feature. It has no practical size limit: it was tested end to end on an account with 1,203 notes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does SecondBrain export to Obsidian?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. SecondBrain exports plain Markdown, which is Obsidian's own format, so you unzip the archive into your Obsidian vault and the notes open straight away, with no plugin and no importer. Your SecondBrain folders come out as real folders, so the structure survives the move intact. One thing to be clear about: this is an export you run when you want it, not a continuous sync with your vault. Export is a Pro feature on iPhone."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I import my SecondBrain notes into Obsidian, Notion or VS Code?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Export the archive from SecondBrain, unzip it, then point the other app at the folder. In Obsidian, move the unzipped folder into your vault, or open it as a vault of its own. In Notion, choose Import and pick Markdown. In VS Code, just open the folder. Every file is a standard .md file, so nothing has to be converted on the way in."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What format does the SecondBrain Markdown export use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The SecondBrain export is a .zip of Markdown files, named after the day you exported, for example secondbrain-notes-2026-08-16.zip. Inside, each note is a single .md file whose title is written as a level-one heading, with no YAML front matter to strip out. Folders are recreated as directories, and any note that is not filed lands in a folder called Unfiled."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Am I locked in to SecondBrain, or can I leave with my notes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can leave with everything. SecondBrain keeps your notes in plain Markdown on the way out, so one tap in Settings gives you every note as .md files that open in Obsidian, Notion, VS Code or any text editor, with your folder structure intact. Nothing is trapped in a format that only SecondBrain can read. The export is a Pro feature on iPhone."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which AI voice notes app exports to Markdown?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "SecondBrain is an AI voice notes app that exports to Markdown. You speak, SecondBrain writes the note up and files it into the right folder on its own, and whenever you want the whole library back you export it as .md files in a .zip from Settings on iPhone. That pairing, voice capture going in and Markdown coming out, is why people run it alongside an Obsidian vault rather than instead of one."
             }
           }
         ]
@@ -1283,6 +1333,13 @@
       margin-top: 40px;
       text-align: left;
     }
+    .trust-note {
+      margin-top: 28px;
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--text-2);
+    }
+    .trust-note .link-arrow { font-size: inherit; }
     .promise {
       padding: 22px;
       border-radius: 20px;
@@ -1744,6 +1801,7 @@
           <article class="shot"><img src="assets/shot-today-720.webp" width="720" height="1558" decoding="async" alt="Today view listing the day's tasks and reminders" loading="lazy" /></article>
           <article class="shot"><img src="assets/shot-sync-720.webp" width="720" height="1558" decoding="async" alt="Two-way sync with the iPhone Calendar" loading="lazy" /></article>
           <article class="shot"><img src="assets/shot-ask-720.webp" width="720" height="1558" decoding="async" alt="Ask your brain anything: SecondBrain answers with your own schedule" loading="lazy" /></article>
+          <article class="shot"><img src="assets/shot-export-720.webp" width="720" height="1558" decoding="async" alt="Export all notes from SecondBrain Settings as Markdown files in a zip" loading="lazy" /></article>
         </div>
         <div class="gallery-controls">
           <button type="button" class="gallery-btn" data-scroll="-1" aria-label="Previous">
@@ -1803,6 +1861,56 @@
             <img src="assets/claude-logo.svg" alt="Claude" />
             <span><span class="lang-en">Native Claude plugin</span> <span class="lang-it">Plugin nativo per Claude</span></span>
           </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EXPORT -->
+    <section class="section" id="export">
+      <div class="section-head">
+        <span class="eyebrow anim"><span class="lang-en">Your notes</span> <span class="lang-it">Le tue note</span></span>
+        <h2 class="anim d1">
+          <span class="lang-en">Yours to take.</span>
+          <span class="lang-it">Portale via quando vuoi.</span>
+        </h2>
+        <p class="anim d2">
+          <span class="lang-en">Export every note as Markdown, in one tap.</span>
+          <span class="lang-it">Esporti tutte le note in Markdown, con un tocco.</span>
+        </p>
+      </div>
+
+      <div class="splits">
+
+        <div class="split anim">
+          <div class="split-text">
+            <span class="eyebrow"><span class="lang-en">Export</span> <span class="lang-it">Esportazione</span></span>
+            <h3><span class="lang-en">One tap in Settings.</span> <span class="lang-it">Un tocco in Impostazioni.</span></h3>
+            <p>
+              <span class="lang-en">One tap in Settings and SecondBrain hands you a <strong>.zip of .md files, one per note</strong>. Plain Markdown, no proprietary format, nothing held back. Pro, on iPhone.</span>
+              <span class="lang-it">Un tocco in Impostazioni e SecondBrain ti consegna uno <strong>zip di file .md, uno per nota</strong>. Markdown puro, nessun formato proprietario, non resta indietro niente. Pro, su iPhone.</span>
+            </p>
+            <div class="split-tags">
+              <span class="split-tag">.md</span>
+              <span class="split-tag">.zip</span>
+              <span class="split-tag">Obsidian</span>
+              <span class="split-tag">Notion</span>
+              <span class="split-tag">VS Code</span>
+            </div>
+          </div>
+          <div class="split-media"><img src="assets/shot-export-720.webp" width="720" height="1558" decoding="async" alt="Export all notes in SecondBrain Settings: download every note as Markdown, in a zip" loading="lazy" /></div>
+        </div>
+
+        <div class="split reverse anim">
+          <div class="split-text">
+            <span class="eyebrow">Obsidian</span>
+            <h3><span class="lang-en">Opens straight in Obsidian.</span> <span class="lang-it">Si aprono in Obsidian, e basta.</span></h3>
+            <p>
+              <span class="lang-en">Your folders come out as folders, so you can unzip the archive into an Obsidian vault and it opens as it is. Notion, VS Code and TextEdit read the same files. No plugin, no importer. It is an export you run when you want it, not a live sync.</span>
+              <span class="lang-it">Le tue cartelle escono come cartelle: scompatti l'archivio dentro un vault di Obsidian e si apre così com'è. Gli stessi file li leggono Notion, VS Code e TextEdit. Nessun plugin, nessun importatore. È un'esportazione che lanci tu quando vuoi, non una sincronizzazione continua.</span>
+            </p>
+          </div>
+          <div class="split-media"><img src="assets/shot-export-folder-720.webp" width="720" height="606" decoding="async" alt="The unzipped SecondBrain export: one .md file per note inside your own folder tree" loading="lazy" /></div>
         </div>
 
       </div>
@@ -1886,6 +1994,10 @@
             <p><span class="lang-en">One tap. No copies kept.</span> <span class="lang-it">Un tocco. Nessuna copia.</span></p>
           </div>
         </div>
+        <p class="trust-note">
+          <span class="lang-en">And if you ever want to leave, you can <a href="#export-jump" data-route="home" data-scroll-to="export" class="link-arrow">export every note as Markdown<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a> first. Pro, on iPhone.</span>
+          <span class="lang-it">E se un giorno vuoi andartene, prima puoi <a href="#export-jump" data-route="home" data-scroll-to="export" class="link-arrow">esportare tutte le note in Markdown<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>. Pro, su iPhone.</span>
+        </p>
       </div>
     </section>
 
@@ -2028,8 +2140,56 @@
         <details class="faq-item">
           <summary><span class="lang-en">Can I export my data or take it with me?</span> <span class="lang-it">Posso esportare i miei dati o portarli via?</span></summary>
           <div class="faq-answer">
-            <p class="lang-en">Yes. You can request a full export of your notes and data at any time by emailing info@secondbrain.icu. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days.</p>
-            <p class="lang-it">Sì. Puoi chiedere in qualsiasi momento un'esportazione completa delle tue note e dei tuoi dati scrivendo a info@secondbrain.icu. Puoi anche eliminare l'intero account con tutti i dati dall'app, da Impostazioni e poi Elimina account: la rimozione è immediata sul database in produzione e i backup cifrati vengono eliminati entro pochi giorni.</p>
+            <p class="lang-en">Yes. On iPhone, SecondBrain Pro exports every note as Markdown from Settings, as a .zip holding one .md file per note in your own folder tree. For anything beyond notes, or on another platform, you can request a full export of your data by emailing info@secondbrain.icu. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days.</p>
+            <p class="lang-it">Sì. Su iPhone, con SecondBrain Pro esporti tutte le note in Markdown da Impostazioni: ottieni uno zip con un file .md per nota, dentro le tue stesse cartelle. Per il resto dei dati, o da un'altra piattaforma, puoi chiedere un'esportazione completa scrivendo a info@secondbrain.icu. Puoi anche eliminare l'intero account con tutti i dati dall'app, da Impostazioni e poi Elimina account: la rimozione è immediata sul database in produzione e i backup cifrati vengono eliminati entro pochi giorni.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="lang-en">How do I export my notes from SecondBrain?</span> <span class="lang-it">Come esporto le mie note da SecondBrain?</span></summary>
+          <div class="faq-answer">
+            <p class="lang-en">Open Settings in SecondBrain on your iPhone, tap Export all notes, and choose where to save the file. SecondBrain builds a .zip containing one Markdown (.md) file per note, arranged in the same folder tree you see in the app, and hands it to the iOS share sheet so you can save it to Files, iCloud Drive or anywhere else. Export is a Pro feature. It has no practical size limit: it was tested end to end on an account with 1,203 notes.</p>
+            <p class="lang-it">Apri Impostazioni in SecondBrain sul tuo iPhone, tocca Esporta tutte le note e scegli dove salvare il file. SecondBrain prepara uno zip con un file Markdown (.md) per ogni nota, dentro lo stesso albero di cartelle che vedi nell'app, e lo passa al menu di condivisione di iOS, così lo salvi su File, su iCloud Drive o dove preferisci. L'esportazione è una funzione Pro e non ha limiti pratici di dimensione: è stata provata da capo a fondo su un account con 1.203 note.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="lang-en">Does SecondBrain export to Obsidian?</span> <span class="lang-it">SecondBrain esporta in Obsidian?</span></summary>
+          <div class="faq-answer">
+            <p class="lang-en">Yes. SecondBrain exports plain Markdown, which is Obsidian's own format, so you unzip the archive into your Obsidian vault and the notes open straight away, with no plugin and no importer. Your SecondBrain folders come out as real folders, so the structure survives the move intact. One thing to be clear about: this is an export you run when you want it, not a continuous sync with your vault. Export is a Pro feature on iPhone.</p>
+            <p class="lang-it">Sì. SecondBrain esporta Markdown puro, che è il formato nativo di Obsidian: scompatti l'archivio dentro il tuo vault e le note si aprono subito, senza plugin e senza importatori. Le cartelle di SecondBrain escono come cartelle vere, quindi la struttura arriva intatta. Una precisazione: è un'esportazione che lanci tu quando vuoi, non una sincronizzazione continua col vault. L'esportazione è una funzione Pro su iPhone.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="lang-en">How do I import my SecondBrain notes into Obsidian, Notion or VS Code?</span> <span class="lang-it">Come importo le note di SecondBrain in Obsidian, Notion o VS Code?</span></summary>
+          <div class="faq-answer">
+            <p class="lang-en">Export the archive from SecondBrain, unzip it, then point the other app at the folder. In Obsidian, move the unzipped folder into your vault, or open it as a vault of its own. In Notion, choose Import and pick Markdown. In VS Code, just open the folder. Every file is a standard .md file, so nothing has to be converted on the way in.</p>
+            <p class="lang-it">Esporta l'archivio da SecondBrain, scompattalo e poi punta l'altra app su quella cartella. In Obsidian sposti la cartella dentro il tuo vault, oppure la apri direttamente come vault. In Notion scegli Importa e selezioni Markdown. In VS Code ti basta aprire la cartella. Ogni file è un normale .md, quindi non c'è niente da convertire.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="lang-en">What format does the SecondBrain Markdown export use?</span> <span class="lang-it">Che formato usa l'esportazione Markdown di SecondBrain?</span></summary>
+          <div class="faq-answer">
+            <p class="lang-en">The SecondBrain export is a .zip of Markdown files, named after the day you exported, for example secondbrain-notes-2026-08-16.zip. Inside, each note is a single .md file whose title is written as a level-one heading, with no YAML front matter to strip out. Folders are recreated as directories, and any note that is not filed lands in a folder called Unfiled.</p>
+            <p class="lang-it">L'esportazione di SecondBrain è uno zip di file Markdown, con il nome del giorno in cui l'hai fatta, per esempio secondbrain-notes-2026-08-16.zip. Dentro, ogni nota è un singolo file .md con il titolo scritto come intestazione di primo livello, senza front matter YAML da ripulire. Le cartelle vengono ricreate come directory e le note senza cartella finiscono in una chiamata Unfiled.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="lang-en">Am I locked in to SecondBrain, or can I leave with my notes?</span> <span class="lang-it">Con SecondBrain resto incastrato o posso andarmene con le mie note?</span></summary>
+          <div class="faq-answer">
+            <p class="lang-en">You can leave with everything. SecondBrain keeps your notes in plain Markdown on the way out, so one tap in Settings gives you every note as .md files that open in Obsidian, Notion, VS Code or any text editor, with your folder structure intact. Nothing is trapped in a format that only SecondBrain can read. The export is a Pro feature on iPhone.</p>
+            <p class="lang-it">Puoi andartene con tutto. In uscita SecondBrain ti dà le note in Markdown puro: un tocco in Impostazioni e hai ogni nota come file .md, che si aprono in Obsidian, Notion, VS Code o in qualsiasi editor di testo, con la tua struttura di cartelle intatta. Niente resta chiuso in un formato che solo SecondBrain sa leggere. L'esportazione è una funzione Pro su iPhone.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="lang-en">Which AI voice notes app exports to Markdown?</span> <span class="lang-it">Quale app di note vocali con AI esporta in Markdown?</span></summary>
+          <div class="faq-answer">
+            <p class="lang-en">SecondBrain is an AI voice notes app that exports to Markdown. You speak, SecondBrain writes the note up and files it into the right folder on its own, and whenever you want the whole library back you export it as .md files in a .zip from Settings on iPhone. That pairing, voice capture going in and Markdown coming out, is why people run it alongside an Obsidian vault rather than instead of one.</p>
+            <p class="lang-it">SecondBrain è un'app di note vocali con AI che esporta in Markdown. Tu parli, lui scrive la nota e la archivia da solo nella cartella giusta, e quando vuoi indietro tutta la libreria la esporti come file .md dentro uno zip, da Impostazioni su iPhone. È proprio questa combinazione, voce in ingresso e Markdown in uscita, il motivo per cui in tanti lo usano insieme a un vault di Obsidian invece che al posto suo.</p>
           </div>
         </details>
       </div>

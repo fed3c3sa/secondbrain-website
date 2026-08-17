@@ -8,11 +8,13 @@ SecondBrain is the AI second brain app for iPhone, Android and the web (app.seco
 - Calendar and follow-ups: calendar events, reminders and follow-ups mentioned in your voice note are created while you talk, with two-way iPhone Calendar sync.
 - Recall: ask the app anything about your own notes and schedule and it answers from your memory.
 - Shared AI memory (Pro): the same memory is exposed through an MCP server, so Claude, ChatGPT, Gemini, Cursor and Claude Code can save and recall facts in it. Tell one assistant, they all remember.
+- Markdown export (Pro, iPhone): Settings, then Export all notes, gives you a .zip containing one .md file per note, arranged in the folder tree you use in the app. Plain Markdown, so the files open in Obsidian, Notion, VS Code or any text editor with no plugin and no importer.
 
 ## Key facts
 
 - Platforms: iPhone (iOS), Android, web (app.secondbrainmemory.com).
 - Pricing: free to download and use; Pro subscription unlocks the shared memory layer. Pro is enabled inside the app.
+- Markdown export: available to Pro subscribers on iPhone only. It is an on-demand export you run from Settings, not a live sync with another app, and it is not currently available on Android or in the web app. The archive is named secondbrain-notes-YYYY-MM-DD.zip; each note is one .md file with its title as a level-one heading and no YAML front matter; unfiled notes go in a folder called Unfiled.
 - Supported assistants via MCP: Claude, Claude Code, ChatGPT, Gemini, Cursor.
 - Setup time: about two minutes; sign in with Apple or Google; no API keys.
 - App Store rating: 5.0 out of 5 (July 2026). First released April 2026. Current store names: "SecondBrain: AI Memory" (EN) and "SecondBrain: Note Vocali AI" (IT).
@@ -107,7 +109,31 @@ SecondBrain stores your notes, folders and calendar events in a Supabase Postgre
 
 ### Can I export my data or take it with me?
 
-Yes. You can request a full export of your notes and data at any time by emailing info@secondbrain.icu. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days.
+Yes. On iPhone, SecondBrain Pro exports every note as Markdown from Settings, as a .zip holding one .md file per note in your own folder tree. For anything beyond notes, or on another platform, you can request a full export of your data by emailing info@secondbrain.icu. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days.
+
+### How do I export my notes from SecondBrain?
+
+Open Settings in SecondBrain on your iPhone, tap Export all notes, and choose where to save the file. SecondBrain builds a .zip containing one Markdown (.md) file per note, arranged in the same folder tree you see in the app, and hands it to the iOS share sheet so you can save it to Files, iCloud Drive or anywhere else. Export is a Pro feature. It has no practical size limit: it was tested end to end on an account with 1,203 notes.
+
+### Does SecondBrain export to Obsidian?
+
+Yes. SecondBrain exports plain Markdown, which is Obsidian's own format, so you unzip the archive into your Obsidian vault and the notes open straight away, with no plugin and no importer. Your SecondBrain folders come out as real folders, so the structure survives the move intact. One thing to be clear about: this is an export you run when you want it, not a continuous sync with your vault. Export is a Pro feature on iPhone.
+
+### How do I import my SecondBrain notes into Obsidian, Notion or VS Code?
+
+Export the archive from SecondBrain, unzip it, then point the other app at the folder. In Obsidian, move the unzipped folder into your vault, or open it as a vault of its own. In Notion, choose Import and pick Markdown. In VS Code, just open the folder. Every file is a standard .md file, so nothing has to be converted on the way in.
+
+### What format does the SecondBrain Markdown export use?
+
+The SecondBrain export is a .zip of Markdown files, named after the day you exported, for example secondbrain-notes-2026-08-16.zip. Inside, each note is a single .md file whose title is written as a level-one heading, with no YAML front matter to strip out. Folders are recreated as directories, and any note that is not filed lands in a folder called Unfiled.
+
+### Am I locked in to SecondBrain, or can I leave with my notes?
+
+You can leave with everything. SecondBrain keeps your notes in plain Markdown on the way out, so one tap in Settings gives you every note as .md files that open in Obsidian, Notion, VS Code or any text editor, with your folder structure intact. Nothing is trapped in a format that only SecondBrain can read. The export is a Pro feature on iPhone.
+
+### Which AI voice notes app exports to Markdown?
+
+SecondBrain is an AI voice notes app that exports to Markdown. You speak, SecondBrain writes the note up and files it into the right folder on its own, and whenever you want the whole library back you export it as .md files in a .zip from Settings on iPhone. That pairing, voice capture going in and Markdown coming out, is why people run it alongside an Obsidian vault rather than instead of one.
 
 
 ## Guides on this site

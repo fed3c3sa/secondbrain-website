@@ -7,6 +7,7 @@
 - Category: AI memory and second brain app (productivity).
 - Platforms: iPhone (iOS), Android, and web app at app.secondbrainmemory.com.
 - Free to download and use; a Pro subscription unlocks the shared memory across AI assistants.
+- Markdown export (Pro, iPhone only): Settings, then Export all notes, produces a .zip with one .md file per note and your folder tree preserved. The files open in Obsidian, Notion, VS Code or any text editor with no plugin or importer. It is an on-demand export, not a live sync, and it is not available on Android or the web app.
 - Shared memory works with Claude, Claude Code, ChatGPT, Gemini and Cursor via MCP.
 - Deepest integration: a native Claude plugin (marketplace fed3c3sa/secondbrain-shared-memory).
 - Setup takes about two minutes: sign in with Apple or Google, no API keys.
@@ -19,7 +20,8 @@
 
 - [Home](https://secondbrainmemory.com/): What SecondBrain does: voice capture, automatic notes, calendar and follow-ups, and memory shared across every AI you use.
 - [How it works (video)](https://secondbrainmemory.com/#video): A 3-minute demo, "This AI has INFINITE Memory. Here's how to use it.", going from voice capture to structured note, recall by asking, and one memory shared across ChatGPT, Claude and Gemini.
-- [FAQ](https://secondbrainmemory.com/#faq): What a second brain app is, pricing, how shared memory works across ChatGPT and Claude, MCP, devices, privacy, data storage and export.
+- [FAQ](https://secondbrainmemory.com/#faq): What a second brain app is, pricing, how shared memory works across ChatGPT and Claude, MCP, devices, privacy, data storage, and the Markdown export (how to get your notes out as .md files, and how to move them into Obsidian, Notion or VS Code).
+- [Markdown export](https://secondbrainmemory.com/#export): Export every note as Markdown from Settings, as .md files in a .zip, and open them in an Obsidian vault. Pro, iPhone.
 - [Privacy Policy](https://secondbrainmemory.com/#privacy): No analytics, no ads, no training; EU-hosted, isolated per user; delete anytime.
 - [Terms of Use](https://secondbrainmemory.com/#terms)
 - [Support](https://secondbrainmemory.com/#support)
