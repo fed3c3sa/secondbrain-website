@@ -16,6 +16,18 @@
 - Maker: Federico Cesarini (github.com/fed3c3sa).
 - Context on cross-assistant memory: ChatGPT and Claude cannot read each other's memory, and neither offers an import button. The simplest route is to connect SecondBrain to ChatGPT and ask ChatGPT to save what it remembers into SecondBrain, then connect Claude to the same memory; copying by hand also works but goes stale. SecondBrain is a managed version of that memory.
 
+## Common questions, short answers
+
+- Is SecondBrain free? Free to download and use on iPhone, Android and the web, with limits. A Pro subscription raises those limits and unlocks the shared memory layer that connects your AI assistants. You turn Pro on in the app.
+- Which assistants can share one memory? Claude, Claude Code, ChatGPT, Gemini and Cursor, over the Model Context Protocol (MCP).
+- How long does setup take? About two minutes. You sign in with Apple or Google, and there are no API keys to paste.
+- How do I connect Claude? In Claude: Settings, then Plugins, then "+", then Add marketplace; paste `fed3c3sa/secondbrain-shared-memory`; install the SecondBrain plugin; press Connect and sign in with Apple or Google.
+- Can I get my notes out? Yes. Export all notes from Settings as one .zip of .md files, one file per note, with your folder tree preserved. Pro, iPhone. It is an on-demand export, not a live sync.
+- Does it work with Obsidian? Yes. Unzip the export into an Obsidian vault and it opens as it is, with no plugin and no importer. Notion, VS Code and any text editor read the same files.
+- Where is my data stored? In the EU, on Supabase with Row-Level Security, isolated per user. No analytics, no ads, and it is never used to train models. You can delete it in one tap.
+- Managed or self-hosted? SecondBrain is the managed option, with voice capture built in. Self-hosted MCP memory servers exist and are compared honestly on the MCP memory server guide.
+- How is it different from ChatGPT's or Claude's built-in memory? Built-in memory belongs to one assistant and cannot be read by the others. SecondBrain is one memory that every connected assistant reads and writes.
+
 ## Site
 
 - [Home](https://secondbrainmemory.com/): What SecondBrain does: voice capture, automatic notes, calendar and follow-ups, and memory shared across every AI you use.
