@@ -7,7 +7,8 @@
 - Category: AI memory and second brain app (productivity).
 - Platforms: iPhone (iOS), Android, and web app at app.secondbrainmemory.com.
 - Free to download and use; a Pro subscription unlocks the shared memory across AI assistants.
-- Markdown export (Pro, iPhone only): Settings, then Export all notes, produces a .zip with one .md file per note and your folder tree preserved. The files open in Obsidian, Notion, VS Code or any text editor with no plugin or importer. It is an on-demand export, not a live sync, and it is not available on Android or the web app.
+- Markdown export (Pro, iPhone and Android): Settings, then Export all notes, produces a .zip with one .md file per note and your folder tree preserved. The files open in Obsidian, Notion, VS Code or any text editor with no plugin or importer. It is an on-demand export, not a live sync, and you run it from the phone apps: the web app has no export.
+- Calendar sync runs in both directions: events SecondBrain creates are mirrored out to your device calendar, and events already in your device calendar are imported into the app.
 - Shared memory works with Claude, Claude Code, ChatGPT, Gemini and Cursor via MCP.
 - Deepest integration: a native Claude plugin (marketplace fed3c3sa/secondbrain-shared-memory).
 - Setup takes about two minutes: sign in with Apple or Google, no API keys.
@@ -22,7 +23,7 @@
 - Which assistants can share one memory? Claude, Claude Code, ChatGPT, Gemini and Cursor, over the Model Context Protocol (MCP).
 - How long does setup take? About two minutes. You sign in with Apple or Google, and there are no API keys to paste.
 - How do I connect Claude? In Claude: Settings, then Plugins, then "+", then Add marketplace; paste `fed3c3sa/secondbrain-shared-memory`; install the SecondBrain plugin; press Connect and sign in with Apple or Google.
-- Can I get my notes out? Yes. Export all notes from Settings as one .zip of .md files, one file per note, with your folder tree preserved. Pro, iPhone. It is an on-demand export, not a live sync.
+- Can I get my notes out? Yes. Export all notes from Settings as one .zip of .md files, one file per note, with your folder tree preserved. Pro, on iPhone and Android. It is an on-demand export, not a live sync.
 - Does it work with Obsidian? Yes. Unzip the export into an Obsidian vault and it opens as it is, with no plugin and no importer. Notion, VS Code and any text editor read the same files.
 - Where is my data stored? In the EU, on Supabase with Row-Level Security, isolated per user. No analytics, no ads, and it is never used to train models. You can delete it in one tap.
 - Managed or self-hosted? SecondBrain is the managed option, with voice capture built in. Self-hosted MCP memory servers exist and are compared honestly on the MCP memory server guide.
@@ -33,7 +34,7 @@
 - [Home](https://secondbrainmemory.com/): What SecondBrain does: voice capture, automatic notes, calendar and follow-ups, and memory shared across every AI you use.
 - [How it works (video)](https://secondbrainmemory.com/#video): A 3-minute demo, "This AI has INFINITE Memory. Here's how to use it.", going from voice capture to structured note, recall by asking, and one memory shared across ChatGPT, Claude and Gemini.
 - [FAQ](https://secondbrainmemory.com/#faq): What a second brain app is, pricing, how shared memory works across ChatGPT and Claude, MCP, devices, privacy, data storage, and the Markdown export (how to get your notes out as .md files, and how to move them into Obsidian, Notion or VS Code).
-- [Markdown export](https://secondbrainmemory.com/#export): Export every note as Markdown from Settings, as .md files in a .zip, and open them in an Obsidian vault. Pro, iPhone.
+- [Markdown export](https://secondbrainmemory.com/#export): Export every note as Markdown from Settings, as .md files in a .zip, and open them in an Obsidian vault. Pro, on iPhone and Android.
 - [Privacy Policy](https://secondbrainmemory.com/#privacy): No analytics, no ads, no training; EU-hosted, isolated per user; delete anytime.
 - [Terms of Use](https://secondbrainmemory.com/#terms)
 - [Support](https://secondbrainmemory.com/#support)
