@@ -81,6 +81,9 @@
             "@id": "https://secondbrainmemory.com/#howto-connect-claude"
           },
           {
+            "@id": "https://secondbrainmemory.com/#howto-connect-chatgpt"
+          },
+          {
             "@id": "https://secondbrainmemory.com/#faq"
           }
         ],
@@ -538,6 +541,37 @@
             "position": 3,
             "name": "Sign in",
             "text": "Press Connect and log in with Apple or Google. Claude can now save and recall from your SecondBrain memory.",
+            "url": "https://secondbrainmemory.com/#install"
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://secondbrainmemory.com/#howto-connect-chatgpt",
+        "name": "How to connect SecondBrain to ChatGPT",
+        "description": "Connect SecondBrain to ChatGPT in three steps, as a custom connector with OAuth. No keys. No tokens. One login. Developer mode and a paid ChatGPT plan are required, and the shared memory layer is a Pro feature turned on in the app.",
+        "inLanguage": "en",
+        "url": "https://secondbrainmemory.com/#install",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Turn on Developer mode",
+            "text": "On chatgpt.com in the browser, not the app, go to Settings, then Apps (or Security, depending on the version), and turn on Developer mode. It needs a paid ChatGPT plan.",
+            "url": "https://secondbrainmemory.com/#install"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Create the connector",
+            "text": "Press \"+\" and choose Create custom connector. Name it SecondBrain, use the URL https://ntykytpngslkytfyuaee.supabase.co/functions/v1/mcp and set Authentication to OAuth. No keys, no tokens.",
+            "url": "https://secondbrainmemory.com/#install"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Sign in",
+            "text": "ChatGPT opens secondbrainmemory.com/connect: log in with Apple or Google, the same account as the app, and approve. SecondBrain shows up among your apps with 12 tools, in the desktop app too.",
             "url": "https://secondbrainmemory.com/#install"
           }
         ]
@@ -1357,6 +1391,20 @@
       background: var(--text-3);
     }
     .install-note .note-line strong { color: var(--text); }
+    /* second guide in the same section: ChatGPT, steps only, no screenshot */
+    .install-subhead {
+      text-align: center;
+      max-width: 680px;
+      margin: 76px auto 34px;
+    }
+    .install-subhead .eyebrow { display: block; margin-bottom: 12px; }
+    .install-subhead h3 {
+      font-weight: 600;
+      font-size: clamp(24px, 3vw, 34px);
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+    }
+    .install-grid.solo { grid-template-columns: 1fr; max-width: 620px; }
     @media (max-width: 880px) {
       .install-grid { grid-template-columns: 1fr; gap: 36px; }
       .install-shot { order: -1; }
@@ -2009,9 +2057,34 @@
         </figure>
       </div>
 
+      <div class="install-subhead anim">
+        <span class="eyebrow"><span class="lang-en">Also works with</span> <span class="lang-it">Funziona anche con</span></span>
+        <h3>
+          <span class="lang-en">ChatGPT, in three steps.</span>
+          <span class="lang-it">ChatGPT, in tre passi.</span>
+        </h3>
+      </div>
+
+      <div class="install-grid solo anim d1">
+        <ol class="install-steps">
+          <li>
+            <h4><span class="lang-en">Turn on Developer mode</span> <span class="lang-it">Attiva la modalità sviluppatore</span></h4>
+            <p><span class="lang-en">On <code class="kbd">chatgpt.com</code> in the browser, not the app: Settings → Apps (or Security, depending on the version) → <strong>Developer mode</strong>. It needs a paid ChatGPT plan.</span> <span class="lang-it">Su <code class="kbd">chatgpt.com</code> dal browser, non dall'app: Impostazioni → App (o Sicurezza, secondo la versione) → <strong>Modalità sviluppatore</strong>. Serve un piano ChatGPT a pagamento.</span></p>
+          </li>
+          <li>
+            <h4><span class="lang-en">Create the connector</span> <span class="lang-it">Crea il connettore</span></h4>
+            <p><span class="lang-en">"+" → <strong>Create custom connector</strong>. Name: <strong>SecondBrain</strong>. URL: <code class="kbd">https://ntykytpngslkytfyuaee.supabase.co/functions/v1/mcp</code>. Authentication: <strong>OAuth</strong>. No keys, no tokens.</span> <span class="lang-it">"+" → <strong>Crea connettore personalizzato</strong>. Nome: <strong>SecondBrain</strong>. URL: <code class="kbd">https://ntykytpngslkytfyuaee.supabase.co/functions/v1/mcp</code>. Autenticazione: <strong>OAuth</strong>. Niente chiavi, niente token.</span></p>
+          </li>
+          <li>
+            <h4><span class="lang-en">Sign in</span> <span class="lang-it">Accedi</span></h4>
+            <p><span class="lang-en">ChatGPT opens <code class="kbd">secondbrainmemory.com/connect</code>: log in with Apple or Google, the same account as the app, and approve. SecondBrain shows up among your apps with 12 tools, in the desktop app too.</span> <span class="lang-it">ChatGPT apre <code class="kbd">secondbrainmemory.com/connect</code>: accedi con Apple o Google, lo stesso account dell'app, e approva. SecondBrain compare tra le tue app con 12 strumenti, anche nell'app desktop.</span></p>
+          </li>
+        </ol>
+      </div>
+
       <div class="install-note anim d2">
         <p class="note-line"><span class="lang-en"><strong>Claude Code:</strong> <code class="kbd">/plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, then <code class="kbd">/plugin install secondbrain@secondbrain</code> and <code class="kbd">/mcp</code> to sign in.</span> <span class="lang-it"><strong>Claude Code:</strong> <code class="kbd">/plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, poi <code class="kbd">/plugin install secondbrain@secondbrain</code> e <code class="kbd">/mcp</code> per accedere.</span></p>
-        <p class="note-line"><span class="lang-en"><strong>ChatGPT, Gemini or Cursor:</strong> run <code class="kbd">npx secondbrain-connect</code> once.</span> <span class="lang-it"><strong>ChatGPT, Gemini o Cursor:</strong> esegui <code class="kbd">npx secondbrain-connect</code> una volta.</span></p>
+        <p class="note-line"><span class="lang-en"><strong>Gemini or Cursor:</strong> run <code class="kbd">npx secondbrain-connect</code> once.</span> <span class="lang-it"><strong>Gemini o Cursor:</strong> esegui <code class="kbd">npx secondbrain-connect</code> una volta.</span></p>
         <p class="note-line"><span class="lang-en">Shared memory is a <strong>Pro</strong> feature. Turn it on in the app first.</span> <span class="lang-it">La memoria condivisa è una funzione <strong>Pro</strong>: attivala prima nell'app.</span></p>
         <a href="https://github.com/fed3c3sa/secondbrain-shared-memory" target="_blank" rel="noopener" class="btn btn-ghost">
           <span class="glyph" aria-hidden="true">
