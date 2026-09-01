@@ -49,7 +49,7 @@
 ## Connect to an AI assistant
 
 - Claude: add the marketplace `fed3c3sa/secondbrain-shared-memory`, install the SecondBrain plugin, then Connect and sign in with Apple or Google.
-- Claude Code: `/plugin marketplace add fed3c3sa/secondbrain-shared-memory`, then `/plugin install secondbrain@secondbrain`, then `/mcp` and sign in.
+- Claude Code: `claude plugin marketplace add fed3c3sa/secondbrain-shared-memory`, then `claude plugin install secondbrain@secondbrain --scope user`, then `npx secondbrain-connect` and sign in. Verify with `claude mcp get secondbrain`.
 - ChatGPT, Gemini, Cursor: run `npx secondbrain-connect` once and sign in in the browser.
 - Note: the shared memory is a Pro feature; enable it in the app first.
 

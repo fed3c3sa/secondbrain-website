@@ -25,7 +25,7 @@ SecondBrain is the AI second brain app for iPhone, Android and the web (app.seco
 ## How to connect an AI assistant to SecondBrain
 
 - Claude (app or web): Settings, then Plugins, then "+", then Add marketplace. Paste fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, press Connect and sign in with Apple or Google.
-- Claude Code: /plugin marketplace add fed3c3sa/secondbrain-shared-memory, then /plugin install secondbrain@secondbrain, then /mcp and sign in.
+- Claude Code: claude plugin marketplace add fed3c3sa/secondbrain-shared-memory, then claude plugin install secondbrain@secondbrain --scope user, then npx secondbrain-connect and sign in. Verify with claude mcp get secondbrain.
 - ChatGPT, Gemini, Cursor: run npx secondbrain-connect once in a terminal and sign in in the browser.
 - The shared memory is a Pro feature: enable Pro in the app first.
 - Full setup guide: https://github.com/fed3c3sa/secondbrain-shared-memory

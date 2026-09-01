@@ -264,7 +264,7 @@
     <li>Incolla <code>fed3c3sa/secondbrain-shared-memory</code> e installa il plugin <strong>SecondBrain</strong>.</li>
     <li>Premi <strong>Connect</strong> e accedi con Apple o Google. Niente chiavi, niente token.</li>
   </ol>
-  <p>In <strong>Claude Code</strong>: <code>/plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, poi <code>/plugin install secondbrain@secondbrain</code> e <code>/mcp</code> per accedere.</p>
+  <p>In <strong>Claude Code</strong>: <code>claude plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, poi <code>claude plugin install secondbrain@secondbrain --scope user</code>, poi <code>npx secondbrain-connect</code> per accedere. Controlla con <code>claude mcp get secondbrain</code>.</p>
 
   <h3>3. Collega ChatGPT, Gemini o Cursor</h3>
   <p>Esegui <code>npx secondbrain-connect</code> una volta nel terminale e accedi dal browser. Il comando configura da solo gli assistenti che usi. La guida completa è su <a href="https://github.com/fed3c3sa/secondbrain-shared-memory" target="_blank" rel="noopener">GitHub</a>.</p>
