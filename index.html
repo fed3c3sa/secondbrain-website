@@ -365,7 +365,7 @@
             "name": "How do I connect SecondBrain to Claude or ChatGPT?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "In Claude, add the marketplace fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. The ChatGPT desktop app uses the same marketplace: codex plugin marketplace add fed3c3sa/secondbrain-shared-memory, then codex plugin add secondbrain@secondbrain, then codex mcp login secondbrain to sign in. On chatgpt.com in the browser, add it as a custom connector instead. For Gemini or Cursor, run npx secondbrain-connect once and sign in in the browser."
+              "text": "In Claude, add the marketplace fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. For ChatGPT, add it as a custom connector on chatgpt.com: Settings, then Apps, then Advanced, then Developer mode, then create a custom connector pointing at the MCP URL with OAuth. That covers the web and the desktop app. Codex is separate and uses the same marketplace as Claude: codex plugin marketplace add fed3c3sa/secondbrain-shared-memory, then codex plugin add secondbrain@secondbrain, then codex mcp login secondbrain. For Gemini or Cursor, run npx secondbrain-connect once and sign in in the browser."
             }
           },
           {
@@ -2060,8 +2060,33 @@
       <div class="install-subhead anim">
         <span class="eyebrow"><span class="lang-en">Also works with</span> <span class="lang-it">Funziona anche con</span></span>
         <h3>
-          <span class="lang-en">ChatGPT desktop, from the same marketplace.</span>
-          <span class="lang-it">ChatGPT desktop, dallo stesso marketplace.</span>
+          <span class="lang-en">ChatGPT, in three steps.</span>
+          <span class="lang-it">ChatGPT, in tre passi.</span>
+        </h3>
+      </div>
+
+      <div class="install-grid solo anim d1">
+        <ol class="install-steps">
+          <li>
+            <h4><span class="lang-en">Turn on Developer mode</span> <span class="lang-it">Attiva la modalità sviluppatore</span></h4>
+            <p><span class="lang-en">On <code class="kbd">chatgpt.com</code> in the browser, not the app: Settings → Apps (or Security, depending on the version) → <strong>Developer mode</strong>. It needs a paid ChatGPT plan.</span> <span class="lang-it">Su <code class="kbd">chatgpt.com</code> dal browser, non dall'app: Impostazioni → App (o Sicurezza, secondo la versione) → <strong>Modalità sviluppatore</strong>. Serve un piano ChatGPT a pagamento.</span></p>
+          </li>
+          <li>
+            <h4><span class="lang-en">Create the connector</span> <span class="lang-it">Crea il connettore</span></h4>
+            <p><span class="lang-en">"+" → <strong>Create custom connector</strong>. Name: <strong>SecondBrain</strong>. URL: <code class="kbd">https://ntykytpngslkytfyuaee.supabase.co/functions/v1/mcp</code>. Authentication: <strong>OAuth</strong>. No keys, no tokens.</span> <span class="lang-it">"+" → <strong>Crea connettore personalizzato</strong>. Nome: <strong>SecondBrain</strong>. URL: <code class="kbd">https://ntykytpngslkytfyuaee.supabase.co/functions/v1/mcp</code>. Autenticazione: <strong>OAuth</strong>. Niente chiavi, niente token.</span></p>
+          </li>
+          <li>
+            <h4><span class="lang-en">Sign in</span> <span class="lang-it">Accedi</span></h4>
+            <p><span class="lang-en">ChatGPT opens <code class="kbd">secondbrainmemory.com/connect</code>: log in with Apple or Google, the same account as the app, and approve. SecondBrain shows up among your apps with 12 tools, in the desktop app too — the connector belongs to your ChatGPT account, so there is nothing to set up twice.</span> <span class="lang-it">ChatGPT apre <code class="kbd">secondbrainmemory.com/connect</code>: accedi con Apple o Google, lo stesso account dell'app, e approva. SecondBrain compare tra le tue app con 12 strumenti, anche nell'app desktop: il connettore è legato al tuo account ChatGPT, quindi non va configurato due volte.</span></p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="install-subhead anim">
+        <span class="eyebrow">Codex</span>
+        <h3>
+          <span class="lang-en">Codex, from the same marketplace.</span>
+          <span class="lang-it">Codex, dallo stesso marketplace.</span>
         </h3>
       </div>
 
@@ -2077,40 +2102,19 @@
           </li>
           <li>
             <h4><span class="lang-en">Sign in — don't skip this</span> <span class="lang-it">Accedi — non saltarlo</span></h4>
-            <p><span class="lang-en"><code class="kbd">codex mcp login secondbrain</code> opens your browser: Apple or Google, same account as the app. Installing the plugin alone leaves the memory signed out, and nothing prompts you. Check with <code class="kbd">codex mcp list</code>: the <strong>secondbrain</strong> row must read <code class="kbd">Auth: OAuth</code>. Then restart ChatGPT.</span> <span class="lang-it"><code class="kbd">codex mcp login secondbrain</code> apre il browser: Apple o Google, lo stesso account dell'app. Installare il plugin da solo lascia la memoria scollegata, e nessuno te lo chiede. Controlla con <code class="kbd">codex mcp list</code>: la riga <strong>secondbrain</strong> deve dire <code class="kbd">Auth: OAuth</code>. Poi riavvia ChatGPT.</span></p>
+            <p><span class="lang-en"><code class="kbd">codex mcp login secondbrain</code> opens your browser: Apple or Google, same account as the app. Installing the plugin alone leaves the memory signed out, and nothing prompts you. Check with <code class="kbd">codex mcp list</code>: the <strong>secondbrain</strong> row must read <code class="kbd">Auth: OAuth</code>.</span> <span class="lang-it"><code class="kbd">codex mcp login secondbrain</code> apre il browser: Apple o Google, lo stesso account dell'app. Installare il plugin da solo lascia la memoria scollegata, e nessuno te lo chiede. Controlla con <code class="kbd">codex mcp list</code>: la riga <strong>secondbrain</strong> deve dire <code class="kbd">Auth: OAuth</code>.</span></p>
           </li>
         </ol>
       </div>
 
-      <div class="install-subhead anim">
-        <span class="eyebrow"><span class="lang-en">In the browser</span> <span class="lang-it">Dal browser</span></span>
-        <h3>
-          <span class="lang-en">ChatGPT on the web, in three steps.</span>
-          <span class="lang-it">ChatGPT sul web, in tre passi.</span>
-        </h3>
-      </div>
-
-      <div class="install-grid solo anim d1">
-        <ol class="install-steps">
-          <li>
-            <h4><span class="lang-en">Turn on Developer mode</span> <span class="lang-it">Attiva la modalità sviluppatore</span></h4>
-            <p><span class="lang-en">On <code class="kbd">chatgpt.com</code>: Settings → Apps (or Security, depending on the version) → <strong>Developer mode</strong>. It needs a paid ChatGPT plan.</span> <span class="lang-it">Su <code class="kbd">chatgpt.com</code>: Impostazioni → App (o Sicurezza, secondo la versione) → <strong>Modalità sviluppatore</strong>. Serve un piano ChatGPT a pagamento.</span></p>
-          </li>
-          <li>
-            <h4><span class="lang-en">Create the connector</span> <span class="lang-it">Crea il connettore</span></h4>
-            <p><span class="lang-en">"+" → <strong>Create custom connector</strong>. Name: <strong>SecondBrain</strong>. URL: <code class="kbd">https://ntykytpngslkytfyuaee.supabase.co/functions/v1/mcp</code>. Authentication: <strong>OAuth</strong>. No keys, no tokens.</span> <span class="lang-it">"+" → <strong>Crea connettore personalizzato</strong>. Nome: <strong>SecondBrain</strong>. URL: <code class="kbd">https://ntykytpngslkytfyuaee.supabase.co/functions/v1/mcp</code>. Autenticazione: <strong>OAuth</strong>. Niente chiavi, niente token.</span></p>
-          </li>
-          <li>
-            <h4><span class="lang-en">Sign in</span> <span class="lang-it">Accedi</span></h4>
-            <p><span class="lang-en">ChatGPT opens <code class="kbd">secondbrainmemory.com/connect</code>: log in with Apple or Google, the same account as the app, and approve. SecondBrain shows up among your apps with 12 tools, in the desktop app too.</span> <span class="lang-it">ChatGPT apre <code class="kbd">secondbrainmemory.com/connect</code>: accedi con Apple o Google, lo stesso account dell'app, e approva. SecondBrain compare tra le tue app con 12 strumenti, anche nell'app desktop.</span></p>
-          </li>
-        </ol>
+      <div class="install-note anim d2" style="margin-bottom:0">
+        <p class="note-line"><span class="lang-en">Codex and ChatGPT's chat are separate: the plugin serves <strong>Codex</strong>, the connector serves <strong>ChatGPT chat</strong> (web and desktop app alike). If ChatGPT says it can see SecondBrain but has no tool to query it, that's the plugin without the connector — add the connector above.</span> <span class="lang-it">Codex e la chat di ChatGPT sono separati: il plugin serve <strong>Codex</strong>, il connettore serve la <strong>chat di ChatGPT</strong> (sia web sia app desktop). Se ChatGPT dice che vede SecondBrain ma non ha strumenti per interrogarlo, è il plugin senza il connettore: aggiungi il connettore qui sopra.</span></p>
       </div>
 
       <div class="install-note anim d2">
         <p class="note-line"><span class="lang-en"><strong>Claude Code:</strong> <code class="kbd">claude plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, then <code class="kbd">claude plugin install secondbrain@secondbrain --scope user</code>, then <code class="kbd">npx secondbrain-connect</code> to sign in.</span> <span class="lang-it"><strong>Claude Code:</strong> <code class="kbd">claude plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, poi <code class="kbd">claude plugin install secondbrain@secondbrain --scope user</code>, poi <code class="kbd">npx secondbrain-connect</code> per accedere.</span></p>
         <p class="note-line"><span class="lang-en"><strong>Gemini or Cursor:</strong> run <code class="kbd">npx secondbrain-connect</code> once.</span> <span class="lang-it"><strong>Gemini o Cursor:</strong> esegui <code class="kbd">npx secondbrain-connect</code> una volta.</span></p>
-        <p class="note-line"><span class="lang-en"><strong>ChatGPT:</strong> <code class="kbd">codex</code> not found? The app ships it — on a Mac use <code class="kbd">/Applications/ChatGPT.app/Contents/Resources/codex mcp login secondbrain</code>.</span> <span class="lang-it"><strong>ChatGPT:</strong> <code class="kbd">codex</code> non trovato? L'app lo include — su Mac usa <code class="kbd">/Applications/ChatGPT.app/Contents/Resources/codex mcp login secondbrain</code>.</span></p>
+        <p class="note-line"><span class="lang-en"><strong>Codex:</strong> <code class="kbd">codex</code> not found? The ChatGPT app ships it — on a Mac use <code class="kbd">/Applications/ChatGPT.app/Contents/Resources/codex mcp login secondbrain</code>.</span> <span class="lang-it"><strong>Codex:</strong> <code class="kbd">codex</code> non trovato? L'app ChatGPT lo include — su Mac usa <code class="kbd">/Applications/ChatGPT.app/Contents/Resources/codex mcp login secondbrain</code>.</span></p>
         <p class="note-line"><span class="lang-en">Check it worked with <code class="kbd">claude mcp get secondbrain</code>. If Claude Code's own sign-in button shows <code class="kbd">Dynamic Client Registration rejected (HTTP 404)</code>, run <code class="kbd">npx secondbrain-connect</code> and restart Claude Code.</span> <span class="lang-it">Controlla con <code class="kbd">claude mcp get secondbrain</code>. Se l'accesso interno di Claude Code mostra <code class="kbd">Dynamic Client Registration rejected (HTTP 404)</code>, lancia <code class="kbd">npx secondbrain-connect</code> e riavvia Claude Code.</span></p>
         <p class="note-line"><span class="lang-en">Shared memory is a <strong>Pro</strong> feature. Turn it on in the app first.</span> <span class="lang-it">La memoria condivisa è una funzione <strong>Pro</strong>: attivala prima nell'app.</span></p>
         <a href="https://github.com/fed3c3sa/secondbrain-shared-memory" target="_blank" rel="noopener" class="btn btn-ghost">
@@ -2200,8 +2204,8 @@
         <details class="faq-item">
           <summary><span class="lang-en">How do I connect SecondBrain to Claude or ChatGPT?</span> <span class="lang-it">Come collego SecondBrain a Claude o ChatGPT?</span></summary>
           <div class="faq-answer">
-            <p class="lang-en">In Claude, add the marketplace <code>fed3c3sa/secondbrain-shared-memory</code>, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. The ChatGPT desktop app uses the same marketplace: <code>codex plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, then <code>codex plugin add secondbrain@secondbrain</code>, then <code>codex mcp login secondbrain</code> to sign in. On <code>chatgpt.com</code> in the browser, add it as a custom connector instead. For Gemini or Cursor, run <code>npx secondbrain-connect</code> once and sign in in the browser.</p>
-            <p class="lang-it">In Claude aggiungi il marketplace <code>fed3c3sa/secondbrain-shared-memory</code>, installa il plugin SecondBrain, poi premi Connect e accedi con Apple o Google. Niente chiavi, niente token. L'app ChatGPT per desktop usa lo stesso marketplace: <code>codex plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, poi <code>codex plugin add secondbrain@secondbrain</code>, poi <code>codex mcp login secondbrain</code> per accedere. Su <code>chatgpt.com</code> dal browser si aggiunge invece come connettore personalizzato. Per Gemini o Cursor basta eseguire <code>npx secondbrain-connect</code> una volta e accedere dal browser.</p>
+            <p class="lang-en">In Claude, add the marketplace <code>fed3c3sa/secondbrain-shared-memory</code>, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. For ChatGPT, add it as a custom connector on <code>chatgpt.com</code>: Settings → Apps → Advanced → Developer mode, then create a custom connector pointing at the MCP URL with OAuth. That covers the web and the desktop app. Codex is separate and uses the same marketplace as Claude: <code>codex plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, then <code>codex plugin add secondbrain@secondbrain</code>, then <code>codex mcp login secondbrain</code>. For Gemini or Cursor, run <code>npx secondbrain-connect</code> once and sign in in the browser.</p>
+            <p class="lang-it">In Claude aggiungi il marketplace <code>fed3c3sa/secondbrain-shared-memory</code>, installa il plugin SecondBrain, poi premi Connect e accedi con Apple o Google. Niente chiavi, niente token. Per ChatGPT si aggiunge come connettore personalizzato su <code>chatgpt.com</code>: Impostazioni → App → Avanzate → Modalità sviluppatore, poi crea un connettore personalizzato che punta all'URL MCP con OAuth. Vale sia per il web sia per l'app desktop. Codex è separato e usa lo stesso marketplace di Claude: <code>codex plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, poi <code>codex plugin add secondbrain@secondbrain</code>, poi <code>codex mcp login secondbrain</code>. Per Gemini o Cursor basta eseguire <code>npx secondbrain-connect</code> una volta e accedere dal browser.</p>
           </div>
         </details>
 
