@@ -365,7 +365,7 @@
             "name": "How do I connect SecondBrain to Claude or ChatGPT?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "In Claude, add the marketplace fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. For ChatGPT, add it on chatgpt.com: Settings, then Security and login, then Developer mode, then Plugins, then \"+\", and paste the MCP server URL under Connection. That covers the web and the desktop app. Codex is separate and uses the same marketplace as Claude: codex plugin marketplace add fed3c3sa/secondbrain-shared-memory, then codex plugin add secondbrain@secondbrain, then codex mcp login secondbrain. For Gemini or Cursor, run npx secondbrain-connect once and sign in in the browser."
+              "text": "In Claude, add the marketplace fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. Codex and ChatGPT Work use the same marketplace: Plugins, then Add, then Add marketplace, paste fed3c3sa/secondbrain-shared-memory, install SecondBrain Memory, then ask it to connect. The plain ChatGPT chat is a separate surface that reads connectors instead of installed plugins, so on Plus and above you add it by hand under Settings, then Security and login, then Developer mode. For Gemini or Cursor, run npx secondbrain-connect once and sign in in the browser."
             }
           },
           {
@@ -548,30 +548,30 @@
       {
         "@type": "HowTo",
         "@id": "https://secondbrainmemory.com/#howto-connect-chatgpt",
-        "name": "How to connect SecondBrain to ChatGPT",
-        "description": "Connect SecondBrain to ChatGPT in three steps, as a custom connector with OAuth. No keys. No tokens. One login. Developer mode and a paid ChatGPT plan are required, and the shared memory layer is a Pro feature turned on in the app.",
+        "name": "How to connect SecondBrain to Codex and ChatGPT Work",
+        "description": "Connect SecondBrain to Codex and ChatGPT Work in three steps, from the same plugin marketplace Claude uses. No keys. No tokens. One browser login with Apple or Google. The shared memory layer is a Pro feature turned on in the SecondBrain app.",
         "inLanguage": "en",
         "url": "https://secondbrainmemory.com/#install",
         "step": [
           {
             "@type": "HowToStep",
             "position": 1,
-            "name": "Turn on Developer mode",
-            "text": "On chatgpt.com in the browser, not the app, go to Settings, then Security and login (older builds: Apps, then Advanced), and turn on Developer mode. It needs a paid ChatGPT plan.",
+            "name": "Add the marketplace",
+            "text": "In Codex or ChatGPT Work, go to Plugins, then Add, then Add marketplace, and paste fed3c3sa/secondbrain-shared-memory. It is the same catalog Claude uses.",
             "url": "https://secondbrainmemory.com/#install"
           },
           {
             "@type": "HowToStep",
             "position": 2,
-            "name": "Create the connector",
-            "text": "Go to Plugins and press \"+\". Name it SecondBrain, add any description, and under Connection paste the MCP server URL https://mcp.secondbrainmemory.com/mcp, then create the connection. No keys, no tokens.",
+            "name": "Install SecondBrain Memory",
+            "text": "Pick SecondBrain Memory from the marketplace list and install it. It brings the memory skill and the SecondBrain connection with it.",
             "url": "https://secondbrainmemory.com/#install"
           },
           {
             "@type": "HowToStep",
             "position": 3,
-            "name": "Sign in",
-            "text": "ChatGPT opens secondbrainmemory.com/connect: log in with Apple or Google, the same account as the app, and approve. SecondBrain shows up among your apps with 12 tools, in the desktop app too.",
+            "name": "Ask it to connect",
+            "text": "Type \"connect to my SecondBrain\" in the chat. It opens your browser: sign in with Apple or Google using the same account as the SecondBrain app. No token, nothing to paste.",
             "url": "https://secondbrainmemory.com/#install"
           }
         ]
@@ -2058,7 +2058,7 @@
       </div>
 
       <div class="install-subhead anim">
-        <span class="eyebrow"><span class="lang-en">Also works with</span> <span class="lang-it">Funziona anche con</span></span>
+        <span class="eyebrow">ChatGPT</span>
         <h3>
           <span class="lang-en">ChatGPT, in three steps.</span>
           <span class="lang-it">ChatGPT, in tre passi.</span>
@@ -2069,24 +2069,24 @@
         <ol class="install-steps">
           <li>
             <h4><span class="lang-en">Turn on Developer mode</span> <span class="lang-it">Attiva la modalità sviluppatore</span></h4>
-            <p><span class="lang-en">On <code class="kbd">chatgpt.com</code> in the browser, not the app: Settings → <strong>Security and login</strong> → <strong>Developer mode</strong> (older builds: Apps → Advanced). It needs a paid ChatGPT plan.</span> <span class="lang-it">Su <code class="kbd">chatgpt.com</code> dal browser, non dall'app: Impostazioni → <strong>Sicurezza e accesso</strong> → <strong>Modalità sviluppatore</strong> (nelle versioni più vecchie: App → Avanzate). Serve un piano ChatGPT a pagamento.</span></p>
+            <p><span class="lang-en">On <code class="kbd">chatgpt.com</code>: Settings → <strong>Security and login</strong> → <strong>Developer mode</strong>. Needs a <strong>Plus</strong> plan or above — it is not on Free or Go.</span> <span class="lang-it">Su <code class="kbd">chatgpt.com</code>: Impostazioni → <strong>Sicurezza e accesso</strong> → <strong>Modalità sviluppatore</strong>. Serve un piano <strong>Plus</strong> o superiore — su Free e Go non c’è.</span></p>
           </li>
           <li>
-            <h4><span class="lang-en">Create the connector</span> <span class="lang-it">Crea il connettore</span></h4>
-            <p><span class="lang-en">Go to <strong>Plugins</strong> and press <strong>"+"</strong>. Name: <strong>SecondBrain</strong>, any description, and under <strong>Connection</strong> paste the MCP server URL: <code class="kbd">https://mcp.secondbrainmemory.com/mcp</code>. No keys, no tokens.</span> <span class="lang-it">Vai su <strong>Plugin</strong> e premi <strong>"+"</strong>. Nome: <strong>SecondBrain</strong>, una descrizione qualsiasi, e sotto <strong>Connessione</strong> incolla l'URL del server MCP: <code class="kbd">https://mcp.secondbrainmemory.com/mcp</code>. Niente chiavi, niente token.</span></p>
+            <h4><span class="lang-en">Fill in the form</span> <span class="lang-it">Compila il form</span></h4>
+            <p><span class="lang-en">Go to <strong>Plugins</strong>, press <strong>"+"</strong>. Name: <strong>SecondBrain</strong>. Connection: leave <strong>Server URL</strong> and paste <code class="kbd">https://mcp.secondbrainmemory.com/mcp</code>. Authentication: <strong>OAuth</strong>. Tick <em>"I understand and want to continue"</em>, then <strong>Create</strong>.</span> <span class="lang-it">Vai su <strong>Plugin</strong>, premi <strong>"+"</strong>. Nome: <strong>SecondBrain</strong>. Connection: lascia <strong>Server URL</strong> e incolla <code class="kbd">https://mcp.secondbrainmemory.com/mcp</code>. Authentication: <strong>OAuth</strong>. Spunta <em>"I understand and want to continue"</em>, poi <strong>Create</strong>.</span></p>
           </li>
           <li>
             <h4><span class="lang-en">Sign in</span> <span class="lang-it">Accedi</span></h4>
-            <p><span class="lang-en">ChatGPT opens <code class="kbd">secondbrainmemory.com/connect</code>: log in with Apple or Google, the same account as the app, and approve. SecondBrain shows up among your apps with 12 tools, in the desktop app too — the connector belongs to your ChatGPT account, so there is nothing to set up twice.</span> <span class="lang-it">ChatGPT apre <code class="kbd">secondbrainmemory.com/connect</code>: accedi con Apple o Google, lo stesso account dell'app, e approva. SecondBrain compare tra le tue app con 12 strumenti, anche nell'app desktop: il connettore è legato al tuo account ChatGPT, quindi non va configurato due volte.</span></p>
+            <p><span class="lang-en">Press <strong>Connect</strong> → log in with <strong>Apple</strong> or <strong>Google</strong>, the same account as the app. You should see <strong>12 tools</strong>. Do this once on the web and the <strong>desktop app</strong> gets it too — it belongs to your ChatGPT account.</span> <span class="lang-it">Premi <strong>Connect</strong> → accedi con <strong>Apple</strong> o <strong>Google</strong>, lo stesso account dell’app. Devi vedere <strong>12 strumenti</strong>. Lo fai una volta sul web e vale anche per l’<strong>app desktop</strong>: è legato al tuo account ChatGPT.</span></p>
           </li>
         </ol>
       </div>
 
       <div class="install-subhead anim">
-        <span class="eyebrow">Codex</span>
+        <span class="eyebrow"><span class="lang-en">Also works with</span> <span class="lang-it">Funziona anche con</span></span>
         <h3>
-          <span class="lang-en">Codex, from the same marketplace.</span>
-          <span class="lang-it">Codex, dallo stesso marketplace.</span>
+          <span class="lang-en">Codex and ChatGPT Work, same marketplace.</span>
+          <span class="lang-it">Codex e ChatGPT Work, stesso marketplace.</span>
         </h3>
       </div>
 
@@ -2094,21 +2094,46 @@
         <ol class="install-steps">
           <li>
             <h4><span class="lang-en">Add the marketplace</span> <span class="lang-it">Aggiungi il marketplace</span></h4>
-            <p><span class="lang-en">In a terminal: <code class="kbd">codex plugin marketplace add fed3c3sa/secondbrain-shared-memory</code> — the same catalog Claude uses.</span> <span class="lang-it">Nel terminale: <code class="kbd">codex plugin marketplace add fed3c3sa/secondbrain-shared-memory</code> — lo stesso catalogo che usa Claude.</span></p>
+            <p><span class="lang-en"><strong>Plugins → Add → Add marketplace</strong>, paste <code class="kbd">fed3c3sa/secondbrain-shared-memory</code> — the same catalog Claude uses.</span> <span class="lang-it"><strong>Plugin → Aggiungi → Aggiungi marketplace</strong>, incolla <code class="kbd">fed3c3sa/secondbrain-shared-memory</code> — lo stesso catalogo che usa Claude.</span></p>
           </li>
           <li>
-            <h4><span class="lang-en">Install the plugin</span> <span class="lang-it">Installa il plugin</span></h4>
-            <p><span class="lang-en"><code class="kbd">codex plugin add secondbrain@secondbrain</code>. That brings in the memory skill and the SecondBrain connection.</span> <span class="lang-it"><code class="kbd">codex plugin add secondbrain@secondbrain</code>. Porta con sé la skill della memoria e la connessione a SecondBrain.</span></p>
+            <h4><span class="lang-en">Install SecondBrain Memory</span> <span class="lang-it">Installa SecondBrain Memory</span></h4>
+            <p><span class="lang-en">Pick it from the list and install.</span> <span class="lang-it">Selezionalo dalla lista e installa.</span></p>
           </li>
           <li>
-            <h4><span class="lang-en">Sign in — don't skip this</span> <span class="lang-it">Accedi — non saltarlo</span></h4>
-            <p><span class="lang-en"><code class="kbd">codex mcp login secondbrain</code> opens your browser: Apple or Google, same account as the app. Installing the plugin alone leaves the memory signed out, and nothing prompts you. Check with <code class="kbd">codex mcp list</code>: the <strong>secondbrain</strong> row must read <code class="kbd">Auth: OAuth</code>.</span> <span class="lang-it"><code class="kbd">codex mcp login secondbrain</code> apre il browser: Apple o Google, lo stesso account dell'app. Installare il plugin da solo lascia la memoria scollegata, e nessuno te lo chiede. Controlla con <code class="kbd">codex mcp list</code>: la riga <strong>secondbrain</strong> deve dire <code class="kbd">Auth: OAuth</code>.</span></p>
+            <h4><span class="lang-en">Ask it to connect</span> <span class="lang-it">Digli di connettersi</span></h4>
+            <p><span class="lang-en">Type <em>"connect to my SecondBrain"</em>. It opens your browser: <strong>Apple</strong> or <strong>Google</strong>, same account as the app. Nothing to paste.</span> <span class="lang-it">Scrivi <em>"collegati al mio SecondBrain"</em>. Apre il browser: <strong>Apple</strong> o <strong>Google</strong>, lo stesso account dell’app. Niente da incollare.</span></p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="install-subhead anim">
+        <span class="eyebrow"><span class="lang-en">Then</span> <span class="lang-it">Poi</span></span>
+        <h3>
+          <span class="lang-en">How to use it.</span>
+          <span class="lang-it">Come si usa.</span>
+        </h3>
+      </div>
+
+      <div class="install-grid solo anim d1">
+        <ol class="install-steps">
+          <li>
+            <h4><span class="lang-en">Call it by name, the first time</span> <span class="lang-it">Chiamalo per nome, la prima volta</span></h4>
+            <p><span class="lang-en">In a new chat it does not jump in on its own. Type <code class="kbd">@SecondBrain</code> at the start of your message, or pick <strong>SecondBrain</strong> from the tools menu. After that it stays active for the rest of the chat.</span> <span class="lang-it">In una chat nuova non parte da solo. Scrivi <code class="kbd">@SecondBrain</code> all’inizio del messaggio, oppure scegli <strong>SecondBrain</strong> dal menu strumenti. Dopo resta attivo per tutta la chat.</span></p>
+          </li>
+          <li>
+            <h4><span class="lang-en">To save something</span> <span class="lang-it">Per salvare qualcosa</span></h4>
+            <p><span class="lang-en"><em>"Remember that I'm allergic to penicillin."</em> — or <em>"Save this in my SecondBrain."</em> It asks you to confirm before writing: that is normal, ChatGPT does it for every write.</span> <span class="lang-it"><em>"Ricorda che sono allergico alla penicillina."</em> — oppure <em>"Salva questo nel mio SecondBrain."</em> Ti chiede conferma prima di scrivere: è normale, ChatGPT lo fa a ogni scrittura.</span></p>
+          </li>
+          <li>
+            <h4><span class="lang-en">To remember something</span> <span class="lang-it">Per farti ricordare qualcosa</span></h4>
+            <p><span class="lang-en"><em>"What do you know about my project?"</em>, <em>"What did I decide about the pricing?"</em>, <em>"Remind me to call the dentist tomorrow at 10."</em> Open a brand-new chat and ask again — if it still knows, you are set.</span> <span class="lang-it"><em>"Cosa sai del mio progetto?"</em>, <em>"Cosa avevo deciso sui prezzi?"</em>, <em>"Ricordami di chiamare il dentista domani alle 10."</em> Apri una chat nuova e richiedilo: se lo sa ancora, funziona.</span></p>
           </li>
         </ol>
       </div>
 
       <div class="install-note anim d2" style="margin-bottom:0">
-        <p class="note-line"><span class="lang-en">Codex and ChatGPT's chat are separate: the plugin serves <strong>Codex</strong>, the connector serves <strong>ChatGPT chat</strong> (web and desktop app alike). If ChatGPT says it can see SecondBrain but has no tool to query it, that's the plugin without the connector — add the connector above.</span> <span class="lang-it">Codex e la chat di ChatGPT sono separati: il plugin serve <strong>Codex</strong>, il connettore serve la <strong>chat di ChatGPT</strong> (sia web sia app desktop). Se ChatGPT dice che vede SecondBrain ma non ha strumenti per interrogarlo, è il plugin senza il connettore: aggiungi il connettore qui sopra.</span></p>
+        <p class="note-line"><span class="lang-en"><strong>Prefer the terminal?</strong> <code class="kbd">codex plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, then <code class="kbd">codex plugin add secondbrain@secondbrain</code>, then <code class="kbd">codex mcp login secondbrain</code>. Check with <code class="kbd">codex mcp list</code>: the <strong>secondbrain</strong> row must read <code class="kbd">Auth: OAuth</code>.</span> <span class="lang-it"><strong>Preferisci il terminale?</strong> <code class="kbd">codex plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, poi <code class="kbd">codex plugin add secondbrain@secondbrain</code>, poi <code class="kbd">codex mcp login secondbrain</code>. Controlla con <code class="kbd">codex mcp list</code>: la riga <strong>secondbrain</strong> deve dire <code class="kbd">Auth: OAuth</code>.</span></p>
       </div>
 
       <div class="install-note anim d2">
@@ -2204,8 +2229,8 @@
         <details class="faq-item">
           <summary><span class="lang-en">How do I connect SecondBrain to Claude or ChatGPT?</span> <span class="lang-it">Come collego SecondBrain a Claude o ChatGPT?</span></summary>
           <div class="faq-answer">
-            <p class="lang-en">In Claude, add the marketplace <code>fed3c3sa/secondbrain-shared-memory</code>, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. For ChatGPT, add it on <code>chatgpt.com</code>: Settings → Security and login → Developer mode, then Plugins → "+" and paste the MCP server URL under Connection. That covers the web and the desktop app. Codex is separate and uses the same marketplace as Claude: <code>codex plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, then <code>codex plugin add secondbrain@secondbrain</code>, then <code>codex mcp login secondbrain</code>. For Gemini or Cursor, run <code>npx secondbrain-connect</code> once and sign in in the browser.</p>
-            <p class="lang-it">In Claude aggiungi il marketplace <code>fed3c3sa/secondbrain-shared-memory</code>, installa il plugin SecondBrain, poi premi Connect e accedi con Apple o Google. Niente chiavi, niente token. Per ChatGPT si aggiunge su <code>chatgpt.com</code>: Impostazioni → Sicurezza e accesso → Modalità sviluppatore, poi Plugin → "+" e incolla l'URL del server MCP sotto Connessione. Vale sia per il web sia per l'app desktop. Codex è separato e usa lo stesso marketplace di Claude: <code>codex plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, poi <code>codex plugin add secondbrain@secondbrain</code>, poi <code>codex mcp login secondbrain</code>. Per Gemini o Cursor basta eseguire <code>npx secondbrain-connect</code> una volta e accedere dal browser.</p>
+            <p class="lang-en">In Claude, add the marketplace <code>fed3c3sa/secondbrain-shared-memory</code>, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. Codex and ChatGPT Work use the same marketplace: Plugins → Add → Add marketplace, paste <code>fed3c3sa/secondbrain-shared-memory</code>, install SecondBrain Memory, then ask it to connect. The plain ChatGPT chat reads connectors rather than installed plugins, so on Plus and above you add it by hand under Settings → Security and login → Developer mode. That covers the web and the desktop app. Codex is separate and uses the same marketplace as Claude: <code>codex plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, then <code>codex plugin add secondbrain@secondbrain</code>, then <code>codex mcp login secondbrain</code>. For Gemini or Cursor, run <code>npx secondbrain-connect</code> once and sign in in the browser.</p>
+            <p class="lang-it">In Claude aggiungi il marketplace <code>fed3c3sa/secondbrain-shared-memory</code>, installa il plugin SecondBrain, poi premi Connect e accedi con Apple o Google. Niente chiavi, niente token. Codex e ChatGPT Work usano lo stesso marketplace: Plugin → Aggiungi → Aggiungi marketplace, incolla <code>fed3c3sa/secondbrain-shared-memory</code>, installa SecondBrain Memory, poi digli di connettersi. La chat normale di ChatGPT legge i connettori e non i plugin installati, quindi da Plus in su si aggiunge a mano in Impostazioni → Sicurezza e accesso → Modalità sviluppatore. Vale sia per il web sia per l'app desktop. Codex è separato e usa lo stesso marketplace di Claude: <code>codex plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, poi <code>codex plugin add secondbrain@secondbrain</code>, poi <code>codex mcp login secondbrain</code>. Per Gemini o Cursor basta eseguire <code>npx secondbrain-connect</code> una volta e accedere dal browser.</p>
           </div>
         </details>
 
