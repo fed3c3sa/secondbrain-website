@@ -26,7 +26,9 @@ SecondBrain is the AI second brain app for iPhone, Android and the web (app.seco
 
 - Claude (app or web): Settings, then Plugins, then "+", then Add marketplace. Paste fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, press Connect and sign in with Apple or Google.
 - Claude Code: claude plugin marketplace add fed3c3sa/secondbrain-shared-memory, then claude plugin install secondbrain@secondbrain --scope user, then npx secondbrain-connect and sign in. Verify with claude mcp get secondbrain.
-- ChatGPT, Gemini, Cursor: run npx secondbrain-connect once in a terminal and sign in in the browser.
+- ChatGPT desktop app: the same marketplace as Claude. codex plugin marketplace add fed3c3sa/secondbrain-shared-memory, then codex plugin add secondbrain@secondbrain, then codex mcp login secondbrain to sign in. Installing the plugin registers the memory but leaves it signed out and nothing prompts you, so the third command is required; verify with codex mcp list that the secondbrain row reads Auth: OAuth, then restart ChatGPT.
+- ChatGPT on the web (chatgpt.com): the web chat uses connectors, not locally installed plugins. Settings, then Apps, then Advanced, then Developer mode; add a custom connector named SecondBrain with URL https://ntykytpngslkytfyuaee.supabase.co/functions/v1/mcp and authentication OAuth, then press Connect and sign in with Apple or Google.
+- Gemini, Cursor: run npx secondbrain-connect once in a terminal and sign in in the browser.
 - The shared memory is a Pro feature: enable Pro in the app first.
 - Full setup guide: https://github.com/fed3c3sa/secondbrain-shared-memory
 
@@ -61,7 +63,7 @@ SecondBrain connects to your assistants through the Model Context Protocol (MCP)
 
 ### How do I connect SecondBrain to Claude or ChatGPT?
 
-In Claude, add the marketplace fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. For ChatGPT, Gemini or Cursor, run npx secondbrain-connect once and sign in in the browser.
+In Claude, add the marketplace fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. The ChatGPT desktop app uses the same marketplace: codex plugin marketplace add fed3c3sa/secondbrain-shared-memory, then codex plugin add secondbrain@secondbrain, then codex mcp login secondbrain to sign in. On chatgpt.com in the browser, add it as a custom connector instead. For Gemini or Cursor, run npx secondbrain-connect once and sign in in the browser.
 
 ### Which devices does SecondBrain work on?
 
