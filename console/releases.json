@@ -1,6 +1,20 @@
 {
-  "readme": "iOS App Store releases from the refactored-ios-version branch of ~/Desktop/personal/secondbrain. Shown as vertical markers on the console charts; tapping a tag opens the changelog. liveDate = date the final build of the version was pushed to the branch + 1 day (average App Store review time). Changes are written in plain product language for a non-technical reader: describe what changed for users (paywall, onboarding, features), not code internals. To add a release: prepend an entry (newest first) summarizing the commits since the previous version bump, then sync the copy in secondbrain-dashboard/viewer/ and push this site.",
+  "readme": "iOS App Store releases from the ios branch of ~/Desktop/personal/secondbrain (renamed from refactored-ios-version on 2026-09-10). Shown as vertical markers on the console charts; tapping a tag opens the changelog. liveDate = date the final build of the version was pushed to the branch + 1 day (average App Store review time). Changes are written in plain product language for a non-technical reader: describe what changed for users (paywall, onboarding, features), not code internals. To add a release: prepend an entry (newest first) summarizing the commits since the previous version bump, then sync the copy in secondbrain-dashboard/viewer/ and push this site.",
   "releases": [
+    {
+      "version": "2.6.0",
+      "build": 1,
+      "pushedAt": "2026-09-10",
+      "liveDate": "2026-09-11",
+      "title": "Notes keep the file they came from",
+      "changes": [
+        "When you make a note from a file, the file itself now stays on your device and stays attached to that note. Open it from the note whenever you want, even with no connection",
+        "PDFs, images and documents open in a viewer inside the app, so you never lose your place in the note",
+        "Fixed: opening the original file from a note you reached through the chat could freeze the app",
+        "Fixed: the close button in the viewer was hidden behind the clock at the top of the screen",
+        "Fixed: PDFs did not open at all"
+      ]
+    },
     {
       "version": "2.5.2",
       "build": 1,
