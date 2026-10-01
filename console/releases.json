@@ -3,16 +3,16 @@
   "releases": [
     {
       "version": "2.7.0",
-      "build": 1,
+      "build": 2,
       "pushedAt": "2026-10-01",
       "liveDate": "2026-10-02",
       "title": "A brain you can actually explore",
       "changes": [
-        "The Brain view was rebuilt from scratch. Notes no longer land at random across the screen: each folder is a glass bubble that grows with what it holds, and its notes gather around it",
-        "Drag any folder or note with your finger and the rest of the brain moves with it, then settles back on its own",
-        "Pinch to zoom, double tap to zoom in, tap with two fingers to zoom out, and swipe to glide around. Folder and note names stay sharp and readable at every zoom",
-        "Tap a folder to light up just that part of your brain and see how many notes it holds. Searching flies to the notes that match",
-        "The brain now fills the whole screen and keeps its shape between visits instead of rearranging every time you open it"
+        "The Brain view was rebuilt from scratch: everything is laid out around the center in a tidy radial map. Each folder is a glass bubble that grows with what it holds, its notes sit in a ring around it, and subfolders branch outward",
+        "Drag any folder or note to where you want it: it stays there, its notes come with it, and the brain remembers your arrangement. Press and hold the center to put everything back",
+        "Pinch to zoom, double tap to zoom in, tap with two fingers to zoom out, and swipe to glide around. Names stay sharp at every zoom, and the overview only shows the names that matter, with more appearing as you zoom in",
+        "Tap a folder to light up just that part of your brain and see how many notes it holds and how its notes link to each other. Searching flies to the notes that match",
+        "Deleting a note or folder from the brain now needs a longer press, so it never happens by accident"
       ]
     },
     {
