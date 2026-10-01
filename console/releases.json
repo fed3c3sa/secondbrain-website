@@ -2,6 +2,20 @@
   "readme": "iOS App Store releases from the ios branch of ~/Desktop/personal/secondbrain (renamed from refactored-ios-version on 2026-09-10). Shown as vertical markers on the console charts; tapping a tag opens the changelog. liveDate = date the final build of the version was pushed to the branch + 1 day (average App Store review time). Changes are written in plain product language for a non-technical reader: describe what changed for users (paywall, onboarding, features), not code internals. To add a release: prepend an entry (newest first) summarizing the commits since the previous version bump, then sync the copy in secondbrain-dashboard/viewer/ and push this site.",
   "releases": [
     {
+      "version": "2.7.0",
+      "build": 1,
+      "pushedAt": "2026-10-01",
+      "liveDate": "2026-10-02",
+      "title": "A brain you can actually explore",
+      "changes": [
+        "The Brain view was rebuilt from scratch. Notes no longer land at random across the screen: each folder is a glass bubble that grows with what it holds, and its notes gather around it",
+        "Drag any folder or note with your finger and the rest of the brain moves with it, then settles back on its own",
+        "Pinch to zoom, double tap to zoom in, tap with two fingers to zoom out, and swipe to glide around. Folder and note names stay sharp and readable at every zoom",
+        "Tap a folder to light up just that part of your brain and see how many notes it holds. Searching flies to the notes that match",
+        "The brain now fills the whole screen and keeps its shape between visits instead of rearranging every time you open it"
+      ]
+    },
+    {
       "version": "2.6.1",
       "build": 1,
       "pushedAt": "2026-09-16",
