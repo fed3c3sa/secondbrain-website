@@ -3,7 +3,7 @@
   "releases": [
     {
       "version": "2.8.0",
-      "build": 1,
+      "build": 2,
       "pushedAt": "2026-10-13",
       "liveDate": "2026-10-14",
       "title": "Watch your assistant at work",
@@ -12,7 +12,8 @@
         "The answer appears word by word as it is written, instead of all at once at the end",
         "When the answer is ready the steps fold into a single line above it, and you can open them again whenever you like",
         "Fixed: after leaving the app for a while, a message could look like it was never sent even though your note had been saved. The answer is now picked up when you come back",
-        "In the Brain, notes can still be dragged around but they stay close to their folder: pull one too far and it springs back. Reopening or refreshing the Brain puts everything back in its place"
+        "In the Brain, notes can still be dragged around but they stay close to their folder: pull one too far and it springs back. Reopening or refreshing the Brain puts everything back in its place",
+        "Contact support in Settings now writes to info@secondbrainmemory.com"
       ]
     },
     {
