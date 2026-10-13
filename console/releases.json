@@ -2,6 +2,20 @@
   "readme": "iOS App Store releases from the ios branch of ~/Desktop/personal/secondbrain (renamed from refactored-ios-version on 2026-09-10). Shown as vertical markers on the console charts; tapping a tag opens the changelog. liveDate = date the final build of the version was pushed to the branch + 1 day (average App Store review time). Changes are written in plain product language for a non-technical reader: describe what changed for users (paywall, onboarding, features), not code internals. To add a release: prepend an entry (newest first) summarizing the commits since the previous version bump, then sync the copy in secondbrain-dashboard/viewer/ and push this site.",
   "releases": [
     {
+      "version": "2.8.0",
+      "build": 1,
+      "pushedAt": "2026-10-13",
+      "liveDate": "2026-10-14",
+      "title": "Watch your assistant at work",
+      "changes": [
+        "While the assistant works you now see each step as it happens, one under the other: which folder it is looking in, which day it is checking, which note it is saving. Tap a step to read the details",
+        "The answer appears word by word as it is written, instead of all at once at the end",
+        "When the answer is ready the steps fold into a single line above it, and you can open them again whenever you like",
+        "Fixed: after leaving the app for a while, a message could look like it was never sent even though your note had been saved. The answer is now picked up when you come back",
+        "In the Brain, notes can still be dragged around but they stay close to their folder: pull one too far and it springs back. Reopening or refreshing the Brain puts everything back in its place"
+      ]
+    },
+    {
       "version": "2.7.0",
       "build": 3,
       "pushedAt": "2026-10-01",
