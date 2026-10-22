@@ -4,7 +4,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://secondbrainmemory.com/</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <video:video>
@@ -14,6 +14,22 @@
       <video:player_loc>https://www.youtube-nocookie.com/embed/miiynvYCZf4</video:player_loc>
       <video:duration>194</video:duration>
       <video:publication_date>2026-07-06T01:12:10-07:00</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://secondbrainmemory.com/assets/film-spot-poster.webp</video:thumbnail_loc>
+      <video:title>SecondBrain: AI Memory</video:title>
+      <video:description>The 51-second SecondBrain spot: a day with too much to remember, and an app you talk to that writes the note, files it and reminds you.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/3Ga1u9QzOaw</video:player_loc>
+      <video:duration>51</video:duration>
+      <video:publication_date>2026-10-22</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://secondbrainmemory.com/assets/film-brain-burst-poster.webp</video:thumbnail_loc>
+      <video:title>SecondBrain: AI Personal Assistant in your phone</video:title>
+      <video:description>A 21-second hand-drawn film: a head overwhelmed by everything it has to remember bursts, then SecondBrain connects the dots. We are not meant to remember everything.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/lNJhyQKaDZU</video:player_loc>
+      <video:duration>21</video:duration>
+      <video:publication_date>2026-10-22</video:publication_date>
     </video:video>
   </url>
   <url>

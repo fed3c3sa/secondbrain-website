@@ -63,7 +63,7 @@ SecondBrain connects to your assistants through the Model Context Protocol (MCP)
 
 ### How do I connect SecondBrain to Claude or ChatGPT?
 
-In Claude, add the marketplace fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. Codex and ChatGPT Work use the same marketplace: Plugins, then Add, then Add marketplace, paste fed3c3sa/secondbrain-shared-memory, install SecondBrain Memory, then ask it to connect. The plain ChatGPT chat is a separate surface that reads connectors instead of installed plugins, so on Plus and above you add it by hand under Settings, then Security and login, then Developer mode. For Gemini or Cursor, run npx secondbrain-connect once and sign in in the browser.
+In Claude, add the marketplace fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. Codex and ChatGPT Work use the same marketplace: Plugins, then Add, then Add marketplace, paste fed3c3sa/secondbrain-shared-memory, install SecondBrain Memory, then ask it to connect. The plain ChatGPT chat reads connectors rather than installed plugins, so on Plus and above you add it by hand under Settings → Security and login → Developer mode. That covers the web and the desktop app. Codex is separate and uses the same marketplace as Claude: codex plugin marketplace add fed3c3sa/secondbrain-shared-memory, then codex plugin add secondbrain@secondbrain, then codex mcp login secondbrain. For Gemini or Cursor, run npx secondbrain-connect once and sign in in the browser.
 
 ### Which devices does SecondBrain work on?
 
@@ -111,7 +111,7 @@ SecondBrain stores your notes, folders and calendar events in a Supabase Postgre
 
 ### Can I export my data or take it with me?
 
-Yes. On iPhone, SecondBrain Pro exports every note as Markdown from Settings, as a .zip holding one .md file per note in your own folder tree. For anything beyond notes, or on another platform, you can request a full export of your data by emailing info@secondbrain.icu. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days.
+Yes. On iPhone, SecondBrain Pro exports every note as Markdown from Settings, as a .zip holding one .md file per note in your own folder tree. For anything beyond notes, or on another platform, you can request a full export of your data by emailing info@secondbrainmemory.com. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days.
 
 ### How do I export my notes from SecondBrain?
 
@@ -150,6 +150,8 @@ SecondBrain is an AI voice notes app that exports to Markdown. You speak, Second
 
 "This AI has INFINITE Memory. Here's how to use it." (3 minutes 14 seconds, July 2026): voice capture to structured note, recall by asking, and one memory shared across ChatGPT, Claude and Gemini. https://www.youtube.com/watch?v=miiynvYCZf4
 
+Two short films (October 2026): the spot (51 seconds), https://www.youtube.com/watch?v=3Ga1u9QzOaw , and "We are not meant to remember everything" (21 seconds, hand-drawn), https://www.youtube.com/watch?v=lNJhyQKaDZU
+
 ## Links
 
 - Web app: https://app.secondbrainmemory.com/
@@ -157,4 +159,5 @@ SecondBrain is an AI voice notes app that exports to Markdown. You speak, Second
 - Google Play (Android): https://play.google.com/store/apps/details?id=app.secondbrain.android
 - GitHub (plugin and setup guide): https://github.com/fed3c3sa/secondbrain-shared-memory
 - YouTube channel: https://www.youtube.com/@SecondBrain-AISmartMemory
-- Contact: info@secondbrain.icu
+- LinkedIn: https://www.linkedin.com/company/secondbrain-memory
+- Contact: info@secondbrainmemory.com

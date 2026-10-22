@@ -25,7 +25,7 @@
   <meta property="og:image:alt" content="SecondBrain, the AI second brain app for your phone" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="it_IT" />
-  <meta property="og:updated_time" content="2026-08-23" />
+  <meta property="og:updated_time" content="2026-10-22" />
   <meta property="og:video" content="https://www.youtube-nocookie.com/embed/miiynvYCZf4" />
   <meta property="og:video:secure_url" content="https://www.youtube-nocookie.com/embed/miiynvYCZf4" />
   <meta property="og:video:type" content="text/html" />
@@ -87,7 +87,7 @@
             "@id": "https://secondbrainmemory.com/#faq"
           }
         ],
-        "dateModified": "2026-08-23",
+        "dateModified": "2026-10-22",
         "inLanguage": "en",
         "speakable": {
           "@type": "SpeakableSpecification",
@@ -116,6 +116,42 @@
         }
       },
       {
+        "@type": "VideoObject",
+        "@id": "https://secondbrainmemory.com/#spot-video",
+        "name": "SecondBrain: AI Memory",
+        "description": "The 51-second SecondBrain spot: a day with too much to remember, and an app you talk to that writes the note, files it and reminds you.",
+        "thumbnailUrl": [
+          "https://secondbrainmemory.com/assets/film-spot-poster.webp",
+          "https://i.ytimg.com/vi/3Ga1u9QzOaw/hqdefault.jpg"
+        ],
+        "uploadDate": "2026-10-22",
+        "duration": "PT51S",
+        "contentUrl": "https://www.youtube.com/watch?v=3Ga1u9QzOaw",
+        "embedUrl": "https://www.youtube-nocookie.com/embed/3Ga1u9QzOaw",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://secondbrainmemory.com/#organization"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://secondbrainmemory.com/#brain-burst-video",
+        "name": "SecondBrain: AI Personal Assistant in your phone",
+        "description": "A 21-second hand-drawn film: a head overwhelmed by everything it has to remember bursts, then SecondBrain connects the dots. We are not meant to remember everything.",
+        "thumbnailUrl": [
+          "https://secondbrainmemory.com/assets/film-brain-burst-poster.webp",
+          "https://i.ytimg.com/vi/lNJhyQKaDZU/hqdefault.jpg"
+        ],
+        "uploadDate": "2026-10-22",
+        "duration": "PT21S",
+        "contentUrl": "https://www.youtube.com/watch?v=lNJhyQKaDZU",
+        "embedUrl": "https://www.youtube-nocookie.com/embed/lNJhyQKaDZU",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "https://secondbrainmemory.com/#organization"
+        }
+      },
+      {
         "@type": "Organization",
         "@id": "https://secondbrainmemory.com/#organization",
         "name": "SecondBrain",
@@ -128,7 +164,7 @@
           "@type": "ImageObject",
           "url": "https://secondbrainmemory.com/assets/logo-512.png"
         },
-        "email": "info@secondbrain.icu",
+        "email": "info@secondbrainmemory.com",
         "founder": {
           "@id": "https://secondbrainmemory.com/#federico-cesarini"
         },
@@ -138,7 +174,8 @@
           "https://play.google.com/store/apps/details?id=app.secondbrain.android",
           "https://github.com/fed3c3sa/secondbrain-shared-memory",
           "https://www.youtube.com/@SecondBrain-AISmartMemory",
-          "https://www.instagram.com/secondbrain.memory/"
+          "https://www.instagram.com/secondbrain.memory/",
+          "https://www.linkedin.com/company/secondbrain-memory"
         ],
         "description": "SecondBrain is the AI second brain app for your phone. Speak once and it remembers: notes, calendar events and follow-ups, with a memory shared across ChatGPT, Claude and every AI you use via the Model Context Protocol (MCP).",
         "slogan": "Just talk. SecondBrain remembers.",
@@ -158,7 +195,7 @@
         "contactPoint": {
           "@type": "ContactPoint",
           "contactType": "customer support",
-          "email": "info@secondbrain.icu",
+          "email": "info@secondbrainmemory.com",
           "availableLanguage": [
             "English",
             "Italian"
@@ -183,7 +220,7 @@
           "postalCode": "82801",
           "addressCountry": "US"
         },
-        "email": "info@secondbrain.icu",
+        "email": "info@secondbrainmemory.com",
         "subOrganization": {
           "@id": "https://secondbrainmemory.com/#organization"
         }
@@ -365,7 +402,7 @@
             "name": "How do I connect SecondBrain to Claude or ChatGPT?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "In Claude, add the marketplace fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. Codex and ChatGPT Work use the same marketplace: Plugins, then Add, then Add marketplace, paste fed3c3sa/secondbrain-shared-memory, install SecondBrain Memory, then ask it to connect. The plain ChatGPT chat is a separate surface that reads connectors instead of installed plugins, so on Plus and above you add it by hand under Settings, then Security and login, then Developer mode. For Gemini or Cursor, run npx secondbrain-connect once and sign in in the browser."
+              "text": "In Claude, add the marketplace fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. Codex and ChatGPT Work use the same marketplace: Plugins, then Add, then Add marketplace, paste fed3c3sa/secondbrain-shared-memory, install SecondBrain Memory, then ask it to connect. The plain ChatGPT chat reads connectors rather than installed plugins, so on Plus and above you add it by hand under Settings → Security and login → Developer mode. That covers the web and the desktop app. Codex is separate and uses the same marketplace as Claude: codex plugin marketplace add fed3c3sa/secondbrain-shared-memory, then codex plugin add secondbrain@secondbrain, then codex mcp login secondbrain. For Gemini or Cursor, run npx secondbrain-connect once and sign in in the browser."
             }
           },
           {
@@ -461,7 +498,7 @@
             "name": "Can I export my data or take it with me?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. On iPhone, SecondBrain Pro exports every note as Markdown from Settings, as a .zip holding one .md file per note in your own folder tree. For anything beyond notes, or on another platform, you can request a full export of your data by emailing info@secondbrain.icu. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days."
+              "text": "Yes. On iPhone, SecondBrain Pro exports every note as Markdown from Settings, as a .zip holding one .md file per note in your own folder tree. For anything beyond notes, or on another platform, you can request a full export of your data by emailing info@secondbrainmemory.com. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days."
             }
           },
           {
@@ -1172,6 +1209,11 @@
       .hero-title { min-height: 0; }
     }
 
+    /* the hand-drawn film frames the problem, right before the app */
+    .why-film { max-width: var(--max-narrow); margin: 0 auto; }
+    /* the spot closes the page, right above the downloads */
+    .final-video { margin: 0 auto 34px; text-align: left; }
+
     /* ════════════════════════════════════════════════════════ */
     /* SHOTS · the app-store screens                            */
     /* ════════════════════════════════════════════════════════ */
@@ -1864,7 +1906,7 @@
 
       <div class="hero-video anim d2" id="video" aria-label="Demo video">
         <div class="video-frame" id="video-frame">
-          <a href="https://www.youtube.com/watch?v=miiynvYCZf4" target="_blank" rel="noopener" class="video-poster" id="video-poster" aria-label="Play the SecondBrain demo video: This AI has INFINITE Memory. Here's how to use it. (3 min 14 s)">
+          <a href="https://www.youtube.com/watch?v=miiynvYCZf4" target="_blank" rel="noopener" class="video-poster" id="video-poster" data-yt="miiynvYCZf4" data-title="SecondBrain demo: This AI has INFINITE Memory. Here's how to use it." aria-label="Play the SecondBrain demo video: This AI has INFINITE Memory. Here's how to use it. (3 min 14 s)">
             <img src="assets/video-poster.webp" alt="Still from the SecondBrain demo video 'This AI has INFINITE Memory. Here's how to use it.'" width="1280" height="720" fetchpriority="high" decoding="async" />
             <span class="video-scrim" aria-hidden="true"></span>
             <span class="video-play" aria-hidden="true">
@@ -1883,6 +1925,33 @@
         <video id="story-video" muted playsinline preload="metadata" poster="assets/scroll-story-poster.webp" disablepictureinpicture disableremoteplayback tabindex="-1">
           <source src="assets/scroll-story.mp4" type="video/mp4" />
         </video>
+      </div>
+    </section>
+
+    <!-- WHY · the hand-drawn film: too much to remember -->
+    <section class="section" id="why">
+      <div class="section-head">
+        <span class="eyebrow anim"><span class="lang-en">Why</span> <span class="lang-it">Perché</span></span>
+        <h2 class="anim d1">
+          <span class="lang-en">We are not meant to remember everything.</span>
+          <span class="lang-it">Non siamo fatti per ricordare tutto.</span>
+        </h2>
+        <p class="anim d2">
+          <span class="lang-en">Say it once. SecondBrain remembers it for you.</span>
+          <span class="lang-it">Dillo una volta. Lo ricorda SecondBrain per te.</span>
+        </p>
+      </div>
+      <div class="why-film anim d2">
+        <div class="video-frame">
+            <a href="https://www.youtube.com/watch?v=lNJhyQKaDZU" target="_blank" rel="noopener" class="video-poster" data-yt="lNJhyQKaDZU" data-title="SecondBrain: We are not meant to remember everything" aria-label="Play the hand-drawn SecondBrain film: We are not meant to remember everything (21 s)">
+              <img src="assets/film-brain-burst-poster.webp" alt="Hand-drawn head overwhelmed by notes, reminders and calendar icons, a still from the SecondBrain film" width="1280" height="720" loading="lazy" decoding="async" />
+              <span class="video-scrim" aria-hidden="true"></span>
+              <span class="video-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg>
+              </span>
+              <span class="video-chip">0:21 · <span class="lang-en">Watch the film</span> <span class="lang-it">Guarda il film</span></span>
+            </a>
+          </div>
       </div>
     </section>
 
@@ -2069,7 +2138,7 @@
         <ol class="install-steps">
           <li>
             <h4><span class="lang-en">Turn on Developer mode</span> <span class="lang-it">Attiva la modalità sviluppatore</span></h4>
-            <p><span class="lang-en">On <code class="kbd">chatgpt.com</code>: Settings → <strong>Security and login</strong> → <strong>Developer mode</strong>. Needs a <strong>Plus</strong> plan or above — it is not on Free or Go.</span> <span class="lang-it">Su <code class="kbd">chatgpt.com</code>: Impostazioni → <strong>Sicurezza e accesso</strong> → <strong>Modalità sviluppatore</strong>. Serve un piano <strong>Plus</strong> o superiore — su Free e Go non c’è.</span></p>
+            <p><span class="lang-en">On <code class="kbd">chatgpt.com</code>: Settings → <strong>Security and login</strong> → <strong>Developer mode</strong>. Needs a <strong>Plus</strong> plan or above: it is not on Free or Go.</span> <span class="lang-it">Su <code class="kbd">chatgpt.com</code>: Impostazioni → <strong>Sicurezza e accesso</strong> → <strong>Modalità sviluppatore</strong>. Serve un piano <strong>Plus</strong> o superiore: su Free e Go non c’è.</span></p>
           </li>
           <li>
             <h4><span class="lang-en">Fill in the form</span> <span class="lang-it">Compila il form</span></h4>
@@ -2077,7 +2146,7 @@
           </li>
           <li>
             <h4><span class="lang-en">Sign in</span> <span class="lang-it">Accedi</span></h4>
-            <p><span class="lang-en">Press <strong>Connect</strong> → log in with <strong>Apple</strong> or <strong>Google</strong>, the same account as the app. You should see <strong>12 tools</strong>. Do this once on the web and the <strong>desktop app</strong> gets it too — it belongs to your ChatGPT account.</span> <span class="lang-it">Premi <strong>Connect</strong> → accedi con <strong>Apple</strong> o <strong>Google</strong>, lo stesso account dell’app. Devi vedere <strong>12 strumenti</strong>. Lo fai una volta sul web e vale anche per l’<strong>app desktop</strong>: è legato al tuo account ChatGPT.</span></p>
+            <p><span class="lang-en">Press <strong>Connect</strong> → log in with <strong>Apple</strong> or <strong>Google</strong>, the same account as the app. You should see <strong>12 tools</strong>. Do this once on the web and the <strong>desktop app</strong> gets it too, because it belongs to your ChatGPT account.</span> <span class="lang-it">Premi <strong>Connect</strong> → accedi con <strong>Apple</strong> o <strong>Google</strong>, lo stesso account dell’app. Devi vedere <strong>12 strumenti</strong>. Lo fai una volta sul web e vale anche per l’<strong>app desktop</strong>: è legato al tuo account ChatGPT.</span></p>
           </li>
         </ol>
       </div>
@@ -2094,7 +2163,7 @@
         <ol class="install-steps">
           <li>
             <h4><span class="lang-en">Add the marketplace</span> <span class="lang-it">Aggiungi il marketplace</span></h4>
-            <p><span class="lang-en"><strong>Plugins → Add → Add marketplace</strong>, paste <code class="kbd">fed3c3sa/secondbrain-shared-memory</code> — the same catalog Claude uses.</span> <span class="lang-it"><strong>Plugin → Aggiungi → Aggiungi marketplace</strong>, incolla <code class="kbd">fed3c3sa/secondbrain-shared-memory</code> — lo stesso catalogo che usa Claude.</span></p>
+            <p><span class="lang-en"><strong>Plugins → Add → Add marketplace</strong>, paste <code class="kbd">fed3c3sa/secondbrain-shared-memory</code>, the same catalog Claude uses.</span> <span class="lang-it"><strong>Plugin → Aggiungi → Aggiungi marketplace</strong>, incolla <code class="kbd">fed3c3sa/secondbrain-shared-memory</code>, lo stesso catalogo che usa Claude.</span></p>
           </li>
           <li>
             <h4><span class="lang-en">Install SecondBrain Memory</span> <span class="lang-it">Installa SecondBrain Memory</span></h4>
@@ -2123,11 +2192,11 @@
           </li>
           <li>
             <h4><span class="lang-en">To save something</span> <span class="lang-it">Per salvare qualcosa</span></h4>
-            <p><span class="lang-en"><em>"Remember that I'm allergic to penicillin."</em> — or <em>"Save this in my SecondBrain."</em> It asks you to confirm before writing: that is normal, ChatGPT does it for every write.</span> <span class="lang-it"><em>"Ricorda che sono allergico alla penicillina."</em> — oppure <em>"Salva questo nel mio SecondBrain."</em> Ti chiede conferma prima di scrivere: è normale, ChatGPT lo fa a ogni scrittura.</span></p>
+            <p><span class="lang-en"><em>"Remember that I'm allergic to penicillin."</em> or <em>"Save this in my SecondBrain."</em> It asks you to confirm before writing: that is normal, ChatGPT does it for every write.</span> <span class="lang-it"><em>"Ricorda che sono allergico alla penicillina."</em> oppure <em>"Salva questo nel mio SecondBrain."</em> Ti chiede conferma prima di scrivere: è normale, ChatGPT lo fa a ogni scrittura.</span></p>
           </li>
           <li>
             <h4><span class="lang-en">To remember something</span> <span class="lang-it">Per farti ricordare qualcosa</span></h4>
-            <p><span class="lang-en"><em>"What do you know about my project?"</em>, <em>"What did I decide about the pricing?"</em>, <em>"Remind me to call the dentist tomorrow at 10."</em> Open a brand-new chat and ask again — if it still knows, you are set.</span> <span class="lang-it"><em>"Cosa sai del mio progetto?"</em>, <em>"Cosa avevo deciso sui prezzi?"</em>, <em>"Ricordami di chiamare il dentista domani alle 10."</em> Apri una chat nuova e richiedilo: se lo sa ancora, funziona.</span></p>
+            <p><span class="lang-en"><em>"What do you know about my project?"</em>, <em>"What did I decide about the pricing?"</em>, <em>"Remind me to call the dentist tomorrow at 10."</em> Open a brand-new chat and ask again: if it still knows, you are set.</span> <span class="lang-it"><em>"Cosa sai del mio progetto?"</em>, <em>"Cosa avevo deciso sui prezzi?"</em>, <em>"Ricordami di chiamare il dentista domani alle 10."</em> Apri una chat nuova e richiedilo: se lo sa ancora, funziona.</span></p>
           </li>
         </ol>
       </div>
@@ -2139,7 +2208,7 @@
       <div class="install-note anim d2">
         <p class="note-line"><span class="lang-en"><strong>Claude Code:</strong> <code class="kbd">claude plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, then <code class="kbd">claude plugin install secondbrain@secondbrain --scope user</code>, then <code class="kbd">npx secondbrain-connect</code> to sign in.</span> <span class="lang-it"><strong>Claude Code:</strong> <code class="kbd">claude plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, poi <code class="kbd">claude plugin install secondbrain@secondbrain --scope user</code>, poi <code class="kbd">npx secondbrain-connect</code> per accedere.</span></p>
         <p class="note-line"><span class="lang-en"><strong>Gemini or Cursor:</strong> run <code class="kbd">npx secondbrain-connect</code> once.</span> <span class="lang-it"><strong>Gemini o Cursor:</strong> esegui <code class="kbd">npx secondbrain-connect</code> una volta.</span></p>
-        <p class="note-line"><span class="lang-en"><strong>Codex:</strong> <code class="kbd">codex</code> not found? The ChatGPT app ships it — on a Mac use <code class="kbd">/Applications/ChatGPT.app/Contents/Resources/codex mcp login secondbrain</code>.</span> <span class="lang-it"><strong>Codex:</strong> <code class="kbd">codex</code> non trovato? L'app ChatGPT lo include — su Mac usa <code class="kbd">/Applications/ChatGPT.app/Contents/Resources/codex mcp login secondbrain</code>.</span></p>
+        <p class="note-line"><span class="lang-en"><strong>Codex:</strong> <code class="kbd">codex</code> not found? The ChatGPT app ships it. On a Mac use <code class="kbd">/Applications/ChatGPT.app/Contents/Resources/codex mcp login secondbrain</code>.</span> <span class="lang-it"><strong>Codex:</strong> <code class="kbd">codex</code> non trovato? L'app ChatGPT lo include: su Mac usa <code class="kbd">/Applications/ChatGPT.app/Contents/Resources/codex mcp login secondbrain</code>.</span></p>
         <p class="note-line"><span class="lang-en">Check it worked with <code class="kbd">claude mcp get secondbrain</code>. If Claude Code's own sign-in button shows <code class="kbd">Dynamic Client Registration rejected (HTTP 404)</code>, run <code class="kbd">npx secondbrain-connect</code> and restart Claude Code.</span> <span class="lang-it">Controlla con <code class="kbd">claude mcp get secondbrain</code>. Se l'accesso interno di Claude Code mostra <code class="kbd">Dynamic Client Registration rejected (HTTP 404)</code>, lancia <code class="kbd">npx secondbrain-connect</code> e riavvia Claude Code.</span></p>
         <p class="note-line"><span class="lang-en">Shared memory is a <strong>Pro</strong> feature. Turn it on in the app first.</span> <span class="lang-it">La memoria condivisa è una funzione <strong>Pro</strong>: attivala prima nell'app.</span></p>
         <a href="https://github.com/fed3c3sa/secondbrain-shared-memory" target="_blank" rel="noopener" class="btn btn-ghost">
@@ -2229,7 +2298,7 @@
         <details class="faq-item">
           <summary><span class="lang-en">How do I connect SecondBrain to Claude or ChatGPT?</span> <span class="lang-it">Come collego SecondBrain a Claude o ChatGPT?</span></summary>
           <div class="faq-answer">
-            <p class="lang-en">In Claude, add the marketplace <code>fed3c3sa/secondbrain-shared-memory</code>, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. Codex and ChatGPT Work use the same marketplace: Plugins → Add → Add marketplace, paste <code>fed3c3sa/secondbrain-shared-memory</code>, install SecondBrain Memory, then ask it to connect. The plain ChatGPT chat reads connectors rather than installed plugins, so on Plus and above you add it by hand under Settings → Security and login → Developer mode. That covers the web and the desktop app. Codex is separate and uses the same marketplace as Claude: <code>codex plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, then <code>codex plugin add secondbrain@secondbrain</code>, then <code>codex mcp login secondbrain</code>. For Gemini or Cursor, run <code>npx secondbrain-connect</code> once and sign in in the browser.</p>
+            <p class="lang-en">In Claude, add the marketplace <code>fed3c3sa/secondbrain-shared-memory</code>, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. Codex and ChatGPT Work use the same marketplace: Plugins, then Add, then Add marketplace, paste <code>fed3c3sa/secondbrain-shared-memory</code>, install SecondBrain Memory, then ask it to connect. The plain ChatGPT chat reads connectors rather than installed plugins, so on Plus and above you add it by hand under Settings → Security and login → Developer mode. That covers the web and the desktop app. Codex is separate and uses the same marketplace as Claude: <code>codex plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, then <code>codex plugin add secondbrain@secondbrain</code>, then <code>codex mcp login secondbrain</code>. For Gemini or Cursor, run <code>npx secondbrain-connect</code> once and sign in in the browser.</p>
             <p class="lang-it">In Claude aggiungi il marketplace <code>fed3c3sa/secondbrain-shared-memory</code>, installa il plugin SecondBrain, poi premi Connect e accedi con Apple o Google. Niente chiavi, niente token. Codex e ChatGPT Work usano lo stesso marketplace: Plugin → Aggiungi → Aggiungi marketplace, incolla <code>fed3c3sa/secondbrain-shared-memory</code>, installa SecondBrain Memory, poi digli di connettersi. La chat normale di ChatGPT legge i connettori e non i plugin installati, quindi da Plus in su si aggiunge a mano in Impostazioni → Sicurezza e accesso → Modalità sviluppatore. Vale sia per il web sia per l'app desktop. Codex è separato e usa lo stesso marketplace di Claude: <code>codex plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, poi <code>codex plugin add secondbrain@secondbrain</code>, poi <code>codex mcp login secondbrain</code>. Per Gemini o Cursor basta eseguire <code>npx secondbrain-connect</code> una volta e accedere dal browser.</p>
           </div>
         </details>
@@ -2325,8 +2394,8 @@
         <details class="faq-item">
           <summary><span class="lang-en">Can I export my data or take it with me?</span> <span class="lang-it">Posso esportare i miei dati o portarli via?</span></summary>
           <div class="faq-answer">
-            <p class="lang-en">Yes. On iPhone, SecondBrain Pro exports every note as Markdown from Settings, as a .zip holding one .md file per note in your own folder tree. For anything beyond notes, or on another platform, you can request a full export of your data by emailing info@secondbrain.icu. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days.</p>
-            <p class="lang-it">Sì. Su iPhone, con SecondBrain Pro esporti tutte le note in Markdown da Impostazioni: ottieni uno zip con un file .md per nota, dentro le tue stesse cartelle. Per il resto dei dati, o da un'altra piattaforma, puoi chiedere un'esportazione completa scrivendo a info@secondbrain.icu. Puoi anche eliminare l'intero account con tutti i dati dall'app, da Impostazioni e poi Elimina account: la rimozione è immediata sul database in produzione e i backup cifrati vengono eliminati entro pochi giorni.</p>
+            <p class="lang-en">Yes. On iPhone, SecondBrain Pro exports every note as Markdown from Settings, as a .zip holding one .md file per note in your own folder tree. For anything beyond notes, or on another platform, you can request a full export of your data by emailing info@secondbrainmemory.com. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days.</p>
+            <p class="lang-it">Sì. Su iPhone, con SecondBrain Pro esporti tutte le note in Markdown da Impostazioni: ottieni uno zip con un file .md per nota, dentro le tue stesse cartelle. Per il resto dei dati, o da un'altra piattaforma, puoi chiedere un'esportazione completa scrivendo a info@secondbrainmemory.com. Puoi anche eliminare l'intero account con tutti i dati dall'app, da Impostazioni e poi Elimina account: la rimozione è immediata sul database in produzione e i backup cifrati vengono eliminati entro pochi giorni.</p>
           </div>
         </details>
 
@@ -2386,6 +2455,18 @@
         <span class="final-mark" aria-hidden="true"></span>
         <h2><span class="lang-en">Start remembering.</span> <span class="lang-it">Inizia a ricordare.</span></h2>
         <p><span class="lang-en">On iPhone, Android and the web.</span> <span class="lang-it">Su iPhone, Android e sul web.</span></p>
+        <div class="final-video">
+          <div class="video-frame">
+            <a href="https://www.youtube.com/watch?v=3Ga1u9QzOaw" target="_blank" rel="noopener" class="video-poster" data-yt="3Ga1u9QzOaw" data-title="SecondBrain: the spot" aria-label="Play the SecondBrain spot (51 s)">
+              <img src="assets/film-spot-poster.webp" alt="Federico Cesarini coding at his desk, a still from the SecondBrain spot" width="1280" height="720" loading="lazy" decoding="async" />
+              <span class="video-scrim" aria-hidden="true"></span>
+              <span class="video-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg>
+              </span>
+              <span class="video-chip">0:51 · <span class="lang-en">Watch the spot</span> <span class="lang-it">Guarda lo spot</span></span>
+            </a>
+          </div>
+        </div>
         <div class="cta-row">
           <a href="https://apps.apple.com/us/app/secondbrain-ai-memory/id6762130376" target="_blank" rel="noopener" class="btn btn-primary">
             <span class="glyph" aria-hidden="true">
@@ -2468,7 +2549,7 @@
           <p>We may update this policy from time to time. Changes will be reflected on this page with an updated date. Continued use of the app constitutes acceptance of the revised policy.</p>
           <h3>9. Contact</h3>
           <p>If you have questions about this Privacy Policy, or wish to report a security issue, contact Influpress LLC at:<br />
-          <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a></p>
+          <a href="mailto:info@secondbrainmemory.com">info@secondbrainmemory.com</a></p>
         </div>
         <div class="legal-footer">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
@@ -2528,7 +2609,7 @@
           <p>Potremmo aggiornare questa informativa di tanto in tanto. Le modifiche saranno indicate in questa pagina con una data aggiornata. L'uso continuato dell'app costituisce accettazione dell'informativa rivista.</p>
           <h3>9. Contatti</h3>
           <p>Per domande su questa Informativa sulla privacy, o per segnalare un problema di sicurezza, scrivi a Influpress LLC:<br />
-          <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a></p>
+          <a href="mailto:info@secondbrainmemory.com">info@secondbrainmemory.com</a></p>
         </div>
         <div class="legal-footer">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
@@ -2589,7 +2670,7 @@
           <p>We may modify these terms at any time. Continued use of the app after changes constitutes acceptance of the updated terms.</p>
           <h3>9. Contact</h3>
           <p>Questions about these Terms? Contact us at:<br />
-          <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a></p>
+          <a href="mailto:info@secondbrainmemory.com">info@secondbrainmemory.com</a></p>
         </div>
       </div>
       <!-- IT -->
@@ -2638,7 +2719,7 @@
           <p>Possiamo modificare questi termini in qualsiasi momento. L'uso continuato dell'app dopo le modifiche costituisce accettazione dei termini aggiornati.</p>
           <h3>9. Contatti</h3>
           <p>Domande su questi Termini? Scrivici a:<br />
-          <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a></p>
+          <a href="mailto:info@secondbrainmemory.com">info@secondbrainmemory.com</a></p>
         </div>
       </div>
     </div>
@@ -2662,7 +2743,7 @@
           </div>
           <h3>Email support</h3>
           <p>Found a bug, have a question, or need help with your account? Drop us a line, we read every email.</p>
-          <a href="mailto:info@secondbrain.icu" class="btn btn-primary">info@secondbrain.icu</a>
+          <a href="mailto:info@secondbrainmemory.com" class="btn btn-primary">info@secondbrainmemory.com</a>
         </div>
         <div class="card">
           <div class="card-header">
@@ -2700,7 +2781,7 @@
           </div>
           <h3>Supporto via email</h3>
           <p>Hai trovato un bug, hai una domanda o ti serve aiuto con l'account? Scrivici, leggiamo ogni email.</p>
-          <a href="mailto:info@secondbrain.icu" class="btn btn-primary">info@secondbrain.icu</a>
+          <a href="mailto:info@secondbrainmemory.com" class="btn btn-primary">info@secondbrainmemory.com</a>
         </div>
         <div class="card">
           <div class="card-header">
@@ -2785,7 +2866,7 @@
           </div>
           <div class="body-text" style="font-size:14px;">
             <p>If you're unable to access the app and need to delete your account, contact us at
-            <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a>
+            <a href="mailto:info@secondbrainmemory.com">info@secondbrainmemory.com</a>
             and we will process the deletion for you.</p>
           </div>
         </div>
@@ -2842,7 +2923,7 @@
           </div>
           <div class="body-text" style="font-size:14px;">
             <p>Se non riesci ad accedere all'app e devi eliminare l'account, scrivici a
-            <a href="mailto:info@secondbrain.icu">info@secondbrain.icu</a>
+            <a href="mailto:info@secondbrainmemory.com">info@secondbrainmemory.com</a>
             e procederemo noi all'eliminazione.</p>
           </div>
         </div>
@@ -2890,7 +2971,7 @@
       <h5><span class="lang-en">Help</span> <span class="lang-it">Aiuto</span></h5>
       <a href="#support" data-route="support"><span class="lang-en">Support</span> <span class="lang-it">Assistenza</span></a>
       <a href="https://github.com/fed3c3sa/secondbrain-shared-memory" target="_blank" rel="noopener"><span class="lang-en">Connect your AI</span> <span class="lang-it">Collega la tua AI</span></a>
-      <a href="mailto:info@secondbrain.icu"><span class="lang-en">Email us</span> <span class="lang-it">Scrivici</span></a>
+      <a href="mailto:info@secondbrainmemory.com"><span class="lang-en">Email us</span> <span class="lang-it">Scrivici</span></a>
     </div>
   </div>
   <div class="foot-bottom">
@@ -2901,6 +2982,9 @@
       </a>
       <a href="https://www.instagram.com/secondbrain.memory/" target="_blank" rel="noopener" aria-label="Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/secondbrain-memory" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
       </a>
       <a href="https://github.com/fed3c3sa/secondbrain-shared-memory" target="_blank" rel="noopener" aria-label="GitHub">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.16-.02-2.1-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.67 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17.91-.25 1.89-.38 2.86-.39.97.01 1.95.14 2.86.39 2.19-1.48 3.15-1.17 3.15-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.37-5.25 5.66.41.36.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.68.8.56C20.71 21.39 24 17.08 24 12 24 5.73 18.77.5 12 .5z"/></svg>
@@ -3076,22 +3160,21 @@
     document.querySelectorAll('.anim:not(.in)').forEach(el => observer.observe(el));
   }
 
-  // ── Video facade: load the YouTube player only on demand ──
-  const videoPoster = document.getElementById('video-poster');
-  if (videoPoster) {
-    videoPoster.addEventListener('click', (e) => {
+  // ── Video facades: load each YouTube player only on demand ──
+  document.querySelectorAll('.video-poster[data-yt]').forEach((poster) => {
+    poster.addEventListener('click', (e) => {
       e.preventDefault();
-      const frame = document.getElementById('video-frame');
+      const frame = poster.closest('.video-frame');
       const iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube-nocookie.com/embed/miiynvYCZf4?autoplay=1&rel=0';
-      iframe.title = "SecondBrain demo: This AI has INFINITE Memory. Here's how to use it.";
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + poster.dataset.yt + '?autoplay=1&rel=0';
+      iframe.title = poster.dataset.title || 'SecondBrain video';
       iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
       iframe.allowFullscreen = true;
       iframe.referrerPolicy = 'strict-origin-when-cross-origin';
       frame.appendChild(iframe);
-      videoPoster.remove();
+      poster.remove();
     });
-  }
+  });
 
   // ── Gallery scroll buttons ────────────────────────────────
   const galleryTrack = document.getElementById('gallery-track');
