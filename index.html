@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SecondBrain: The AI Second Brain App for Your Phone</title>
+  <title>SecondBrain: AI Second Brain App &amp; Voice Notes for Your Phone</title>
   <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="canonical" href="https://secondbrainmemory.com/" />
-  <meta name="description" content="SecondBrain is the AI second brain app for your phone. Speak once and it remembers: notes, calendar and follow-ups, shared across ChatGPT, Claude and every AI you use." />
+  <meta name="description" content="SecondBrain is the AI second brain app and voice recorder for iPhone, Android and the web. Speak once: it writes the note, files it, reminds you, and shares one memory with ChatGPT and Claude." />
   <meta name="author" content="Federico Cesarini" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#f5f5f7" />
@@ -15,11 +16,11 @@
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="SecondBrain" />
-  <meta property="og:title" content="SecondBrain: The AI Second Brain App" />
-  <meta property="og:description" content="Speak once and it remembers: notes, calendar and follow-ups, shared across ChatGPT, Claude and every AI you use." />
+  <meta property="og:title" content="SecondBrain: Just talk. SecondBrain remembers." />
+  <meta property="og:description" content="Speak once: it becomes notes, events and reminders, with one memory shared across ChatGPT, Claude and every AI you use." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://secondbrainmemory.com/" />
-  <meta property="og:image" content="https://secondbrainmemory.com/assets/og-card.png" />
+  <meta property="og:image" content="https://secondbrainmemory.com/assets/og-card-v2.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="SecondBrain, the AI second brain app for your phone" />
@@ -34,599 +35,609 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="SecondBrain: The AI Second Brain App" />
-  <meta name="twitter:description" content="Speak once and it remembers: notes, calendar and follow-ups, shared across ChatGPT, Claude and every AI you use." />
-  <meta name="twitter:image" content="https://secondbrainmemory.com/assets/og-card.png" />
+  <meta name="twitter:title" content="SecondBrain: Just talk. SecondBrain remembers." />
+  <meta name="twitter:description" content="Speak once: it becomes notes, events and reminders, with one memory shared across ChatGPT, Claude and every AI you use." />
+  <meta name="twitter:image" content="https://secondbrainmemory.com/assets/og-card-v2.png" />
   <meta name="twitter:image:alt" content="SecondBrain, the AI second brain app for your phone" />
 
   <!-- Structured data: WebSite + MobileApplication + Organization -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://secondbrainmemory.com/#website",
-        "url": "https://secondbrainmemory.com/",
-        "name": "SecondBrain",
-        "description": "AI-powered memory layer for your phone.",
-        "publisher": {
-          "@id": "https://secondbrainmemory.com/#organization"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://secondbrainmemory.com/#website",
+      "url": "https://secondbrainmemory.com/",
+      "name": "SecondBrain",
+      "description": "AI-powered memory layer for your phone.",
+      "publisher": {
+        "@id": "https://secondbrainmemory.com/#organization"
+      },
+      "inLanguage": [
+        "en",
+        "it"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://secondbrainmemory.com/#webpage",
+      "url": "https://secondbrainmemory.com/",
+      "name": "SecondBrain: AI Second Brain App & Voice Notes for Your Phone",
+      "isPartOf": {
+        "@id": "https://secondbrainmemory.com/#website"
+      },
+      "about": {
+        "@id": "https://secondbrainmemory.com/#organization"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://secondbrainmemory.com/assets/og-card-v2.png",
+        "width": 1200,
+        "height": 630
+      },
+      "video": {
+        "@id": "https://secondbrainmemory.com/#demo-video"
+      },
+      "breadcrumb": {
+        "@id": "https://secondbrainmemory.com/#breadcrumb"
+      },
+      "hasPart": [
+        {
+          "@id": "https://secondbrainmemory.com/#howto-connect-claude"
         },
-        "inLanguage": [
-          "en",
-          "it"
+        {
+          "@id": "https://secondbrainmemory.com/#howto-connect-chatgpt"
+        },
+        {
+          "@id": "https://secondbrainmemory.com/#faq"
+        }
+      ],
+      "dateModified": "2026-10-22",
+      "inLanguage": "en",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".hero-sub .lang-en",
+          ".faq-answer .lang-en"
         ]
       },
-      {
-        "@type": "WebPage",
-        "@id": "https://secondbrainmemory.com/#webpage",
-        "url": "https://secondbrainmemory.com/",
-        "name": "SecondBrain: The AI Second Brain App for Your Phone",
-        "isPartOf": {
-          "@id": "https://secondbrainmemory.com/#website"
-        },
-        "about": {
-          "@id": "https://secondbrainmemory.com/#organization"
-        },
-        "primaryImageOfPage": "https://secondbrainmemory.com/assets/og-card.png",
-        "video": {
-          "@id": "https://secondbrainmemory.com/#demo-video"
-        },
-        "breadcrumb": {
-          "@id": "https://secondbrainmemory.com/#breadcrumb"
-        },
-        "hasPart": [
-          {
-            "@id": "https://secondbrainmemory.com/#howto-connect-claude"
-          },
-          {
-            "@id": "https://secondbrainmemory.com/#howto-connect-chatgpt"
-          },
-          {
-            "@id": "https://secondbrainmemory.com/#faq"
-          }
-        ],
-        "dateModified": "2026-10-22",
-        "inLanguage": "en",
-        "speakable": {
-          "@type": "SpeakableSpecification",
-          "cssSelector": [
-            ".hero-sub .lang-en",
-            ".faq-answer .lang-en"
-          ]
-        }
+      "description": "SecondBrain is the AI second brain app and voice recorder for iPhone, Android and the web. Speak once: it writes the note, files it, reminds you, and shares one memory with ChatGPT and Claude."
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://secondbrainmemory.com/#demo-video",
+      "name": "This AI has INFINITE Memory. Here's how to use it.",
+      "description": "A three-minute demo of SecondBrain, the AI second brain app: speak once on your phone and get structured notes, calendar events and follow-ups, then connect ChatGPT, Claude and Gemini to one shared long-term memory via MCP.",
+      "thumbnailUrl": [
+        "https://secondbrainmemory.com/assets/video-poster.webp",
+        "https://i.ytimg.com/vi/miiynvYCZf4/maxresdefault.jpg"
+      ],
+      "uploadDate": "2026-07-06T01:12:10-07:00",
+      "duration": "PT3M14S",
+      "contentUrl": "https://www.youtube.com/watch?v=miiynvYCZf4",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/miiynvYCZf4",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://secondbrainmemory.com/#organization"
       },
-      {
-        "@type": "VideoObject",
-        "@id": "https://secondbrainmemory.com/#demo-video",
-        "name": "This AI has INFINITE Memory. Here's how to use it.",
-        "description": "A three-minute demo of SecondBrain, the AI second brain app: speak once on your phone and get structured notes, calendar events and follow-ups, then connect ChatGPT, Claude and Gemini to one shared long-term memory via MCP.",
-        "thumbnailUrl": [
-          "https://secondbrainmemory.com/assets/video-poster.webp",
-          "https://i.ytimg.com/vi/miiynvYCZf4/maxresdefault.jpg"
-        ],
-        "uploadDate": "2026-07-06T01:12:10-07:00",
-        "duration": "PT3M14S",
-        "contentUrl": "https://www.youtube.com/watch?v=miiynvYCZf4",
-        "embedUrl": "https://www.youtube-nocookie.com/embed/miiynvYCZf4",
-        "inLanguage": "en",
-        "publisher": {
-          "@id": "https://secondbrainmemory.com/#organization"
-        }
+      "url": "https://secondbrainmemory.com/videos/how-secondbrain-works/"
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://secondbrainmemory.com/#spot-video",
+      "name": "SecondBrain: AI Memory",
+      "description": "The 51-second SecondBrain spot: a day with too much to remember, and an app you talk to that writes the note, files it and reminds you.",
+      "thumbnailUrl": [
+        "https://secondbrainmemory.com/assets/film-spot-poster.webp",
+        "https://i.ytimg.com/vi/3Ga1u9QzOaw/hqdefault.jpg"
+      ],
+      "uploadDate": "2026-10-22",
+      "duration": "PT51S",
+      "contentUrl": "https://www.youtube.com/watch?v=3Ga1u9QzOaw",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/3Ga1u9QzOaw",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://secondbrainmemory.com/#organization"
       },
-      {
-        "@type": "VideoObject",
-        "@id": "https://secondbrainmemory.com/#spot-video",
-        "name": "SecondBrain: AI Memory",
-        "description": "The 51-second SecondBrain spot: a day with too much to remember, and an app you talk to that writes the note, files it and reminds you.",
-        "thumbnailUrl": [
-          "https://secondbrainmemory.com/assets/film-spot-poster.webp",
-          "https://i.ytimg.com/vi/3Ga1u9QzOaw/hqdefault.jpg"
-        ],
-        "uploadDate": "2026-10-22",
-        "duration": "PT51S",
-        "contentUrl": "https://www.youtube.com/watch?v=3Ga1u9QzOaw",
-        "embedUrl": "https://www.youtube-nocookie.com/embed/3Ga1u9QzOaw",
-        "inLanguage": "en",
-        "publisher": {
-          "@id": "https://secondbrainmemory.com/#organization"
-        }
+      "url": "https://secondbrainmemory.com/videos/secondbrain-spot/"
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://secondbrainmemory.com/#brain-burst-video",
+      "name": "SecondBrain: AI Personal Assistant in your phone",
+      "description": "A 21-second hand-drawn film: a head overwhelmed by everything it has to remember bursts, then SecondBrain connects the dots. We are not meant to remember everything.",
+      "thumbnailUrl": [
+        "https://secondbrainmemory.com/assets/film-brain-burst-poster.webp",
+        "https://i.ytimg.com/vi/lNJhyQKaDZU/hqdefault.jpg"
+      ],
+      "uploadDate": "2026-10-22",
+      "duration": "PT21S",
+      "contentUrl": "https://www.youtube.com/watch?v=lNJhyQKaDZU",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/lNJhyQKaDZU",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://secondbrainmemory.com/#organization"
       },
-      {
-        "@type": "VideoObject",
-        "@id": "https://secondbrainmemory.com/#brain-burst-video",
-        "name": "SecondBrain: AI Personal Assistant in your phone",
-        "description": "A 21-second hand-drawn film: a head overwhelmed by everything it has to remember bursts, then SecondBrain connects the dots. We are not meant to remember everything.",
-        "thumbnailUrl": [
-          "https://secondbrainmemory.com/assets/film-brain-burst-poster.webp",
-          "https://i.ytimg.com/vi/lNJhyQKaDZU/hqdefault.jpg"
-        ],
-        "uploadDate": "2026-10-22",
-        "duration": "PT21S",
-        "contentUrl": "https://www.youtube.com/watch?v=lNJhyQKaDZU",
-        "embedUrl": "https://www.youtube-nocookie.com/embed/lNJhyQKaDZU",
-        "inLanguage": "en",
-        "publisher": {
-          "@id": "https://secondbrainmemory.com/#organization"
-        }
+      "url": "https://secondbrainmemory.com/videos/we-are-not-meant-to-remember-everything/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://secondbrainmemory.com/#organization",
+      "name": "SecondBrain",
+      "alternateName": [
+        "Second Brain",
+        "SecondBrain App"
+      ],
+      "url": "https://secondbrainmemory.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://secondbrainmemory.com/assets/logo-512.png"
       },
-      {
-        "@type": "Organization",
-        "@id": "https://secondbrainmemory.com/#organization",
-        "name": "SecondBrain",
-        "alternateName": [
-          "Second Brain",
-          "SecondBrain App"
-        ],
-        "url": "https://secondbrainmemory.com/",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://secondbrainmemory.com/assets/logo-512.png"
-        },
+      "email": "info@secondbrainmemory.com",
+      "founder": {
+        "@id": "https://secondbrainmemory.com/#federico-cesarini"
+      },
+      "sameAs": [
+        "https://app.secondbrainmemory.com/",
+        "https://apps.apple.com/us/app/secondbrain-ai-memory/id6762130376",
+        "https://play.google.com/store/apps/details?id=app.secondbrain.android",
+        "https://github.com/fed3c3sa/secondbrain-shared-memory",
+        "https://www.youtube.com/@SecondBrain-AISmartMemory",
+        "https://www.instagram.com/secondbrain.memory/",
+        "https://www.linkedin.com/company/secondbrain-memory"
+      ],
+      "description": "SecondBrain is the AI second brain app for your phone. Speak once and it remembers: notes, calendar events and follow-ups, with a memory shared across ChatGPT, Claude and every AI you use via the Model Context Protocol (MCP).",
+      "slogan": "Just talk. SecondBrain remembers.",
+      "knowsAbout": [
+        "AI memory",
+        "Shared AI memory",
+        "Voice notes",
+        "Personal knowledge management",
+        "Model Context Protocol",
+        "AI assistants"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "SecondBrain"
+      },
+      "areaServed": "Worldwide",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
         "email": "info@secondbrainmemory.com",
-        "founder": {
-          "@id": "https://secondbrainmemory.com/#federico-cesarini"
-        },
-        "sameAs": [
-          "https://app.secondbrainmemory.com/",
-          "https://apps.apple.com/us/app/secondbrain-ai-memory/id6762130376",
-          "https://play.google.com/store/apps/details?id=app.secondbrain.android",
-          "https://github.com/fed3c3sa/secondbrain-shared-memory",
-          "https://www.youtube.com/@SecondBrain-AISmartMemory",
-          "https://www.instagram.com/secondbrain.memory/",
-          "https://www.linkedin.com/company/secondbrain-memory"
-        ],
-        "description": "SecondBrain is the AI second brain app for your phone. Speak once and it remembers: notes, calendar events and follow-ups, with a memory shared across ChatGPT, Claude and every AI you use via the Model Context Protocol (MCP).",
-        "slogan": "Just talk. SecondBrain remembers.",
-        "knowsAbout": [
-          "AI memory",
-          "Shared AI memory",
-          "Voice notes",
-          "Personal knowledge management",
-          "Model Context Protocol",
-          "AI assistants"
-        ],
-        "brand": {
-          "@type": "Brand",
-          "name": "SecondBrain"
-        },
-        "areaServed": "Worldwide",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "customer support",
-          "email": "info@secondbrainmemory.com",
-          "availableLanguage": [
-            "English",
-            "Italian"
-          ]
-        },
-        "legalName": "Influpress LLC",
-        "parentOrganization": {
-          "@id": "https://secondbrainmemory.com/#influpress"
-        }
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://secondbrainmemory.com/#influpress",
-        "name": "Influpress LLC",
-        "legalName": "Influpress LLC",
-        "description": "Influpress LLC is the Wyoming limited liability company that operates SecondBrain.",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "30 N Gould St, Ste R",
-          "addressLocality": "Sheridan",
-          "addressRegion": "WY",
-          "postalCode": "82801",
-          "addressCountry": "US"
-        },
-        "email": "info@secondbrainmemory.com",
-        "subOrganization": {
-          "@id": "https://secondbrainmemory.com/#organization"
-        }
-      },
-      {
-        "@type": "Person",
-        "@id": "https://secondbrainmemory.com/#federico-cesarini",
-        "name": "Federico Cesarini",
-        "url": "https://secondbrainmemory.com/",
-        "jobTitle": "Founder",
-        "worksFor": {
-          "@id": "https://secondbrainmemory.com/#organization"
-        },
-        "sameAs": [
-          "https://github.com/fed3c3sa"
+        "availableLanguage": [
+          "English",
+          "Italian"
         ]
       },
-      {
-        "@type": "MobileApplication",
-        "name": "SecondBrain",
-        "alternateName": [
-          "Second Brain",
-          "SecondBrain App",
-          "SecondBrain · AI Smart Memory",
-          "SecondBrain: AI Memory",
-          "SecondBrain: Note Vocali AI"
-        ],
-        "description": "The AI second brain app for your phone. Speak once and it remembers: notes, calendar and follow-ups, with a memory shared across ChatGPT, Claude and every AI you use.",
-        "operatingSystem": "iOS",
-        "applicationCategory": "ProductivityApplication",
-        "url": "https://apps.apple.com/us/app/secondbrain-ai-memory/id6762130376",
-        "downloadUrl": "https://apps.apple.com/us/app/secondbrain-ai-memory/id6762130376",
-        "screenshot": [
-          "https://secondbrainmemory.com/assets/shot-record.png",
-          "https://secondbrainmemory.com/assets/shot-recording.png",
-          "https://secondbrainmemory.com/assets/shot-brain.png",
-          "https://secondbrainmemory.com/assets/shot-calendar.png",
-          "https://secondbrainmemory.com/assets/shot-today.png",
-          "https://secondbrainmemory.com/assets/shot-sync.png",
-          "https://secondbrainmemory.com/assets/shot-ask.png",
-          "https://secondbrainmemory.com/assets/shot-export.png"
-        ],
-        "featureList": [
-          "Voice capture that becomes structured notes",
-          "Automatic calendar events and follow-ups while you talk",
-          "Memory shared across ChatGPT, Claude and other AI assistants via the Model Context Protocol (MCP)",
-          "Private, encrypted, isolated per user. No ads, no tracking, no training",
-          "Export every note as Markdown (.md files in a .zip), Pro"
-        ],
-        "publisher": {
-          "@id": "https://secondbrainmemory.com/#organization"
-        },
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "@id": "https://secondbrainmemory.com/#app-ios",
-        "applicationSuite": "SecondBrain",
-        "datePublished": "2026-04-15"
-      },
-      {
-        "@type": "MobileApplication",
-        "name": "SecondBrain",
-        "alternateName": [
-          "Second Brain",
-          "SecondBrain App",
-          "SecondBrain · AI Smart Memory"
-        ],
-        "description": "The AI second brain app for your phone. Speak once and it remembers: notes, calendar and follow-ups, with a memory shared across ChatGPT, Claude and every AI you use.",
-        "operatingSystem": "ANDROID",
-        "applicationCategory": "ProductivityApplication",
-        "url": "https://play.google.com/store/apps/details?id=app.secondbrain.android",
-        "downloadUrl": "https://play.google.com/store/apps/details?id=app.secondbrain.android",
-        "screenshot": [
-          "https://secondbrainmemory.com/assets/shot-record.png",
-          "https://secondbrainmemory.com/assets/shot-recording.png",
-          "https://secondbrainmemory.com/assets/shot-brain.png",
-          "https://secondbrainmemory.com/assets/shot-calendar.png",
-          "https://secondbrainmemory.com/assets/shot-today.png",
-          "https://secondbrainmemory.com/assets/shot-sync.png",
-          "https://secondbrainmemory.com/assets/shot-ask.png"
-        ],
-        "featureList": [
-          "Voice capture that becomes structured notes",
-          "Automatic calendar events and follow-ups while you talk",
-          "Memory shared across ChatGPT, Claude and other AI assistants via the Model Context Protocol (MCP)",
-          "Private, encrypted, isolated per user. No ads, no tracking, no training"
-        ],
-        "publisher": {
-          "@id": "https://secondbrainmemory.com/#organization"
-        },
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "@id": "https://secondbrainmemory.com/#app-android",
-        "applicationSuite": "SecondBrain"
-      },
-      {
-        "@type": "WebApplication",
-        "name": "SecondBrain",
-        "alternateName": [
-          "Second Brain",
-          "SecondBrain App",
-          "SecondBrain Web App"
-        ],
-        "description": "The SecondBrain web app: your AI second brain in the browser. Capture by voice or text and it remembers: notes, calendar and follow-ups, with a memory shared across ChatGPT, Claude and every AI you use.",
-        "operatingSystem": "Any",
-        "browserRequirements": "Requires a modern web browser",
-        "applicationCategory": "ProductivityApplication",
-        "url": "https://app.secondbrainmemory.com/",
-        "screenshot": [
-          "https://secondbrainmemory.com/assets/shot-record.png",
-          "https://secondbrainmemory.com/assets/shot-recording.png",
-          "https://secondbrainmemory.com/assets/shot-brain.png",
-          "https://secondbrainmemory.com/assets/shot-calendar.png",
-          "https://secondbrainmemory.com/assets/shot-today.png",
-          "https://secondbrainmemory.com/assets/shot-sync.png",
-          "https://secondbrainmemory.com/assets/shot-ask.png"
-        ],
-        "featureList": [
-          "Voice capture that becomes structured notes",
-          "Automatic calendar events and follow-ups while you talk",
-          "Memory shared across ChatGPT, Claude and other AI assistants via the Model Context Protocol (MCP)",
-          "Private, encrypted, isolated per user. No ads, no tracking, no training"
-        ],
-        "publisher": {
-          "@id": "https://secondbrainmemory.com/#organization"
-        },
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "@id": "https://secondbrainmemory.com/#app-web",
-        "applicationSuite": "SecondBrain"
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://secondbrainmemory.com/#faq",
-        "inLanguage": "en",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is a second brain app?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "A second brain app is a tool that captures everything you want to remember and stores it so you can recall it instantly. SecondBrain does this with your voice: you speak, and it turns what you said into organized notes, calendar events and reminders, then keeps them ready across your devices and AI assistants."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is SecondBrain?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "SecondBrain is an AI second brain app for iPhone and Android. You speak once and it remembers: it writes structured notes, files them, and creates calendar events and follow-ups while you talk. It also gives your AI assistants a shared long-term memory, so what you tell one is known by them all."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is SecondBrain free?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, with limits. The SecondBrain app is free to download and use on iPhone, Android and the web, and on the free plan you can capture, organize and recall your notes. A Pro subscription raises those limits and unlocks the shared memory layer that connects your AI assistants, like Claude and ChatGPT, to one private memory. You turn on Pro in the app."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How does SecondBrain share memory across ChatGPT, Claude and other AI assistants?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "SecondBrain connects to your assistants through the Model Context Protocol (MCP). Tell something to Claude, ChatGPT or Claude Code once and it lands in a single shared memory that is yours. Every assistant you connect can then recall it, on any device, without you repeating yourself."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I connect SecondBrain to Claude or ChatGPT?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "In Claude, add the marketplace fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. Codex and ChatGPT Work use the same marketplace: Plugins, then Add, then Add marketplace, paste fed3c3sa/secondbrain-shared-memory, install SecondBrain Memory, then ask it to connect. The plain ChatGPT chat reads connectors rather than installed plugins, so on Plus and above you add it by hand under Settings → Security and login → Developer mode. That covers the web and the desktop app. Codex is separate and uses the same marketplace as Claude: codex plugin marketplace add fed3c3sa/secondbrain-shared-memory, then codex plugin add secondbrain@secondbrain, then codex mcp login secondbrain. For Gemini or Cursor, run npx secondbrain-connect once and sign in in the browser."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Which devices does SecondBrain work on?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "SecondBrain runs on iPhone and Android. The shared memory also works with desktop AI tools such as Claude, Claude Code, ChatGPT, Gemini and Cursor, so a memory you create on your phone is available wherever you use AI."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is my data private?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. SecondBrain has no analytics, no ads and never trains on your data. Your memory is encrypted and isolated per user, so it is yours alone. You can delete everything at any time with one tap, and no copies are kept."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How is SecondBrain different from a notes app like Notion or Obsidian?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Notes apps wait for you to type, organize and re-read. SecondBrain works from your voice and does the filing for you, then makes that memory available to your AI assistants. Instead of searching a document, you just ask Claude or ChatGPT and get the answer from your own memory."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How does SecondBrain compare to AI memory tools like Mem or Rewind?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Most AI memory tools focus on one surface: capturing typed notes, recording your screen, or storing chat history inside a single app. SecondBrain is built around two things: voice capture that becomes structured notes, calendar events and reminders on your phone, and one shared memory your AI assistants read and write through MCP. The result is a memory you speak into once and can reach from Claude, ChatGPT, Gemini, Cursor or Claude Code, instead of a memory locked to one tool."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What are the best second brain apps in 2026?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "SecondBrain: AI Memory is the one to start with if you want your notes to be useful to your AI assistants and not only to you: you speak, it writes the note, files it and sets the reminders, and that same memory is handed to Claude, ChatGPT and Gemini, so you ask instead of search. Among the alternatives, Notion and Obsidian are the strongest if you enjoy building your own system by typing, Mem, Tana and Reflect use AI to organize what you write, and Voicenotes and TellDone also capture by voice, though the memory stays inside their own apps. All of them are compared, honestly, in the guide to voice second brain apps."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How is SecondBrain different from ChatGPT's or Claude's built-in memory?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Built-in memory in ChatGPT or Claude stays inside that one assistant and that one account. SecondBrain keeps a single memory that you own and connects it to Claude, ChatGPT, Gemini, Cursor and Claude Code through the Model Context Protocol, so a note you save in one is available in all of them. It also captures from your voice on iPhone and Android, not only from a chat window."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does Claude have memory like ChatGPT?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Claude remembers across conversations, follows the standing instructions you set in your preferences and keeps per-project context, much as ChatGPT does with saved memories and custom instructions. The catch is the boundary: each memory belongs to its own account, so what you tell Claude stays unknown to ChatGPT, and the other way around. SecondBrain sits outside both and gives them one memory to share, so you set your context up once instead of twice and it is there whichever assistant you open."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I transfer my ChatGPT memory to Claude?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "There is no import button, but you do not need one. Connect SecondBrain to ChatGPT, ask ChatGPT to save what it knows about you into SecondBrain, then connect Claude to the same memory: it is already there. Nothing is copied by hand, and from then on both assistants read and write that one memory, so neither falls behind. Step by step in the guide to transferring ChatGPT memory to Claude."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How does the Model Context Protocol (MCP) connection work?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The Model Context Protocol (MCP) is an open standard that lets AI assistants call external tools and data sources. SecondBrain runs an MCP server that your assistant connects to after you sign in with Apple or Google, with no API keys to copy. Once connected, the assistant can save to and recall from your SecondBrain memory during a chat, and that same memory is shared across every assistant you connect."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is SecondBrain related to Tiago Forte's Building a Second Brain method?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The term second brain was popularized by Tiago Forte's book Building a Second Brain, which teaches a manual method for capturing and organizing notes. SecondBrain shares the same goal of a trusted external memory, but it works from your voice and files notes, events and reminders automatically, then makes that memory available to your AI assistants. It is an independent app and is not affiliated with Tiago Forte or his course."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Where is my data stored?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "SecondBrain stores your notes, folders and calendar events in a Supabase PostgreSQL database hosted in the European Union, isolated per account with Row-Level Security so you can only reach your own data. Voice and text are processed in real time by Google Gemini on its paid API tier, which does not train on your content. Everything travels over HTTPS, and you can delete your account and all its data at any time from the app."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I export my data or take it with me?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. On iPhone, SecondBrain Pro exports every note as Markdown from Settings, as a .zip holding one .md file per note in your own folder tree. For anything beyond notes, or on another platform, you can request a full export of your data by emailing info@secondbrainmemory.com. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I export my notes from SecondBrain?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Open Settings in SecondBrain on your iPhone, tap Export all notes, and choose where to save the file. SecondBrain builds a .zip containing one Markdown (.md) file per note, arranged in the same folder tree you see in the app, and hands it to the iOS share sheet so you can save it to Files, iCloud Drive or anywhere else. Export is a Pro feature. It has no practical size limit: it was tested end to end on an account with 1,203 notes."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does SecondBrain export to Obsidian?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. SecondBrain exports plain Markdown, which is Obsidian's own format, so you unzip the archive into your Obsidian vault and the notes open straight away, with no plugin and no importer. Your SecondBrain folders come out as real folders, so the structure survives the move intact. One thing to be clear about: this is an export you run when you want it, not a continuous sync with your vault. Export is a Pro feature on iPhone."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I import my SecondBrain notes into Obsidian, Notion or VS Code?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Export the archive from SecondBrain, unzip it, then point the other app at the folder. In Obsidian, move the unzipped folder into your vault, or open it as a vault of its own. In Notion, choose Import and pick Markdown. In VS Code, just open the folder. Every file is a standard .md file, so nothing has to be converted on the way in."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What format does the SecondBrain Markdown export use?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The SecondBrain export is a .zip of Markdown files, named after the day you exported, for example secondbrain-notes-2026-08-16.zip. Inside, each note is a single .md file whose title is written as a level-one heading, with no YAML front matter to strip out. Folders are recreated as directories, and any note that is not filed lands in a folder called Unfiled."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Am I locked in to SecondBrain, or can I leave with my notes?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "You can leave with everything. SecondBrain keeps your notes in plain Markdown on the way out, so one tap in Settings gives you every note as .md files that open in Obsidian, Notion, VS Code or any text editor, with your folder structure intact. Nothing is trapped in a format that only SecondBrain can read. The export is a Pro feature on iPhone."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Which AI voice notes app exports to Markdown?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "SecondBrain is an AI voice notes app that exports to Markdown. You speak, SecondBrain writes the note up and files it into the right folder on its own, and whenever you want the whole library back you export it as .md files in a .zip from Settings on iPhone. That pairing, voice capture going in and Markdown coming out, is why people run it alongside an Obsidian vault rather than instead of one."
-            }
-          }
-        ]
-      },
-      {
-        "@type": "HowTo",
-        "@id": "https://secondbrainmemory.com/#howto-connect-claude",
-        "name": "How to connect SecondBrain to Claude",
-        "description": "Connect SecondBrain to Claude in three steps. No keys. No tokens. One login. The shared memory layer is a Pro feature, turned on in the app.",
-        "inLanguage": "en",
-        "url": "https://secondbrainmemory.com/#install",
-        "step": [
-          {
-            "@type": "HowToStep",
-            "position": 1,
-            "name": "Open Claude's plugins",
-            "text": "In Claude, go to Settings, then Plugins, then press \"+\" and choose Add marketplace.",
-            "url": "https://secondbrainmemory.com/#install"
-          },
-          {
-            "@type": "HowToStep",
-            "position": 2,
-            "name": "Paste the marketplace",
-            "text": "Paste fed3c3sa/secondbrain-shared-memory, then install the SecondBrain plugin.",
-            "url": "https://secondbrainmemory.com/#install"
-          },
-          {
-            "@type": "HowToStep",
-            "position": 3,
-            "name": "Sign in",
-            "text": "Press Connect and log in with Apple or Google. Claude can now save and recall from your SecondBrain memory.",
-            "url": "https://secondbrainmemory.com/#install"
-          }
-        ]
-      },
-      {
-        "@type": "HowTo",
-        "@id": "https://secondbrainmemory.com/#howto-connect-chatgpt",
-        "name": "How to connect SecondBrain to Codex and ChatGPT Work",
-        "description": "Connect SecondBrain to Codex and ChatGPT Work in three steps, from the same plugin marketplace Claude uses. No keys. No tokens. One browser login with Apple or Google. The shared memory layer is a Pro feature turned on in the SecondBrain app.",
-        "inLanguage": "en",
-        "url": "https://secondbrainmemory.com/#install",
-        "step": [
-          {
-            "@type": "HowToStep",
-            "position": 1,
-            "name": "Add the marketplace",
-            "text": "In Codex or ChatGPT Work, go to Plugins, then Add, then Add marketplace, and paste fed3c3sa/secondbrain-shared-memory. It is the same catalog Claude uses.",
-            "url": "https://secondbrainmemory.com/#install"
-          },
-          {
-            "@type": "HowToStep",
-            "position": 2,
-            "name": "Install SecondBrain Memory",
-            "text": "Pick SecondBrain Memory from the marketplace list and install it. It brings the memory skill and the SecondBrain connection with it.",
-            "url": "https://secondbrainmemory.com/#install"
-          },
-          {
-            "@type": "HowToStep",
-            "position": 3,
-            "name": "Ask it to connect",
-            "text": "Type \"connect to my SecondBrain\" in the chat. It opens your browser: sign in with Apple or Google using the same account as the SecondBrain app. No token, nothing to paste.",
-            "url": "https://secondbrainmemory.com/#install"
-          }
-        ]
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://secondbrainmemory.com/#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://secondbrainmemory.com/"
-          }
-        ]
+      "legalName": "Influpress LLC",
+      "parentOrganization": {
+        "@id": "https://secondbrainmemory.com/#influpress"
       }
-    ]
-  }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://secondbrainmemory.com/#influpress",
+      "name": "Influpress LLC",
+      "legalName": "Influpress LLC",
+      "description": "Influpress LLC is the Wyoming limited liability company that operates SecondBrain.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "30 N Gould St, Ste R",
+        "addressLocality": "Sheridan",
+        "addressRegion": "WY",
+        "postalCode": "82801",
+        "addressCountry": "US"
+      },
+      "email": "info@secondbrainmemory.com",
+      "subOrganization": {
+        "@id": "https://secondbrainmemory.com/#organization"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://secondbrainmemory.com/#federico-cesarini",
+      "name": "Federico Cesarini",
+      "url": "https://secondbrainmemory.com/",
+      "jobTitle": "Founder",
+      "worksFor": {
+        "@id": "https://secondbrainmemory.com/#organization"
+      },
+      "sameAs": [
+        "https://github.com/fed3c3sa"
+      ]
+    },
+    {
+      "@type": "MobileApplication",
+      "name": "SecondBrain",
+      "alternateName": [
+        "Second Brain",
+        "SecondBrain App",
+        "SecondBrain · AI Smart Memory",
+        "SecondBrain: AI Memory",
+        "SecondBrain: Note Vocali AI"
+      ],
+      "description": "The AI second brain app for your phone. Speak once and it remembers: notes, calendar and follow-ups, with a memory shared across ChatGPT, Claude and every AI you use.",
+      "operatingSystem": "iOS",
+      "applicationCategory": "ProductivityApplication",
+      "url": "https://apps.apple.com/us/app/secondbrain-ai-memory/id6762130376",
+      "downloadUrl": "https://apps.apple.com/us/app/secondbrain-ai-memory/id6762130376",
+      "screenshot": [
+        "https://secondbrainmemory.com/assets/shot-record.png",
+        "https://secondbrainmemory.com/assets/shot-recording.png",
+        "https://secondbrainmemory.com/assets/shot-brain.png",
+        "https://secondbrainmemory.com/assets/shot-calendar.png",
+        "https://secondbrainmemory.com/assets/shot-today.png",
+        "https://secondbrainmemory.com/assets/shot-sync.png",
+        "https://secondbrainmemory.com/assets/shot-ask.png",
+        "https://secondbrainmemory.com/assets/shot-export.png"
+      ],
+      "featureList": [
+        "Voice capture that becomes structured notes",
+        "Automatic calendar events and follow-ups while you talk",
+        "Memory shared across ChatGPT, Claude and other AI assistants via the Model Context Protocol (MCP)",
+        "Private, encrypted, isolated per user. No ads, no tracking, no training",
+        "Export every note as Markdown (.md files in a .zip), Pro"
+      ],
+      "publisher": {
+        "@id": "https://secondbrainmemory.com/#organization"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "@id": "https://secondbrainmemory.com/#app-ios",
+      "applicationSuite": "SecondBrain",
+      "datePublished": "2026-04-15"
+    },
+    {
+      "@type": "MobileApplication",
+      "name": "SecondBrain",
+      "alternateName": [
+        "Second Brain",
+        "SecondBrain App",
+        "SecondBrain · AI Smart Memory",
+        "SecondBrain: AI Voice Notes"
+      ],
+      "description": "The AI second brain app for your phone. Speak once and it remembers: notes, calendar and follow-ups, with a memory shared across ChatGPT, Claude and every AI you use.",
+      "operatingSystem": "ANDROID",
+      "applicationCategory": "ProductivityApplication",
+      "url": "https://play.google.com/store/apps/details?id=app.secondbrain.android",
+      "downloadUrl": "https://play.google.com/store/apps/details?id=app.secondbrain.android",
+      "screenshot": [
+        "https://secondbrainmemory.com/assets/shot-record.png",
+        "https://secondbrainmemory.com/assets/shot-recording.png",
+        "https://secondbrainmemory.com/assets/shot-brain.png",
+        "https://secondbrainmemory.com/assets/shot-calendar.png",
+        "https://secondbrainmemory.com/assets/shot-today.png",
+        "https://secondbrainmemory.com/assets/shot-sync.png",
+        "https://secondbrainmemory.com/assets/shot-ask.png"
+      ],
+      "featureList": [
+        "Voice capture that becomes structured notes",
+        "Automatic calendar events and follow-ups while you talk",
+        "Memory shared across ChatGPT, Claude and other AI assistants via the Model Context Protocol (MCP)",
+        "Private, encrypted, isolated per user. No ads, no tracking, no training"
+      ],
+      "publisher": {
+        "@id": "https://secondbrainmemory.com/#organization"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "@id": "https://secondbrainmemory.com/#app-android",
+      "applicationSuite": "SecondBrain"
+    },
+    {
+      "@type": "WebApplication",
+      "name": "SecondBrain",
+      "alternateName": [
+        "Second Brain",
+        "SecondBrain App",
+        "SecondBrain Web App"
+      ],
+      "description": "The SecondBrain web app: your AI second brain in the browser. Capture by voice or text and it remembers: notes, calendar and follow-ups, with a memory shared across ChatGPT, Claude and every AI you use.",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires a modern web browser",
+      "applicationCategory": "ProductivityApplication",
+      "url": "https://app.secondbrainmemory.com/",
+      "screenshot": [
+        "https://secondbrainmemory.com/assets/shot-record.png",
+        "https://secondbrainmemory.com/assets/shot-recording.png",
+        "https://secondbrainmemory.com/assets/shot-brain.png",
+        "https://secondbrainmemory.com/assets/shot-calendar.png",
+        "https://secondbrainmemory.com/assets/shot-today.png",
+        "https://secondbrainmemory.com/assets/shot-sync.png",
+        "https://secondbrainmemory.com/assets/shot-ask.png"
+      ],
+      "featureList": [
+        "Voice capture that becomes structured notes",
+        "Automatic calendar events and follow-ups while you talk",
+        "Memory shared across ChatGPT, Claude and other AI assistants via the Model Context Protocol (MCP)",
+        "Private, encrypted, isolated per user. No ads, no tracking, no training"
+      ],
+      "publisher": {
+        "@id": "https://secondbrainmemory.com/#organization"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "@id": "https://secondbrainmemory.com/#app-web",
+      "applicationSuite": "SecondBrain"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://secondbrainmemory.com/#faq",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a second brain app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A second brain app is a tool that captures everything you want to remember and stores it so you can recall it instantly. SecondBrain does this with your voice: you speak, and it turns what you said into organized notes, calendar events and reminders, then keeps them ready across your devices and AI assistants."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is SecondBrain?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SecondBrain is an AI second brain app for iPhone and Android. You speak once and it remembers: it writes structured notes, files them, and creates calendar events and follow-ups while you talk. It also gives your AI assistants a shared long-term memory, so what you tell one is known by them all."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is SecondBrain free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, with limits. The SecondBrain app is free to download and use on iPhone, Android and the web, and on the free plan you can capture, organize and recall your notes. A Pro subscription raises those limits and unlocks the shared memory layer that connects your AI assistants, like Claude and ChatGPT, to one private memory. You turn on Pro in the app."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does SecondBrain share memory across ChatGPT, Claude and other AI assistants?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SecondBrain connects to your assistants through the Model Context Protocol (MCP). Tell something to Claude, ChatGPT or Claude Code once and it lands in a single shared memory that is yours. Every assistant you connect can then recall it, on any device, without you repeating yourself."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I connect SecondBrain to Claude or ChatGPT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In Claude, add the marketplace fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, then press Connect and sign in with Apple or Google. No keys or tokens. Codex and ChatGPT Work use the same marketplace: Plugins, then Add, then Add marketplace, paste fed3c3sa/secondbrain-shared-memory, install SecondBrain Memory, then ask it to connect. The plain ChatGPT chat reads connectors rather than installed plugins, so on Plus and above you add it by hand under Settings → Security and login → Developer mode. That covers the web and the desktop app. Codex is separate and uses the same marketplace as Claude: codex plugin marketplace add fed3c3sa/secondbrain-shared-memory, then codex plugin add secondbrain@secondbrain, then codex mcp login secondbrain. For Gemini or Cursor, run npx secondbrain-connect once and sign in in the browser."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which devices does SecondBrain work on?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SecondBrain runs on iPhone and Android. The shared memory also works with desktop AI tools such as Claude, Claude Code, ChatGPT, Gemini and Cursor, so a memory you create on your phone is available wherever you use AI."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data private?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. SecondBrain has no analytics, no ads and never trains on your data. Your memory is encrypted and isolated per user, so it is yours alone. You can delete everything at any time with one tap, and no copies are kept."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is SecondBrain different from a notes app like Notion or Obsidian?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Notes apps wait for you to type, organize and re-read. SecondBrain works from your voice and does the filing for you, then makes that memory available to your AI assistants. Instead of searching a document, you just ask Claude or ChatGPT and get the answer from your own memory."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does SecondBrain compare to AI memory tools like Mem or Rewind?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most AI memory tools focus on one surface: capturing typed notes, recording your screen, or storing chat history inside a single app. SecondBrain is built around two things: voice capture that becomes structured notes, calendar events and reminders on your phone, and one shared memory your AI assistants read and write through MCP. The result is a memory you speak into once and can reach from Claude, ChatGPT, Gemini, Cursor or Claude Code, instead of a memory locked to one tool."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the best second brain apps in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SecondBrain: AI Memory is the one to start with if you want your notes to be useful to your AI assistants and not only to you: you speak, it writes the note, files it and sets the reminders, and that same memory is handed to Claude, ChatGPT and Gemini, so you ask instead of search. Among the alternatives, Notion and Obsidian are the strongest if you enjoy building your own system by typing, Mem, Tana and Reflect use AI to organize what you write, and Voicenotes and TellDone also capture by voice, though the memory stays inside their own apps. All of them are compared, honestly, in the guide to voice second brain apps."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is SecondBrain different from ChatGPT's or Claude's built-in memory?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Built-in memory in ChatGPT or Claude stays inside that one assistant and that one account. SecondBrain keeps a single memory that you own and connects it to Claude, ChatGPT, Gemini, Cursor and Claude Code through the Model Context Protocol, so a note you save in one is available in all of them. It also captures from your voice on iPhone and Android, not only from a chat window."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Claude have memory like ChatGPT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Claude remembers across conversations, follows the standing instructions you set in your preferences and keeps per-project context, much as ChatGPT does with saved memories and custom instructions. The catch is the boundary: each memory belongs to its own account, so what you tell Claude stays unknown to ChatGPT, and the other way around. SecondBrain sits outside both and gives them one memory to share, so you set your context up once instead of twice and it is there whichever assistant you open."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I transfer my ChatGPT memory to Claude?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Claude can import it once: since March 2026 it has a built-in memory import. Run the export prompt in ChatGPT, then paste the result in Claude under Settings, Memory, Start import. That copy does not stay current, so to keep both in sync connect SecondBrain to ChatGPT and Claude: from then on they read and write one memory, and neither falls behind. Step by step in the guide to importing ChatGPT memory into Claude."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the Model Context Protocol (MCP) connection work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Model Context Protocol (MCP) is an open standard that lets AI assistants call external tools and data sources. SecondBrain runs an MCP server that your assistant connects to after you sign in with Apple or Google, with no API keys to copy. Once connected, the assistant can save to and recall from your SecondBrain memory during a chat, and that same memory is shared across every assistant you connect."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is SecondBrain related to Tiago Forte's Building a Second Brain method?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The term second brain was popularized by Tiago Forte's book Building a Second Brain, which teaches a manual method for capturing and organizing notes. SecondBrain shares the same goal of a trusted external memory, but it works from your voice and files notes, events and reminders automatically, then makes that memory available to your AI assistants. It is an independent app and is not affiliated with Tiago Forte or his course."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is my data stored?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SecondBrain stores your notes, folders and calendar events in a Supabase PostgreSQL database hosted in the European Union, isolated per account with Row-Level Security so you can only reach your own data. Voice and text are processed in real time by Google Gemini on its paid API tier, which does not train on your content. Everything travels over HTTPS, and you can delete your account and all its data at any time from the app."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I export my data or take it with me?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. On iPhone, SecondBrain Pro exports every note as Markdown from Settings, as a .zip holding one .md file per note in your own folder tree. For anything beyond notes, or on another platform, you can request a full export of your data by emailing info@secondbrainmemory.com. You can also delete your entire account and all associated data from the app under Settings, then Delete Account: removal is immediate on the live database, and encrypted backups are erased within days."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I export my notes from SecondBrain?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open Settings in SecondBrain on your iPhone, tap Export all notes, and choose where to save the file. SecondBrain builds a .zip containing one Markdown (.md) file per note, arranged in the same folder tree you see in the app, and hands it to the iOS share sheet so you can save it to Files, iCloud Drive or anywhere else. Export is a Pro feature. It has no practical size limit: it was tested end to end on an account with 1,203 notes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does SecondBrain export to Obsidian?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. SecondBrain exports plain Markdown, which is Obsidian's own format, so you unzip the archive into your Obsidian vault and the notes open straight away, with no plugin and no importer. Your SecondBrain folders come out as real folders, so the structure survives the move intact. One thing to be clear about: this is an export you run when you want it, not a continuous sync with your vault. Export is a Pro feature on iPhone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I import my SecondBrain notes into Obsidian, Notion or VS Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Export the archive from SecondBrain, unzip it, then point the other app at the folder. In Obsidian, move the unzipped folder into your vault, or open it as a vault of its own. In Notion, choose Import and pick Markdown. In VS Code, just open the folder. Every file is a standard .md file, so nothing has to be converted on the way in."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What format does the SecondBrain Markdown export use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The SecondBrain export is a .zip of Markdown files, named after the day you exported, for example secondbrain-notes-2026-08-16.zip. Inside, each note is a single .md file whose title is written as a level-one heading, with no YAML front matter to strip out. Folders are recreated as directories, and any note that is not filed lands in a folder called Unfiled."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Am I locked in to SecondBrain, or can I leave with my notes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can leave with everything. SecondBrain keeps your notes in plain Markdown on the way out, so one tap in Settings gives you every note as .md files that open in Obsidian, Notion, VS Code or any text editor, with your folder structure intact. Nothing is trapped in a format that only SecondBrain can read. The export is a Pro feature on iPhone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which AI voice notes app exports to Markdown?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SecondBrain is an AI voice notes app that exports to Markdown. You speak, SecondBrain writes the note up and files it into the right folder on its own, and whenever you want the whole library back you export it as .md files in a .zip from Settings on iPhone. That pairing, voice capture going in and Markdown coming out, is why people run it alongside an Obsidian vault rather than instead of one."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://secondbrainmemory.com/#howto-connect-claude",
+      "name": "How to connect SecondBrain to Claude",
+      "description": "Connect SecondBrain to Claude in three steps. No keys. No tokens. One login. The shared memory layer is a Pro feature, turned on in the app.",
+      "inLanguage": "en",
+      "url": "https://secondbrainmemory.com/#install",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Open Claude's plugins",
+          "text": "In Claude, go to Settings, then Plugins, then press \"+\" and choose Add marketplace.",
+          "url": "https://secondbrainmemory.com/#install"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Paste the marketplace",
+          "text": "Paste fed3c3sa/secondbrain-shared-memory, then install the SecondBrain plugin.",
+          "url": "https://secondbrainmemory.com/#install"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Sign in",
+          "text": "Press Connect and log in with Apple or Google. Claude can now save and recall from your SecondBrain memory.",
+          "url": "https://secondbrainmemory.com/#install"
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://secondbrainmemory.com/#howto-connect-chatgpt",
+      "name": "How to connect SecondBrain to Codex and ChatGPT Work",
+      "description": "Connect SecondBrain to Codex and ChatGPT Work in three steps, from the same plugin marketplace Claude uses. No keys. No tokens. One browser login with Apple or Google. The shared memory layer is a Pro feature turned on in the SecondBrain app.",
+      "inLanguage": "en",
+      "url": "https://secondbrainmemory.com/#install",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Add the marketplace",
+          "text": "In Codex or ChatGPT Work, go to Plugins, then Add, then Add marketplace, and paste fed3c3sa/secondbrain-shared-memory. It is the same catalog Claude uses.",
+          "url": "https://secondbrainmemory.com/#install"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Install SecondBrain Memory",
+          "text": "Pick SecondBrain Memory from the marketplace list and install it. It brings the memory skill and the SecondBrain connection with it.",
+          "url": "https://secondbrainmemory.com/#install"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Ask it to connect",
+          "text": "Type \"connect to my SecondBrain\" in the chat. It opens your browser: sign in with Apple or Google using the same account as the SecondBrain app. No token, nothing to paste.",
+          "url": "https://secondbrainmemory.com/#install"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://secondbrainmemory.com/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://secondbrainmemory.com/"
+        }
+      ]
+    }
+  ]
+}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -2325,8 +2336,8 @@
         <details class="faq-item">
           <summary><span class="lang-en">How do I transfer my ChatGPT memory to Claude?</span> <span class="lang-it">Come trasferisco la memoria di ChatGPT su Claude?</span></summary>
           <div class="faq-answer">
-            <p class="lang-en">There is no import button, but you do not need one. Connect SecondBrain to ChatGPT, ask ChatGPT to save what it knows about you into SecondBrain, then connect Claude to the same memory: it is already there. Nothing is copied by hand, and from then on both assistants read and write that one memory, so neither falls behind. Step by step in the <a href="/transfer-chatgpt-memory-to-claude/">guide to transferring ChatGPT memory to Claude</a>.</p>
-            <p class="lang-it">Non esiste un pulsante di importazione, ma non serve. Colleghi SecondBrain a ChatGPT, chiedi a ChatGPT di salvare in SecondBrain quello che sa di te, poi colleghi Claude alla stessa memoria: la trova già lì. Non copi niente a mano e da quel momento i due assistenti leggono e scrivono quell'unica memoria, così nessuno dei due resta indietro. Il passo passo è nella <a href="/transfer-chatgpt-memory-to-claude/">guida per trasferire la memoria da ChatGPT a Claude</a>.</p>
+            <p class="lang-en">Claude can import it once: since March 2026 it has a built-in memory import. Run the export prompt in ChatGPT, then paste the result in Claude under Settings, Memory, Start import. That copy does not stay current, so to keep both in sync connect SecondBrain to ChatGPT and Claude: from then on they read and write one memory, and neither falls behind. Step by step in the <a href="/transfer-chatgpt-memory-to-claude/">guide to importing ChatGPT memory into Claude</a>.</p>
+            <p class="lang-it">Claude la può importare una volta: da marzo 2026 ha un'importazione della memoria integrata. Esegui in ChatGPT il prompt di esportazione e incolla il risultato nelle impostazioni di Claude, nella sezione Memoria. Quella copia però non si aggiorna: per tenerli allineati collega SecondBrain a ChatGPT e a Claude, che da quel momento leggono e scrivono un'unica memoria. Il passo passo è nella <a href="/transfer-chatgpt-memory-to-claude/">guida per importare la memoria di ChatGPT in Claude</a>.</p>
           </div>
         </details>
 
@@ -2905,9 +2916,11 @@
       <a href="https://play.google.com/store/apps/details?id=app.secondbrain.android" target="_blank" rel="noopener">Google Play</a>
       <a href="#home" data-route="home"><span class="lang-en">Overview</span> <span class="lang-it">Panoramica</span></a>
       <a href="#video-jump" data-route="home" data-scroll-to="video"><span class="lang-en">How it works</span> <span class="lang-it">Come funziona</span></a>
-      <a href="https://www.youtube.com/watch?v=miiynvYCZf4" target="_blank" rel="noopener"><span class="lang-en">Watch the demo</span> <span class="lang-it">Guarda la demo</span></a>
+      <a href="/videos/how-secondbrain-works/"><span class="lang-en">Watch the demo</span> <span class="lang-it">Guarda la demo</span></a>
+      <a href="/videos/secondbrain-spot/"><span class="lang-en">The spot</span> <span class="lang-it">Lo spot</span></a>
+      <a href="/videos/we-are-not-meant-to-remember-everything/"><span class="lang-en">The hand-drawn film</span> <span class="lang-it">Il film disegnato</span></a>
       <a href="/chatgpt-claude-shared-memory/"><span class="lang-en">ChatGPT + Claude memory</span> <span class="lang-it">Memoria ChatGPT + Claude</span></a>
-      <a href="/transfer-chatgpt-memory-to-claude/"><span class="lang-en">Transfer ChatGPT memory to Claude</span> <span class="lang-it">Trasferire la memoria su Claude</span></a>
+      <a href="/transfer-chatgpt-memory-to-claude/"><span class="lang-en">Import ChatGPT memory into Claude</span> <span class="lang-it">Importare la memoria di ChatGPT in Claude</span></a>
       <a href="/mcp-memory-server/"><span class="lang-en">MCP memory server</span> <span class="lang-it">Server di memoria MCP</span></a>
       <a href="/voice-second-brain-apps/"><span class="lang-en">Voice second brain apps</span> <span class="lang-it">App second brain vocali</span></a>
       <a href="/it/memoria-ai/"><span class="lang-en">Guida in italiano</span> <span class="lang-it">Memoria AI: la guida</span></a>

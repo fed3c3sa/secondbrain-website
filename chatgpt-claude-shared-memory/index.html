@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How to Share One Memory Between ChatGPT and Claude (2026)</title>
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="canonical" href="https://secondbrainmemory.com/chatgpt-claude-shared-memory/" />
-  <meta name="description" content="ChatGPT and Claude cannot read each other's memory. Here is how to give them one shared long-term memory with an MCP memory app: setup in about two minutes, no API keys, works from your phone too." />
+  <meta name="description" content="ChatGPT and Claude can't read each other's memory. Give them one shared long-term memory over MCP: about two minutes to set up, no API keys, and it works from your phone." />
   <meta name="author" content="Federico Cesarini" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <meta name="theme-color" content="#f5f5f7" />
@@ -18,107 +19,192 @@
   <meta property="og:description" content="Give ChatGPT, Claude, Gemini and Cursor one shared long-term memory over MCP. About two minutes, no API keys." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://secondbrainmemory.com/chatgpt-claude-shared-memory/" />
-  <meta property="og:image" content="https://secondbrainmemory.com/assets/og-card.png" />
+  <meta property="og:image" content="https://secondbrainmemory.com/assets/og-card-v2.png" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="How to Share One Memory Between ChatGPT and Claude" />
   <meta name="twitter:description" content="One shared long-term memory for every AI assistant you use, over MCP. About two minutes, no API keys." />
-  <meta name="twitter:image" content="https://secondbrainmemory.com/assets/og-card.png" />
+  <meta name="twitter:image" content="https://secondbrainmemory.com/assets/og-card-v2.png" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://secondbrainmemory.com/#website",
-        "url": "https://secondbrainmemory.com/",
-        "name": "SecondBrain",
-        "publisher": { "@id": "https://secondbrainmemory.com/#organization" },
-        "inLanguage": ["en", "it"]
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://secondbrainmemory.com/#website",
+      "url": "https://secondbrainmemory.com/",
+      "name": "SecondBrain",
+      "publisher": {
+        "@id": "https://secondbrainmemory.com/#organization"
       },
-      {
-        "@type": "WebPage",
-        "@id": "https://secondbrainmemory.com/chatgpt-claude-shared-memory/#webpage",
-        "url": "https://secondbrainmemory.com/chatgpt-claude-shared-memory/",
-        "name": "How to Share One Memory Between ChatGPT and Claude (2026)",
-        "description": "ChatGPT and Claude cannot read each other's memory. How to give them one shared long-term memory with an MCP memory app: setup in about two minutes, no API keys, from your phone too.",
-        "isPartOf": { "@id": "https://secondbrainmemory.com/#website" },
-        "author": { "@id": "https://secondbrainmemory.com/#federico-cesarini" },
-        "publisher": { "@id": "https://secondbrainmemory.com/#organization" },
-        "datePublished": "2026-07-16",
-        "dateModified": "2026-08-23",
-        "inLanguage": "en",
-        "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".tldr"] }
+      "inLanguage": [
+        "en",
+        "it"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://secondbrainmemory.com/chatgpt-claude-shared-memory/#webpage",
+      "url": "https://secondbrainmemory.com/chatgpt-claude-shared-memory/",
+      "name": "How to Share One Memory Between ChatGPT and Claude (2026)",
+      "description": "ChatGPT and Claude can't read each other's memory. Give them one shared long-term memory over MCP: about two minutes to set up, no API keys, and it works from your phone.",
+      "isPartOf": {
+        "@id": "https://secondbrainmemory.com/#website"
       },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "SecondBrain", "item": "https://secondbrainmemory.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Share one memory between ChatGPT and Claude", "item": "https://secondbrainmemory.com/chatgpt-claude-shared-memory/" }
+      "author": {
+        "@id": "https://secondbrainmemory.com/#federico-cesarini"
+      },
+      "publisher": {
+        "@id": "https://secondbrainmemory.com/#organization"
+      },
+      "datePublished": "2026-07-16",
+      "dateModified": "2026-10-22",
+      "inLanguage": "en",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".tldr"
         ]
-      },
-      {
-        "@type": "HowTo",
-        "@id": "https://secondbrainmemory.com/chatgpt-claude-shared-memory/#howto",
-        "name": "How to connect Claude and ChatGPT to one shared memory with SecondBrain",
-        "description": "Give Claude, ChatGPT, Gemini and Cursor one shared long-term memory through the Model Context Protocol, with no API keys.",
-        "totalTime": "PT2M",
-        "step": [
-          { "@type": "HowToStep", "position": 1, "name": "Get SecondBrain and turn on Pro", "text": "Download SecondBrain free on iPhone, Android or the web at app.secondbrainmemory.com, then enable the Pro subscription in the app: the shared memory layer is a Pro feature." },
-          { "@type": "HowToStep", "position": 2, "name": "Connect Claude", "text": "In Claude, open Settings, then Plugins, press the plus button and choose Add marketplace. Paste fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, press Connect and sign in with Apple or Google. No API keys or tokens." },
-          { "@type": "HowToStep", "position": 3, "name": "Connect ChatGPT, Gemini or Cursor", "text": "Run npx secondbrain-connect once in a terminal and sign in in the browser. The command configures every supported assistant to reach the same memory." }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://secondbrainmemory.com/chatgpt-claude-shared-memory/#faq",
-        "inLanguage": "en",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Can ChatGPT and Claude share memory natively?",
-            "acceptedAnswer": { "@type": "Answer", "text": "No. ChatGPT's memory lives in your OpenAI account and Claude's memory lives in your Anthropic account, and neither can read the other. The only way to share one memory between them is an external memory both can reach, which is what an MCP memory service provides." }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I transfer my existing ChatGPT memory into Claude?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Only by hand, and only once. Ask ChatGPT to list everything it remembers about you, clean the list up, then paste it into Claude's personal preferences. That copy is a snapshot: it stops matching reality as soon as you keep using either assistant. Put the same list into SecondBrain instead and both assistants keep reading from it as it grows, which is the version that does not need redoing. The step-by-step move is covered in the guide to transferring ChatGPT memory to Claude." }
-          },
-          {
-            "@type": "Question",
-            "name": "Do I need an API key to set this up?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Not with SecondBrain. You sign in once with Apple or Google, both in the Claude plugin and in the npx secondbrain-connect setup for ChatGPT, Gemini and Cursor. There are no API keys to create, copy or rotate." }
-          },
-          {
-            "@type": "Question",
-            "name": "Does the shared memory work from my phone?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Yes. SecondBrain is an iPhone and Android app, so you capture by voice on your phone and the memory is available to Claude, ChatGPT, Gemini, Cursor and Claude Code on your computer. A fact you speak on the go is recalled in any connected assistant." }
-          },
-          {
-            "@type": "Question",
-            "name": "Is it safe to give AI assistants access to a memory server?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Scope matters. SecondBrain's MCP server only exposes your own memory, isolated per account, with revocable tokens. Data is stored in the European Union on Supabase, is never used to train models, and can be deleted entirely from the app at any time. Assistants see only what the memory tools return, not your account." }
-          }
-        ]
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://secondbrainmemory.com/#organization",
-        "name": "SecondBrain",
-        "url": "https://secondbrainmemory.com/",
-        "logo": { "@type": "ImageObject", "url": "https://secondbrainmemory.com/assets/logo-512.png" }
-      },
-      {
-        "@type": "Person",
-        "@id": "https://secondbrainmemory.com/#federico-cesarini",
-        "name": "Federico Cesarini",
-        "url": "https://secondbrainmemory.com/",
-        "jobTitle": "Founder",
-        "sameAs": ["https://github.com/fed3c3sa"]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "SecondBrain",
+          "item": "https://secondbrainmemory.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Share one memory between ChatGPT and Claude",
+          "item": "https://secondbrainmemory.com/chatgpt-claude-shared-memory/"
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://secondbrainmemory.com/chatgpt-claude-shared-memory/#howto",
+      "name": "How to connect Claude and ChatGPT to one shared memory with SecondBrain",
+      "description": "Give Claude, ChatGPT, Gemini and Cursor one shared long-term memory through the Model Context Protocol, with no API keys.",
+      "totalTime": "PT2M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Get SecondBrain and turn on Pro",
+          "text": "Download SecondBrain free on iPhone, Android or the web at app.secondbrainmemory.com, then enable the Pro subscription in the app: the shared memory layer is a Pro feature."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Connect Claude",
+          "text": "In Claude, open Settings, then Plugins, press the plus button and choose Add marketplace. Paste fed3c3sa/secondbrain-shared-memory, install the SecondBrain plugin, press Connect and sign in with Apple or Google. No API keys or tokens."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Connect ChatGPT, Gemini or Cursor",
+          "text": "Run npx secondbrain-connect once in a terminal and sign in in the browser. The command configures every supported assistant to reach the same memory."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://secondbrainmemory.com/chatgpt-claude-shared-memory/#faq",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can ChatGPT and Claude share memory natively?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. ChatGPT's memory lives in your OpenAI account and Claude's memory lives in your Anthropic account, and neither can read the other. The only way to share one memory between them is an external memory both can reach, which is what an MCP memory service provides."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I transfer my existing ChatGPT memory into Claude?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, once. Since March 2026 Claude has a built-in memory import: run the export prompt in ChatGPT, then paste the result in Claude under Settings, Memory, Start import. That copy is a snapshot: it stops matching reality as soon as you keep using either assistant. Put the same memory into SecondBrain instead and both assistants keep reading from it as it grows, which is the version that does not need redoing. The step-by-step import is in the guide to importing ChatGPT memory into Claude."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need an API key to set this up?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not with SecondBrain. You sign in once with Apple or Google, both in the Claude plugin and in the npx secondbrain-connect setup for ChatGPT, Gemini and Cursor. There are no API keys to create, copy or rotate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the shared memory work from my phone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. SecondBrain is an iPhone and Android app, so you capture by voice on your phone and the memory is available to Claude, ChatGPT, Gemini, Cursor and Claude Code on your computer. A fact you speak on the go is recalled in any connected assistant."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it safe to give AI assistants access to a memory server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Scope matters. SecondBrain's MCP server only exposes your own memory, isolated per account, with revocable tokens. Data is stored in the European Union on Supabase, is never used to train models, and can be deleted entirely from the app at any time. Assistants see only what the memory tools return, not your account."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I give Claude or ChatGPT long-term memory using MCP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Connect both to the same MCP memory server. It stores what you tell any of them, and each assistant can save to it and search it during a chat, so the memory outlives every conversation. With SecondBrain you install the plugin in Claude, add the connector in ChatGPT, and sign in once with Apple or Google: no server to host and no API keys."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I share context across ChatGPT, Claude and other LLMs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Keep the context outside all of them. A shared MCP memory such as SecondBrain is readable and writable by ChatGPT, Claude, Gemini, Cursor and Claude Code, so whatever you tell one assistant is available to the others on the next question, without copying it into every chat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I keep one memory across ChatGPT, Claude, Cursor and Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Connect all four to SecondBrain and they read and write the same notes: decisions you make in Claude Code are there when you ask ChatGPT, and the reverse. It is a personal memory tied to your account, so each person on a team connects their own."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://secondbrainmemory.com/#organization",
+      "name": "SecondBrain",
+      "url": "https://secondbrainmemory.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://secondbrainmemory.com/assets/logo-512.png"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://secondbrainmemory.com/#federico-cesarini",
+      "name": "Federico Cesarini",
+      "url": "https://secondbrainmemory.com/",
+      "jobTitle": "Founder",
+      "sameAs": [
+        "https://github.com/fed3c3sa"
+      ]
+    }
+  ]
+}
   </script>
 
   <script>try{if(localStorage.getItem('sb-theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
@@ -247,7 +333,7 @@
 <main id="main" class="article">
   <p class="crumb"><a href="/">SecondBrain</a> · Guides · ChatGPT + Claude shared memory</p>
   <h1>How to share one memory between ChatGPT and Claude</h1>
-  <p class="byline">By <a href="https://github.com/fed3c3sa" target="_blank" rel="noopener">Federico Cesarini</a>, maker of SecondBrain · Updated August 12, 2026</p>
+  <p class="byline">By <a href="https://github.com/fed3c3sa" target="_blank" rel="noopener">Federico Cesarini</a>, maker of SecondBrain · Updated October 22, 2026</p>
 
   <div class="tldr"><strong>The short answer:</strong> ChatGPT and Claude cannot read each other's built-in memory. To share one memory across both, connect them to the same external memory over the Model Context Protocol (MCP). A managed MCP memory app like SecondBrain links Claude, ChatGPT, Gemini, Cursor and Claude Code to a single private memory in about two minutes, with no API keys, and you can add to that memory by voice from your phone.</div>
 
@@ -257,6 +343,15 @@
   <h2>The fix: one external memory over MCP</h2>
   <p>The Model Context Protocol (MCP) is an open standard, introduced by Anthropic in November 2024 and since adopted across the industry, that lets AI assistants call external tools and data sources. Point several assistants at the same <a href="/mcp-memory-server/">MCP memory server</a> and they all read and write one memory: yours. Tell Claude something once and ChatGPT can recall it, and the other way around.</p>
   <p>You can self-host an open-source memory server if you are technical. If you want it to just work, a managed service handles hosting, sign-in and sync. SecondBrain is a managed MCP memory with a twist: the memory is also a voice-first phone app, so most of what your assistants know, you simply said out loud at some point.</p>
+
+  <h2>How do I give Claude or ChatGPT long-term memory using MCP?</h2>
+  <p>Connect both assistants to the same MCP memory server. The server stores what you tell any of them, and each assistant can save to it and search it in the middle of a chat, so the memory outlives every conversation and every app. With SecondBrain there is nothing to host and no API key:</p>
+  <ol>
+    <li><strong>Claude:</strong> Settings, Plugins, add the marketplace <code>fed3c3sa/secondbrain-shared-memory</code>, install SecondBrain, press Connect.</li>
+    <li><strong>ChatGPT:</strong> add the connector <code>https://mcp.secondbrainmemory.com/mcp</code> in Developer mode (Plus and above).</li>
+    <li><strong>Gemini, Cursor or Claude Code:</strong> run <code>npx secondbrain-connect</code> once and sign in with Apple or Google.</li>
+  </ol>
+  <p>From then on, "remember that I prefer TypeScript" said in Claude is known to ChatGPT, Cursor and Claude Code on the next question. That is how you share context across ChatGPT, Claude and other LLMs without pasting it into every chat.</p>
 
   <h2>Set it up in about two minutes</h2>
 
@@ -306,7 +401,7 @@
     </details>
     <details class="faq-item">
       <summary>Can I transfer my existing ChatGPT memory into Claude?</summary>
-      <div class="faq-answer"><p>Only by hand, and only once. Ask ChatGPT to list everything it remembers about you, clean the list up, then paste it into Claude's personal preferences. That copy is a snapshot: it stops matching reality as soon as you keep using either assistant. Put the same list into SecondBrain instead and both assistants keep reading from it as it grows, which is the version that does not need redoing. The step-by-step move is covered in the <a href="/transfer-chatgpt-memory-to-claude/">guide to transferring ChatGPT memory to Claude</a>.</p></div>
+      <div class="faq-answer"><p>Yes, once. Since March 2026 Claude has a built-in memory import: run the export prompt in ChatGPT, then paste the result in Claude under Settings, Memory, Start import. That copy is a snapshot: it stops matching reality as soon as you keep using either assistant. Put the same memory into SecondBrain instead and both assistants keep reading from it as it grows, which is the version that does not need redoing. The step-by-step import is in the <a href="/transfer-chatgpt-memory-to-claude/">guide to importing ChatGPT memory into Claude</a>.</p></div>
     </details>
     <details class="faq-item">
       <summary>Do I need an API key to set this up?</summary>
@@ -319,6 +414,18 @@
     <details class="faq-item">
       <summary>Is it safe to give AI assistants access to a memory server?</summary>
       <div class="faq-answer"><p>Scope matters. SecondBrain's MCP server only exposes your own memory, isolated per account, with revocable tokens. Data is stored in the European Union on Supabase, is never used to train models, and can be deleted entirely from the app at any time. Assistants see only what the memory tools return, not your account.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>How do I give Claude or ChatGPT long-term memory using MCP?</summary>
+      <div class="faq-answer"><p>Connect both to the same MCP memory server. It stores what you tell any of them, and each assistant can save to it and search it during a chat, so the memory outlives every conversation. With SecondBrain you install the plugin in Claude, add the connector in ChatGPT, and sign in once with Apple or Google: no server to host and no API keys.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>How do I share context across ChatGPT, Claude and other LLMs?</summary>
+      <div class="faq-answer"><p>Keep the context outside all of them. A shared MCP memory such as SecondBrain is readable and writable by ChatGPT, Claude, Gemini, Cursor and Claude Code, so whatever you tell one assistant is available to the others on the next question, without copying it into every chat.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>Can I keep one memory across ChatGPT, Claude, Cursor and Claude Code?</summary>
+      <div class="faq-answer"><p>Yes. Connect all four to SecondBrain and they read and write the same notes: decisions you make in Claude Code are there when you ask ChatGPT, and the reverse. It is a personal memory tied to your account, so each person on a team connects their own.</p></div>
     </details>
   </div>
 
@@ -339,6 +446,7 @@
     <nav aria-label="Footer">
       <a href="/">Home</a>
       <a href="/voice-second-brain-apps/">Voice second brain apps</a>
+      <a href="/videos/how-secondbrain-works/">Video</a>
       <a href="/mcp-memory-server/">MCP memory server</a>
       <a href="/#privacy">Privacy</a>
       <a href="/#support">Support</a>

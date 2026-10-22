@@ -7,59 +7,77 @@
     <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <video:video>
-      <video:thumbnail_loc>https://secondbrainmemory.com/assets/video-poster.webp</video:thumbnail_loc>
-      <video:title>This AI has INFINITE Memory. Here's how to use it.</video:title>
-      <video:description>A three-minute demo of SecondBrain, the AI second brain app: speak once on your phone and get structured notes, calendar events and follow-ups, then connect ChatGPT, Claude and Gemini to one shared long-term memory via MCP.</video:description>
-      <video:player_loc>https://www.youtube-nocookie.com/embed/miiynvYCZf4</video:player_loc>
-      <video:duration>194</video:duration>
-      <video:publication_date>2026-07-06T01:12:10-07:00</video:publication_date>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://secondbrainmemory.com/assets/film-spot-poster.webp</video:thumbnail_loc>
-      <video:title>SecondBrain: AI Memory</video:title>
-      <video:description>The 51-second SecondBrain spot: a day with too much to remember, and an app you talk to that writes the note, files it and reminds you.</video:description>
-      <video:player_loc>https://www.youtube-nocookie.com/embed/3Ga1u9QzOaw</video:player_loc>
-      <video:duration>51</video:duration>
-      <video:publication_date>2026-10-22</video:publication_date>
-    </video:video>
-    <video:video>
-      <video:thumbnail_loc>https://secondbrainmemory.com/assets/film-brain-burst-poster.webp</video:thumbnail_loc>
-      <video:title>SecondBrain: AI Personal Assistant in your phone</video:title>
-      <video:description>A 21-second hand-drawn film: a head overwhelmed by everything it has to remember bursts, then SecondBrain connects the dots. We are not meant to remember everything.</video:description>
-      <video:player_loc>https://www.youtube-nocookie.com/embed/lNJhyQKaDZU</video:player_loc>
-      <video:duration>21</video:duration>
-      <video:publication_date>2026-10-22</video:publication_date>
-    </video:video>
   </url>
   <url>
     <loc>https://secondbrainmemory.com/chatgpt-claude-shared-memory/</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://secondbrainmemory.com/transfer-chatgpt-memory-to-claude/</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://secondbrainmemory.com/mcp-memory-server/</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://secondbrainmemory.com/voice-second-brain-apps/</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://secondbrainmemory.com/it/memoria-ai/</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://secondbrainmemory.com/videos/how-secondbrain-works/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://secondbrainmemory.com/assets/video-poster.webp</video:thumbnail_loc>
+      <video:title>This AI has INFINITE Memory. Here's how to use it.</video:title>
+      <video:description>A 3-minute walkthrough by its maker: talk to your phone and SecondBrain files the note and sets the reminder, then gives Claude, ChatGPT and Gemini one shared memory.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/miiynvYCZf4</video:player_loc>
+      <video:duration>194</video:duration>
+      <video:publication_date>2026-07-06T01:12:10-07:00</video:publication_date>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://secondbrainmemory.com/videos/secondbrain-spot/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://secondbrainmemory.com/assets/film-spot-poster.webp</video:thumbnail_loc>
+      <video:title>SecondBrain: AI Memory</video:title>
+      <video:description>The 51-second SecondBrain spot: a busy, distracted 2026, and an app on your phone that you just talk to, like a personal assistant that keeps every task organized.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/3Ga1u9QzOaw</video:player_loc>
+      <video:duration>51</video:duration>
+      <video:publication_date>2026-10-22</video:publication_date>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://secondbrainmemory.com/videos/we-are-not-meant-to-remember-everything/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <video:video>
+      <video:thumbnail_loc>https://secondbrainmemory.com/assets/film-brain-burst-poster.webp</video:thumbnail_loc>
+      <video:title>SecondBrain: AI Personal Assistant in your phone</video:title>
+      <video:description>A 21-second hand-drawn film about information overload: a head full of notes, reminders and dates bursts, then SecondBrain connects the dots for you.</video:description>
+      <video:player_loc>https://www.youtube-nocookie.com/embed/lNJhyQKaDZU</video:player_loc>
+      <video:duration>21</video:duration>
+      <video:publication_date>2026-10-22</video:publication_date>
+    </video:video>
   </url>
 </urlset>
