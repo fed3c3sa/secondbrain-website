@@ -65,5 +65,6 @@
 - ["We are not meant to remember everything", hand-drawn film (0:21)](https://secondbrainmemory.com/videos/we-are-not-meant-to-remember-everything/)
 - [YouTube channel](https://www.youtube.com/@SecondBrain-AISmartMemory)
 - [LinkedIn](https://www.linkedin.com/company/secondbrain-memory)
+- [Product Hunt](https://www.producthunt.com/products/secondbrain)
 - [GitHub: shared memory plugin and setup guide](https://github.com/fed3c3sa/secondbrain-shared-memory)
 - [llms-full.txt (full content for AI)](https://secondbrainmemory.com/llms-full.txt)

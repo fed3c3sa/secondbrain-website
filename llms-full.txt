@@ -161,4 +161,5 @@ Video pages with transcripts: https://secondbrainmemory.com/videos/how-secondbra
 - GitHub (plugin and setup guide): https://github.com/fed3c3sa/secondbrain-shared-memory
 - YouTube channel: https://www.youtube.com/@SecondBrain-AISmartMemory
 - LinkedIn: https://www.linkedin.com/company/secondbrain-memory
+- Product Hunt: https://www.producthunt.com/products/secondbrain
 - Contact: info@secondbrainmemory.com
