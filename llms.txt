@@ -32,6 +32,7 @@
 
 - [Home](https://secondbrainmemory.com/): What SecondBrain does: voice capture, automatic notes, calendar and follow-ups, and memory shared across every AI you use.
 - [How SecondBrain works (video page with transcript)](https://secondbrainmemory.com/videos/how-secondbrain-works/): A 3-minute demo, "This AI has INFINITE Memory. Here's how to use it.", going from voice capture to structured note, recall by asking, and one memory shared across ChatGPT, Claude and Gemini.
+- [Blog](https://secondbrainmemory.com/blog/): Articles on building a second brain from your voice, how second brain apps compare, and giving AI assistants a memory you own. RSS: https://secondbrainmemory.com/blog/feed.xml
 - [FAQ](https://secondbrainmemory.com/#faq): What a second brain app is, pricing, how shared memory works across ChatGPT and Claude, MCP, devices, privacy, data storage, and the Markdown export (how to get your notes out as .md files, and how to move them into Obsidian, Notion or VS Code).
 - [Markdown export](https://secondbrainmemory.com/#export): Export every note as Markdown from Settings, as .md files in a .zip, and open them in an Obsidian vault. Pro, iPhone.
 - [Privacy Policy](https://secondbrainmemory.com/#privacy): No analytics, no ads, no training; EU-hosted, isolated per user; delete anytime.
@@ -45,6 +46,14 @@
 - [What is an MCP memory server?](https://secondbrainmemory.com/mcp-memory-server/): A plain-English guide to MCP memory servers, with the main managed and self-hosted options in 2026 compared.
 - [Voice-first second brain apps: the 2026 comparison](https://secondbrainmemory.com/voice-second-brain-apps/): An honest comparison of SecondBrain, Voicenotes, TellDone, Mem, Tana, Reflect, Notion and Obsidian.
 - [Memoria permanente per ChatGPT e Claude (in italiano)](https://secondbrainmemory.com/it/memoria-ai/): La guida italiana alla memoria AI condivisa via MCP.
+
+## Blog
+
+- [What is a second brain? The definition, the methods, and what AI changes](https://secondbrainmemory.com/blog/what-is-a-second-brain/): A quotable definition, where the idea comes from (commonplace books, the Memex, Luhmann's Zettelkasten, Tiago Forte's CODE and PARA), why most second brains get abandoned, and a 15-minute way to start.
+- [The best second brain apps in 2026, by how you actually capture](https://secondbrainmemory.com/blog/best-second-brain-apps/): Fifteen apps (SecondBrain, Voicenotes, Obsidian, Logseq, Reflect, Notion, Tana Outliner, Capacities, Anytype, Heptabase, Mem, Gemini Notebook, Evernote, Apple Notes, Google Keep) compared on capture, free plan, price, ChatGPT and Claude access, and export, checked with each vendor on October 29, 2026.
+- [How to use ChatGPT as a second brain, and what it still forgets](https://secondbrainmemory.com/blog/chatgpt-second-brain/): What ChatGPT's saved memories, chat history, memory summary, custom instructions and Projects keep, a 10-minute setup, and the gaps you fill with a memory of your own.
+- [How to turn voice memos into organized notes on iPhone and Android](https://secondbrainmemory.com/blog/voice-memos-to-notes/): What Voice Memos, Apple Notes, Google Recorder and Samsung Voice Recorder transcribe for free, why a transcript is not a note, and how to speak a memo that files itself.
+- [Secondo cervello digitale: cos'è e come costruirlo parlando (in italiano)](https://secondbrainmemory.com/blog/secondo-cervello-digitale/): Cos'è un secondo cervello, dallo Zibaldone di Leopardi al metodo PARA, e come iniziare usando la voce.
 
 ## Connect to an AI assistant
 

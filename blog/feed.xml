@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>SecondBrain Blog</title>
+    <link>https://secondbrainmemory.com/blog/</link>
+    <atom:link href="https://secondbrainmemory.com/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Second brains, AI memory and voice notes, from the maker of SecondBrain.</description>
+    <language>en</language>
+    <lastBuildDate>Thu, 29 Oct 2026 08:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://secondbrainmemory.com/assets/logo-512.png</url>
+      <title>SecondBrain Blog</title>
+      <link>https://secondbrainmemory.com/blog/</link>
+    </image>
+    <item>
+      <title>What is a second brain? The definition, the methods, and what AI changes</title>
+      <link>https://secondbrainmemory.com/blog/what-is-a-second-brain/</link>
+      <guid isPermaLink="true">https://secondbrainmemory.com/blog/what-is-a-second-brain/</guid>
+      <pubDate>Thu, 29 Oct 2026 08:00:00 +0000</pubDate>
+      <dc:creator>Federico Cesarini</dc:creator>
+      <category>Guides</category>
+      <description>A second brain is a trusted system outside your head for what you want to remember. Where the idea comes from, CODE and PARA, and what AI changes.</description>
+    </item>
+    <item>
+      <title>The best second brain apps in 2026, by how you actually capture</title>
+      <link>https://secondbrainmemory.com/blog/best-second-brain-apps/</link>
+      <guid isPermaLink="true">https://secondbrainmemory.com/blog/best-second-brain-apps/</guid>
+      <pubDate>Thu, 29 Oct 2026 08:00:00 +0000</pubDate>
+      <dc:creator>Federico Cesarini</dc:creator>
+      <category>Comparisons</category>
+      <description>Fifteen second brain apps compared on capture, free plans, prices, AI, ChatGPT and Claude access, and export. Checked against each vendor in October 2026.</description>
+    </item>
+    <item>
+      <title>How to use ChatGPT as a second brain, and what it still forgets</title>
+      <link>https://secondbrainmemory.com/blog/chatgpt-second-brain/</link>
+      <guid isPermaLink="true">https://secondbrainmemory.com/blog/chatgpt-second-brain/</guid>
+      <pubDate>Thu, 29 Oct 2026 08:00:00 +0000</pubDate>
+      <dc:creator>Federico Cesarini</dc:creator>
+      <category>Guides</category>
+      <description>What ChatGPT&#x27;s memory, chat history and Projects can hold in 2026, where they stop, and how to give ChatGPT a second brain it can read and share with Claude.</description>
+    </item>
+    <item>
+      <title>How to turn voice memos into organized notes on iPhone and Android</title>
+      <link>https://secondbrainmemory.com/blog/voice-memos-to-notes/</link>
+      <guid isPermaLink="true">https://secondbrainmemory.com/blog/voice-memos-to-notes/</guid>
+      <pubDate>Thu, 29 Oct 2026 08:00:00 +0000</pubDate>
+      <dc:creator>Federico Cesarini</dc:creator>
+      <category>Guides</category>
+      <description>Transcribing a voice memo is the easy part. How to get from a rambling recording to a titled, filed note with real reminders, on iPhone and Android.</description>
+    </item>
+    <item>
+      <title>Secondo cervello digitale: cos&#x27;è, da dove nasce e come costruirlo parlando</title>
+      <link>https://secondbrainmemory.com/blog/secondo-cervello-digitale/</link>
+      <guid isPermaLink="true">https://secondbrainmemory.com/blog/secondo-cervello-digitale/</guid>
+      <pubDate>Thu, 29 Oct 2026 08:00:00 +0000</pubDate>
+      <dc:creator>Federico Cesarini</dc:creator>
+      <category>Guide</category>
+      <description>Un secondo cervello è un sistema esterno di cui ti fidi per ricordare. Da dove nasce l&#x27;idea, i metodi CODE e PARA e cosa cambia con l&#x27;AI e la voce.</description>
+    </item>
+  </channel>
+</rss>
