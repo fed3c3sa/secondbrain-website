@@ -54,6 +54,10 @@ A second brain app is a tool that captures everything you want to remember and s
 
 SecondBrain is an AI second brain app for iPhone and Android. You speak once and it remembers: it writes structured notes, files them, and creates calendar events and follow-ups while you talk. It also gives your AI assistants a shared long-term memory, so what you tell one is known by them all.
 
+### Can I send SecondBrain photos, PDFs or other files?
+
+Yes. On iPhone and Android you can share a photo, a screenshot, a PDF or a text file (.txt, .md or .csv) to SecondBrain from another app, or attach one with the paperclip in the app, even straight from the camera. SecondBrain reads it, including the text inside images, writes it up as a note and files it in the right folder on its own. Dates it finds can become calendar events or reminders. Files can be up to 10 MB. Word and Excel files are not read directly, so save them as PDF first.
+
 ### Is SecondBrain free?
 
 Yes, with limits. The SecondBrain app is free to download and use on iPhone, Android and the web, and on the free plan you can capture, organize and recall your notes. A Pro subscription raises those limits and unlocks the shared memory layer that connects your AI assistants, like Claude and ChatGPT, to one private memory. You turn on Pro in the app.
