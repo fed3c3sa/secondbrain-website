@@ -1184,7 +1184,7 @@
       flex-wrap: wrap;
       gap: 20px 32px;
     }
-    .band-copy h2, .film-copy h2 {
+    .band-copy h2 {
       font-weight: 600;
       font-size: clamp(34px, 5.4vw, 72px);
       line-height: 1.04;
@@ -1221,7 +1221,7 @@
     .stage-btn.is-on .when-on { display: inline-flex; }
 
     /* pause/play for every looping video (the loops never stop on their own) */
-    .band-actions, .film-actions { display: flex; align-items: center; gap: 10px; }
+    .band-actions { display: flex; align-items: center; gap: 10px; }
     .stage-pause {
       width: 42px; height: 42px;
       flex: none;
@@ -1241,70 +1241,44 @@
     .stage-pause .i-play { display: none; margin-left: 2px; }
     .stage-pause.is-paused .i-play { display: block; }
     .stage-pause.is-paused .i-pause { display: none; }
-    .film-stage .stage-pause { color: #1d1d1f; background: rgba(0,0,0,0.07); }
-    .film-stage .stage-pause:hover { background: rgba(0,0,0,0.13); }
-    html[data-theme="dark"] .film-stage .stage-pause { color: #fff; background: rgba(255,255,255,0.14); }
     .stage-btn[hidden], .stage-pause[hidden] { display: none; }
 
-    /* the hand-drawn film is white, so its title sits beside it on the same white */
-    .film-stage {
-      position: relative;
-      overflow: hidden;
-      background: #fff;
+    /* the white film: same band, dark type. The band reserves the title's
+       height (--copy-h) at the bottom and the film fills the rest, its lower
+       edge fading into the white, so the title never sits on a drawing */
+    .video-band.is-light {
+      --copy-h: calc(2.2 * clamp(34px, 5.4vw, 72px) + clamp(28px, 5.5vw, 72px) + 24px);
+      height: min(100vh, calc(56.25vw + var(--copy-h)));
+      height: min(100svh, calc(56.25vw + var(--copy-h)));
       color: #1d1d1f;
+      background: #fff;
     }
-    .film-inner {
-      max-width: 1680px;
-      min-height: min(100vh, 60vw);
-      min-height: min(100svh, 60vw);
-      margin: 0 auto;
-      padding: clamp(40px, 5vw, 80px) var(--pad);
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-      align-items: end;
-      align-content: center;
-      column-gap: clamp(8px, 2vw, 32px);
-    }
-    .film-copy { padding-bottom: clamp(8px, 2.4vw, 36px); }
-    .film-copy h2 { font-size: clamp(30px, 3.3vw, 56px); margin-bottom: 28px; }
-    .film-media {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      margin-right: calc(-1 * var(--pad));
-    }
-    .film-media video {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
+    .video-band.is-light video {
+      inset: 0 0 auto 0;
+      height: calc(100% - var(--copy-h));
       object-fit: contain;
       background: #fff url('assets/film-brain-burst-poster.webp') center / contain no-repeat;
+      -webkit-mask-image: linear-gradient(to bottom, #000 86%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 86%, transparent 100%);
     }
-    /* dark mode: a white canvas would glare, so the film becomes a rounded white card */
-    html[data-theme="dark"] .film-stage { background: var(--bg); color: var(--text); }
-    html[data-theme="dark"] .film-media { margin-right: 0; }
-    html[data-theme="dark"] .film-media video { border-radius: 24px; }
-    html[data-theme="dark"] .film-stage .stage-btn { color: #000; background: rgba(255,255,255,0.9); }
-
-    @media (max-width: 880px) {
-      .film-inner {
-        grid-template-columns: 1fr;
-        min-height: 0;
-        row-gap: 28px;
-        padding-top: 72px;
-        padding-bottom: 40px;
-      }
-      .film-copy { padding-bottom: 0; }
-      .film-copy h2 { font-size: clamp(34px, 7vw, 52px); margin-bottom: 20px; }
-      .film-media { margin: 0 calc(-1 * var(--pad)); }
-      html[data-theme="dark"] .film-media { margin: 0; }
-      html[data-theme="dark"] .film-media video { border-radius: 20px; }
+    .video-band.is-light::after { display: none; }
+    /* narrower screens: the buttons drop under the title */
+    @media (max-width: 1000px) {
+      .video-band.is-light { --copy-h: calc(2.2 * clamp(34px, 5.4vw, 72px) + clamp(28px, 5.5vw, 72px) + 88px); }
     }
+    .video-band.is-light .band-copy h2 { text-shadow: none; }
+    .video-band.is-light .stage-pause { color: #1d1d1f; background: rgba(0,0,0,0.07); }
+    .video-band.is-light .stage-pause:hover { background: rgba(0,0,0,0.13); }
 
     /* phones held upright: the vertical cut of the film, 4:5 loops for the bands */
     @media (max-width: 760px) and (orientation: portrait) {
-      .film-media { aspect-ratio: 9 / 16; max-height: 100vh; max-height: 100svh; }
-      .film-media video { background-image: url('assets/film-brain-burst-vertical-poster.webp'); }
       .video-band { height: 125vw; min-height: 0; }
+      .video-band.is-light {
+        --copy-h: 214px;
+        height: min(100vh, calc(177.78vw + var(--copy-h)));
+        height: min(100svh, calc(177.78vw + var(--copy-h)));
+      }
+      .video-band.is-light video { background-image: url('assets/film-brain-burst-vertical-poster.webp'); }
       #spot { background-image: url('assets/spot-loop-portrait-poster.webp'); }
       #video { background-image: url('assets/demo-loop-portrait-poster.webp'); }
     }
@@ -2430,12 +2404,18 @@
       </div>
     </section>
 
-    <!-- FILM · the hand-drawn film and its title on one white canvas; plays muted once well in view -->
-    <section class="film-stage" id="film" aria-labelledby="film-title">
-      <div class="film-inner">
-        <div class="film-copy">
-          <h2 id="film-title"><span class="lang-en">You are not meant<br /> to remember<br /> everything.</span> <span class="lang-it">Non devi<br /> ricordare tutto.</span></h2>
-          <div class="film-actions">
+    <!-- FILM · the hand-drawn film full screen on white, title over its lower edge; plays muted once well in view -->
+    <section class="video-band is-light" id="film" aria-labelledby="film-title">
+      <video class="auto-video" muted loop playsinline preload="none" disablepictureinpicture
+             data-src="assets/film-brain-burst.mp4"
+             data-src-portrait="assets/film-brain-burst-vertical.mp4"
+             data-poster="assets/film-brain-burst-poster.webp"
+             data-poster-portrait="assets/film-brain-burst-vertical-poster.webp"
+             data-play-at="0.6"
+             aria-label="Hand-drawn SecondBrain film: a head full of notes, reminders and dates bursts, then SecondBrain connects the dots"></video>
+      <div class="band-copy">
+        <h2 id="film-title"><span class="lang-en">You are not meant<br /> to remember everything.</span> <span class="lang-it">Non devi<br /> ricordare tutto.</span></h2>
+        <div class="band-actions">
           <button type="button" class="stage-btn" data-sound hidden>
             <span class="when-off">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
@@ -2451,16 +2431,6 @@
             <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
             <svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg>
           </button>
-          </div>
-        </div>
-        <div class="film-media">
-          <video class="auto-video" muted loop playsinline preload="none" disablepictureinpicture
-                 data-src="assets/film-brain-burst.mp4"
-                 data-src-portrait="assets/film-brain-burst-vertical.mp4"
-                 data-poster="assets/film-brain-burst-poster.webp"
-                 data-poster-portrait="assets/film-brain-burst-vertical-poster.webp"
-                 data-play-at="0.6"
-                 aria-label="Hand-drawn SecondBrain film: a head full of notes, reminders and dates bursts, then SecondBrain connects the dots"></video>
         </div>
       </div>
     </section>
@@ -3636,7 +3606,7 @@
   // The film's button: start over with sound, or mute it again.
   // Its label carries the state ("Play with sound" / "Mute").
   document.querySelectorAll('[data-sound]').forEach(btn => {
-    const v = btn.closest('.film-stage').querySelector('video');
+    const v = btn.closest('.video-band').querySelector('video');
     if (!v) return;
     btn.hidden = false;
     btn.addEventListener('click', () => {
@@ -3658,7 +3628,7 @@
 
   // Pause/play on every loop; a video the visitor paused stays paused.
   document.querySelectorAll('[data-pause]').forEach(btn => {
-    const v = btn.closest('.video-band, .film-stage').querySelector('video');
+    const v = btn.closest('.video-band').querySelector('video');
     if (!v) return;
     btn.hidden = false;
     const sync = () => {
