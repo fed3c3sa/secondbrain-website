@@ -7,6 +7,7 @@ SecondBrain is the AI second brain app for iPhone, Android and the web (app.seco
 - Voice capture: you record one voice note and SecondBrain writes a structured note, gives it a title and files it in the right folder, automatically.
 - Calendar and follow-ups: calendar events, reminders and follow-ups mentioned in your voice note are created while you talk, with two-way iPhone Calendar sync.
 - Recall: ask the app anything about your own notes and schedule and it answers from your memory.
+- Photos and files: on iPhone and Android, share a photo, a screenshot, a PDF or a text file (.txt, .md, .csv, up to 10 MB) to SecondBrain from another app, or attach it with the paperclip in the app. It reads the content, including text inside images, writes a note and files it in the right folder on its own; dates it finds can become events or reminders. Works on the free plan within the daily AI limits. Word and Excel files are not read directly.
 - Shared AI memory (Pro): the same memory is exposed through an MCP server, so Claude, ChatGPT, Gemini, Cursor and Claude Code can save and recall facts in it. Tell one assistant, they all remember.
 - Markdown export (Pro, iPhone): Settings, then Export all notes, gives you a .zip containing one .md file per note, arranged in the folder tree you use in the app. Plain Markdown, so the files open in Obsidian, Notion, VS Code or any text editor with no plugin and no importer.
 

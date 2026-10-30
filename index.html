@@ -960,7 +960,7 @@
     main { padding-top: 58px; position: relative; z-index: 2; }
 
     /* ════════════════════════════════════════════════════════ */
-    /* HERO · compact; the film starts right under it           */
+    /* HERO · compact; the spot starts right under it           */
     /* ════════════════════════════════════════════════════════ */
     .hero {
       position: relative;
@@ -1137,147 +1137,41 @@
     }
 
     /* ════════════════════════════════════════════════════════ */
-    /* VIDEO FRAME                                              */
+    /* FULL-SCREEN VIDEOS · self-hosted muted loops, big title  */
+    /* The spot and the demo fill the width under their title;  */
+    /* the white film shares one white canvas with its title.   */
     /* ════════════════════════════════════════════════════════ */
-    .video-frame {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      border-radius: 24px;
-      overflow: hidden;
-      border: 1px solid var(--hairline);
-      background: var(--card);
-      box-shadow: var(--shadow-lg);
-    }
-    .video-poster { position: absolute; inset: 0; display: block; cursor: pointer; }
-    .video-poster img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 6s var(--ease-out);
-    }
-    .video-poster:hover img { transform: scale(1.03); }
-    .video-scrim {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.42), transparent 40%);
-    }
-    .video-play {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 78px; height: 78px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      color: #000;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 16px 48px rgba(0,0,0,0.35);
-      transition: transform .35s var(--ease-out);
-    }
-    .video-poster:hover .video-play { transform: translate(-50%, -50%) scale(1.06); }
-    .video-poster:active .video-play { transform: translate(-50%, -50%) scale(.95); transition-duration: .08s; }
-    .video-play svg { width: 25px; height: 25px; margin-left: 4px; }
-    .video-chip {
-      position: absolute;
-      left: 16px; bottom: 14px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      color: #fff;
-      padding: 7px 13px;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.45);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-    .video-frame iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-      border: 0;
-      z-index: 2;
-    }
     @media (max-width: 880px) {
-      .video-frame { border-radius: 18px; }
-      .video-play { width: 60px; height: 60px; }
-      .video-play svg { width: 20px; height: 20px; margin-left: 3px; }
       .hero { padding-bottom: 64px; }
       .hero-title { min-height: 0; }
     }
 
-    /* the demo sits inside "One memory. Every AI.", above the two splits */
-    .memory-film {
-      max-width: 1040px;
-      margin: 0 auto 104px;
-      scroll-margin-top: 96px;
-    }
-    @media (max-width: 880px) {
-      .memory-film { margin-bottom: 72px; }
-    }
-
-    /* ════════════════════════════════════════════════════════ */
-    /* FULL-SCREEN FILMS · self-hosted, muted, play while seen  */
-    /* The film stage is white like the film itself, so its    */
-    /* letterbox disappears; the spot band crops to fill.       */
-    /* ════════════════════════════════════════════════════════ */
-    .film-stage, .spot-band {
+    .video-band {
       position: relative;
       width: 100%;
-      overflow: hidden;
-    }
-    .film-stage video, .spot-band video {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-    }
-    .film-stage {
-      height: min(100vh, 56.25vw);
-      height: min(100svh, 56.25vw);
-      min-height: 300px;
-      background: #fff url('assets/film-brain-burst-poster.webp') center / contain no-repeat;
-    }
-    .film-stage video { object-fit: contain; }
-    /* light mode: the hero shares the film's white, so the drawings start right under the buttons */
-    html:not([data-theme="dark"]) .hero::before {
-      content: "";
-      position: absolute;
-      z-index: 0;
-      top: -58px; bottom: 0;
-      left: 50%;
-      width: 100vw;
-      transform: translateX(-50%);
-      background: #fff;
-    }
-    /* dark mode: a full-width white band would glare, so the film sits in a rounded frame */
-    html[data-theme="dark"] .film-stage {
-      width: calc(100% - 2 * var(--pad));
-      max-width: 1440px;
-      margin: 0 auto;
-      border-radius: 28px;
-      height: min(calc(100vh - 120px), calc((100vw - 2 * var(--pad)) * 0.5625));
-      height: min(calc(100svh - 120px), calc((100vw - 2 * var(--pad)) * 0.5625));
-    }
-    .spot-band {
       height: min(100vh, 56.25vw);
       height: min(100svh, 56.25vw);
       min-height: 440px;
-      background: #000 url('assets/spot-loop-poster.webp') center / cover no-repeat;
+      overflow: hidden;
       color: #fff;
+      background: #000 center / cover no-repeat;
     }
-    .spot-band video { object-fit: cover; }
-    .spot-band::after {
+    #spot { background-image: url('assets/spot-loop-poster.webp'); }
+    #video { background-image: url('assets/demo-loop-poster.webp'); }
+    .video-band video {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .video-band::after {
       content: "";
       position: absolute;
       inset: 0;
       background: linear-gradient(to top, rgba(0,0,0,0.66) 0%, rgba(0,0,0,0.22) 42%, rgba(0,0,0,0) 68%);
       pointer-events: none;
     }
-    .spot-copy {
+    .band-copy {
       position: absolute;
       z-index: 2;
       left: 0; right: 0; bottom: 0;
@@ -1290,15 +1184,15 @@
       flex-wrap: wrap;
       gap: 20px 32px;
     }
-    .spot-copy h2 {
+    .band-copy h2, .film-copy h2 {
       font-weight: 600;
       font-size: clamp(34px, 5.4vw, 72px);
       line-height: 1.04;
       letter-spacing: -0.025em;
-      text-shadow: 0 2px 28px rgba(0,0,0,0.28);
     }
+    .band-copy h2 { text-shadow: 0 2px 28px rgba(0,0,0,0.28); }
 
-    /* the one control on each film: a quiet glass pill */
+    /* the one control on each video: a quiet glass pill */
     .stage-btn {
       display: inline-flex;
       align-items: center;
@@ -1310,46 +1204,109 @@
       letter-spacing: -0.005em;
       white-space: nowrap;
       color: #fff;
-      background: rgba(0,0,0,0.74);
+      background: rgba(0,0,0,0.78);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       box-shadow: 0 10px 30px rgba(0,0,0,0.16);
       transition: transform .3s var(--ease-out), background .25s var(--ease);
     }
-    .stage-btn:hover { transform: translateY(-1px); background: rgba(0,0,0,0.86); }
+    .stage-btn:hover { transform: translateY(-1px); background: rgba(0,0,0,0.88); }
     .stage-btn:active { transform: scale(.97); transition-duration: .08s; }
     .stage-btn svg { width: 18px; height: 18px; flex: none; }
     .stage-btn.light { color: #000; background: rgba(255,255,255,0.9); }
     .stage-btn.light:hover { background: #fff; }
-    .stage-btn .stage-time { opacity: .55; font-variant-numeric: tabular-nums; }
+    .stage-btn .stage-time { opacity: .7; font-variant-numeric: tabular-nums; }
     .stage-btn .when-on, .stage-btn .when-off { display: inline-flex; align-items: center; gap: 9px; }
-    .stage-btn .when-on, .stage-btn[aria-pressed="true"] .when-off { display: none; }
-    .stage-btn[aria-pressed="true"] .when-on { display: inline-flex; }
-    .film-stage .stage-btn {
+    .stage-btn .when-on, .stage-btn.is-on .when-off { display: none; }
+    .stage-btn.is-on .when-on { display: inline-flex; }
+
+    /* pause/play for every looping video (the loops never stop on their own) */
+    .band-actions, .film-actions { display: flex; align-items: center; gap: 10px; }
+    .stage-pause {
+      width: 42px; height: 42px;
+      flex: none;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background .25s var(--ease), transform .3s var(--ease-out);
+    }
+    .stage-pause:hover { background: rgba(255,255,255,0.32); }
+    .stage-pause:active { transform: scale(.94); }
+    .stage-pause svg { width: 15px; height: 15px; }
+    .stage-pause .i-play { display: none; margin-left: 2px; }
+    .stage-pause.is-paused .i-play { display: block; }
+    .stage-pause.is-paused .i-pause { display: none; }
+    .film-stage .stage-pause { color: #1d1d1f; background: rgba(0,0,0,0.07); }
+    .film-stage .stage-pause:hover { background: rgba(0,0,0,0.13); }
+    html[data-theme="dark"] .film-stage .stage-pause { color: #fff; background: rgba(255,255,255,0.14); }
+    .stage-btn[hidden], .stage-pause[hidden] { display: none; }
+
+    /* the hand-drawn film is white, so its title sits beside it on the same white */
+    .film-stage {
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      color: #1d1d1f;
+    }
+    .film-inner {
+      max-width: 1680px;
+      min-height: min(100vh, 60vw);
+      min-height: min(100svh, 60vw);
+      margin: 0 auto;
+      padding: clamp(40px, 5vw, 80px) var(--pad);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      align-items: end;
+      align-content: center;
+      column-gap: clamp(8px, 2vw, 32px);
+    }
+    .film-copy { padding-bottom: clamp(8px, 2.4vw, 36px); }
+    .film-copy h2 { font-size: clamp(30px, 3.3vw, 56px); margin-bottom: 28px; }
+    .film-media {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      margin-right: calc(-1 * var(--pad));
+    }
+    .film-media video {
       position: absolute;
-      z-index: 2;
-      right: clamp(16px, 3vw, 40px);
-      bottom: clamp(16px, 3vw, 40px);
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: contain;
+      background: #fff url('assets/film-brain-burst-poster.webp') center / contain no-repeat;
+    }
+    /* dark mode: a white canvas would glare, so the film becomes a rounded white card */
+    html[data-theme="dark"] .film-stage { background: var(--bg); color: var(--text); }
+    html[data-theme="dark"] .film-media { margin-right: 0; }
+    html[data-theme="dark"] .film-media video { border-radius: 24px; }
+    html[data-theme="dark"] .film-stage .stage-btn { color: #000; background: rgba(255,255,255,0.9); }
+
+    @media (max-width: 880px) {
+      .film-inner {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        row-gap: 28px;
+        padding-top: 72px;
+        padding-bottom: 40px;
+      }
+      .film-copy { padding-bottom: 0; }
+      .film-copy h2 { font-size: clamp(34px, 7vw, 52px); margin-bottom: 20px; }
+      .film-media { margin: 0 calc(-1 * var(--pad)); }
+      html[data-theme="dark"] .film-media { margin: 0; }
+      html[data-theme="dark"] .film-media video { border-radius: 20px; }
     }
 
-    /* phones held upright: the vertical cut of the film fills the screen,
-       the spot keeps a 4:5 frame so its subjects stay in shot */
+    /* phones held upright: the vertical cut of the film, 4:5 loops for the bands */
     @media (max-width: 760px) and (orientation: portrait) {
-      .film-stage {
-        height: min(100vh, 177.78vw);
-        height: min(100svh, 177.78vw);
-        background-image: url('assets/film-brain-burst-vertical-poster.webp');
-      }
-      html[data-theme="dark"] .film-stage {
-        border-radius: 22px;
-        height: min(calc(100vh - 96px), calc((100vw - 2 * var(--pad)) * 1.7778));
-        height: min(calc(100svh - 96px), calc((100vw - 2 * var(--pad)) * 1.7778));
-      }
-      .spot-band {
-        height: 125vw;
-        min-height: 0;
-        background-image: url('assets/spot-loop-portrait-poster.webp');
-      }
+      .film-media { aspect-ratio: 9 / 16; max-height: 100vh; max-height: 100svh; }
+      .film-media video { background-image: url('assets/film-brain-burst-vertical-poster.webp'); }
+      .video-band { height: 125vw; min-height: 0; }
+      #spot { background-image: url('assets/spot-loop-portrait-poster.webp'); }
+      #video { background-image: url('assets/demo-loop-portrait-poster.webp'); }
     }
 
     /* ════════════════════════════════════════════════════════ */
@@ -2135,6 +2092,8 @@
       .top-bar { background: var(--card); backdrop-filter: none; -webkit-backdrop-filter: none; border-color: var(--hairline-strong); }
     }
   </style>
+  <link rel="preload" as="image" href="assets/spot-loop-poster.webp" fetchpriority="high" media="not all and (max-width: 760px) and (orientation: portrait)" />
+  <link rel="preload" as="image" href="assets/spot-loop-portrait-poster.webp" fetchpriority="high" media="(max-width: 760px) and (orientation: portrait)" />
 </head>
 <body>
 <script>(function(){try{var l=localStorage.getItem('sb-lang');if(l!=='it'&&l!=='en')l='en';document.documentElement.lang=l;}catch(e){document.documentElement.lang='en';}})();</script>
@@ -2189,7 +2148,7 @@
 <main id="main">
   <div id="home" class="page active">
 
-    <!-- HERO · headline and downloads; the film starts right under it -->
+    <!-- HERO · headline and downloads; the spot starts right under it -->
     <section class="hero">
       <span class="hero-blob b1" aria-hidden="true"></span>
       <span class="hero-blob b2" aria-hidden="true"></span>
@@ -2213,7 +2172,7 @@
 
         <p class="hero-sub anim d1">
           <span class="lang-en">Speak, or send a photo or a PDF. It becomes notes, events and reminders. And every AI you use remembers.</span>
-          <span class="lang-it">Parla, oppure mandagli una foto o un PDF: diventa note, eventi e promemoria. E ogni AI che usi se li ricorda.</span>
+          <span class="lang-it">Parla, oppure mandagli una foto o un PDF: ne ricava note, eventi e promemoria. E ogni AI che usi se li ricorda.</span>
         </p>
 
         <div class="cta-row anim d2">
@@ -2248,26 +2207,27 @@
 
     </section>
 
-    <!-- FILM · the hand-drawn film, full screen on white; plays muted while in view -->
-    <section class="film-stage" id="film" aria-label="Film: We are not meant to remember everything">
-      <video class="auto-video" muted loop playsinline preload="none" disablepictureinpicture
-             data-src="assets/film-brain-burst.mp4"
-             data-src-portrait="assets/film-brain-burst-vertical.mp4"
-             data-poster="assets/film-brain-burst-poster.webp"
-             data-poster-portrait="assets/film-brain-burst-vertical-poster.webp"
-             data-play-at="0.6"
-             aria-label="Hand-drawn SecondBrain film: a head full of notes, reminders and dates bursts, then SecondBrain connects the dots"></video>
-      <button type="button" class="stage-btn" data-sound aria-pressed="false">
-        <span class="when-off">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
-          <span class="lang-en">Play with sound</span><span class="lang-it">Guarda con l'audio</span>
-          <span class="stage-time">0:21</span>
-        </span>
-        <span class="when-on">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6"/><path d="m16 9 6 6"/></svg>
-          <span class="lang-en">Mute</span><span class="lang-it">Togli l'audio</span>
-        </span>
-      </button>
+    <!-- SPOT · a silent cut of the spot, full width under its title; the button plays the real one -->
+    <section class="video-band" id="spot" aria-labelledby="spot-title">
+      <video class="auto-video" muted loop playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1"
+             data-src="assets/spot-loop.mp4"
+             data-src-portrait="assets/spot-loop-portrait.mp4"
+             data-poster="assets/spot-loop-poster.webp"
+             data-poster-portrait="assets/spot-loop-portrait-poster.webp"></video>
+      <div class="band-copy">
+        <h2 id="spot-title"><span class="lang-en">Your thoughts,<br /> in your pocket.</span> <span class="lang-it">I tuoi pensieri,<br /> in tasca.</span></h2>
+        <div class="band-actions">
+          <a href="/videos/secondbrain-spot/" class="stage-btn light" data-yt="3Ga1u9QzOaw" data-title="SecondBrain: the spot">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg>
+            <span class="lang-en">Watch the spot</span><span class="lang-it">Guarda lo spot</span>
+            <span class="stage-time">0:51</span>
+          </a>
+          <button type="button" class="stage-pause" data-pause aria-label="Pause video" hidden>
+            <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            <svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg>
+          </button>
+        </div>
+      </div>
     </section>
 
     <!-- THE APP · seven screens -->
@@ -2319,7 +2279,7 @@
       <div class="file-flow anim d1">
         <article class="flow-card">
           <span class="flow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 8 5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg></span>
-          <h3><span class="lang-en">Share it from any app</span> <span class="lang-it">Condividilo da qualsiasi app</span></h3>
+          <h3><span class="lang-en">Share it from another app</span> <span class="lang-it">Condividilo da un'altra app</span></h3>
           <p><span class="lang-en">From Photos, Files or Mail, share it to SecondBrain. Or tap the paperclip in the app and take the photo right there.</span> <span class="lang-it">Da Foto, File o Mail lo condividi con SecondBrain. Oppure tocchi la graffetta nell'app e scatti la foto lì.</span></p>
         </article>
         <article class="flow-card">
@@ -2336,13 +2296,36 @@
 
       <div class="file-types anim d2">
         <span class="split-tag"><span class="lang-en">Photos</span> <span class="lang-it">Foto</span></span>
-        <span class="split-tag">Screenshot</span>
+        <span class="split-tag"><span class="lang-en">Screenshots</span> <span class="lang-it">Screenshot</span></span>
         <span class="split-tag">PDF</span>
         <span class="split-tag">.txt</span>
         <span class="split-tag">.md</span>
         <span class="split-tag">.csv</span>
       </div>
       <p class="file-note anim d2"><span class="lang-en">On iPhone and Android. Up to 10 MB per file.</span> <span class="lang-it">Su iPhone e Android. Fino a 10 MB per file.</span></p>
+    </section>
+
+    <!-- HOW IT WORKS · the walkthrough as a silent loop under its title; the button plays the real one -->
+    <section class="video-band" id="video" aria-labelledby="video-title">
+      <video class="auto-video" muted loop playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1"
+             data-src="assets/demo-loop.mp4"
+             data-src-portrait="assets/demo-loop-portrait.mp4"
+             data-poster="assets/demo-loop-poster.webp"
+             data-poster-portrait="assets/demo-loop-portrait-poster.webp"></video>
+      <div class="band-copy">
+        <h2 id="video-title"><span class="lang-en">How it works.</span> <span class="lang-it">Come funziona.</span></h2>
+        <div class="band-actions">
+          <a href="/videos/how-secondbrain-works/" class="stage-btn light" data-yt="miiynvYCZf4" data-title="SecondBrain: how it works">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg>
+            <span class="lang-en">Watch the demo</span><span class="lang-it">Guarda la demo</span>
+            <span class="stage-time">3:14</span>
+          </a>
+          <button type="button" class="stage-pause" data-pause aria-label="Pause video" hidden>
+            <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            <svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg>
+          </button>
+        </div>
+      </div>
     </section>
 
     <!-- SHARED MEMORY LAYER -->
@@ -2357,20 +2340,6 @@
           <span class="lang-en">Tell one assistant. They all remember.</span>
           <span class="lang-it">Lo dici a una, lo sanno tutte.</span>
         </p>
-      </div>
-
-      <!-- the 3-minute walkthrough: a big poster, the player loads on click -->
-      <div class="memory-film anim d1" id="video">
-        <div class="video-frame">
-          <a href="https://www.youtube.com/watch?v=miiynvYCZf4" target="_blank" rel="noopener" class="video-poster" data-yt="miiynvYCZf4" data-title="SecondBrain demo: This AI has INFINITE Memory. Here's how to use it." aria-label="Play the SecondBrain demo video: This AI has INFINITE Memory. Here's how to use it. (3 min 14 s)">
-            <img src="assets/video-poster.webp" alt="Still from the SecondBrain demo video 'This AI has INFINITE Memory. Here's how to use it.'" width="1280" height="720" loading="lazy" decoding="async" />
-            <span class="video-scrim" aria-hidden="true"></span>
-            <span class="video-play" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg>
-            </span>
-            <span class="video-chip">3:14 · <span class="lang-en">Watch how it works</span> <span class="lang-it">Guarda come funziona</span></span>
-          </a>
-        </div>
       </div>
 
       <div class="splits">
@@ -2461,20 +2430,38 @@
       </div>
     </section>
 
-    <!-- SPOT · a silent cut of the spot, full width; the button plays the real one -->
-    <section class="spot-band" id="spot" aria-labelledby="spot-title">
-      <video class="auto-video" muted loop playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1"
-             data-src="assets/spot-loop.mp4"
-             data-src-portrait="assets/spot-loop-portrait.mp4"
-             data-poster="assets/spot-loop-poster.webp"
-             data-poster-portrait="assets/spot-loop-portrait-poster.webp"></video>
-      <div class="spot-copy">
-        <h2 id="spot-title"><span class="lang-en">Your thoughts,<br /> in your pocket.</span> <span class="lang-it">I tuoi pensieri,<br /> in tasca.</span></h2>
-        <a href="/videos/secondbrain-spot/" class="stage-btn light" data-yt="3Ga1u9QzOaw" data-title="SecondBrain: the spot">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg>
-          <span class="lang-en">Watch the spot</span><span class="lang-it">Guarda lo spot</span>
-          <span class="stage-time">0:51</span>
-        </a>
+    <!-- FILM · the hand-drawn film and its title on one white canvas; plays muted once well in view -->
+    <section class="film-stage" id="film" aria-labelledby="film-title">
+      <div class="film-inner">
+        <div class="film-copy">
+          <h2 id="film-title"><span class="lang-en">You are not meant<br /> to remember<br /> everything.</span> <span class="lang-it">Non devi<br /> ricordare tutto.</span></h2>
+          <div class="film-actions">
+          <button type="button" class="stage-btn" data-sound hidden>
+            <span class="when-off">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+              <span class="lang-en">Play with sound</span><span class="lang-it">Guarda con l'audio</span>
+              <span class="stage-time">0:21</span>
+            </span>
+            <span class="when-on">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6"/><path d="m16 9 6 6"/></svg>
+              <span class="lang-en">Mute</span><span class="lang-it">Togli l'audio</span>
+            </span>
+          </button>
+          <button type="button" class="stage-pause" data-pause aria-label="Pause video" hidden>
+            <svg class="i-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            <svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg>
+          </button>
+          </div>
+        </div>
+        <div class="film-media">
+          <video class="auto-video" muted loop playsinline preload="none" disablepictureinpicture
+                 data-src="assets/film-brain-burst.mp4"
+                 data-src-portrait="assets/film-brain-burst-vertical.mp4"
+                 data-poster="assets/film-brain-burst-poster.webp"
+                 data-poster-portrait="assets/film-brain-burst-vertical-poster.webp"
+                 data-play-at="0.6"
+                 aria-label="Hand-drawn SecondBrain film: a head full of notes, reminders and dates bursts, then SecondBrain connects the dots"></video>
+        </div>
       </div>
     </section>
 
@@ -2850,18 +2837,9 @@
     <section class="section" id="watch" aria-labelledby="watch-title">
       <div class="section-head">
         <span class="eyebrow anim"><span class="lang-en">Watch</span> <span class="lang-it">Guarda</span></span>
-        <h2 class="anim d1" id="watch-title"><span class="lang-en">See it for yourself.</span> <span class="lang-it">Guardalo con i tuoi occhi.</span></h2>
+        <h2 class="anim d1" id="watch-title"><span class="lang-en">See it for yourself.</span> <span class="lang-it">Vedilo con i tuoi occhi.</span></h2>
       </div>
       <div class="watch-grid anim d1">
-        <a class="watch-card" href="/videos/we-are-not-meant-to-remember-everything/" data-yt="lNJhyQKaDZU" data-title="SecondBrain: We are not meant to remember everything">
-          <span class="watch-thumb is-light">
-            <img src="assets/film-brain-burst-poster.webp" alt="" width="1280" height="720" loading="lazy" decoding="async" />
-            <span class="watch-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg></span>
-            <span class="watch-time">0:21</span>
-          </span>
-          <span class="watch-title"><span class="lang-en">We are not meant to remember everything</span><span class="lang-it">Non siamo fatti per ricordare tutto</span></span>
-          <span class="watch-meta"><span class="lang-en">Hand-drawn film</span><span class="lang-it">Film disegnato a mano</span></span>
-        </a>
         <a class="watch-card" href="/videos/secondbrain-spot/" data-yt="3Ga1u9QzOaw" data-title="SecondBrain: the spot">
           <span class="watch-thumb">
             <img src="assets/film-spot-poster.webp" alt="" width="1280" height="720" loading="lazy" decoding="async" />
@@ -2871,14 +2849,23 @@
           <span class="watch-title"><span class="lang-en">Your thoughts, in your pocket</span><span class="lang-it">I tuoi pensieri, in tasca</span></span>
           <span class="watch-meta"><span class="lang-en">The spot</span><span class="lang-it">Lo spot</span></span>
         </a>
-        <a class="watch-card" href="/videos/how-secondbrain-works/" data-yt="miiynvYCZf4" data-title="SecondBrain demo: This AI has INFINITE Memory. Here's how to use it.">
+        <a class="watch-card" href="/videos/how-secondbrain-works/" data-yt="miiynvYCZf4" data-title="SecondBrain: how it works">
           <span class="watch-thumb">
             <img src="assets/video-poster.webp" alt="" width="1280" height="720" loading="lazy" decoding="async" />
             <span class="watch-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg></span>
             <span class="watch-time">3:14</span>
           </span>
-          <span class="watch-title"><span class="lang-en">How SecondBrain works</span><span class="lang-it">Come funziona SecondBrain</span></span>
-          <span class="watch-meta"><span class="lang-en">Walkthrough by its maker</span><span class="lang-it">Spiegato da chi l'ha creata</span></span>
+          <span class="watch-title"><span class="lang-en">How it works</span><span class="lang-it">Come funziona</span></span>
+          <span class="watch-meta"><span class="lang-en">Walkthrough by its maker</span><span class="lang-it">Spiegato da chi l'ha creato</span></span>
+        </a>
+        <a class="watch-card" href="/videos/we-are-not-meant-to-remember-everything/" data-yt="lNJhyQKaDZU" data-title="SecondBrain: We are not meant to remember everything">
+          <span class="watch-thumb is-light">
+            <img src="assets/film-brain-burst-poster.webp" alt="" width="1280" height="720" loading="lazy" decoding="async" />
+            <span class="watch-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg></span>
+            <span class="watch-time">0:21</span>
+          </span>
+          <span class="watch-title"><span class="lang-en">You are not meant to remember everything</span><span class="lang-it">Non devi ricordare tutto</span></span>
+          <span class="watch-meta"><span class="lang-en">Hand-drawn film</span><span class="lang-it">Film disegnato a mano</span></span>
         </a>
       </div>
       <p class="watch-more anim d2">
@@ -3606,22 +3593,6 @@
     document.querySelectorAll('.anim:not(.in)').forEach(el => observer.observe(el));
   }
 
-  // ── Video facades: load each YouTube player only on demand ──
-  document.querySelectorAll('.video-poster[data-yt]').forEach((poster) => {
-    poster.addEventListener('click', (e) => {
-      e.preventDefault();
-      const frame = poster.closest('.video-frame');
-      const iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube-nocookie.com/embed/' + poster.dataset.yt + '?autoplay=1&rel=0';
-      iframe.title = poster.dataset.title || 'SecondBrain video';
-      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-      iframe.allowFullscreen = true;
-      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-      frame.appendChild(iframe);
-      poster.remove();
-    });
-  });
-
   // ── Full-screen films: load near the viewport, play while seen ──
   // Muted loops, self-hosted. Phones held upright get the vertical cut.
   // The poster holds until a film is well in view (data-play-at), so the
@@ -3634,11 +3605,12 @@
   const loadVideo = (v) => {
     if (v.dataset.loaded) return;
     v.dataset.loaded = '1';
+    v.preload = 'auto';
     const portrait = portraitMQ.matches && v.dataset.srcPortrait;
     v.poster = portrait ? v.dataset.posterPortrait : v.dataset.poster;
     v.src = portrait ? v.dataset.srcPortrait : v.dataset.src;
   };
-  const wanted = (v) => canAutoplay || v.dataset.userPlay === '1';
+  const wanted = (v) => v.dataset.userPaused !== '1' && (canAutoplay || v.dataset.userPlay === '1');
   if ('IntersectionObserver' in window) {
     const nearObs = new IntersectionObserver((entries) => {
       entries.forEach(en => {
@@ -3662,21 +3634,49 @@
   }
 
   // The film's button: start over with sound, or mute it again.
+  // Its label carries the state ("Play with sound" / "Mute").
   document.querySelectorAll('[data-sound]').forEach(btn => {
-    const v = btn.parentElement.querySelector('video');
+    const v = btn.closest('.film-stage').querySelector('video');
     if (!v) return;
+    btn.hidden = false;
     btn.addEventListener('click', () => {
       loadVideo(v);
-      v.dataset.userPlay = '1';
       if (v.muted || v.paused) {
+        v.dataset.userPlay = '1';
+        v.dataset.userPaused = '';
         v.muted = false;
         try { v.currentTime = 0; } catch (e) {}
         v.play().catch(() => {});
-        btn.setAttribute('aria-pressed', 'true');
+        btn.classList.add('is-on');
       } else {
         v.muted = true;
-        if (!canAutoplay) v.pause();
-        btn.setAttribute('aria-pressed', 'false');
+        if (!canAutoplay) { v.pause(); delete v.dataset.userPlay; }
+        btn.classList.remove('is-on');
+      }
+    });
+  });
+
+  // Pause/play on every loop; a video the visitor paused stays paused.
+  document.querySelectorAll('[data-pause]').forEach(btn => {
+    const v = btn.closest('.video-band, .film-stage').querySelector('video');
+    if (!v) return;
+    btn.hidden = false;
+    const sync = () => {
+      btn.classList.toggle('is-paused', v.paused);
+      btn.setAttribute('aria-label', v.paused ? 'Play video' : 'Pause video');
+    };
+    sync();
+    v.addEventListener('play', sync);
+    v.addEventListener('pause', sync);
+    btn.addEventListener('click', () => {
+      if (v.paused) {
+        v.dataset.userPaused = '';
+        v.dataset.userPlay = '1';
+        loadVideo(v);
+        v.play().catch(() => {});
+      } else {
+        v.dataset.userPaused = '1';
+        v.pause();
       }
     });
   });
@@ -3696,6 +3696,7 @@
     iframe.allowFullscreen = true;
     iframe.referrerPolicy = 'strict-origin-when-cross-origin';
     playerFrame.replaceChildren(iframe);
+    player.setAttribute('aria-label', title || 'Video player');
     player.showModal();
     return true;
   }
@@ -3708,9 +3709,9 @@
     player.addEventListener('click', (e) => { if (e.target === player) player.close(); });
     player.querySelector('.player-close').addEventListener('click', () => player.close());
   }
-  document.querySelectorAll('a[data-yt]:not(.video-poster)').forEach(el => {
+  document.querySelectorAll('a[data-yt]').forEach(el => {
     el.addEventListener('click', (e) => {
-      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return; // new tab: the watch page
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; // new tab or download: the watch page
       if (openPlayer(el.dataset.yt, el.dataset.title)) e.preventDefault();
     });
   });
