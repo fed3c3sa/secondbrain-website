@@ -1355,8 +1355,11 @@
     /* ════════════════════════════════════════════════════════ */
     .watch-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 28px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+    }
+    @media (max-width: 1100px) and (min-width: 881px) {
+      .watch-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
     }
     .watch-card { display: flex; flex-direction: column; gap: 4px; }
     .watch-thumb {
@@ -2837,12 +2840,23 @@
           <span class="watch-title"><span class="lang-en">You are not meant to remember everything</span><span class="lang-it">Non devi ricordare tutto</span></span>
           <span class="watch-meta"><span class="lang-en">Hand-drawn film</span><span class="lang-it">Film disegnato a mano</span></span>
         </a>
+        <a class="watch-card" href="https://www.youtube.com/watch?v=LOfTKtfwc4I" target="_blank" rel="noopener" data-yt="LOfTKtfwc4I" data-title="SecondBrain Podcast, episode 1: Developers won't exist in 5 years">
+          <span class="watch-thumb">
+            <img src="assets/podcast-ep1-poster.webp" alt="" width="1280" height="720" loading="lazy" decoding="async" />
+            <span class="watch-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg></span>
+            <span class="watch-time">40:57</span>
+          </span>
+          <span class="watch-title"><span class="lang-en">Developers won't exist in 5 years</span><span class="lang-it">Tra 5 anni gli sviluppatori non esisteranno</span></span>
+          <span class="watch-meta"><span class="lang-en">SecondBrain Podcast, episode 1</span><span class="lang-it">SecondBrain Podcast, episodio 1</span></span>
+        </a>
       </div>
       <p class="watch-more anim d2">
-        <a href="https://www.youtube.com/@SecondBrain-AISmartMemory" target="_blank" rel="noopener" class="link-arrow">
-          <span class="lang-en">More on YouTube</span>
-          <span class="lang-it">Altri video su YouTube</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <a href="https://www.youtube.com/@SecondBrain-AISmartMemory" target="_blank" rel="noopener" class="btn btn-ghost">
+          <span class="glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+          </span>
+          <span class="lang-en">Subscribe on YouTube</span>
+          <span class="lang-it">Iscriviti al canale YouTube</span>
         </a>
       </p>
     </section>
@@ -3339,6 +3353,7 @@
       <a href="https://apps.apple.com/us/app/secondbrain-ai-memory/id6762130376" target="_blank" rel="noopener">App Store</a>
       <a href="https://play.google.com/store/apps/details?id=app.secondbrain.android" target="_blank" rel="noopener">Google Play</a>
       <a href="https://www.producthunt.com/products/secondbrain" target="_blank" rel="noopener">Product Hunt</a>
+      <a href="https://www.youtube.com/@SecondBrain-AISmartMemory" target="_blank" rel="noopener"><span class="lang-en">YouTube channel</span> <span class="lang-it">Canale YouTube</span></a>
       <a href="#home" data-route="home"><span class="lang-en">Overview</span> <span class="lang-it">Panoramica</span></a>
       <a href="#video-jump" data-route="home" data-scroll-to="video"><span class="lang-en">How it works</span> <span class="lang-it">Come funziona</span></a>
       <a href="/videos/how-secondbrain-works/"><span class="lang-en">Watch the demo</span> <span class="lang-it">Guarda la demo</span></a>
