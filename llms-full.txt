@@ -168,7 +168,7 @@ SecondBrain is an AI voice notes app that exports to Markdown. You speak, Second
 
 Video pages with transcripts: https://secondbrainmemory.com/videos/how-secondbrain-works/ (the demo), https://secondbrainmemory.com/videos/secondbrain-spot/ (the 51-second spot), https://secondbrainmemory.com/videos/we-are-not-meant-to-remember-everything/ (the 21-second hand-drawn film).
 
-SecondBrain Podcast, episode 1: "AI Engineer: Developers Won't Exist in 5 Years (Do This)" (40 minutes 57 seconds, October 2026). Kevin Faggioli talks with AI engineer Federico Cesarini, creator of SecondBrain, about AI and the future of work: which jobs AI replaces, AI doctors, building your own apps with Claude, what a $20 AI plan really costs, the AI bubble, and whether AI makes us more productive or just overwhelmed. https://www.youtube.com/watch?v=LOfTKtfwc4I
+SecondBrain Podcast, episode 1: "AI Engineer: Developers Won't Exist in 5 Years (Do This)" (40 minutes 57 seconds, October 2026). Kevin Faggioli talks with AI engineer Federico Cesarini, creator of SecondBrain, about AI and the future of work: whether AI will replace your job, AI doctors, building your own apps with Claude, what a $20 AI plan really costs, the AI bubble, and whether AI makes us more productive or just overwhelmed. https://www.youtube.com/watch?v=LOfTKtfwc4I
 
 ## Links
 
