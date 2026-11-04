@@ -17,7 +17,7 @@
 
   <meta property="og:site_name" content="SecondBrain" />
   <meta property="og:title" content="How to build a second brain in Obsidian, and feed it from your phone" />
-  <meta property="og:description" content="A simple Obsidian setup that lasts, the plugins worth adding, every way to capture from iPhone and Android, and how Claude Code works on your vault." />
+  <meta property="og:description" content="A simple Obsidian setup that lasts, the plugins worth adding, the main ways to capture from iPhone and Android, and how Claude Code works on your vault." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://secondbrainmemory.com/blog/obsidian-second-brain/" />
   <meta property="og:image" content="https://secondbrainmemory.com/assets/blog/obsidian-second-brain-og.png" />
@@ -30,7 +30,7 @@
   <meta property="article:section" content="Guides" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="How to build a second brain in Obsidian, and feed it from your phone" />
-  <meta name="twitter:description" content="A simple Obsidian setup that lasts, the plugins worth adding, every way to capture from iPhone and Android, and how Claude Code works on your vault." />
+  <meta name="twitter:description" content="A simple Obsidian setup that lasts, the plugins worth adding, the main ways to capture from iPhone and Android, and how Claude Code works on your vault." />
   <meta name="twitter:image" content="https://secondbrainmemory.com/assets/blog/obsidian-second-brain-og.png" />
 
   <script type="application/ld+json">
@@ -130,7 +130,7 @@
       },
       "inLanguage": "en",
       "articleSection": "Guides",
-      "wordCount": 2573,
+      "wordCount": 2655,
       "keywords": [
         "obsidian second brain",
         "second brain obsidian",
@@ -157,12 +157,14 @@
       "citation": [
         "https://obsidian.md/help/data-storage",
         "https://obsidian.md/license",
+        "https://obsidian.md/blog/free-for-work/",
         "https://obsidian.md/sync",
         "https://obsidian.md/publish",
         "https://obsidian.md/help/ios",
         "https://obsidian.md/changelog/2026-11-02-mobile-v1.15.0/",
         "https://obsidian.md/changelog/2026-10-05-mobile-v1.14.4/",
         "https://obsidian.md/help/android",
+        "https://obsidian.md/help/plugins/backlinks",
         "https://obsidian.md/help/plugins/daily-notes",
         "https://obsidian.md/help/plugins/templates",
         "https://obsidian.md/help/properties",
@@ -170,6 +172,7 @@
         "https://obsidian.md/help/plugins/canvas",
         "https://obsidian.md/help/web-clipper",
         "https://obsidian.md/help/plugins/audio-recorder",
+        "https://zettelkasten.de/posts/collectors-fallacy/",
         "https://fortelabs.com/blog/para/",
         "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
         "https://code.claude.com/docs/en/memory",
@@ -231,7 +234,7 @@
           "name": "Can Obsidian transcribe voice notes?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "On iPhone with iOS 26, yes: since version 1.15, released on November 2, 2026, Quick Capture's Voice Capture transcribes as you speak and can keep the recording. The Audio recorder core plugin only records, and the community Whisper plugin transcribes through an online API with your own key. A transcript is still raw text, though; SecondBrain turns what you say into a titled note in the right folder, with any reminder set."
+            "text": "On iPhone with iOS 26 or later, yes: since version 1.15, released on November 2, 2026, Quick Capture's Voice Capture transcribes as you speak and can keep the recording. The Audio recorder core plugin only records, and the community Whisper plugin transcribes through OpenAI, Groq, Azure or another Whisper-compatible API with your own key. Filing is still up to you, though; SecondBrain turns what you say into a titled note in the right folder, with any reminder set."
           }
         },
         {
@@ -239,7 +242,7 @@
           "name": "How do I capture into Obsidian on Android?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Obsidian's Android help documents widgets, Quick Settings integration and shortcuts, while Quick Capture and Voice Capture are documented for iOS. So on Android you open Obsidian from a widget or shortcut and type, or record with the Audio recorder. If you capture by voice on Android, SecondBrain writes and files the note there, and with SecondBrain Pro, Claude Code can read those notes and file them into your vault."
+            "text": "Open Obsidian from a home screen widget, a Quick Settings tile or an app shortcut and type, or record with the Audio recorder, which does not transcribe. Quick Capture and Voice Capture are documented only for iOS. If you capture by voice on Android, SecondBrain writes and files the note there, and with SecondBrain Pro, Claude Code can read those notes and write them into your vault when you ask."
           }
         },
         {
@@ -247,7 +250,7 @@
           "name": "Can Claude read my Obsidian vault?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Claude Code works directly on the Markdown files when you start it in the vault folder, and a CLAUDE.md file there tells it your rules. Claude Desktop and other MCP clients can reach the vault through the community Local REST API plugin while Obsidian is open on your computer. Whatever the agent reads goes to the model provider, so keep private notes out of reach. With SecondBrain Pro, Claude can also read the notes you captured by voice on your phone."
+            "text": "Yes. Claude Code works directly on the Markdown files when you start it in the vault folder, and a CLAUDE.md file there tells it your rules. Other MCP clients can reach the vault through the community Local REST API plugin while Obsidian is open on your computer, and Claude Desktop can too through the mcp-remote bridge. Whatever the agent reads goes to the model provider, so keep private notes out of the folder you open it in. With SecondBrain Pro, Claude can also read the notes you captured by voice on your phone."
           }
         },
         {
@@ -294,7 +297,7 @@
           "@type": "HowToStep",
           "position": 5,
           "name": "Set up capture on your phone",
-          "text": "On iPhone with iOS 26, put Quick Capture on the Lock Screen and send captures to today's daily note or an Inbox note; on Android, add an Obsidian widget. For web pages, install the official Web Clipper."
+          "text": "On iPhone with iOS 26 or later, put Quick Capture on the Lock Screen and send captures to today's daily note or a new note in 0 Inbox; on Android, add an Obsidian widget. For web pages, install the official Web Clipper."
         },
         {
           "@type": "HowToStep",
@@ -500,14 +503,14 @@
 <main id="main" class="article">
   <p class="crumb"><a href="/">SecondBrain</a> · <a href="/blog/">Blog</a> · Obsidian second brain</p>
   <h1>How to build a second brain in Obsidian, and feed it from your phone</h1>
-  <p class="byline">By <a href="#author">Federico Cesarini</a>, maker of SecondBrain · Updated <time datetime="2026-11-04">November 4, 2026</time> · 11 min read</p>
+  <p class="byline">By <a href="#author">Federico Cesarini</a>, maker of SecondBrain · Updated <time datetime="2026-11-04">November 4, 2026</time> · 12 min read</p>
 
-  <div class="tldr"><strong>In short:</strong> Obsidian is one of the best homes for a second brain: it is free, it keeps every note as a plain Markdown file in a folder you own, and AI agents such as Claude Code can work on that folder. Start with five folders, daily notes and one capture habit, and add plugins only when you miss something. On iPhone with iOS 26, Quick Capture and Voice Capture put typed or spoken notes straight into your vault; what Obsidian leaves to you is the filing. SecondBrain does that part: you talk, it writes the note, files it and sets reminders, and with SecondBrain Pro the notes reach your vault as Markdown.</div>
+  <div class="tldr"><strong>In short:</strong> Obsidian is one of the best homes for a second brain: it is free, it keeps every note as a plain Markdown file in a folder you own, and AI agents such as Claude Code can work on that folder. Start with five folders, daily notes and one capture habit, and add plugins only when you miss something. On iPhone with iOS 26 or later, Quick Capture and Voice Capture put typed or spoken notes straight into your vault; what Obsidian leaves to you is the filing. SecondBrain does that part: you talk, it writes the note, files it and sets reminders, and with SecondBrain Pro you can bring the notes into your vault as Markdown, by exporting on iPhone or asking Claude Code over MCP.</div>
 
   <nav class="toc" aria-label="In this article"><p class="toc-title">In this article</p><ol><li><a href="#is-obsidian-good">Is Obsidian good for a second brain?</a></li><li><a href="#set-up">How to set up an Obsidian second brain, step by step</a></li><li><a href="#structure">PARA, Zettelkasten or no folders: which structure fits?</a></li><li><a href="#plugins">Which Obsidian plugins does a second brain need?</a></li><li><a href="#phone-capture">How do you capture into Obsidian from your phone?</a></li><li><a href="#claude-code">How do you connect Claude Code to your Obsidian vault?</a></li><li><a href="#obsidian-or-app">Obsidian, SecondBrain, or both?</a></li><li><a href="#mistakes">Mistakes that kill an Obsidian second brain</a></li><li><a href="#faq">Questions people ask</a></li></ol></nav>
 
 <h2 id="is-obsidian-good">Is Obsidian good for a second brain?</h2>
-<p>Yes, if you want to own your notes and do not mind shaping the system yourself. Obsidian keeps every note as a plain Markdown file in a folder on your device, which it calls a vault (<a href="https://obsidian.md/help/data-storage" target="_blank" rel="noopener">Obsidian Help</a>), links notes in both directions, and has been free for personal and work use since February 2025 (<a href="https://obsidian.md/license" target="_blank" rel="noopener">license</a>). It keeps whatever you give it. The filing is up to you.</p>
+<p>Yes, if you want to own your notes and do not mind shaping the system yourself. Obsidian keeps every note as a plain Markdown file in a folder on your device, which it calls a vault (<a href="https://obsidian.md/help/data-storage" target="_blank" rel="noopener">Obsidian Help</a>), links notes in both directions (<a href="https://obsidian.md/help/plugins/backlinks" target="_blank" rel="noopener">backlinks</a>), and has been free for personal and work use since February 2025 (<a href="https://obsidian.md/blog/free-for-work/" target="_blank" rel="noopener">Obsidian's announcement</a>). It keeps whatever you give it. The filing is up to you.</p>
 <p>What makes it a strong home for a <a href="/blog/what-is-a-second-brain/">second brain</a>:</p>
 <ul>
   <li><strong>Files you own.</strong> Plain Markdown opens in any text editor and will outlive any app, Obsidian included.</li>
@@ -525,7 +528,7 @@
   <li><strong>Make five folders.</strong> Create 0 Inbox, 1 Projects, 2 Areas, 3 Resources and 4 Archive. That is Tiago Forte's PARA method with an inbox in front, which Forte designed to work across any platform.</li>
   <li><strong>Turn on daily notes and templates.</strong> Both are core plugins. Give the daily note a template with a Captured heading, so anything you jot down during the day has one obvious home.</li>
   <li><strong>Add a few properties.</strong> Give project notes properties such as status and due date, then create a base to see them as a table or cards, with no community plugin.</li>
-  <li><strong>Set up capture on your phone.</strong> On iPhone with iOS 26, put Quick Capture on the Lock Screen and send captures to today's daily note or an Inbox note; on Android, add an Obsidian widget. For web pages, install the official Web Clipper.</li>
+  <li><strong>Set up capture on your phone.</strong> On iPhone with iOS 26 or later, put Quick Capture on the Lock Screen and send captures to today's daily note or a new note in 0 Inbox; on Android, add an Obsidian widget. For web pages, install the official Web Clipper.</li>
   <li><strong>Sync the vault to your phone.</strong> Use Obsidian Sync, from 4 dollars per user per month billed yearly, or a sync method you set up yourself, so the same vault opens everywhere.</li>
   <li><strong>Review once a week.</strong> Empty the Inbox into a project, an area, a resource or the archive, and delete what no longer matters. Ten minutes is enough.</li>
 </ol>
@@ -560,7 +563,7 @@
 <p>The Zettelkasten comes from the sociologist Niklas Luhmann's paper slip box, which our <a href="/blog/what-is-a-second-brain/">guide to the second brain</a> covers with the rest of the idea's history.</p>
 
 <h2 id="plugins">Which Obsidian plugins does a second brain need?</h2>
-<p>Fewer than the setup videos suggest. The core plugins that ship with Obsidian cover a working second brain: daily notes, templates, properties with Bases views, Canvas and the Web Clipper. Add a community plugin only when you can name the problem it solves, because each one is another thing to update and trust.</p>
+<p>Fewer than the setup videos suggest. The core plugins that ship with Obsidian cover a working second brain: daily notes, templates, properties with Bases views and Canvas, plus Obsidian's free Web Clipper browser extension for web pages. Add a community plugin only when you can name the problem it solves, because each one is another thing to update and trust.</p>
 <div class="cmp wide">
   <table>
     <caption>Obsidian plugins worth knowing for a second brain, November 2026</caption>
@@ -572,7 +575,7 @@
       <tr><td>Web Clipper</td><td>Obsidian (browser extension)</td><td>Saves web pages into your vault</td><td>A supported browser</td></tr>
       <tr><td>Audio recorder</td><td>Obsidian (core)</td><td>Records audio into a note; it does not transcribe</td><td>A microphone</td></tr>
       <tr><td>Smart Connections</td><td>Community</td><td>Finds related notes with a local embedding model</td><td>No API key</td></tr>
-      <tr><td>Copilot</td><td>Community</td><td>Runs agents such as Claude Code, Codex or OpenCode inside Obsidian</td><td>Your own login, API key or local model</td></tr>
+      <tr><td>Copilot</td><td>Community</td><td>Runs agents such as Claude Code, Codex or OpenCode inside Obsidian</td><td>Your own login, API key or local model; agents run on desktop only</td></tr>
       <tr><td>Whisper</td><td>Community</td><td>Records or uploads audio and transcribes it</td><td>An API key (OpenAI, Groq, Azure or compatible)</td></tr>
       <tr><td>Local REST API</td><td>Community</td><td>A local API and MCP server, so Claude and other AI clients can reach the vault</td><td>Obsidian open on your computer</td></tr>
     </tbody>
@@ -581,23 +584,23 @@
 <p>Sources: Obsidian's help on <a href="https://obsidian.md/help/plugins/canvas" target="_blank" rel="noopener">Canvas</a>, the <a href="https://obsidian.md/help/web-clipper" target="_blank" rel="noopener">Web Clipper</a> and the <a href="https://obsidian.md/help/plugins/audio-recorder" target="_blank" rel="noopener">Audio recorder</a>, and each community plugin's own page: <a href="https://github.com/brianpetro/obsidian-smart-connections" target="_blank" rel="noopener">Smart Connections</a>, <a href="https://github.com/logancyang/obsidian-copilot" target="_blank" rel="noopener">Copilot</a>, <a href="https://github.com/nikdanilov/whisper-obsidian-plugin" target="_blank" rel="noopener">Whisper</a> and <a href="https://github.com/coddingtonbear/obsidian-local-rest-api" target="_blank" rel="noopener">Local REST API</a>.</p>
 
 <h2 id="phone-capture">How do you capture into Obsidian from your phone?</h2>
-<p>On iPhone with iOS 26, use Quick Capture: it opens from the Lock Screen, Control Center or a widget without waiting for the vault to load, and since Obsidian 1.15, released on November 2, 2026, its Voice Capture transcribes as you speak. Obsidian's Shortcuts actions can also add text to your daily note without opening the app. On Android, Obsidian documents widgets and shortcuts.</p>
+<p>On iPhone with iOS 26 or later, use Quick Capture: it opens from the Lock Screen, Control Center or a widget without waiting for the vault to load, and since Obsidian 1.15, released on November 2, 2026, its Voice Capture transcribes as you speak. Obsidian's Shortcuts actions can also add text to your daily note without opening the app. On Android, Obsidian documents widgets and shortcuts.</p>
 <div class="cmp wide">
   <table>
     <caption>Ways to get phone captures into Obsidian, November 2026</caption>
     <thead><tr><th>Option</th><th>Platforms</th><th>Voice</th><th>What lands in the vault</th><th>Who files it</th></tr></thead>
     <tbody>
-      <tr><td>Quick Capture (Obsidian)</td><td>iPhone with iOS 26</td><td>Voice Capture transcribes as you speak</td><td>A new note, today's daily note or a bookmarked note, optionally with the recording</td><td>You, later</td></tr>
+      <tr><td>Quick Capture (Obsidian)</td><td>iPhone with iOS 26 or later</td><td>Voice Capture transcribes as you speak</td><td>A new note, today's daily note or a bookmarked note, optionally with the recording</td><td>You, later</td></tr>
       <tr><td>Shortcuts "Capture to Daily Note" (Obsidian)</td><td>iPhone</td><td>No</td><td>Text added to the daily note, without opening the app</td><td>You, later</td></tr>
       <tr><td>Widgets and shortcuts (Obsidian)</td><td>Android</td><td>No built-in transcription documented</td><td>Whatever you type once Obsidian opens</td><td>You, later</td></tr>
-      <tr><td>Whisper plugin</td><td>Desktop and mobile</td><td>Yes, through an online API with your own key</td><td>A transcript in your note</td><td>You, later</td></tr>
-      <tr><td>SecondBrain</td><td>iPhone, Android and web</td><td>Yes: tap and talk</td><td>A written, titled note in the right folder, plus events and reminders; it reaches the vault with SecondBrain Pro (see below)</td><td>SecondBrain, as you speak</td></tr>
+      <tr><td>Whisper plugin</td><td>Desktop and mobile</td><td>Yes, through OpenAI, Groq, Azure or another Whisper-compatible API, with your own key</td><td>A transcript at the cursor or in a new note, optionally cleaned up and titled by an LLM</td><td>You, later</td></tr>
+      <tr><td>SecondBrain</td><td>iPhone, Android and web</td><td>Yes: tap and talk</td><td>A written, titled note in the right folder, plus events and reminders; you can bring it into the vault with SecondBrain Pro (see below)</td><td>SecondBrain, once you stop talking</td></tr>
     </tbody>
   </table>
 </div>
 <p>Sources: <a href="https://obsidian.md/help/ios" target="_blank" rel="noopener">Obsidian for iOS</a>, the <a href="https://obsidian.md/changelog/2026-11-02-mobile-v1.15.0/" target="_blank" rel="noopener">1.15</a> and <a href="https://obsidian.md/changelog/2026-10-05-mobile-v1.14.4/" target="_blank" rel="noopener">1.14</a> mobile changelogs, and <a href="https://obsidian.md/help/android" target="_blank" rel="noopener">Obsidian for Android</a>.</p>
 <h3>Capturing is not filing</h3>
-<p>A transcript in your daily note is a start, not a second brain. Someone still has to give it a title, split the three things you said into three notes, file each one and turn "dentist Thursday at ten" into an actual reminder. That is the step most people skip, and it is why so many vaults turn into an inbox nobody empties.</p>
+<p>A transcript in your daily note is a start, not a second brain. Someone still has to give it a title, file it and turn "dentist Thursday at ten" into an actual reminder. That is the step most people skip, and it is why so many vaults turn into an inbox nobody empties.</p>
 <p>SecondBrain does that step. You tap and talk on iPhone, Android or the web; it writes a clean note, files it in the right folder and creates the calendar event or reminder you asked for. To bring those notes into Obsidian there are two routes, both with SecondBrain Pro:</p>
 <ul>
   <li><strong>Export.</strong> On iPhone, Settings, Export all notes gives you a .zip with one Markdown file per note in the same folder tree as the app. Unzip it into your vault and the notes open straight away, with no plugin.</li>
@@ -606,28 +609,28 @@
 <p>Neither is a live sync: you decide when notes move, and your vault stays yours.</p>
 
 <h2 id="claude-code">How do you connect Claude Code to your Obsidian vault?</h2>
-<p>Open a terminal in your vault folder and start Claude Code: it reads and edits the Markdown files directly, and a CLAUDE.md file in the vault tells it your folders and rules at the start of every session (<a href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener">Claude Code docs</a>). To reach the vault from Claude Desktop or other MCP clients, the community Local REST API plugin runs an MCP server while Obsidian is open on your computer.</p>
+<p>Open a terminal in your vault folder and start Claude Code: it reads and edits the Markdown files directly, and a CLAUDE.md file in the vault tells it your folders and rules at the start of every session (<a href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener">Claude Code docs</a>). For other MCP clients, the community Local REST API plugin runs an MCP server inside Obsidian while it is open on your computer; Claude Desktop connects through the mcp-remote bridge, which needs Node.js.</p>
 <ul>
-  <li><strong>Write the rules once.</strong> In CLAUDE.md, list your five folders, what belongs in each, how you name notes and what the agent must never touch. It is the schema in Andrej Karpathy's <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f" target="_blank" rel="noopener">LLM Wiki</a> pattern, where an agent keeps a wiki of linked Markdown pages up to date as you add sources.</li>
+  <li><strong>Write the rules once.</strong> In CLAUDE.md, list your five folders, what belongs in each, how you name notes and which folders to leave alone. CLAUDE.md guides the agent but locks nothing, so keep notes it must never read out of the vault. It is the schema in Andrej Karpathy's <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f" target="_blank" rel="noopener">LLM Wiki</a> pattern, where an agent keeps a wiki of linked Markdown pages up to date as you add sources.</li>
   <li><strong>Borrow a starting point.</strong> Community projects give you one: <a href="https://github.com/AgriciDaniel/claude-obsidian" target="_blank" rel="noopener">claude-obsidian</a> is built on Karpathy's pattern, and <a href="https://github.com/eugeniughelbur/obsidian-second-brain" target="_blank" rel="noopener">obsidian-second-brain</a> keeps a Markdown memory for Claude Code and other agents in your vault. They are independent projects, not made by Obsidian, so read what they change before running them.</li>
   <li><strong>Stay inside Obsidian if you prefer.</strong> The <a href="https://github.com/logancyang/obsidian-copilot" target="_blank" rel="noopener">Copilot</a> plugin runs Claude Code, Codex or OpenCode inside Obsidian.</li>
   <li><strong>Protect the vault.</strong> Keep a backup or version history before an agent edits your notes, and remember that anything it reads goes to the model provider. Pages you clip from the web can also carry instructions written for AI, so review what an agent did after it reads them.</li>
 </ul>
-<p>Can AI organize the whole vault for you? It can file, link and summarize, and the LLM wiki pattern does exactly that. The risk is the one every second brain faces: an agent that files everything can bury you in pages you never read, the collector's fallacy at machine speed. Let it file what you chose to keep, not everything you ever saw. Our <a href="/blog/ai-second-brain/">AI second brain guide</a> compares this route with the others.</p>
+<p>Can AI organize the whole vault for you? It can file, link and summarize, and the LLM wiki pattern does exactly that. The risk is the one every second brain faces: an agent that files everything can bury you in pages you never read, what Christian Tietze calls <a href="https://zettelkasten.de/posts/collectors-fallacy/" target="_blank" rel="noopener">the collector's fallacy</a>, at machine speed. Let it file what you chose to keep, not everything you ever saw. Our <a href="/blog/ai-second-brain/">AI second brain guide</a> compares this route with the others.</p>
 
 <h2 id="obsidian-or-app">Obsidian, SecondBrain, or both?</h2>
-<p>They solve different halves of the same problem. Obsidian is a place to think with your notes; SecondBrain is the fastest way to get notes in, filed and turned into reminders. Many people use one for each half.</p>
+<p>They solve different halves of the same problem. Obsidian is a place to think with your notes; SecondBrain turns what you say into filed notes, events and reminders. You can use one for each half.</p>
 <div class="cmp wide">
   <table>
     <caption>Obsidian, SecondBrain, or both</caption>
     <thead><tr><th></th><th>Obsidian</th><th>SecondBrain</th><th>Both together</th></tr></thead>
     <tbody>
-      <tr><td>Capture on the phone</td><td>Quick Capture and Voice Capture on iOS 26; widgets on Android</td><td>Tap and talk on iPhone, Android and the web</td><td>Talk to SecondBrain, think in Obsidian</td></tr>
+      <tr><td>Capture on the phone</td><td>Quick Capture and Voice Capture on iOS 26 or later; widgets on Android</td><td>Tap and talk on iPhone, Android and the web</td><td>Talk to SecondBrain, think in Obsidian</td></tr>
       <tr><td>Who files the note</td><td>You</td><td>The AI, you review</td><td>SecondBrain files, you curate in the vault</td></tr>
       <tr><td>Reminders and calendar</td><td>Not built in</td><td>Built in</td><td>From SecondBrain</td></tr>
       <tr><td>AI assistants</td><td>Through plugins, Claude Code or MCP on your computer</td><td>With SecondBrain Pro, Claude, ChatGPT and Gemini over MCP, within their plan and region limits</td><td>Claude Code reads both, with SecondBrain Pro</td></tr>
       <tr><td>Where notes live</td><td>Markdown files in your own folder</td><td>Stored in the EU, never used for training; Markdown export with SecondBrain Pro on iPhone</td><td>Your vault, fed by exports or Claude Code</td></tr>
-      <tr><td>Price</td><td>Free; Sync from 4 dollars per user per month billed yearly</td><td>Free plan holds 10 notes and allows up to 3 AI requests a day; SecondBrain Pro for sharing and export</td><td>Obsidian free, plus SecondBrain Pro</td></tr>
+      <tr><td>Price</td><td>Free; Sync from 4 dollars per user per month billed yearly</td><td>Free plan holds 10 notes and allows up to 3 AI requests a day; SecondBrain Pro adds shared memory with AI assistants and Markdown export</td><td>Obsidian free, plus SecondBrain Pro</td></tr>
       <tr><td>Best for</td><td>People who enjoy building their own system</td><td>Busy people who think out loud</td><td>People who want plain files and effortless capture</td></tr>
     </tbody>
   </table>
@@ -655,15 +658,15 @@
     </details>
     <details class="faq-item">
       <summary>Can Obsidian transcribe voice notes?</summary>
-      <div class="faq-answer"><p>On iPhone with iOS 26, yes: since version 1.15, released on November 2, 2026, Quick Capture's Voice Capture transcribes as you speak and can keep the recording. The Audio recorder core plugin only records, and the community Whisper plugin transcribes through an online API with your own key. A transcript is still raw text, though; SecondBrain turns what you say into a titled note in the right folder, with any reminder set.</p></div>
+      <div class="faq-answer"><p>On iPhone with iOS 26 or later, yes: since version 1.15, released on November 2, 2026, Quick Capture's Voice Capture transcribes as you speak and can keep the recording. The Audio recorder core plugin only records, and the community Whisper plugin transcribes through OpenAI, Groq, Azure or another Whisper-compatible API with your own key. Filing is still up to you, though; SecondBrain turns what you say into a titled note in the right folder, with any reminder set.</p></div>
     </details>
     <details class="faq-item">
       <summary>How do I capture into Obsidian on Android?</summary>
-      <div class="faq-answer"><p>Obsidian's Android help documents widgets, Quick Settings integration and shortcuts, while Quick Capture and Voice Capture are documented for iOS. So on Android you open Obsidian from a widget or shortcut and type, or record with the Audio recorder. If you capture by voice on Android, SecondBrain writes and files the note there, and with SecondBrain Pro, Claude Code can read those notes and file them into your vault.</p></div>
+      <div class="faq-answer"><p>Open Obsidian from a home screen widget, a Quick Settings tile or an app shortcut and type, or record with the Audio recorder, which does not transcribe. Quick Capture and Voice Capture are documented only for iOS. If you capture by voice on Android, SecondBrain writes and files the note there, and with SecondBrain Pro, Claude Code can read those notes and write them into your vault when you ask.</p></div>
     </details>
     <details class="faq-item">
       <summary>Can Claude read my Obsidian vault?</summary>
-      <div class="faq-answer"><p>Yes. Claude Code works directly on the Markdown files when you start it in the vault folder, and a CLAUDE.md file there tells it your rules. Claude Desktop and other MCP clients can reach the vault through the community Local REST API plugin while Obsidian is open on your computer. Whatever the agent reads goes to the model provider, so keep private notes out of reach. With SecondBrain Pro, Claude can also read the notes you captured by voice on your phone.</p></div>
+      <div class="faq-answer"><p>Yes. Claude Code works directly on the Markdown files when you start it in the vault folder, and a CLAUDE.md file there tells it your rules. Other MCP clients can reach the vault through the community Local REST API plugin while Obsidian is open on your computer, and Claude Desktop can too through the mcp-remote bridge. Whatever the agent reads goes to the model provider, so keep private notes out of the folder you open it in. With SecondBrain Pro, Claude can also read the notes you captured by voice on your phone.</p></div>
     </details>
     <details class="faq-item">
       <summary>Is Obsidian better than Notion for a second brain?</summary>
@@ -677,12 +680,14 @@
     <ol>
       <li><a href="https://obsidian.md/help/data-storage" target="_blank" rel="noopener">Obsidian Help, How Obsidian stores data</a></li>
       <li><a href="https://obsidian.md/license" target="_blank" rel="noopener">Obsidian, License overview (February 20, 2025)</a></li>
+      <li><a href="https://obsidian.md/blog/free-for-work/" target="_blank" rel="noopener">Obsidian, Obsidian is now free for work (February 20, 2025)</a></li>
       <li><a href="https://obsidian.md/sync" target="_blank" rel="noopener">Obsidian Sync, plans and pricing</a></li>
       <li><a href="https://obsidian.md/publish" target="_blank" rel="noopener">Obsidian Publish, pricing</a></li>
       <li><a href="https://obsidian.md/help/ios" target="_blank" rel="noopener">Obsidian Help, Obsidian for iOS and iPadOS</a></li>
       <li><a href="https://obsidian.md/changelog/2026-11-02-mobile-v1.15.0/" target="_blank" rel="noopener">Obsidian Mobile 1.15 changelog (November 2, 2026)</a></li>
       <li><a href="https://obsidian.md/changelog/2026-10-05-mobile-v1.14.4/" target="_blank" rel="noopener">Obsidian Mobile 1.14 changelog (October 5, 2026)</a></li>
       <li><a href="https://obsidian.md/help/android" target="_blank" rel="noopener">Obsidian Help, Obsidian for Android</a></li>
+      <li><a href="https://obsidian.md/help/plugins/backlinks" target="_blank" rel="noopener">Obsidian Help, Backlinks</a></li>
       <li><a href="https://obsidian.md/help/plugins/daily-notes" target="_blank" rel="noopener">Obsidian Help, Daily notes</a></li>
       <li><a href="https://obsidian.md/help/plugins/templates" target="_blank" rel="noopener">Obsidian Help, Templates</a></li>
       <li><a href="https://obsidian.md/help/properties" target="_blank" rel="noopener">Obsidian Help, Properties</a></li>
@@ -690,6 +695,7 @@
       <li><a href="https://obsidian.md/help/plugins/canvas" target="_blank" rel="noopener">Obsidian Help, Canvas</a></li>
       <li><a href="https://obsidian.md/help/web-clipper" target="_blank" rel="noopener">Obsidian Help, Introduction to Obsidian Web Clipper</a></li>
       <li><a href="https://obsidian.md/help/plugins/audio-recorder" target="_blank" rel="noopener">Obsidian Help, Audio recorder</a></li>
+      <li><a href="https://zettelkasten.de/posts/collectors-fallacy/" target="_blank" rel="noopener">Christian Tietze, The Collector's Fallacy</a></li>
       <li><a href="https://fortelabs.com/blog/para/" target="_blank" rel="noopener">Tiago Forte, The PARA Method</a></li>
       <li><a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f" target="_blank" rel="noopener">Andrej Karpathy, LLM Wiki (April 4, 2026)</a></li>
       <li><a href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener">Claude Code docs, How Claude remembers your project</a></li>
