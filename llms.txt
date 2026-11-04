@@ -51,6 +51,7 @@
 
 ## Blog
 
+- [AI second brain: what it is, three ways to build one, and which fits you](https://secondbrainmemory.com/blog/ai-second-brain/): What an AI second brain is, the three ways people build one in 2026 (assistant memory, a Claude and Obsidian wiki in the style of Karpathy's LLM wiki, or an app that files what you say), which assistants can read an outside memory on which plans, and how to set one up.
 - [What is a second brain? The definition, the methods, and what AI changes](https://secondbrainmemory.com/blog/what-is-a-second-brain/): A quotable definition, where the idea comes from (commonplace books, the Memex, Luhmann's Zettelkasten, Tiago Forte's CODE and PARA), why many second brains get abandoned, and a 15-minute way to start.
 - [The best second brain apps in 2026, by how you actually capture](https://secondbrainmemory.com/blog/best-second-brain-apps/): Fifteen apps (SecondBrain, Voicenotes, Obsidian, Logseq, Reflect, Notion, Tana Outliner, Capacities, Anytype, Heptabase, Mem, Gemini Notebook, Evernote, Apple Notes, Google Keep) compared on capture, free plan, price, ChatGPT and Claude access, and export, checked against each vendor's own pages on October 29, 2026.
 - [How to use ChatGPT as a second brain, and what it still forgets](https://secondbrainmemory.com/blog/chatgpt-second-brain/): What ChatGPT's saved memories, chat history, memory summary, custom instructions and Projects keep, a 10-minute setup, and the gaps you fill with a memory of your own.

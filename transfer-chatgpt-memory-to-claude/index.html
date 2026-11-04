@@ -59,7 +59,7 @@
         "@id": "https://secondbrainmemory.com/#organization"
       },
       "datePublished": "2026-08-12",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-04",
       "inLanguage": "en",
       "speakable": {
         "@type": "SpeakableSpecification",
@@ -160,7 +160,7 @@
           "name": "How do I move my Claude memory to ChatGPT?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Export it from Claude first, then paste the text into a new ChatGPT chat and ask it to remember each item: ChatGPT stores details you explicitly ask it to remember as saved memories. OpenAI's memory help page describes no import tool, so this is the way available today. Check the result under Settings, Personalization, Memory. To skip the copy for good, connect both assistants to SecondBrain and they work from one memory."
+            "text": "Export it from Claude first, then paste the text into a new ChatGPT chat and ask it to remember each item: ChatGPT stores details you explicitly ask it to remember as saved memories. ChatGPT's desktop app can import from Claude Code, Claude Cowork and Cursor, including Claude Code's project memories, but not the memory the Claude app keeps, so pasting is the way available today. Check the result under Settings, Personalization, Memory. To skip the copy for good, connect both assistants to SecondBrain and they work from one memory."
           }
         },
         {
@@ -365,7 +365,7 @@
 <main id="main" class="article">
   <p class="crumb"><a href="/">SecondBrain</a> · Guides · Import ChatGPT memory into Claude</p>
   <h1>How to import your ChatGPT memory into Claude</h1>
-  <p class="byline">By <a href="https://github.com/fed3c3sa" target="_blank" rel="noopener">Federico Cesarini</a>, maker of SecondBrain · Updated October 28, 2026</p>
+  <p class="byline">By <a href="https://github.com/fed3c3sa" target="_blank" rel="noopener">Federico Cesarini</a>, maker of SecondBrain · Updated November 4, 2026</p>
 
   <div class="tldr"><strong>The short answer:</strong> yes, Claude can import it. Since March 2026 Claude has a built-in memory import, on every plan, on the web and in Claude Desktop. Ask ChatGPT to list everything it remembers about you, copy the block it returns, then in Claude open <strong>Settings</strong>, <strong>Your Claude</strong>, choose <strong>Start import</strong>, paste it and press <strong>Add to memory</strong>. It is a one-time copy: what you tell ChatGPT afterwards stays in ChatGPT. To keep both current from then on, connect them to one shared memory such as SecondBrain.</div>
 
@@ -378,7 +378,7 @@
   <p>Paste the prompt into a new ChatGPT chat and copy the code block it returns. Read it before you move it: delete anything you would not want Claude to keep. To review what ChatGPT keeps, open <strong>Settings</strong>, <strong>Personalization</strong>, <strong>Memory</strong>: depending on your account it shows your saved memories or a memory summary, which may not list every detail. The same prompt works in Gemini, Copilot or any assistant that can list what it remembers about you.</p>
 
   <h3>3. Paste it into Claude</h3>
-  <p>In Claude, open <strong>Settings</strong>, then <strong>Your Claude</strong>, and choose <strong>Start import</strong>. In the older Settings layout the same button sits under <strong>Settings</strong>, <strong>Memory</strong>, or under <strong>Settings</strong>, <strong>Capabilities</strong> for accounts still on the legacy memory, whose home screen can also show an <strong>Import memory to Claude</strong> card that opens the same window. Paste the block and press <strong>Add to memory</strong>. Imports work on the Free, Pro, Max, Team and Enterprise plans, on the web and in Claude Desktop.</p>
+  <p>In Claude, open <strong>Settings</strong>, then <strong>Your Claude</strong>, and choose <strong>Start import</strong>. In the older Settings layout the same button sits under <strong>Settings</strong>, <strong>Memory</strong>, or under <strong>Settings</strong>, <strong>Capabilities</strong> for accounts still on the legacy memory, whose home screen can also show an <strong>Import memory to Claude</strong> card that opens the same window. Paste the block and press <strong>Add to memory</strong>. Imports work on the Free, Pro, Max, Ultra, Team and Enterprise plans, on the web and in Claude Desktop.</p>
 
   <h3>4. Check what Claude kept</h3>
   <p>Claude does not copy ChatGPT's memory as it is: it reads the text and rewrites it as its own memory entries. On the current memory experience they show up shortly after, on the older one Anthropic says it can take up to 24 hours. Claude's memory is built around work, so it may not keep personal details that have nothing to do with your work. The import is still marked experimental, so open your memory afterwards (<strong>Settings</strong>, <strong>Your Claude</strong>, <strong>Manage</strong> next to Your memory) and fix anything it skipped or misread. Anthropic's own instructions are in <a href="https://support.claude.com/en/articles/12123587-import-and-export-your-memory-from-claude" target="_blank" rel="noopener">Import and export your memory from Claude</a>.</p>
@@ -402,10 +402,10 @@
   <ol>
     <li><strong>Copy it out of Claude.</strong> Use the Manage view or the chat request. In the older Settings layout, look under Settings, Memory, or under Settings, Capabilities if your account is still on the legacy memory.</li>
     <li><strong>Trim it.</strong> Delete anything you would not want ChatGPT to keep.</li>
-    <li><strong>Give it to ChatGPT.</strong> OpenAI's memory help page describes no import tool, so paste the text into a new chat and ask ChatGPT to remember each item. Details you explicitly ask it to remember are stored as saved memories. Standing rules about tone or format belong in custom instructions instead.</li>
+    <li><strong>Give it to ChatGPT.</strong> ChatGPT's desktop app now has an import (Settings, Import), but it brings over setups, projects and recent chats from Claude Code, Claude Cowork and Cursor, not the memory the Claude app keeps about you. So paste the text into a new chat and ask ChatGPT to remember each item. Details you explicitly ask it to remember are stored as saved memories. Standing rules about tone or format belong in custom instructions instead.</li>
     <li><strong>Check what it kept.</strong> Open <strong>Settings</strong>, <strong>Personalization</strong>, <strong>Memory</strong> in ChatGPT. Depending on your account it shows a memory summary or your saved memories, and you can correct entries there.</li>
   </ol>
-  <p>Sources: Anthropic's <a href="https://support.claude.com/en/articles/12123587-import-and-export-your-memory-from-claude" target="_blank" rel="noopener">Import and export your memory from Claude</a> and OpenAI's <a href="https://help.openai.com/en/articles/8590148-memory-in-chatgpt" target="_blank" rel="noopener">Memory in ChatGPT</a>. Like the import, this is a one-time copy. If you switch between the two often, keep the memory in SecondBrain instead: both assistants read and write the same one over MCP, so there is nothing left to export.</p>
+  <p>Sources: Anthropic's <a href="https://support.claude.com/en/articles/12123587-import-and-export-your-memory-from-claude" target="_blank" rel="noopener">Import and export your memory from Claude</a> and OpenAI's <a href="https://help.openai.com/en/articles/8590148-memory-in-chatgpt" target="_blank" rel="noopener">Memory in ChatGPT</a> and <a href="https://learn.chatgpt.com/docs/import" target="_blank" rel="noopener">Import from another agent</a>. Like the import, this is a one-time copy. If you switch between the two often, keep the memory in SecondBrain instead: both assistants read and write the same one over MCP, so there is nothing left to export.</p>
 
   <h2>Keep ChatGPT and Claude in sync from now on</h2>
   <p>The import fixes day one. For everything after that, the memory has to live somewhere both assistants can reach. That is what SecondBrain is: one memory that ChatGPT, Claude, Gemini, Cursor and Claude Code all read and write over MCP, so a fact you tell one is already known to the others. Three steps, about five minutes.</p>
@@ -460,7 +460,7 @@
     </details>
     <details class="faq-item">
       <summary>How do I move my Claude memory to ChatGPT?</summary>
-      <div class="faq-answer"><p>Export it from Claude first, then paste the text into a new ChatGPT chat and ask it to remember each item: ChatGPT stores details you explicitly ask it to remember as saved memories. OpenAI's memory help page describes no import tool, so this is the way available today. Check the result under Settings, Personalization, Memory. To skip the copy for good, connect both assistants to SecondBrain and they work from one memory.</p></div>
+      <div class="faq-answer"><p>Export it from Claude first, then paste the text into a new ChatGPT chat and ask it to remember each item: ChatGPT stores details you explicitly ask it to remember as saved memories. ChatGPT's desktop app can import from Claude Code, Claude Cowork and Cursor, including Claude Code's project memories, but not the memory the Claude app keeps, so pasting is the way available today. Check the result under Settings, Personalization, Memory. To skip the copy for good, connect both assistants to SecondBrain and they work from one memory.</p></div>
     </details>
     <details class="faq-item">
       <summary>Why is Claude's memory import not working?</summary>
