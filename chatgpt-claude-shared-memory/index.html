@@ -95,7 +95,7 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Get SecondBrain and turn on Pro",
+          "name": "Get SecondBrain and turn on SecondBrain Pro",
           "text": "Download SecondBrain free on iPhone, Android or the web at app.secondbrainmemory.com, then turn on SecondBrain Pro in the app: the shared memory layer is part of SecondBrain Pro."
         },
         {
@@ -350,19 +350,19 @@
   <ol>
     <li><strong>Claude:</strong> Customize, Plugins, add the marketplace <code>fed3c3sa/secondbrain-shared-memory</code>, add SecondBrain Memory, press Connect in its Connectors tab.</li>
     <li><strong>Claude Code:</strong> three commands, ending with <code>claude mcp login plugin:secondbrain:secondbrain</code> (below).</li>
-    <li><strong>ChatGPT:</strong> on chatgpt.com, Plugins, "+", <strong>Add custom MCP server</strong>, paste <code>https://mcp.secondbrainmemory.com/mcp</code>. No Developer mode any more.</li>
+    <li><strong>ChatGPT:</strong> on chatgpt.com, Plugins, "+", <strong>Add custom MCP server</strong>, paste <code>https://mcp.secondbrainmemory.com/mcp</code>. You no longer need to turn on Developer mode first.</li>
     <li><strong>Cursor:</strong> run <code>npx secondbrain-connect</code> once. <strong>Gemini:</strong> add the same address as a remote server in Antigravity.</li>
   </ol>
   <p>From then on, "remember that I prefer TypeScript" said in Claude is known to ChatGPT, Cursor and Claude Code on the next question. That is how you share context across ChatGPT, Claude and other LLMs without pasting it into every chat.</p>
 
   <h2>Set it up in about two minutes</h2>
 
-  <h3>1. Get SecondBrain and turn on Pro</h3>
+  <h3>1. Get SecondBrain and turn on SecondBrain Pro</h3>
   <p>Download SecondBrain free on <a href="https://apps.apple.com/us/app/secondbrain-ai-memory/id6762130376" target="_blank" rel="noopener">iPhone</a> or <a href="https://play.google.com/store/apps/details?id=app.secondbrain.android" target="_blank" rel="noopener">Android</a>, or open the <a href="https://app.secondbrainmemory.com/" target="_blank" rel="noopener">web app</a>. The shared memory layer is part of SecondBrain Pro, so turn it on in the app first.</p>
 
   <h3>2. Connect Claude</h3>
   <ol>
-    <li>In Claude, open Customize → Plugins → <strong>Add</strong> → <strong>Add marketplace</strong>. Anthropic is renaming Customize to Plugins this month, so your sidebar may already say Plugins. Plugins need a paid Claude plan (<a href="https://support.claude.com/en/articles/13837440-use-plugins-in-claude" target="_blank" rel="noopener">Anthropic</a>).</li>
+    <li>In Claude, open Customize → Plugins → <strong>Add</strong> → <strong>Add marketplace</strong>. Anthropic is renaming Customize to Plugins (generally available November 9), so your sidebar may already say Plugins. Plugins need a paid Claude plan (<a href="https://support.claude.com/en/articles/13837440-use-plugins-in-claude" target="_blank" rel="noopener">Anthropic</a>).</li>
     <li>Paste <code>fed3c3sa/secondbrain-shared-memory</code> and add the <strong>SecondBrain Memory</strong> plugin.</li>
     <li>In the plugin's <strong>Connectors</strong> tab, press <strong>Connect</strong> and sign in with Apple or Google. No keys, no tokens.</li>
   </ol>
@@ -370,7 +370,7 @@
 
   <h3>3. Connect ChatGPT, Cursor or Gemini</h3>
   <ol>
-    <li><strong>ChatGPT:</strong> on chatgpt.com, open Plugins, press "+" and choose <strong>Add custom MCP server</strong>. Name it SecondBrain, paste <code>https://mcp.secondbrainmemory.com/mcp</code> under Connection, choose OAuth, tick "I understand and want to continue" and select <strong>Create as a plugin</strong>. Install it, press Connect and sign in. It is web only, and Developer mode is no longer needed. OpenAI documents full access, saving included, on Business, Enterprise and Edu, and read-only access on ChatGPT Pro (<a href="https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt" target="_blank" rel="noopener">OpenAI</a>).</li>
+    <li><strong>ChatGPT:</strong> on chatgpt.com, open Plugins, press "+" and choose <strong>Add custom MCP server</strong>. Name it SecondBrain, paste <code>https://mcp.secondbrainmemory.com/mcp</code> under Connection, choose OAuth, tick "I understand and want to continue" and select <strong>Create as a plugin</strong>. Install it, press Connect and sign in. It is web only, and you no longer need to turn on Developer mode first. OpenAI documents read-only access on ChatGPT Pro, and full access, saving included, on Business, Enterprise and Edu, where a workspace admin (or, on Enterprise and Edu, a member they authorize) adds the server (<a href="https://help.openai.com/en/articles/12584461-connecting-custom-mcp-servers-in-chatgpt" target="_blank" rel="noopener">OpenAI</a>).</li>
     <li><strong>Cursor:</strong> run <code>npx secondbrain-connect</code> once in a terminal and sign in in the browser. It also writes the connection for Claude Desktop and Claude Code.</li>
     <li><strong>Gemini:</strong> Google moved Google AI plans from Gemini CLI to Antigravity in June. In Antigravity, add <code>https://mcp.secondbrainmemory.com/mcp</code> as a remote MCP server (<code>serverUrl</code> in <code>~/.gemini/config/mcp_config.json</code>) and press Authenticate.</li>
   </ol>
