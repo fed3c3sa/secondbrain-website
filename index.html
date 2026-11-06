@@ -1579,7 +1579,9 @@
       gap: 56px;
       align-items: center;
     }
+    .uc.reverse { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
     .uc.reverse .uc-media { order: -1; }
+    #howto .section-head h2 { text-wrap: balance; }
     .uc-num {
       display: inline-flex; align-items: center; justify-content: center;
       width: 34px; height: 34px; border-radius: 50%;
@@ -1599,17 +1601,13 @@
     .uc-media figure { margin: 0; width: min(240px, 42vw); text-align: center; }
     .uc-media img { width: 100%; height: auto; display: block; }
     .uc-media figcaption { margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--text); }
-    .howto-pdf { text-align: center; margin-top: 80px; font-size: 15px; color: var(--text-2); }
     #howto + #export { padding-top: 24px; }
-    .howto-pdf a { color: var(--accent); font-weight: 500; }
-    .howto-pdf a:hover { text-decoration: underline; }
     @media (max-width: 880px) {
       .howto { gap: 72px; }
-      .uc { grid-template-columns: 1fr; gap: 28px; }
+      .uc, .uc.reverse { grid-template-columns: 1fr; gap: 28px; }
       .uc.reverse .uc-media { order: 0; }
       .uc-media { gap: 14px; }
       .uc-media figure { width: 44vw; max-width: 220px; }
-      .howto-pdf { margin-top: 56px; }
     }
 
     /* ════════════════════════════════════════════════════════ */
@@ -1668,27 +1666,6 @@
     }
     .split-media img { width: 100%; height: auto; display: block; }
 
-    .claude-media {
-      max-width: 320px;
-      margin: 0 auto;
-      width: 100%;
-      min-height: 300px;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 18px;
-      border: 1px solid var(--hairline);
-      border-radius: 30px;
-      background: var(--card);
-      box-shadow: var(--shadow-md);
-    }
-    .claude-media img { width: 80px; height: 80px; }
-    .claude-media span {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-3);
-    }
 
     @media (max-width: 880px) {
       .split { grid-template-columns: 1fr; gap: 32px; }
@@ -2406,8 +2383,8 @@
           <span class="lang-it">Il tuo segretario personale, sempre in tasca.</span>
         </h2>
         <p class="anim d2">
-          <span class="lang-en">Four everyday things, shown in the real app.</span>
-          <span class="lang-it">Quattro cose di tutti i giorni, mostrate nell’app vera.</span>
+          <span class="lang-en">Four everyday examples, straight from the app.</span>
+          <span class="lang-it">Quattro esempi di tutti i giorni, direttamente dall'app.</span>
         </p>
       </div>
 
@@ -2416,7 +2393,7 @@
           <div class="uc-text">
             <span class="uc-num" aria-hidden="true">1</span>
             <h3><span class="lang-en">Brain dump: just talk</span> <span class="lang-it">Svuota la testa: parla e basta</span></h3>
-            <p><span class="lang-en">Tap the orb and say everything on your mind, up to 2 minutes. SecondBrain writes a clean note and files it in the right folder.</span> <span class="lang-it">Tocca il cerchio e di’ tutto quello che ti passa per la testa, fino a 2 minuti. SecondBrain scrive una nota in ordine e la mette nella cartella giusta.</span></p>
+            <p><span class="lang-en">Tap the orb and say everything on your mind, up to 2 minutes. SecondBrain writes a clean note and files it in the right folder.</span> <span class="lang-it">Tocca il cerchio e di' tutto quello che ti passa per la testa, fino a 2 minuti. SecondBrain scrive la nota al posto tuo e la mette nella cartella giusta.</span></p>
           </div>
           <div class="uc-media"><figure><img class="lang-en" src="assets/howto-1a-en.webp" width="520" height="1093" decoding="async" loading="lazy" alt="A voice note in the SecondBrain chat and the reply that saved it" /><img class="lang-it" src="assets/howto-1a-it.webp" width="520" height="1093" decoding="async" loading="lazy" alt="Un vocale nella chat di SecondBrain e la risposta che lo ha salvato" /><figcaption><span class="lang-en">You talk</span> <span class="lang-it">Tu parli</span></figcaption></figure><figure><img class="lang-en" src="assets/howto-1b-en.webp" width="520" height="1093" decoding="async" loading="lazy" alt="The note SecondBrain wrote from the voice note, filed in Work, Shop, Ideas" /><img class="lang-it" src="assets/howto-1b-it.webp" width="520" height="1093" decoding="async" loading="lazy" alt="La nota scritta da SecondBrain a partire dal vocale, in Lavoro, Negozio, Idee" /><figcaption><span class="lang-en">A clean note, already filed</span> <span class="lang-it">Una nota in ordine, già al suo posto</span></figcaption></figure></div>
         </article>
@@ -2424,17 +2401,17 @@
           <div class="uc-text">
             <span class="uc-num" aria-hidden="true">2</span>
             <h3><span class="lang-en">Send it files. Get organized notes.</span> <span class="lang-it">Condividi un file, ritrovi una nota in ordine</span></h3>
-            <p><span class="lang-en">Share a PDF or a photo from any app. SecondBrain reads it, writes the note, files it and keeps the original. A voice message shared from another app works the same way.</span> <span class="lang-it">Condividi un PDF o una foto da qualsiasi app. SecondBrain lo legge, ne ricava la nota, la archivia e tiene l’originale. Con un vocale condiviso da un’altra app funziona allo stesso modo.</span></p>
+            <p><span class="lang-en">Share a PDF or a photo from another app. SecondBrain reads it, writes the note, files it and keeps the original. On iPhone, an audio file shared from another app, like a Voice Memos recording, works the same way.</span> <span class="lang-it">Condividi un PDF o una foto da un'altra app. SecondBrain lo legge, ne ricava la nota, la archivia e tiene l'originale. Su iPhone funziona allo stesso modo con un file audio condiviso da un'altra app, per esempio una registrazione di Memo Vocali.</span></p>
           </div>
-          <div class="uc-media"><figure><img class="lang-en" src="assets/howto-2a-en.webp" width="520" height="1093" decoding="async" loading="lazy" alt="A supplier quote PDF shared into SecondBrain with the message Save this quote" /><img class="lang-it" src="assets/howto-2a-it.webp" width="520" height="1093" decoding="async" loading="lazy" alt="Il PDF di un preventivo condiviso in SecondBrain con il messaggio Salva questo preventivo" /><figcaption><span class="lang-en">Share a quote</span> <span class="lang-it">Condividi un preventivo</span></figcaption></figure><figure><img class="lang-en" src="assets/howto-2b-en.webp" width="520" height="1093" decoding="async" loading="lazy" alt="The note made from the PDF: prices, terms and contact, with the original file attached" /><img class="lang-it" src="assets/howto-2b-it.webp" width="520" height="1093" decoding="async" loading="lazy" alt="La nota ricavata dal PDF: prezzi, condizioni e contatti, con il file originale allegato" /><figcaption><span class="lang-en">Every detail, in order</span> <span class="lang-it">Tutti i dettagli, in ordine</span></figcaption></figure></div>
+          <div class="uc-media"><figure><img class="lang-en" src="assets/howto-2a-en.webp" width="520" height="1093" decoding="async" loading="lazy" alt="A supplier quote PDF shared into SecondBrain with the message Save this quote" /><img class="lang-it" src="assets/howto-2a-it.webp" width="520" height="1093" decoding="async" loading="lazy" alt="Il PDF di un preventivo condiviso in SecondBrain con il messaggio Salva questo preventivo" /><figcaption><span class="lang-en">Share a quote</span> <span class="lang-it">Condividi un preventivo</span></figcaption></figure><figure><img class="lang-en" src="assets/howto-2b-en.webp" width="520" height="1093" decoding="async" loading="lazy" alt="The note made from the PDF: prices, terms and contact, with the original file attached" /><img class="lang-it" src="assets/howto-2b-it.webp" width="520" height="1093" decoding="async" loading="lazy" alt="La nota ricavata dal PDF: prezzi, condizioni e contatti, con il file originale allegato" /><figcaption><span class="lang-en">Every detail, in order</span> <span class="lang-it">Prezzi, condizioni e contatti</span></figcaption></figure></div>
         </article>
         <article class="uc anim">
           <div class="uc-text">
             <span class="uc-num" aria-hidden="true">3</span>
             <h3><span class="lang-en">From a messy voice memo to your calendar</span> <span class="lang-it">Dal vocale a ruota libera al calendario</span></h3>
-            <p><span class="lang-en">Say it the way it comes out, even if you change your mind halfway. SecondBrain sets the appointments and reminders, and with iPhone Calendar sync on they show up in Apple Calendar too.</span> <span class="lang-it">Parla come ti viene, anche se ti correggi a metà frase. SecondBrain crea appuntamenti e promemoria e, con il Sync con Calendario iPhone attivo, li ritrovi anche nel Calendario di Apple.</span></p>
+            <p><span class="lang-en">Say it the way it comes out, even if you change your mind halfway. SecondBrain sets the appointments and reminders and, with iPhone Calendar sync on, they show up in Apple Calendar too.</span> <span class="lang-it">Parla come ti viene, anche se ti correggi a metà frase. SecondBrain crea appuntamenti e promemoria e, se attivi «Sync con Calendario iPhone» nelle Impostazioni, li ritrovi anche nel Calendario dell'iPhone.</span></p>
           </div>
-          <div class="uc-media"><figure><img class="lang-en" src="assets/howto-3a-en.webp" width="520" height="1093" decoding="async" loading="lazy" alt="One voice memo turned into appointments and reminders in SecondBrain" /><img class="lang-it" src="assets/howto-3a-it.webp" width="520" height="1093" decoding="async" loading="lazy" alt="Un solo vocale diventato appuntamenti e promemoria in SecondBrain" /><figcaption><span class="lang-en">One voice memo</span> <span class="lang-it">Un solo vocale</span></figcaption></figure><figure><img class="lang-en" src="assets/howto-3b-en.webp" width="520" height="1093" decoding="async" loading="lazy" alt="The same appointments and reminders in the iPhone Calendar app" /><img class="lang-it" src="assets/howto-3b-it.webp" width="520" height="1093" decoding="async" loading="lazy" alt="Gli stessi appuntamenti e promemoria nel Calendario dell’iPhone" /><figcaption><span class="lang-en">In Apple Calendar</span> <span class="lang-it">Nel Calendario di Apple</span></figcaption></figure></div>
+          <div class="uc-media"><figure><img class="lang-en" src="assets/howto-3a-en.webp" width="520" height="1093" decoding="async" loading="lazy" alt="One voice memo turned into appointments and reminders in SecondBrain" /><img class="lang-it" src="assets/howto-3a-it.webp" width="520" height="1093" decoding="async" loading="lazy" alt="Un solo vocale diventato appuntamenti e promemoria in SecondBrain" /><figcaption><span class="lang-en">One voice memo</span> <span class="lang-it">Un solo vocale</span></figcaption></figure><figure><img class="lang-en" src="assets/howto-3b-en.webp" width="520" height="1093" decoding="async" loading="lazy" alt="The appointments from the voice memo in the iPhone Calendar app" /><img class="lang-it" src="assets/howto-3b-it.webp" width="520" height="1093" decoding="async" loading="lazy" alt="Gli appuntamenti e i promemoria del vocale nel Calendario dell'iPhone" /><figcaption><span class="lang-en">In Apple Calendar</span> <span class="lang-it">Nel Calendario di Apple</span></figcaption></figure></div>
         </article>
         <article class="uc reverse anim">
           <div class="uc-text">
@@ -2442,11 +2419,10 @@
             <h3><span class="lang-en">Tell Claude. It lands in SecondBrain.</span> <span class="lang-it">Lo dici a Claude, lo ritrovi in SecondBrain</span></h3>
             <p><span class="lang-en">Connect Claude or ChatGPT once. What you ask them to remember is saved in your SecondBrain, and every assistant you connect can read it.</span> <span class="lang-it">Colleghi Claude o ChatGPT una volta sola. Quello che gli chiedi di ricordare finisce nel tuo SecondBrain, e ogni assistente collegato lo può leggere.</span></p>
           </div>
-          <div class="uc-media"><figure><img class="lang-en" src="assets/howto-4a-en.webp" width="520" height="1093" decoding="async" loading="lazy" alt="Claude saving a menu to SecondBrain with the memory_save tool" /><img class="lang-it" src="assets/howto-4a-it.webp" width="520" height="1093" decoding="async" loading="lazy" alt="Claude che salva un menu in SecondBrain con lo strumento memory_save" /><figcaption><span class="lang-en">In Claude</span> <span class="lang-it">In Claude</span></figcaption></figure><figure><img class="lang-en" src="assets/howto-4b-en.webp" width="520" height="1093" decoding="async" loading="lazy" alt="The same menu as a note in the SecondBrain app" /><img class="lang-it" src="assets/howto-4b-it.webp" width="520" height="1093" decoding="async" loading="lazy" alt="Lo stesso menu come nota nell’app SecondBrain" /><figcaption><span class="lang-en">In the SecondBrain app</span> <span class="lang-it">Nell’app SecondBrain</span></figcaption></figure></div>
+          <div class="uc-media"><figure><img class="lang-en" src="assets/howto-4a-en.webp" width="520" height="1093" decoding="async" loading="lazy" alt="Claude saving a menu to SecondBrain with the memory_save tool" /><img class="lang-it" src="assets/howto-4a-it.webp" width="520" height="1093" decoding="async" loading="lazy" alt="Claude che salva un menu in SecondBrain con lo strumento memory_save" /><figcaption><span class="lang-en">In Claude</span> <span class="lang-it">In Claude</span></figcaption></figure><figure><img class="lang-en" src="assets/howto-4b-en.webp" width="520" height="1093" decoding="async" loading="lazy" alt="The same menu as a note in the SecondBrain app" /><img class="lang-it" src="assets/howto-4b-it.webp" width="520" height="1093" decoding="async" loading="lazy" alt="Lo stesso menu come nota nell'app SecondBrain" /><figcaption><span class="lang-en">In the SecondBrain app</span> <span class="lang-it">Nell'app SecondBrain</span></figcaption></figure></div>
         </article>
       </div>
 
-      <p class="howto-pdf anim"><span class="lang-en">The same guide as a PDF:</span> <span class="lang-it">La stessa guida in PDF:</span> <a href="assets/secondbrain-guide-en.pdf" hreflang="en">English</a> · <a href="assets/secondbrain-guide-it.pdf" hreflang="it">Italiano</a> · <a href="assets/secondbrain-guide-de.pdf" hreflang="de">Deutsch</a></p>
     </section>
 
 
@@ -2459,8 +2435,8 @@
             <span class="eyebrow">Obsidian</span>
             <h3><span class="lang-en">Opens straight in Obsidian.</span> <span class="lang-it">Si aprono in Obsidian, e basta.</span></h3>
             <p>
-              <span class="lang-en">Your folders come out as folders, so you can unzip the archive into an Obsidian vault and it opens as it is. Notion, VS Code and TextEdit read the same files. No plugin, no importer. It is an export you run when you want it, not a live sync.</span>
-              <span class="lang-it">Le tue cartelle escono come cartelle: scompatti l'archivio dentro un vault di Obsidian e si apre così com'è. Gli stessi file li leggono Notion, VS Code e TextEdit. Nessun plugin, nessun importatore. È un'esportazione che lanci tu quando vuoi, non una sincronizzazione continua.</span>
+              <span class="lang-en">Export every note from Settings as a .zip of Markdown files. Your folders come out as folders, so you can unzip the archive into an Obsidian vault and it opens as it is. Notion, VS Code and TextEdit read the same files. No plugin, no importer. It is an export you run when you want it, not a live sync.</span>
+              <span class="lang-it">Da Impostazioni esporti tutte le note in uno zip di file Markdown. Le tue cartelle escono come cartelle: scompatti l'archivio dentro un vault di Obsidian e si apre così com'è. Gli stessi file li leggono Notion, VS Code e TextEdit. Nessun plugin, nessun importatore. È un'esportazione che lanci tu quando vuoi, non una sincronizzazione continua.</span>
             </p>
           </div>
           <div class="split-media"><img src="assets/shot-export-folder-720.webp" width="720" height="606" decoding="async" alt="The unzipped SecondBrain export: one .md file per note inside your own folder tree" loading="lazy" /></div>
