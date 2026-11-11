@@ -78,7 +78,7 @@
 - [The spot (0:51, with transcript)](https://secondbrainmemory.com/videos/secondbrain-spot/)
 - ["We are not meant to remember everything", hand-drawn film (0:21)](https://secondbrainmemory.com/videos/we-are-not-meant-to-remember-everything/)
 - [SecondBrain Podcast, episode 1: "AI Engineer: Developers Won't Exist in 5 Years (Do This)", AI engineer Federico Cesarini with Kevin Faggioli on AI and the future of work (YouTube, 40:57)](https://www.youtube.com/watch?v=LOfTKtfwc4I)
-- [YouTube channel](https://www.youtube.com/@SecondBrain-AISmartMemory)
+- [YouTube channel](https://www.youtube.com/@SecondBrainAPP)
 - [LinkedIn](https://www.linkedin.com/company/secondbrain-memory)
 - [Product Hunt](https://www.producthunt.com/products/secondbrain)
 - [GitHub: shared memory plugin and setup guide](https://github.com/fed3c3sa/secondbrain-shared-memory)

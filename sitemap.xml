@@ -4,7 +4,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://secondbrainmemory.com/</loc>
-    <lastmod>2026-11-06</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -28,7 +28,7 @@
   </url>
   <url>
     <loc>https://secondbrainmemory.com/voice-second-brain-apps/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -40,7 +40,7 @@
   </url>
   <url>
     <loc>https://secondbrainmemory.com/videos/how-secondbrain-works/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <video:video>
@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://secondbrainmemory.com/videos/secondbrain-spot/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <video:video>
@@ -82,7 +82,7 @@
   </url>
   <url>
     <loc>https://secondbrainmemory.com/blog/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -118,7 +118,7 @@
   </url>
   <url>
     <loc>https://secondbrainmemory.com/blog/ai-second-brain/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
