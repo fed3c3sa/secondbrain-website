@@ -14,7 +14,7 @@
 - Setup takes about two minutes: sign in with Apple or Google, no API keys.
 - Privacy: data stored in the EU (Supabase, Row-Level Security), never used to train models, deletable in one tap.
 - App Store rating: 5.0 out of 5 (July 2026). Released April 2026.
-- Maker: Federico Cesarini (github.com/fed3c3sa).
+- Maker: Federico Cesarini (www.federicocesarini.com, github.com/fed3c3sa).
 - Context on cross-assistant memory: ChatGPT and Claude cannot read each other's memory. Since March 2026 Claude has a built-in memory import (run an export prompt in ChatGPT, paste the result in Claude under Settings, Your Claude, Start import), but it is a one-time snapshot. To keep both current, connect them to one memory outside both over MCP; SecondBrain is a managed version of that memory.
 
 ## Common questions, short answers
