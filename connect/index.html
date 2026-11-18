@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="robots" content="noindex" />
+<meta name="referrer" content="no-referrer" />
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
 <title>Connect · SecondBrain</title>
@@ -32,7 +33,7 @@
     padding:24px;
     font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     background:rgb(var(--bg-base)); color:rgb(var(--txt-primary));
-    overflow:hidden;
+    overflow-x:hidden; overflow-y:auto;
   }
   /* Ambient brain watermark + glow */
   .ambient{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden}
@@ -101,6 +102,20 @@
   .muted{color:rgb(var(--txt-secondary));font-size:14px;line-height:1.5;margin:6px 0 0}
   a{color:rgb(var(--txt-primary));font-weight:600}
   .err{color:rgb(220 38 38)}
+
+  /* Consent card (security fix H1) */
+  .details{text-align:left;background:rgb(var(--bg-base));border:1px solid rgb(var(--border));border-radius:16px;padding:14px 16px;margin:0 0 14px;font-size:14px;line-height:1.45}
+  .details .label{font-size:12px;color:rgb(var(--txt-tertiary));margin:0 0 2px}
+  .details .value{margin:0 0 10px;font-weight:600;overflow-wrap:anywhere}
+  .details > :last-child{margin-bottom:0}
+  .badge{display:inline-block;margin-left:6px;padding:1px 7px;border-radius:999px;font-size:11px;font-weight:700;vertical-align:middle;background:rgb(220 38 38/0.12);color:rgb(220 38 38)}
+  .warn{text-align:left;font-size:13px;line-height:1.45;background:rgb(245 158 11/0.12);border:1px solid rgb(245 158 11/0.4);border-radius:14px;padding:10px 12px;margin:0 0 14px}
+  .who{font-size:13px;color:rgb(var(--txt-secondary));margin:0 0 12px;overflow-wrap:anywhere}
+  .btn-allow{background:rgb(var(--primary));color:rgb(var(--primary-text))}
+  .btn-allow:hover{opacity:.9}
+  .btn-deny{background:transparent;color:rgb(var(--txt-primary));border-color:rgb(var(--border))}
+  .btn-deny:hover{background:rgb(var(--bg-elevated))}
+  button:disabled{opacity:.5;cursor:default}
 </style>
 </head>
 <body>
@@ -115,18 +130,47 @@
       <img class="ll" src="/assets/brain-icon-light.png" alt="" aria-hidden="true" onerror="this.style.opacity=0"/>
     </div>
 
-    <div id="choose" class="hidden">
-      <h1>SecondBrain</h1>
-      <p class="sub">Connect your assistant to your second brain. Sign in to continue.</p>
-      <div class="btns">
-        <button id="apple" class="btn-apple">
-          <svg viewBox="0 0 384 512"><path d="M318.7 268c-.3-37 16.4-65 50.3-85.6-19-27.2-47.5-42.2-85.4-45.2-35.9-2.8-75 21-89.3 21-15 0-49.7-20-76.7-20C61.7 138.6 0 184.5 0 277.9c0 27.6 5 56.1 15.1 85.4 13.5 38.5 62.3 132.9 113.2 131.4 26.6-.6 45.4-18.9 80-18.9 33.6 0 51 18.9 80.6 18.9 51.3-.7 95.4-86.5 108.3-125.1-68.8-32.4-65.3-95-65.3-95.6zM258.4 96.1c29.2-34.6 26.5-66.1 25.7-77.4-26.7 1.5-57.5 18.2-75 38.7-19.3 21.9-30.6 49-28.2 80.9 28.9 2.2 55.2-12.7 77.5-42.2z"/></svg>
-          Continue with Apple
-        </button>
-        <button id="google" class="btn-google">
-          <svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-          Continue with Google
-        </button>
+    <div id="loading">
+      <div class="spinner"></div>
+      <p class="muted">One moment.</p>
+    </div>
+
+    <div id="consent" class="hidden">
+      <h1 id="consentTitle">Connect to your SecondBrain</h1>
+      <p class="sub" id="consentSub"></p>
+      <div class="details">
+        <div id="appRow">
+          <p class="label">App</p>
+          <p class="value" id="appName"></p>
+        </div>
+        <div id="hostRow">
+          <p class="label" id="hostLabel">Sends you back to</p>
+          <p class="value"><span id="hostValue"></span><span id="unverified" class="badge hidden">Unverified</span></p>
+        </div>
+        <p class="label">It will be able to</p>
+        <p class="value" id="permissions"></p>
+      </div>
+      <p class="warn hidden" id="warnText"></p>
+      <div id="signedOut" class="hidden">
+        <p class="who">Sign in to review this request.</p>
+        <div class="btns">
+          <button id="apple" class="btn-apple">
+            <svg viewBox="0 0 384 512"><path d="M318.7 268c-.3-37 16.4-65 50.3-85.6-19-27.2-47.5-42.2-85.4-45.2-35.9-2.8-75 21-89.3 21-15 0-49.7-20-76.7-20C61.7 138.6 0 184.5 0 277.9c0 27.6 5 56.1 15.1 85.4 13.5 38.5 62.3 132.9 113.2 131.4 26.6-.6 45.4-18.9 80-18.9 33.6 0 51 18.9 80.6 18.9 51.3-.7 95.4-86.5 108.3-125.1-68.8-32.4-65.3-95-65.3-95.6zM258.4 96.1c29.2-34.6 26.5-66.1 25.7-77.4-26.7 1.5-57.5 18.2-75 38.7-19.3 21.9-30.6 49-28.2 80.9 28.9 2.2 55.2-12.7 77.5-42.2z"/></svg>
+            Continue with Apple
+          </button>
+          <button id="google" class="btn-google">
+            <svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+            Continue with Google
+          </button>
+          <button id="denyOut" class="btn-deny">Deny</button>
+        </div>
+      </div>
+      <div id="signedIn" class="hidden">
+        <p class="who" id="who"></p>
+        <div class="btns">
+          <button id="allow" class="btn-allow">Allow</button>
+          <button id="deny" class="btn-deny">Deny</button>
+        </div>
       </div>
       <p class="foot">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -154,43 +198,87 @@
   </main>
 
 <script type="module">
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+// Pinned: an exact version, never a floating major.
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.103.0';
 
 const SUPABASE_URL = 'https://ntykytpngslkytfyuaee.supabase.co';
 const ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im50eWt5dHBuZ3Nsa3l0Znl1YWVlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwMzE1ODYsImV4cCI6MjA5MTYwNzU4Nn0.H8-o0luMghqeJltLOxg4hjhzyniDiTu9zA5fehCntJw';
+const FUNCTIONS_URL = `${SUPABASE_URL}/functions/v1`;
+
+/*
+ * Consent page for connecting an assistant (security fix H1, 2026-11-18).
+ *
+ * Rules:
+ *  - Nothing is approved on page load. issue-code (OAuth) and bind (device
+ *    login) run only from the Allow button, after the card has shown who is
+ *    asking, where the code goes and what it can do.
+ *  - This page keeps its own session: sessionStorage, its own storageKey. A
+ *    session from /console/ or any other page on this origin is never seen,
+ *    and nothing outlives the tab.
+ *  - Every end state signs out locally (scope 'local': other devices and the
+ *    apps stay signed in), from a finally block.
+ *  - Never inside a frame: the Allow button must not be clickable through
+ *    another site.
+ */
+const framed = (() => {
+  try { return window.top !== window.self; } catch { return true; }
+})();
 
 const supabase = createClient(SUPABASE_URL, ANON_KEY, {
-  auth: { flowType: 'pkce', detectSessionInUrl: true, persistSession: true },
+  auth: {
+    flowType: 'pkce',
+    detectSessionInUrl: true,
+    persistSession: true,
+    storage: window.sessionStorage,
+    storageKey: 'sb-connect-auth',
+  },
 });
 
-// Carry the device code across the OAuth redirect in sessionStorage, NOT in the
-// URL, so redirectTo stays a clean `.../connect/` that matches the Supabase
-// Redirect URLs allowlist exactly.
-const dc = new URLSearchParams(location.search).get('dc') || sessionStorage.getItem('sb_dc');
+const CTX_KEY = 'sb_connect_ctx';
+const PERMISSIONS = 'Read, change and delete your notes and folders, and add to your calendar.';
+const DEVICE_WARNING =
+  'Only continue if you asked your own assistant to connect in the last 10 minutes. Never approve a link someone sent you.';
+const UNVERIFIED_WARNING =
+  'SecondBrain does not recognise this address. Allow it only if you started this connection yourself, from an app you trust.';
 
-// OAuth-authorize mode (cloud MCP clients like Claude Cowork / claude.ai).
-// The edge /oauth/authorize endpoint bounces the browser here with the OAuth
-// request in the query; we carry it across the Supabase redirect in
-// sessionStorage so redirectTo stays the clean, allow-listed /connect/ URL.
-function readOauthCtx() {
-  const p = new URLSearchParams(location.search);
-  if (p.get('sb_oauth') === '1' && p.get('client_id') && p.get('redirect_uri') && p.get('code_challenge')) {
-    return {
-      client_id: p.get('client_id'),
-      redirect_uri: p.get('redirect_uri'),
-      code_challenge: p.get('code_challenge'),
-      state: p.get('state') || '',
-      scope: p.get('scope') || '',
-      resource: p.get('resource') || '',
-    };
-  }
-  try { return JSON.parse(sessionStorage.getItem('sb_oauth_ctx') || 'null'); } catch { return null; }
-}
-const oauthCtx = readOauthCtx();
+// Only used when the server cannot describe the request (the rollout window
+// before the new oauth function is live). Keep in sync with
+// KNOWN_REDIRECT_DOMAINS / KNOWN_APP_SCHEMES in supabase/functions/_shared/oauth.ts.
+const KNOWN_DOMAINS = [
+  'claude.ai', 'chatgpt.com', 'cursor.com', 'agent.meta.ai', 'grok.com', 'manus.im',
+  'perplexity.ai', 'antigravity.google', 'tasklet.ai',
+];
+const KNOWN_SCHEMES = ['claude', 'cursor'];
+
+const redirectTo = `${location.origin}${location.pathname.replace(/index\.html$/, '')}`;
 
 const $ = (id) => document.getElementById(id);
-const show = (id) => { for (const s of ['choose', 'busy', 'done', 'error']) $(s).classList.toggle('hidden', s !== id); };
-const fail = (msg) => { $('errorText').textContent = msg; show('error'); };
+const SCREENS = ['loading', 'consent', 'busy', 'done', 'error'];
+const show = (id) => { for (const s of SCREENS) $(s).classList.toggle('hidden', s !== id); };
+const busy = (title, text) => { $('busyTitle').textContent = title; $('busyText').textContent = text; show('busy'); };
+
+let ended = false;
+/** Every end state lands here: drop the stashed request, sign this page's session out locally. */
+async function endSession() {
+  try { sessionStorage.removeItem(CTX_KEY); } catch { /* storage blocked */ }
+  if (ended) return;
+  ended = true;
+  try { await supabase.auth.signOut({ scope: 'local' }); } catch { /* best effort */ }
+}
+
+async function finish(emoji, title, text) {
+  $('doneEmoji').textContent = emoji;
+  $('doneTitle').textContent = title;
+  $('doneText').textContent = text;
+  show('done');
+  await endSession();
+}
+
+async function fail(msg) {
+  $('errorText').textContent = msg || 'Something went wrong.';
+  show('error');
+  await endSession();
+}
 
 // Render "message + upgrade link" without innerHTML so a compromised or
 // misbehaving backend response can never inject markup/script (XSS hardening).
@@ -212,102 +300,276 @@ function renderUpgradeMessage(el, message, upgradeUrl) {
   }
 }
 
-const redirectTo = `${location.origin}${location.pathname}`;
+async function upgrade(body) {
+  $('doneEmoji').textContent = '🔒';
+  $('doneTitle').textContent = 'One step left';
+  renderUpgradeMessage($('doneText'), body.message, body.upgrade_url);
+  show('done');
+  await endSession();
+}
+
+/**
+ * The request this page is about. From the URL on the first load (then kept in
+ * sessionStorage across the Apple/Google sign-in, and removed from the address
+ * bar), from sessionStorage when the provider sends the user back.
+ */
+function readCtx() {
+  const p = new URLSearchParams(location.search);
+  let ctx = null;
+  if (p.get('sb_oauth') === '1' && p.get('req')) {
+    ctx = { mode: 'oauth', req: p.get('req') };
+  } else if (p.get('sb_oauth') === '1' && p.get('client_id') && p.get('redirect_uri') && p.get('code_challenge')) {
+    // Rollout: an authorization that started on the previous /authorize.
+    ctx = {
+      mode: 'oauth',
+      legacy: {
+        client_id: p.get('client_id'),
+        redirect_uri: p.get('redirect_uri'),
+        code_challenge: p.get('code_challenge'),
+        state: p.get('state') || '',
+        scope: p.get('scope') || '',
+        resource: p.get('resource') || '',
+      },
+    };
+  } else if (p.get('dc')) {
+    ctx = { mode: 'device', dc: p.get('dc') };
+  }
+  try {
+    // Keys of the previous page version: never act on them.
+    sessionStorage.removeItem('sb_dc');
+    sessionStorage.removeItem('sb_oauth_ctx');
+  } catch { /* storage blocked */ }
+  if (ctx) {
+    try { sessionStorage.setItem(CTX_KEY, JSON.stringify(ctx)); } catch { /* storage blocked */ }
+    history.replaceState(null, '', location.pathname);
+    return ctx;
+  }
+  try { return JSON.parse(sessionStorage.getItem(CTX_KEY) || 'null'); } catch { return null; }
+}
+
+function describeLocal(uri) {
+  let u;
+  try { u = new URL(uri); } catch { return null; }
+  if (u.protocol === 'https:' || u.protocol === 'http:') {
+    const h = u.hostname.toLowerCase();
+    if (h === '127.0.0.1' || h === 'localhost' || h === '[::1]' || h === '::1') {
+      return { host: u.host, kind: 'loopback', known: true };
+    }
+    const known = u.protocol === 'https:' && (
+      /^oauth-redirect[a-z0-9-]*\.googleusercontent\.com$/.test(h) ||
+      KNOWN_DOMAINS.some((d) => h === d || h.endsWith(`.${d}`)));
+    return { host: u.host, kind: 'web', known };
+  }
+  return { host: uri, kind: 'app', known: KNOWN_SCHEMES.includes(u.protocol.slice(0, -1).toLowerCase()) };
+}
+
+/**
+ * What the card shows. With a signed request (or a validated legacy one) it
+ * comes from the server: the registered app name and the redirect that
+ * /authorize checked. validated=false only in the rollout window, when the
+ * server does not answer /request yet: then the card shows what the URL says,
+ * issue-code still checks it, and Deny does not redirect.
+ */
+async function loadView(ctx) {
+  if (ctx.mode === 'device') return { device: true };
+  const get = async (query) => {
+    const res = await fetch(`${FUNCTIONS_URL}/oauth/request?${query}`).catch(() => null);
+    const data = res ? await res.json().catch(() => ({})) : {};
+    return { res, data };
+  };
+  if (ctx.req) {
+    const { res, data } = await get(new URLSearchParams({ req: ctx.req }));
+    if (res && res.ok) return { ...data, validated: true };
+    throw new Error(data.error_description || 'Could not load this request. Start again from your assistant.');
+  }
+  const l = ctx.legacy;
+  const { res, data } = await get(new URLSearchParams({
+    client_id: l.client_id, redirect_uri: l.redirect_uri, scope: l.scope || '',
+  }));
+  if (res && res.ok) return { ...data, state: l.state, validated: true };
+  if (res && res.status === 400) throw new Error(data.error_description || 'Unknown app or redirect.');
+  const r = describeLocal(l.redirect_uri);
+  if (!r) throw new Error('This sign-in link is not valid.');
+  return {
+    client_name: null,
+    redirect_uri: l.redirect_uri,
+    redirect_host: r.host,
+    redirect_kind: r.kind,
+    known_host: r.known,
+    state: l.state,
+    validated: false,
+  };
+}
+
+function renderConsent(view, session) {
+  const warn = $('warnText');
+  if (view.device) {
+    $('consentTitle').textContent = 'An assistant asked to connect to your SecondBrain';
+    $('consentSub').textContent = 'Allow it only if you are connecting your own assistant right now.';
+    $('appRow').classList.add('hidden');
+    $('hostRow').classList.add('hidden');
+    warn.textContent = DEVICE_WARNING;
+    warn.classList.remove('hidden');
+  } else {
+    const name = view.client_name || 'An app';
+    $('consentTitle').textContent = `${name} wants to connect to your SecondBrain`;
+    $('consentSub').textContent = 'Check the app and the address before you allow it.';
+    $('appName').textContent = view.client_name || 'Unnamed app';
+    $('hostLabel').textContent = view.redirect_kind === 'loopback'
+      ? 'Sends you back to an app on this computer'
+      : view.redirect_kind === 'app' ? 'Opens this app' : 'Sends you back to';
+    $('hostValue').textContent = view.redirect_host;
+    const unverified = !view.known_host;
+    $('unverified').classList.toggle('hidden', !unverified);
+    if (unverified) {
+      warn.textContent = UNVERIFIED_WARNING;
+      warn.classList.remove('hidden');
+    }
+  }
+  $('permissions').textContent = PERMISSIONS;
+  $('signedOut').classList.toggle('hidden', !!session);
+  $('signedIn').classList.toggle('hidden', !session);
+  if (session) $('who').textContent = `Signed in as ${session.user?.email || 'your SecondBrain account'}.`;
+  show('consent');
+}
 
 async function signIn(provider) {
-  $('busyTitle').textContent = 'Redirecting…';
-  $('busyText').textContent = `Continue with ${provider === 'apple' ? 'Apple' : 'Google'} in the next screen.`;
-  show('busy');
-  if (dc) sessionStorage.setItem('sb_dc', dc);
-  if (oauthCtx) sessionStorage.setItem('sb_oauth_ctx', JSON.stringify(oauthCtx));
+  busy('Redirecting…', `Continue with ${provider === 'apple' ? 'Apple' : 'Google'} in the next screen.`);
   const { error } = await supabase.auth.signInWithOAuth({ provider, options: { redirectTo } });
-  if (error) fail(error.message);
+  if (error) await fail(error.message);
 }
 
-async function bind(session) {
-  $('busyTitle').textContent = 'Connecting your assistant…';
-  $('busyText').textContent = 'Almost done.';
-  show('busy');
-  const res = await fetch(`${SUPABASE_URL}/functions/v1/mcp-connect`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', apikey: ANON_KEY, Authorization: `Bearer ${session.access_token}` },
-    body: JSON.stringify({ action: 'bind', device_code: dc }),
-  });
-  const json = await res.json().catch(() => ({}));
-  await supabase.auth.signOut().catch(() => {});
-  sessionStorage.removeItem('sb_dc');
-
-  if (res.status === 403 && json.error === 'pro_required') {
-    $('doneEmoji').textContent = '🔒';
-    $('doneTitle').textContent = 'One step left';
-    renderUpgradeMessage($('doneText'), json.message, json.upgrade_url);
-    show('done');
-    return;
-  }
-  if (!res.ok || !json.ok) { fail(json.error || 'Could not connect. Please try again from your assistant.'); return; }
-  show('done');
+async function currentSession() {
+  const { data: { session } } = await supabase.auth.getSession();
+  return session;
 }
 
-// OAuth-authorize completion: after sign-in, mint an authorization code and
-// redirect the browser back to the MCP client (Cowork / claude.ai).
-async function completeOauth(session) {
-  $('busyTitle').textContent = 'Connecting your assistant…';
-  $('busyText').textContent = 'Almost done.';
-  show('busy');
-  const res = await fetch(`${SUPABASE_URL}/functions/v1/oauth/issue-code`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', apikey: ANON_KEY, Authorization: `Bearer ${session.access_token}` },
-    body: JSON.stringify({
-      client_id: oauthCtx.client_id,
-      redirect_uri: oauthCtx.redirect_uri,
-      code_challenge: oauthCtx.code_challenge,
-      scope: oauthCtx.scope,
-      resource: oauthCtx.resource,
-    }),
-  });
-  const data = await res.json().catch(() => ({}));
-  await supabase.auth.signOut().catch(() => {});
-  sessionStorage.removeItem('sb_oauth_ctx');
+/** OAuth Allow: mint the code for exactly what /authorize validated, then go back to the app. */
+async function allowOauth(ctx, view) {
+  busy('Connecting your assistant…', 'Almost done.');
+  let target = null;
+  try {
+    const session = await currentSession();
+    if (!session) { await fail('Your sign-in ended. Start again from your assistant.'); return; }
+    const payload = ctx.req
+      ? { req: ctx.req }
+      : {
+        client_id: ctx.legacy.client_id,
+        redirect_uri: ctx.legacy.redirect_uri,
+        code_challenge: ctx.legacy.code_challenge,
+        scope: ctx.legacy.scope,
+        resource: ctx.legacy.resource,
+      };
+    const res = await fetch(`${FUNCTIONS_URL}/oauth/issue-code`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', apikey: ANON_KEY, Authorization: `Bearer ${session.access_token}` },
+      body: JSON.stringify(payload),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (res.status === 403 && data.error === 'pro_required') { await upgrade(data); return; }
+    if (!res.ok || !data.code) {
+      await fail(data.error_description || data.error || 'Could not connect. Please try again from your assistant.');
+      return;
+    }
+    const dest = ctx.req ? (data.redirect_uri || view.redirect_uri) : (view.validated ? view.redirect_uri : ctx.legacy.redirect_uri);
+    const back = new URL(dest);
+    back.searchParams.set('code', data.code);
+    const state = ctx.req ? (data.state ?? view.state) : ctx.legacy.state;
+    if (state) back.searchParams.set('state', state);
+    target = back.toString();
+  } catch {
+    await fail('Could not connect. Check your connection and try again from your assistant.');
+  } finally {
+    await endSession();
+  }
+  if (target) location.replace(target);
+}
 
-  if (res.status === 403 && data.error === 'pro_required') {
-    $('doneEmoji').textContent = '🔒';
-    $('doneTitle').textContent = 'One step left';
-    renderUpgradeMessage($('doneText'), data.message, data.upgrade_url);
-    show('done');
-    return;
+/** Device Allow: bind a new token to the login the user's own assistant started. */
+async function allowDevice(ctx) {
+  busy('Connecting your assistant…', 'Almost done.');
+  try {
+    const session = await currentSession();
+    if (!session) { await fail('Your sign-in ended. Start again from your assistant.'); return; }
+    const res = await fetch(`${FUNCTIONS_URL}/mcp-connect`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', apikey: ANON_KEY, Authorization: `Bearer ${session.access_token}` },
+      body: JSON.stringify({ action: 'bind', device_code: ctx.dc }),
+    });
+    const json = await res.json().catch(() => ({}));
+    if (res.status === 403 && json.error === 'pro_required') { await upgrade(json); return; }
+    if (!res.ok || !json.ok) {
+      const msg = res.status === 409 ? 'This link was already used. Start again from your assistant.'
+        : res.status === 410 ? 'This link expired. Start again from your assistant.'
+        : (json.error || 'Could not connect. Please try again from your assistant.');
+      await fail(msg);
+      return;
+    }
+    await finish('✅', "You're connected", 'Return to your assistant and continue. You can close this tab.');
+  } catch {
+    await fail('Could not connect. Check your connection and try again from your assistant.');
+  } finally {
+    await endSession();
   }
-  if (!res.ok || !data.code) {
-    fail(data.error_description || data.error || 'Could not connect. Please try again from your assistant.');
-    return;
+}
+
+/** Deny: OAuth clients get error=access_denied (RFC 6749 4.1.2.1) at the validated redirect; otherwise just stop. */
+async function deny(ctx, view) {
+  try {
+    if (ctx.mode === 'oauth' && view.validated && view.redirect_uri) {
+      const back = new URL(view.redirect_uri);
+      back.searchParams.set('error', 'access_denied');
+      back.searchParams.set('error_description', 'The user denied the request.');
+      if (view.state) back.searchParams.set('state', view.state);
+      await endSession();
+      location.replace(back.toString());
+      return;
+    }
+    await finish('✋', 'Nothing was connected', 'You can close this tab.');
+  } finally {
+    await endSession();
   }
-  const back = new URL(oauthCtx.redirect_uri);
-  back.searchParams.set('code', data.code);
-  if (oauthCtx.state) back.searchParams.set('state', oauthCtx.state);
-  location.replace(back.toString());
 }
 
 async function main() {
-  const { data: { session } } = await supabase.auth.getSession();
-  if (session && oauthCtx) { await completeOauth(session); return; }
-  if (session && dc) { await bind(session); return; }
-  if (session && !dc && !oauthCtx) {
-    // Signed in but opened without a device code · nothing to bind.
-    $('doneEmoji').textContent = '✅';
-    $('doneTitle').textContent = "You're signed in";
-    $('doneText').textContent = 'Open this page from your assistant to finish connecting.';
-    show('done');
+  if (framed) {
+    $('errorText').textContent = 'Open this page in its own browser window.';
+    show('error');
     return;
   }
-  if (!dc && !oauthCtx) {
-    fail('Open this link from your assistant (it carries a one-time code), or run <code>npx secondbrain-connect</code> in a terminal.');
+  const ctx = readCtx();
+  const session = await currentSession();
+  if (!ctx) {
+    if (session) {
+      await finish('✅', 'Nothing to connect', 'Open this page from your assistant to connect it.');
+      return;
+    }
+    await fail('Open this link from your assistant (it carries a one-time code), or run npx secondbrain-connect in a terminal.');
     return;
   }
-  $('google').onclick = () => signIn('google');
+  let view;
+  try {
+    view = await loadView(ctx);
+  } catch (e) {
+    await fail(e?.message);
+    return;
+  }
+  renderConsent(view, session);
   $('apple').onclick = () => signIn('apple');
-  show('choose');
+  $('google').onclick = () => signIn('google');
+  let acted = false;
+  const once = (fn) => () => {
+    if (acted) return;
+    acted = true;
+    for (const id of ['allow', 'deny', 'denyOut']) $(id).disabled = true;
+    fn();
+  };
+  $('deny').onclick = once(() => deny(ctx, view));
+  $('denyOut').onclick = once(() => deny(ctx, view));
+  $('allow').onclick = once(() => (ctx.mode === 'oauth' ? allowOauth(ctx, view) : allowDevice(ctx)));
 }
 
-main().catch((e) => fail(e.message));
+main().catch((e) => fail(e?.message));
 </script>
 </body>
 </html>
