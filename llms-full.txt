@@ -8,14 +8,14 @@ SecondBrain is the AI second brain app for iPhone, Android and the web (app.seco
 - Calendar and follow-ups: calendar events, reminders and follow-ups mentioned in your voice note are created while you talk, with two-way iPhone Calendar sync.
 - Recall: ask the app anything about your own notes and schedule and it answers from your memory.
 - Photos and files: on iPhone and Android, share a photo, a screenshot, a PDF or a text file (.txt, .md, .csv, up to 10 MB) to SecondBrain from another app, or attach it with the paperclip in the app. It reads the content, including text inside images, writes a note and files it in the right folder on its own; dates it finds can become events or reminders. Works on the free plan within the daily AI limits. Word and Excel files are not read directly.
-- Shared folders (SecondBrain Pro, app 3.0, November 2026): long-press a folder, tap Share, choose full access (read, add, edit, delete) or read-only, and send the invite link; each link works once, for one person, for 24 hours. The people you invite join on iPhone, Android or in the web app and find the folder under Shared with me, organized as the owner left it; their own notes stay private. People in the same note see each other type, earlier versions of every shared note are kept for 30 days, and anything deleted waits in the folder's shared trash for 30 days. The owner manages access (change a role, remove someone, stop sharing); anyone can disconnect. Up to 10 people per folder besides the owner. Connected assistants (Claude, ChatGPT and others over MCP) search and read folders shared with you and save into one only when you name it and have full access.
-- Shared AI memory (Pro): the same memory is exposed through an MCP server, so Claude, ChatGPT, Gemini, Cursor and Claude Code can save and recall facts in it. Tell one assistant, they all remember.
+- Shared folders (SecondBrain Pro, app 3.0, November 2026): long-press a folder, tap Share, choose full access (read, add, edit, delete) or read-only, and send the invite link; each link works once, for one person, for 24 hours. The people you invite join on iPhone, Android or in the web app and find the folder in Notes, under Shared with me, organized as the owner left it; their own notes stay private. Everyone sees changes in real time, people with full access edit together and see each other type, earlier versions of every shared note are kept for 30 days, and anything deleted waits in the folder's shared trash for 30 days. The owner manages access (change a role, remove someone, stop sharing); anyone invited can disconnect. People in a folder see each other's names and the owner sees members' sign-in emails; notes a member writes there stay in the owner's folder. Up to 10 people per folder besides the owner. Connected assistants (Claude, ChatGPT and others over MCP) search and read folders shared with you and save into one only when you name it and have full access.
+- Shared AI memory (SecondBrain Pro): the same memory is exposed through an MCP server, so Claude, ChatGPT, Gemini, Cursor and Claude Code can save and recall facts in it. Tell one assistant, they all remember.
 - Markdown export (Pro, iPhone): Settings, then Export all notes, gives you a .zip containing one .md file per note, arranged in the folder tree you use in the app. Plain Markdown, so the files open in Obsidian, Notion, VS Code or any text editor with no plugin and no importer.
 
 ## Key facts
 
 - Platforms: iPhone (iOS), Android, web (app.secondbrainmemory.com).
-- Pricing: free to download and use; Pro subscription unlocks shared folders and the shared memory layer. Pro is enabled inside the app.
+- Pricing: free to download and use; a SecondBrain Pro subscription unlocks shared folders and the shared memory layer. SecondBrain Pro is enabled inside the app.
 - Markdown export: available to Pro subscribers on iPhone only. It is an on-demand export you run from Settings, not a live sync with another app, and it is not currently available on Android or in the web app. The archive is named secondbrain-notes-YYYY-MM-DD.zip; each note is one .md file with its title as a level-one heading and no YAML front matter; unfiled notes go in a folder called Unfiled.
 - Supported assistants via MCP: Claude, Claude Code, ChatGPT, Gemini, Cursor.
 - Setup time: about two minutes; sign in with Apple or Google; no API keys.
@@ -63,7 +63,7 @@ Yes. On iPhone and Android you can share a photo, a screenshot, a PDF or a text 
 
 ### Can I share a folder with other people?
 
-Yes. Long-press a folder in SecondBrain, tap Share, choose full access or read-only, and send the invite link. Each link works once, for one person, for 24 hours. The people you invite open it on iPhone, Android or in the web app and find the folder under Shared with me, where you work on its notes together in real time. Only that folder is shared: the rest of your notes stays private. Sharing and joining need SecondBrain Pro, and a folder can have up to 10 people besides you.
+Yes. Long-press a folder in SecondBrain, tap Share, choose full access or read-only, and send the invite link. Each link works once, for one person, for 24 hours. The people you invite open it on iPhone, Android or in the web app and find the folder in Notes, under Shared with me. Everyone sees changes in real time, and people with full access edit its notes with you. Only that folder is shared: the rest of your notes stays private. Sharing and joining need SecondBrain Pro, and a folder can have up to 10 people besides you.
 
 ### Can I undo changes in a shared folder?
 
@@ -91,7 +91,7 @@ SecondBrain runs on iPhone and Android. The shared memory also works with deskto
 
 ### Is my data private?
 
-Yes. SecondBrain has no analytics, no ads and never trains on your data. Your memory is encrypted and isolated per user, so it is yours alone. Nothing is shared with other people unless you share a folder yourself, and then only that folder, with the people you invite. You can delete everything at any time with one tap, and no copies are kept.
+Yes. SecondBrain has no analytics, no ads and never trains on your data. Your memory is encrypted and isolated per user, so it is yours alone. Nothing of yours is shown to other people unless you share a folder, and then only to the people you invite. If you join someone else's folder, the people in it see your name and what you write there, and its owner also sees your sign-in email. You can delete everything at any time with one tap, and no copies are kept, apart from notes you wrote in a folder someone else owns, which stay in that folder.
 
 ### How is SecondBrain different from a notes app like Notion or Obsidian?
 
