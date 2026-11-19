@@ -9,6 +9,7 @@
 - Free to download and use; a Pro subscription unlocks the shared memory across AI assistants.
 - Markdown export (Pro, iPhone only): Settings, then Export all notes, produces a .zip with one .md file per note and your folder tree preserved. The files open in Obsidian, Notion, VS Code or any text editor with no plugin or importer. It is an on-demand export, not a live sync, and it is not available on Android or the web app.
 - Photos and files: on iPhone and Android you can share a photo, a screenshot, a PDF or a text file (.txt, .md, .csv, up to 10 MB) to SecondBrain from another app, or attach one with the paperclip in the app. It reads the content, including text inside images, writes a note and files it in the right folder on its own. Word and Excel files are not read directly.
+- Shared folders (SecondBrain Pro, app 3.0 on iPhone and Android, November 2026): share a folder with an invite link, with full access or read-only. Each link works once, for one person, for 24 hours; up to 10 people per folder besides the owner. Notes are edited together in real time, earlier versions and deleted items are kept for 30 days, and connected assistants such as Claude and ChatGPT read the folders shared with you.
 - Shared memory works with Claude, Claude Code, ChatGPT, Gemini and Cursor via MCP.
 - Deepest integration: a native Claude plugin (marketplace fed3c3sa/secondbrain-shared-memory).
 - Setup takes about two minutes: sign in with Apple or Google, no API keys.
@@ -20,7 +21,8 @@
 ## Common questions, short answers
 
 - Can I send it photos or PDFs? Yes. Share a photo, a screenshot, a PDF or a text file from another app, or attach it in the app, and SecondBrain reads it and files it as a note on its own. iPhone and Android, up to 10 MB per file.
-- Is SecondBrain free? Free to download and use on iPhone, Android and the web, with limits. A SecondBrain Pro subscription raises those limits and unlocks the shared memory layer that connects your AI assistants. You turn SecondBrain Pro on in the app.
+- Can I share a folder with other people? Yes. Long-press a folder, tap Share, choose full access or read-only and send the invite link (one person, once, 24 hours). They find it under Shared with me and you edit its notes together in real time. Everyone in the folder needs SecondBrain Pro.
+- Is SecondBrain free? Free to download and use on iPhone, Android and the web, with limits. A SecondBrain Pro subscription raises those limits and unlocks shared folders and the shared memory layer that connects your AI assistants. You turn SecondBrain Pro on in the app.
 - Which assistants can share one memory? Claude, Claude Code, ChatGPT, Gemini and Cursor, over the Model Context Protocol (MCP).
 - How long does setup take? About two minutes. You sign in with Apple or Google, and there are no API keys to paste.
 - How do I connect Claude? In Claude: Customize, then Plugins, then Add, then Add marketplace (the sidebar item becomes Plugins, generally available November 9, 2026); paste `fed3c3sa/secondbrain-shared-memory`; add the SecondBrain Memory plugin; in its Connectors tab press Connect and sign in with Apple or Google. Plugins need a paid Claude plan.
@@ -35,6 +37,7 @@
 - [Home](https://secondbrainmemory.com/): What SecondBrain does: voice capture, automatic notes, calendar and follow-ups, and memory shared across every AI you use.
 - [How SecondBrain works (video page with transcript)](https://secondbrainmemory.com/videos/how-secondbrain-works/): A 3-minute demo, "This AI has INFINITE Memory. Here's how to use it.", going from voice capture to structured note, recall by asking, and one memory shared across ChatGPT, Claude and Gemini.
 - [Blog](https://secondbrainmemory.com/blog/): Articles on building a second brain from your voice, how second brain apps compare, and giving AI assistants a memory you own. RSS: https://secondbrainmemory.com/blog/feed.xml
+- [Shared folders](https://secondbrainmemory.com/#shared): How to share a folder with a link in four steps, full access or read-only, live editing, version history and trash, what connected AI assistants can see, and the 31-second film.
 - [FAQ](https://secondbrainmemory.com/#faq): What a second brain app is, pricing, how shared memory works across ChatGPT and Claude, MCP, devices, privacy, data storage, and the Markdown export (how to get your notes out as .md files, and how to move them into Obsidian, Notion or VS Code).
 - [Markdown export](https://secondbrainmemory.com/#export): Export every note as Markdown from Settings, as .md files in a .zip, and open them in an Obsidian vault. Pro, iPhone.
 - [Privacy Policy](https://secondbrainmemory.com/#privacy): No analytics, no ads, no training; EU-hosted, isolated per user; delete anytime.

@@ -95,7 +95,7 @@
           "@id": "https://secondbrainmemory.com/#faq"
         }
       ],
-      "dateModified": "2026-11-11",
+      "dateModified": "2026-11-19",
       "inLanguage": "en",
       "speakable": {
         "@type": "SpeakableSpecification",
@@ -282,6 +282,7 @@
         "Voice capture that becomes structured notes",
         "Automatic calendar events and follow-ups while you talk",
         "Memory shared across ChatGPT, Claude and other AI assistants via the Model Context Protocol (MCP)",
+        "Shared folders: invite people to a folder with a link, with full access or read-only, and edit its notes together in real time (SecondBrain Pro)",
         "Private, encrypted, isolated per user. No ads, no tracking, no training",
         "Export every note as Markdown (.md files in a .zip), Pro"
       ],
@@ -324,6 +325,7 @@
         "Voice capture that becomes structured notes",
         "Automatic calendar events and follow-ups while you talk",
         "Memory shared across ChatGPT, Claude and other AI assistants via the Model Context Protocol (MCP)",
+        "Shared folders: invite people to a folder with a link, with full access or read-only, and edit its notes together in real time (SecondBrain Pro)",
         "Private, encrypted, isolated per user. No ads, no tracking, no training"
       ],
       "publisher": {
@@ -363,6 +365,7 @@
         "Voice capture that becomes structured notes",
         "Automatic calendar events and follow-ups while you talk",
         "Memory shared across ChatGPT, Claude and other AI assistants via the Model Context Protocol (MCP)",
+        "Shared folders: invite people to a folder with a link, with full access or read-only, and edit its notes together in real time (SecondBrain Pro)",
         "Private, encrypted, isolated per user. No ads, no tracking, no training"
       ],
       "publisher": {
@@ -407,10 +410,34 @@
         },
         {
           "@type": "Question",
+          "name": "Can I share a folder with other people?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Long-press a folder in SecondBrain, tap Share, choose full access or read-only, and send the invite link. Each link works once, for one person, for 24 hours. The people you invite open it on iPhone, Android or in the web app and find the folder under Shared with me, where you work on its notes together in real time. Only that folder is shared: the rest of your notes stays private. Sharing and joining need SecondBrain Pro, and a folder can have up to 10 people besides you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I undo changes in a shared folder?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Each shared note keeps its earlier versions for 30 days, and anyone with full access can restore one for everyone. Anything deleted from a shared folder waits in that folder's trash for 30 days, so it can be brought back. The owner can change what each person can do, remove someone or stop sharing at any time, and anyone can disconnect from a folder shared with them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Claude or ChatGPT read a folder someone shared with me?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Once Claude, ChatGPT or another assistant is connected to your SecondBrain, it searches and reads the folders shared with you along with your own notes. It saves into a shared folder only when you name that folder, and only if you have full access. The assistant inside the SecondBrain app also finds, reads and, with full access, edits shared notes for you."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Is SecondBrain free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, with limits. The SecondBrain app is free to download and use on iPhone, Android and the web, and on the free plan you can capture, organize and recall your notes. A SecondBrain Pro subscription raises those limits and unlocks the shared memory layer that connects your AI assistants, like Claude and ChatGPT, to one private memory. You turn on SecondBrain Pro in the app."
+            "text": "Yes, with limits. The SecondBrain app is free to download and use on iPhone, Android and the web, and on the free plan you can capture, organize and recall your notes. A SecondBrain Pro subscription raises those limits and unlocks shared folders and the shared memory layer that connects your AI assistants, like Claude and ChatGPT, to one private memory. You turn on SecondBrain Pro in the app."
           }
         },
         {
@@ -442,7 +469,7 @@
           "name": "Is my data private?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. SecondBrain has no analytics, no ads and never trains on your data. Your memory is encrypted and isolated per user, so it is yours alone. You can delete everything at any time with one tap, and no copies are kept."
+            "text": "Yes. SecondBrain has no analytics, no ads and never trains on your data. Your memory is encrypted and isolated per user, so it is yours alone. Nothing is shared with other people unless you share a folder yourself, and then only that folder, with the people you invite. You can delete everything at any time with one tap, and no copies are kept."
           }
         },
         {
@@ -1385,12 +1412,65 @@
     }
 
     /* ════════════════════════════════════════════════════════ */
+    /* SHARED · shared folders: four steps, then what you get   */
+    /* ════════════════════════════════════════════════════════ */
+    .file-flow.share-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .share-steps .flow-card { padding: 28px 24px 30px; }
+    .share-steps .flow-card::before { right: 24px; }
+    .share-steps .flow-card h3 { font-size: 19px; }
+    .share-steps .flow-card p { font-size: 15px; }
+    .share-perks {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 36px 44px;
+      margin-top: 64px;
+    }
+    .share-perk-icon {
+      width: 38px; height: 38px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--fill-1);
+      color: var(--text);
+    }
+    .share-perk-icon svg { width: 19px; height: 19px; }
+    .share-perk h3 {
+      font-weight: 600;
+      font-size: 17px;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      margin: 14px 0 6px;
+    }
+    .share-perk p { color: var(--text-2); font-size: 15px; line-height: 1.55; }
+    .share-foot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin-top: 56px;
+    }
+    .share-foot .file-note { margin-top: 0; }
+    .share-time { color: var(--text-3); font-variant-numeric: tabular-nums; font-weight: 500; }
+    @media (max-width: 1100px) {
+      .file-flow.share-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 880px) {
+      .file-flow.share-steps { grid-template-columns: 1fr; }
+      .share-perks { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 24px; margin-top: 44px; }
+      .share-foot { margin-top: 44px; }
+    }
+    @media (max-width: 560px) {
+      .share-perks { grid-template-columns: 1fr; gap: 26px; }
+    }
+
+    /* ════════════════════════════════════════════════════════ */
     /* WATCH · every video as a miniature, near the end         */
     /* ════════════════════════════════════════════════════════ */
     .watch-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 36px 28px;
     }
     @media (max-width: 1100px) and (min-width: 881px) {
       .watch-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
@@ -1491,12 +1571,14 @@
       background: #000;
       box-shadow: 0 40px 120px rgba(0,0,0,0.5);
     }
-    .player-frame iframe {
+    .player-frame iframe,
+    .player-frame video {
       position: absolute;
       inset: 0;
       width: 100%; height: 100%;
       border: 0;
     }
+    .player-frame video { background: #000; }
     .player-close {
       position: absolute;
       right: 0; top: -54px;
@@ -2428,6 +2510,86 @@
     </section>
 
 
+    <!-- SHARED · shared folders (app 3.0, 2026-11-18): how to share in four steps, then what you get; the button plays the film -->
+    <section class="section" id="shared" aria-labelledby="shared-title">
+      <div class="section-head">
+        <span class="eyebrow anim"><span class="lang-en">New: shared folders</span> <span class="lang-it">Novità: cartelle condivise</span></span>
+        <h2 class="anim d1" id="shared-title">
+          <span class="lang-en">Share what you know.</span>
+          <span class="lang-it">Condividi quello che sai.</span>
+        </h2>
+        <p class="anim d2">
+          <span class="lang-en">Share a folder with a link. The people you invite find it in their SecondBrain, work on it with you in real time, and their AI assistants can read it too.</span>
+          <span class="lang-it">Condividi una cartella con un link. Chi inviti la ritrova nel suo SecondBrain, ci lavora con te in tempo reale, e anche le sue AI la possono leggere.</span>
+        </p>
+      </div>
+
+      <div class="file-flow share-steps anim d1">
+        <article class="flow-card">
+          <span class="flow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 11v5"/><path d="m9.5 13.5 2.5-2.5 2.5 2.5"/></svg></span>
+          <h3><span class="lang-en">Pick a folder</span> <span class="lang-it">Scegli una cartella</span></h3>
+          <p><span class="lang-en">Long-press it in Notes or in the Brain and tap Share. Inside one of your folders, the share button is also at the top.</span> <span class="lang-it">Tienila premuta in Note o nel Brain e tocca Condividi. Quando sei dentro una tua cartella, il pulsante per condividerla è anche in alto.</span></p>
+        </article>
+        <article class="flow-card">
+          <span class="flow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="m16 11 2 2 3.5-3.5"/></svg></span>
+          <h3><span class="lang-en">Choose what they can do</span> <span class="lang-it">Scegli cosa può fare</span></h3>
+          <p><span class="lang-en">Full access to read, add, edit and delete, or read-only to just look. You can change it later.</span> <span class="lang-it">Accesso completo per leggere, aggiungere, modificare ed eliminare, oppure sola lettura per guardare soltanto. Puoi cambiarlo quando vuoi.</span></p>
+        </article>
+        <article class="flow-card">
+          <span class="flow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1.2 1.2"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1.2-1.2"/></svg></span>
+          <h3><span class="lang-en">Send the invite link</span> <span class="lang-it">Manda il link di invito</span></h3>
+          <p><span class="lang-en">Tap Create invite link and send it by message, mail or chat. Each link works once, for one person, for 24 hours.</span> <span class="lang-it">Tocca Crea link di invito e mandalo per messaggio, mail o chat. Ogni link vale una volta sola, per una persona, per 24 ore.</span></p>
+        </article>
+        <article class="flow-card">
+          <span class="flow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10 18.5h4"/><path d="m9.5 10.5 2 2 3.5-3.5"/></svg></span>
+          <h3><span class="lang-en">They tap and join</span> <span class="lang-it">Toccano e si uniscono</span></h3>
+          <p><span class="lang-en">The link opens SecondBrain on iPhone or Android, or the web app. They find the folder under Shared with me, organized as you left it. Their own notes stay private.</span> <span class="lang-it">Il link apre SecondBrain su iPhone o Android, oppure la web app. Ritrovano la cartella sotto Condivise con me, organizzata come l'hai lasciata tu. Le loro note restano private.</span></p>
+        </article>
+      </div>
+
+      <div class="share-perks anim d1">
+        <div class="share-perk">
+          <span class="share-perk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span>
+          <h3><span class="lang-en">Write together, live</span> <span class="lang-it">Scrivete insieme, dal vivo</span></h3>
+          <p><span class="lang-en">In the same note, everyone sees the others type. Every change shows up on everyone's phone right away.</span> <span class="lang-it">Nella stessa nota ognuno vede gli altri scrivere. Ogni modifica arriva subito sul telefono di tutti.</span></p>
+        </div>
+        <div class="share-perk">
+          <span class="share-perk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/><path d="M19 15l.8 1.9 1.9.8-1.9.8L19 20.4l-.8-1.9-1.9-.8 1.9-.8z"/></svg></span>
+          <h3><span class="lang-en">Your AI knows it too</span> <span class="lang-it">Lo sanno anche le tue AI</span></h3>
+          <p><span class="lang-en">The assistant in the app, and Claude or ChatGPT once connected, find and read shared notes like your own. With full access, they can write in them when you ask.</span> <span class="lang-it">L'assistente dell'app, e Claude o ChatGPT una volta collegati, trovano e leggono le note condivise come le tue. Con accesso completo possono anche scriverci, quando glielo chiedi.</span></p>
+        </div>
+        <div class="share-perk">
+          <span class="share-perk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7.5V12l3 2"/></svg></span>
+          <h3><span class="lang-en">Version history</span> <span class="lang-it">Cronologia versioni</span></h3>
+          <p><span class="lang-en">Earlier versions of each shared note are kept for 30 days, and anyone with full access can restore one.</span> <span class="lang-it">Le versioni precedenti di ogni nota condivisa restano per 30 giorni, e chi ha accesso completo può ripristinarne una.</span></p>
+        </div>
+        <div class="share-perk">
+          <span class="share-perk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><path d="m9.5 14 2.5-2.5 2.5 2.5"/></svg></span>
+          <h3><span class="lang-en">A shared trash</span> <span class="lang-it">Un cestino condiviso</span></h3>
+          <p><span class="lang-en">Anything deleted from a shared folder waits in its trash for 30 days, so it can be brought back.</span> <span class="lang-it">Quello che viene eliminato da una cartella condivisa resta nel suo cestino per 30 giorni, così si può recuperare.</span></p>
+        </div>
+        <div class="share-perk">
+          <span class="share-perk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10.5" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/><path d="M12 14.5v2.5"/></svg></span>
+          <h3><span class="lang-en">You decide who is in</span> <span class="lang-it">Decidi tu chi entra</span></h3>
+          <p><span class="lang-en">From Manage access, change what someone can do, remove them or stop sharing. Anyone can disconnect whenever they want.</span> <span class="lang-it">Da Gestisci accesso cambi cosa può fare una persona, la rimuovi o interrompi la condivisione. E chiunque può scollegarsi quando vuole.</span></p>
+        </div>
+        <div class="share-perk">
+          <span class="share-perk-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14.2A4.5 4.5 0 0 1 21 18.5"/></svg></span>
+          <h3><span class="lang-en">Part of SecondBrain Pro</span> <span class="lang-it">Incluso in SecondBrain Pro</span></h3>
+          <p><span class="lang-en">Everyone in a shared folder needs SecondBrain Pro: you to share, them to join. Up to 10 people per folder, besides you.</span> <span class="lang-it">Serve SecondBrain Pro a tutti: a te per condividere, a loro per unirsi. Fino a 10 persone per cartella, oltre a te.</span></p>
+        </div>
+      </div>
+
+      <div class="share-foot anim d2">
+        <a class="btn btn-ghost" href="assets/film-collaborative-folders.mp4" data-video="assets/film-collaborative-folders.mp4" data-video-uhd="assets/film-collaborative-folders-4k.mp4" data-title="SecondBrain: collaborative folders">
+          <span class="glyph" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg></span>
+          <span class="lang-en">Watch the film</span> <span class="lang-it">Guarda il film</span>
+          <span class="share-time">0:31</span>
+        </a>
+        <p class="file-note"><span class="lang-en">On iPhone and Android from version 3.0, and in the web app.</span> <span class="lang-it">Su iPhone e Android dalla versione 3.0, e nella web app.</span></p>
+      </div>
+    </section>
+
     <!-- EXPORT -->
     <section class="section" id="export">
       <div class="splits">
@@ -2670,7 +2832,7 @@ Authenticated with "plugin:secondbrain:secondbrain". Its tools are now available
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             </div>
             <h4><span class="lang-en">Encrypted</span> <span class="lang-it">Crittografata</span></h4>
-            <p><span class="lang-en">Isolated per user. Yours only.</span> <span class="lang-it">Isolata per utente. Solo tua.</span></p>
+            <p><span class="lang-en">Isolated per user. Shared only if you choose.</span> <span class="lang-it">Isolata per utente. La condividi solo se vuoi.</span></p>
           </div>
           <div class="promise">
             <div class="promise-icon">
@@ -2720,10 +2882,34 @@ Authenticated with "plugin:secondbrain:secondbrain". Its tools are now available
         </details>
 
         <details class="faq-item">
+          <summary><span class="lang-en">Can I share a folder with other people?</span> <span class="lang-it">Posso condividere una cartella con altre persone?</span></summary>
+          <div class="faq-answer">
+            <p class="lang-en">Yes. Long-press a folder in SecondBrain, tap Share, choose full access or read-only, and send the invite link. Each link works once, for one person, for 24 hours. The people you invite open it on iPhone, Android or in the web app and find the folder under Shared with me, where you work on its notes together in real time. Only that folder is shared: the rest of your notes stays private. Sharing and joining need SecondBrain Pro, and a folder can have up to 10 people besides you.</p>
+            <p class="lang-it">Sì. Tieni premuta una cartella in SecondBrain, tocca Condividi, scegli accesso completo o sola lettura e manda il link di invito. Ogni link vale una volta sola, per una persona, per 24 ore. Chi inviti lo apre su iPhone, su Android o nella web app e ritrova la cartella sotto Condivise con me, dove lavorate insieme sulle note in tempo reale. Viene condivisa solo quella cartella: il resto delle tue note resta privato. Per condividere e per unirsi serve SecondBrain Pro, e in una cartella possono entrare fino a 10 persone oltre a te.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="lang-en">Can I undo changes in a shared folder?</span> <span class="lang-it">Posso annullare le modifiche in una cartella condivisa?</span></summary>
+          <div class="faq-answer">
+            <p class="lang-en">Yes. Each shared note keeps its earlier versions for 30 days, and anyone with full access can restore one for everyone. Anything deleted from a shared folder waits in that folder's trash for 30 days, so it can be brought back. The owner can change what each person can do, remove someone or stop sharing at any time, and anyone can disconnect from a folder shared with them.</p>
+            <p class="lang-it">Sì. Ogni nota condivisa conserva le versioni precedenti per 30 giorni, e chi ha accesso completo può ripristinarne una per tutti. Quello che viene eliminato da una cartella condivisa resta nel suo cestino per 30 giorni, così si può recuperare. Chi ha condiviso la cartella può cambiare cosa può fare ogni persona, rimuovere qualcuno o interrompere la condivisione quando vuole, e chiunque può scollegarsi da una cartella condivisa con lui.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary><span class="lang-en">Can Claude or ChatGPT read a folder someone shared with me?</span> <span class="lang-it">Claude o ChatGPT possono leggere una cartella che qualcuno ha condiviso con me?</span></summary>
+          <div class="faq-answer">
+            <p class="lang-en">Yes. Once Claude, ChatGPT or another assistant is connected to your SecondBrain, it searches and reads the folders shared with you along with your own notes. It saves into a shared folder only when you name that folder, and only if you have full access. The assistant inside the SecondBrain app also finds, reads and, with full access, edits shared notes for you.</p>
+            <p class="lang-it">Sì. Una volta collegati al tuo SecondBrain, Claude, ChatGPT e gli altri assistenti cercano e leggono le cartelle condivise con te insieme alle tue note. Salvano in una cartella condivisa solo quando sei tu a nominarla, e solo se hai accesso completo. Anche l'assistente dentro l'app SecondBrain trova, legge e, con accesso completo, modifica per te le note condivise.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
           <summary><span class="lang-en">Is SecondBrain free?</span> <span class="lang-it">SecondBrain è gratis?</span></summary>
           <div class="faq-answer">
-            <p class="lang-en">Yes, with limits. The SecondBrain app is free to download and use on iPhone, Android and the web, and on the free plan you can capture, organize and recall your notes. A SecondBrain Pro subscription raises those limits and unlocks the shared memory layer that connects your AI assistants, like Claude and ChatGPT, to one private memory. You turn on SecondBrain Pro in the app.</p>
-            <p class="lang-it">Sì, con dei limiti. L'app SecondBrain è gratuita da scaricare e usare su iPhone, Android e sul web: con il piano gratuito catturi, organizzi e ritrovi le tue note. L'abbonamento SecondBrain Pro alza quei limiti e sblocca la memoria condivisa, quella che collega assistenti come Claude e ChatGPT a un'unica memoria privata. SecondBrain Pro si attiva direttamente nell'app.</p>
+            <p class="lang-en">Yes, with limits. The SecondBrain app is free to download and use on iPhone, Android and the web, and on the free plan you can capture, organize and recall your notes. A SecondBrain Pro subscription raises those limits and unlocks shared folders and the shared memory layer that connects your AI assistants, like Claude and ChatGPT, to one private memory. You turn on SecondBrain Pro in the app.</p>
+            <p class="lang-it">Sì, con dei limiti. L'app SecondBrain è gratuita da scaricare e usare su iPhone, Android e sul web: con il piano gratuito catturi, organizzi e ritrovi le tue note. L'abbonamento SecondBrain Pro alza quei limiti e sblocca le cartelle condivise e la memoria condivisa, quella che collega assistenti come Claude e ChatGPT a un'unica memoria privata. SecondBrain Pro si attiva direttamente nell'app.</p>
           </div>
         </details>
 
@@ -2754,8 +2940,8 @@ Authenticated with "plugin:secondbrain:secondbrain". Its tools are now available
         <details class="faq-item">
           <summary><span class="lang-en">Is my data private?</span> <span class="lang-it">I miei dati sono privati?</span></summary>
           <div class="faq-answer">
-            <p class="lang-en">Yes. SecondBrain has no analytics, no ads and never trains on your data. Your memory is encrypted and isolated per user, so it is yours alone. You can delete everything at any time with one tap, and no copies are kept.</p>
-            <p class="lang-it">Sì. SecondBrain non usa analytics né pubblicità e non addestra mai l'AI sui tuoi dati. La tua memoria è crittografata e isolata per ogni utente, quindi è solo tua. E puoi cancellare tutto quando vuoi, con un tocco: non resta nessuna copia.</p>
+            <p class="lang-en">Yes. SecondBrain has no analytics, no ads and never trains on your data. Your memory is encrypted and isolated per user, so it is yours alone. Nothing is shared with other people unless you share a folder yourself, and then only that folder, with the people you invite. You can delete everything at any time with one tap, and no copies are kept.</p>
+            <p class="lang-it">Sì. SecondBrain non usa analytics né pubblicità e non addestra mai l'AI sui tuoi dati. La tua memoria è crittografata e isolata per ogni utente, quindi è solo tua. Con altre persone non condividi niente, a meno che non sia tu a condividere una cartella: e allora solo quella, con chi inviti. E puoi cancellare tutto quando vuoi, con un tocco: non resta nessuna copia.</p>
           </div>
         </details>
 
@@ -2914,6 +3100,15 @@ Authenticated with "plugin:secondbrain:secondbrain". Its tools are now available
           <span class="watch-title"><span class="lang-en">How it works</span><span class="lang-it">Come funziona</span></span>
           <span class="watch-meta"><span class="lang-en">Walkthrough by its maker</span><span class="lang-it">Spiegato da chi l'ha creato</span></span>
         </a>
+        <a class="watch-card" href="assets/film-collaborative-folders.mp4" data-video="assets/film-collaborative-folders.mp4" data-video-uhd="assets/film-collaborative-folders-4k.mp4" data-title="SecondBrain: collaborative folders">
+          <span class="watch-thumb">
+            <img src="assets/film-collaborative-folders-poster.webp" alt="A shared note, Kyoto 3 days, with three people typing at once next to a 3D brain of notes" width="1280" height="720" loading="lazy" decoding="async" />
+            <span class="watch-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg></span>
+            <span class="watch-time">0:31</span>
+          </span>
+          <span class="watch-title"><span class="lang-en">Introducing collaborative folders</span><span class="lang-it">Ecco le cartelle condivise</span></span>
+          <span class="watch-meta"><span class="lang-en">New in SecondBrain 3.0</span><span class="lang-it">Novità di SecondBrain 3.0</span></span>
+        </a>
         <a class="watch-card" href="/videos/we-are-not-meant-to-remember-everything/" data-yt="lNJhyQKaDZU" data-title="SecondBrain: We are not meant to remember everything">
           <span class="watch-thumb is-light">
             <img src="assets/film-brain-burst-poster.webp" alt="Ink drawing of a stressed head with an open skull, surrounded by notes, dates, alarms and emails" width="1280" height="720" loading="lazy" decoding="async" />
@@ -2922,6 +3117,15 @@ Authenticated with "plugin:secondbrain:secondbrain". Its tools are now available
           </span>
           <span class="watch-title"><span class="lang-en">You are not meant to remember everything</span><span class="lang-it">Non devi ricordare tutto</span></span>
           <span class="watch-meta"><span class="lang-en">Hand-drawn film</span><span class="lang-it">Film disegnato a mano</span></span>
+        </a>
+        <a class="watch-card" href="https://www.youtube.com/watch?v=1B8ueOC2v8E" target="_blank" rel="noopener" data-yt="1B8ueOC2v8E" data-title="SecondBrain: an AI that learns from you">
+          <span class="watch-thumb is-light">
+            <img src="assets/film-learns-from-you-poster.webp" alt="Question marks, calendars, clocks and notes drawn in dots, the opening of the SecondBrain film" width="1280" height="720" loading="lazy" decoding="async" />
+            <span class="watch-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v13.72c0 .84.93 1.35 1.64.9l10.16-6.86a1.08 1.08 0 0 0 0-1.8L9.64 4.24A1.08 1.08 0 0 0 8 5.14z"/></svg></span>
+            <span class="watch-time">0:42</span>
+          </span>
+          <span class="watch-title"><span class="lang-en">An AI that learns from you</span><span class="lang-it">Un'AI che impara da te</span></span>
+          <span class="watch-meta"><span class="lang-en">3D film</span><span class="lang-it">Film in 3D</span></span>
         </a>
         <a class="watch-card" href="https://www.youtube.com/watch?v=LOfTKtfwc4I" target="_blank" rel="noopener" data-yt="LOfTKtfwc4I" data-title="SecondBrain Podcast, episode 1: Developers won't exist in 5 years">
           <span class="watch-thumb">
@@ -3753,19 +3957,34 @@ Authenticated with "plugin:secondbrain:secondbrain". Its tools are now available
   const player = document.getElementById('player');
   const playerFrame = player ? player.querySelector('.player-frame') : null;
   let pausedForPlayer = [];
-  function openPlayer(id, title) {
+  function openPlayer(src, title) {
     if (!player || typeof player.showModal !== 'function') return false;
     pausedForPlayer = autoVideos.filter(v => !v.paused);
     pausedForPlayer.forEach(v => v.pause());
-    const iframe = document.createElement('iframe');
-    iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&playsinline=1';
-    iframe.title = title || 'SecondBrain video';
-    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-    iframe.allowFullscreen = true;
-    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-    playerFrame.replaceChildren(iframe);
+    let media;
+    if (src.yt) {
+      media = document.createElement('iframe');
+      media.src = 'https://www.youtube-nocookie.com/embed/' + src.yt + '?autoplay=1&rel=0&playsinline=1';
+      media.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      media.allowFullscreen = true;
+      media.referrerPolicy = 'strict-origin-when-cross-origin';
+    } else {
+      media = document.createElement('video');
+      media.controls = true;
+      media.playsInline = true;
+      media.preload = 'auto';
+    }
+    media.title = title || 'SecondBrain video';
+    playerFrame.replaceChildren(media);
     player.setAttribute('aria-label', title || 'Video player');
     player.showModal();
+    if (!src.yt) {
+      // our own film: the 4K master only where the dialog is drawn wider than 1080p, never on Save-Data
+      const px = playerFrame.getBoundingClientRect().width * (window.devicePixelRatio || 1);
+      const saveData = !!(navigator.connection && navigator.connection.saveData);
+      media.src = (px > 1920 && !saveData && src.uhd) || src.video;
+      media.play().catch(() => {});
+    }
     return true;
   }
   if (player) {
@@ -3777,10 +3996,11 @@ Authenticated with "plugin:secondbrain:secondbrain". Its tools are now available
     player.addEventListener('click', (e) => { if (e.target === player) player.close(); });
     player.querySelector('.player-close').addEventListener('click', () => player.close());
   }
-  document.querySelectorAll('a[data-yt]').forEach(el => {
+  document.querySelectorAll('a[data-yt], a[data-video]').forEach(el => {
     el.addEventListener('click', (e) => {
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; // new tab or download: the watch page
-      if (openPlayer(el.dataset.yt, el.dataset.title)) e.preventDefault();
+      const src = { yt: el.dataset.yt, video: el.dataset.video, uhd: el.dataset.videoUhd };
+      if (openPlayer(src, el.dataset.title)) e.preventDefault();
     });
   });
 
