@@ -49,7 +49,7 @@
         "author": { "@id": "https://secondbrainmemory.com/#federico-cesarini" },
         "publisher": { "@id": "https://secondbrainmemory.com/#organization" },
         "datePublished": "2026-07-16",
-        "dateModified": "2026-11-04",
+        "dateModified": "2026-11-20",
         "inLanguage": "it",
         "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".tldr"] }
       },
@@ -69,7 +69,7 @@
         "inLanguage": "it",
         "step": [
           { "@type": "HowToStep", "position": 1, "name": "Scarica SecondBrain e attiva SecondBrain Pro", "text": "Scarica SecondBrain gratis su iPhone o Android, oppure apri la web app su app.secondbrainmemory.com. La memoria condivisa fa parte di SecondBrain Pro: attivala prima nell'app." },
-          { "@type": "HowToStep", "position": 2, "name": "Collega Claude", "text": "In Claude apri Customize, poi Plugins, premi Add e scegli Add marketplace. Incolla fed3c3sa/secondbrain-shared-memory, aggiungi il plugin SecondBrain Memory, poi nella sua scheda Connectors premi Connect e accedi con Apple o Google. In Claude Code esegui claude plugin marketplace add fed3c3sa/secondbrain-shared-memory, poi claude plugin install secondbrain@secondbrain, poi claude mcp login plugin:secondbrain:secondbrain. Niente chiavi, niente token." },
+          { "@type": "HowToStep", "position": 2, "name": "Collega Claude", "text": "In Claude, con qualsiasi piano, anche gratuito, apri Customize, poi Connectors, premi + Add e scegli Add custom connector. Chiamalo SecondBrain, incolla https://mcp.secondbrainmemory.com/mcp, premi Continue e Add, poi accedi con Apple o Google. Con un piano Claude a pagamento puoi invece aggiungere il marketplace fed3c3sa/secondbrain-shared-memory in Customize, poi Plugins, e installare il plugin SecondBrain Memory. In Claude Code esegui claude plugin marketplace add fed3c3sa/secondbrain-shared-memory, poi claude plugin install secondbrain@secondbrain, poi claude mcp login plugin:secondbrain:secondbrain. Niente chiavi, niente token." },
           { "@type": "HowToStep", "position": 3, "name": "Collega ChatGPT, Cursor o Gemini", "text": "Su chatgpt.com apri Plugins, premi il più, scegli Add custom MCP server, incolla https://mcp.secondbrainmemory.com/mcp in Connection, scegli OAuth e seleziona Create as a plugin, poi installalo e premi Connect. Per Cursor esegui npx secondbrain-connect una volta. Per Gemini aggiungi lo stesso indirizzo come server MCP remoto in Antigravity e premi Authenticate." }
         ]
       },
@@ -284,7 +284,7 @@
 <main id="main" class="article">
   <p class="crumb"><a href="/">SecondBrain</a> · Guide · Memoria AI condivisa</p>
   <h1>Come dare una memoria permanente a ChatGPT e Claude</h1>
-  <p class="byline">Di <a href="https://www.federicocesarini.com/" target="_blank" rel="noopener">Federico Cesarini</a>, creatore di SecondBrain · Aggiornato il 4 novembre 2026</p>
+  <p class="byline">Di <a href="https://www.federicocesarini.com/" target="_blank" rel="noopener">Federico Cesarini</a>, creatore di SecondBrain · Aggiornato il 20 novembre 2026</p>
 
   <div class="tldr"><strong>In breve:</strong> ChatGPT e Claude non possono leggere l'uno la memoria dell'altro. Per avere un'unica memoria permanente servono un punto esterno dove salvarla e il Model Context Protocol (MCP), lo standard aperto con cui gli assistenti AI si collegano a strumenti esterni. Con SecondBrain colleghi Claude, ChatGPT, Gemini, Cursor e Claude Code alla stessa memoria privata in circa due minuti, senza chiavi API. E la riempi parlando: detti una nota al telefono e ogni assistente la ricorda.</div>
 
@@ -319,10 +319,11 @@
 
   <h3>2. Collega Claude</h3>
   <ol>
-    <li>In Claude apri Customize → Plugins → <strong>Add</strong> → <strong>Add marketplace</strong>. Anthropic sta rinominando Customize in Plugins (per tutti dal 9 novembre), quindi nella barra laterale potresti già trovare Plugins. I plugin richiedono un piano Claude a pagamento (<a href="https://support.claude.com/en/articles/13837440-use-plugins-in-claude" target="_blank" rel="noopener">Anthropic</a>).</li>
-    <li>Incolla <code>fed3c3sa/secondbrain-shared-memory</code> e aggiungi il plugin <strong>SecondBrain Memory</strong>.</li>
-    <li>Nella scheda <strong>Connectors</strong> del plugin premi <strong>Connect</strong> e accedi con Apple o Google. Niente chiavi, niente token.</li>
+    <li>In Claude apri Customize → Connectors, premi <strong>+ Add</strong> e scegli <strong>Add custom connector</strong>. I connettori personalizzati funzionano con tutti i piani Claude, e quello gratuito ne consente uno (<a href="https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp" target="_blank" rel="noopener">Anthropic</a>).</li>
+    <li>Chiamalo <strong>SecondBrain</strong>, incolla <code>https://mcp.secondbrainmemory.com/mcp</code> in MCP server URL e premi <strong>Continue</strong>. Lascia le impostazioni di accesso che Claude riconosce da solo e premi <strong>Add</strong>.</li>
+    <li>Se l’accesso non si apre da solo, premi <strong>Connect</strong> accanto a SecondBrain e accedi con Apple o Google. Niente chiavi, niente token.</li>
   </ol>
+  <p>Con un piano Claude a pagamento puoi usare invece il plugin: Customize → Plugins → <strong>Add</strong> → <strong>Add marketplace</strong>, incolla <code>fed3c3sa/secondbrain-shared-memory</code>, aggiungi <strong>SecondBrain Memory</strong> e premi <strong>Connect</strong> nella sua scheda Connectors (<a href="https://support.claude.com/en/articles/13837440-use-plugins-in-claude" target="_blank" rel="noopener">Anthropic</a>). In più aggiunge una skill che dice a Claude quando cercare e quando salvare. Usa il plugin oppure il connettore, non tutti e due.</p>
   <p>In <strong>Claude Code</strong>: <code>claude plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, poi <code>claude plugin install secondbrain@secondbrain</code>, poi <code>claude mcp login plugin:secondbrain:secondbrain</code> e accedi dal browser che si apre. Oppure, dentro Claude Code, scrivi <code>/mcp</code> e scegli <strong>Authenticate</strong>. Controlla con <code>claude mcp get plugin:secondbrain:secondbrain</code>: deve dire Connected.</p>
 
   <h3>3. Collega ChatGPT, Cursor o Gemini</h3>
