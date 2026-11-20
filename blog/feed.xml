@@ -6,7 +6,7 @@
     <atom:link href="https://secondbrainmemory.com/blog/feed.xml" rel="self" type="application/rss+xml" />
     <description>Second brains, AI memory and voice notes, from the maker of SecondBrain.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 11 Nov 2026 08:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 08:00:00 +0000</lastBuildDate>
     <image>
       <url>https://secondbrainmemory.com/assets/logo-512.png</url>
       <title>SecondBrain Blog</title>
@@ -28,7 +28,7 @@
       <pubDate>Wed, 04 Nov 2026 08:00:00 +0000</pubDate>
       <dc:creator>Federico Cesarini</dc:creator>
       <category>Guides</category>
-      <description>An AI second brain captures, files and answers from what you save. Three ways to build one in 2026, with Claude, Obsidian or an app, and which fits you.</description>
+      <description>What an AI second brain is, 3 ways to build one in 2026 (Claude, Obsidian or an app) and how to start from your ChatGPT and Claude chat exports.</description>
     </item>
     <item>
       <title>What is a second brain? The definition, the methods, and what AI changes</title>
@@ -64,7 +64,7 @@
       <pubDate>Thu, 29 Oct 2026 08:00:00 +0000</pubDate>
       <dc:creator>Federico Cesarini</dc:creator>
       <category>Guides</category>
-      <description>Transcribing a voice memo is the easy part. How to get from a rambling recording to a titled, filed note with real reminders, on iPhone and Android.</description>
+      <description>Your phone may already transcribe voice memos. How to turn a rambling recording into a titled, filed note with real reminders, on iPhone and Android.</description>
     </item>
     <item>
       <title>Secondo cervello digitale: cos&#x27;è, da dove nasce e come costruirlo parlando</title>
