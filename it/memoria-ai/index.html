@@ -86,7 +86,7 @@
           {
             "@type": "Question",
             "name": "Serve una chiave API?",
-            "acceptedAnswer": { "@type": "Answer", "text": "No. Con SecondBrain accedi una volta con Apple o Google in ogni assistente: dal plugin di Claude, dal login di Claude Code, dal pulsante Connect di ChatGPT o con npx secondbrain-connect per Cursor. Non ci sono chiavi API da creare o copiare." }
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Con SecondBrain accedi una volta con Apple o Google in ogni assistente: dal connettore di Claude, dal login di Claude Code, dal pulsante Connect di ChatGPT o con npx secondbrain-connect per Cursor. Non ci sono chiavi API da creare o copiare." }
           },
           {
             "@type": "Question",
@@ -319,9 +319,9 @@
 
   <h3>2. Collega Claude</h3>
   <ol>
-    <li>In Claude apri Customize → Connectors, premi <strong>+ Add</strong> e scegli <strong>Add custom connector</strong>. I connettori personalizzati funzionano con tutti i piani Claude, e quello gratuito ne consente uno (<a href="https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp" target="_blank" rel="noopener">Anthropic</a>).</li>
+    <li>In Claude apri Customize → Connectors, premi <strong>+ Add</strong> e scegli <strong>Add custom connector</strong>. I connettori personalizzati funzionano con tutti i piani Claude, e quello gratuito ne consente uno solo. Nei piani Team ed Enterprise lo aggiunge un Owner per tutta l’organizzazione, poi tu premi Connect (<a href="https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp" target="_blank" rel="noopener">Anthropic</a>).</li>
     <li>Chiamalo <strong>SecondBrain</strong>, incolla <code>https://mcp.secondbrainmemory.com/mcp</code> in MCP server URL e premi <strong>Continue</strong>. Lascia le impostazioni di accesso che Claude riconosce da solo e premi <strong>Add</strong>.</li>
-    <li>Se l’accesso non si apre da solo, premi <strong>Connect</strong> accanto a SecondBrain e accedi con Apple o Google. Niente chiavi, niente token.</li>
+    <li>Se la pagina di accesso non si apre da sola, premi <strong>Connect</strong> accanto a SecondBrain e accedi con Apple o Google. Niente chiavi, niente token.</li>
   </ol>
   <p>Con un piano Claude a pagamento puoi usare invece il plugin: Customize → Plugins → <strong>Add</strong> → <strong>Add marketplace</strong>, incolla <code>fed3c3sa/secondbrain-shared-memory</code>, aggiungi <strong>SecondBrain Memory</strong> e premi <strong>Connect</strong> nella sua scheda Connectors (<a href="https://support.claude.com/en/articles/13837440-use-plugins-in-claude" target="_blank" rel="noopener">Anthropic</a>). In più aggiunge una skill che dice a Claude quando cercare e quando salvare. Usa il plugin oppure il connettore, non tutti e due.</p>
   <p>In <strong>Claude Code</strong>: <code>claude plugin marketplace add fed3c3sa/secondbrain-shared-memory</code>, poi <code>claude plugin install secondbrain@secondbrain</code>, poi <code>claude mcp login plugin:secondbrain:secondbrain</code> e accedi dal browser che si apre. Oppure, dentro Claude Code, scrivi <code>/mcp</code> e scegli <strong>Authenticate</strong>. Controlla con <code>claude mcp get plugin:secondbrain:secondbrain</code>: deve dire Connected.</p>
@@ -360,7 +360,7 @@
     </details>
     <details class="faq-item">
       <summary>Serve una chiave API?</summary>
-      <div class="faq-answer"><p>No. Con SecondBrain accedi una volta con Apple o Google in ogni assistente: dal plugin di Claude, dal login di Claude Code, dal pulsante Connect di ChatGPT o con <code>npx secondbrain-connect</code> per Cursor. Non ci sono chiavi API da creare o copiare.</p></div>
+      <div class="faq-answer"><p>No. Con SecondBrain accedi una volta con Apple o Google in ogni assistente: dal connettore di Claude, dal login di Claude Code, dal pulsante Connect di ChatGPT o con <code>npx secondbrain-connect</code> per Cursor. Non ci sono chiavi API da creare o copiare.</p></div>
     </details>
     <details class="faq-item">
       <summary>Funziona in italiano?</summary>

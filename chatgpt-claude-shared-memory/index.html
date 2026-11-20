@@ -139,7 +139,7 @@
           "name": "Do I need an API key to set this up?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Not with SecondBrain. You sign in once with Apple or Google in every assistant: through the Claude plugin, the Claude Code login, the Connect button in ChatGPT, or npx secondbrain-connect for Cursor. There are no API keys to create, copy or rotate."
+            "text": "Not with SecondBrain. You sign in once with Apple or Google in every assistant: through the Claude connector, the Claude Code login, the Connect button in ChatGPT, or npx secondbrain-connect for Cursor. There are no API keys to create, copy or rotate."
           }
         },
         {
@@ -163,7 +163,7 @@
           "name": "How do I give Claude or ChatGPT long-term memory using MCP?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Connect both to the same MCP memory server. It stores what you tell any of them, and each assistant can save to it and search it during a chat, so the memory outlives every conversation. With SecondBrain you install the plugin in Claude, add the connector in ChatGPT, and sign in once with Apple or Google: no server to host and no API keys."
+            "text": "Connect both to the same MCP memory server. It stores what you tell any of them, and each assistant can save to it and search it during a chat, so the memory outlives every conversation. With SecondBrain you add the connector in Claude and in ChatGPT, and sign in once with Apple or Google: no server to host and no API keys."
           }
         },
         {
@@ -420,7 +420,7 @@
 
   <h3>2. Connect Claude</h3>
   <ol>
-    <li>In Claude, open Customize → Connectors, press <strong>+ Add</strong> and choose <strong>Add custom connector</strong>. Custom connectors work on every Claude plan, and Free allows one (<a href="https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp" target="_blank" rel="noopener">Anthropic</a>).</li>
+    <li>In Claude, open Customize → Connectors, press <strong>+ Add</strong> and choose <strong>Add custom connector</strong>. Custom connectors work on every Claude plan, and Free allows one. On Team and Enterprise plans an Owner adds it for the organization, then you press Connect (<a href="https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp" target="_blank" rel="noopener">Anthropic</a>).</li>
     <li>Name it <strong>SecondBrain</strong>, paste <code>https://mcp.secondbrainmemory.com/mcp</code> under MCP server URL and press <strong>Continue</strong>. Leave the sign-in settings Claude detects as they are and press <strong>Add</strong>.</li>
     <li>If the sign-in does not open on its own, press <strong>Connect</strong> next to SecondBrain, then sign in with Apple or Google. No keys, no tokens.</li>
   </ol>
@@ -471,7 +471,7 @@
     </details>
     <details class="faq-item">
       <summary>Do I need an API key to set this up?</summary>
-      <div class="faq-answer"><p>Not with SecondBrain. You sign in once with Apple or Google in every assistant: through the Claude plugin, the Claude Code login, the Connect button in ChatGPT, or <code>npx secondbrain-connect</code> for Cursor. There are no API keys to create, copy or rotate.</p></div>
+      <div class="faq-answer"><p>Not with SecondBrain. You sign in once with Apple or Google in every assistant: through the Claude connector, the Claude Code login, the Connect button in ChatGPT, or <code>npx secondbrain-connect</code> for Cursor. There are no API keys to create, copy or rotate.</p></div>
     </details>
     <details class="faq-item">
       <summary>Does the shared memory work from my phone?</summary>
@@ -483,7 +483,7 @@
     </details>
     <details class="faq-item">
       <summary>How do I give Claude or ChatGPT long-term memory using MCP?</summary>
-      <div class="faq-answer"><p>Connect both to the same MCP memory server. It stores what you tell any of them, and each assistant can save to it and search it during a chat, so the memory outlives every conversation. With SecondBrain you install the plugin in Claude, add the connector in ChatGPT, and sign in once with Apple or Google: no server to host and no API keys.</p></div>
+      <div class="faq-answer"><p>Connect both to the same MCP memory server. It stores what you tell any of them, and each assistant can save to it and search it during a chat, so the memory outlives every conversation. With SecondBrain you add the connector in Claude and in ChatGPT, and sign in once with Apple or Google: no server to host and no API keys.</p></div>
     </details>
     <details class="faq-item">
       <summary>How do I share context across ChatGPT, Claude and other LLMs?</summary>

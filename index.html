@@ -1873,6 +1873,7 @@
     /* the one address both Claude and ChatGPT take, with a copy button */
     .install-address { max-width: 620px; margin: 0 auto 56px; text-align: center; }
     .install-address .addr-label { display: block; font-size: 13px; color: var(--text-3); margin-bottom: 10px; }
+    .install-address .addr-note { display: block; font-size: 13px; color: var(--text-3); margin-top: 12px; }
     .install-address .addr-row {
       display: flex; align-items: center; gap: 10px;
       border: 1px solid var(--hairline); border-radius: 14px;
@@ -2686,16 +2687,17 @@
         <span class="addr-label"><span class="lang-en">The SecondBrain address, for Claude and ChatGPT</span> <span class="lang-it">L’indirizzo di SecondBrain, per Claude e ChatGPT</span></span>
         <div class="addr-row">
           <code class="addr-url">https://<wbr>mcp.secondbrainmemory.com/mcp</code>
-          <button type="button" class="addr-copy" data-copy="https://mcp.secondbrainmemory.com/mcp"><span class="copy-idle"><span class="lang-en">Copy</span> <span class="lang-it">Copia</span></span><span class="copy-done"><span class="lang-en">Copied</span> <span class="lang-it">Copiato</span></span></button>
+          <button type="button" class="addr-copy" data-copy="https://mcp.secondbrainmemory.com/mcp"><span class="copy-idle"><span class="lang-en">Copy<span class="sr-only"> the address</span></span> <span class="lang-it">Copia<span class="sr-only"> l’indirizzo</span></span></span><span class="copy-done"><span class="lang-en">Copied</span> <span class="lang-it">Copiato</span></span></button>
         </div>
         <span class="sr-only" role="status" aria-live="polite" data-copy-status></span>
+        <span class="addr-note"><span class="lang-en">The shared memory is part of SecondBrain Pro: turn it on in the app first.</span> <span class="lang-it">La memoria condivisa fa parte di SecondBrain Pro: attivala prima nell’app.</span></span>
       </div>
 
       <div class="install-grid anim d1">
         <ol class="install-steps">
           <li>
-            <h4><span class="lang-en">Open Connectors</span> <span class="lang-it">Apri i connettori</span></h4>
-            <p><span class="lang-en">In Claude, open <strong>Customize → Connectors</strong>, press <strong>+ Add</strong> and choose <strong>Add custom connector</strong>. It works on every Claude plan, Free included: Free allows one custom connector.</span> <span class="lang-it">In Claude apri <strong>Customize → Connectors</strong>, premi <strong>+ Add</strong> e scegli <strong>Add custom connector</strong>. Funziona con tutti i piani Claude, anche quello gratuito, che consente un connettore personalizzato.</span></p>
+            <h4><span class="lang-en">Open Connectors</span> <span class="lang-it">Apri Connectors</span></h4>
+            <p><span class="lang-en">In Claude on the web or the desktop app, open <strong>Customize → Connectors</strong>, press <strong>+ Add</strong> and choose <strong>Add custom connector</strong>. It works on every Claude plan, Free included. Free allows a single custom connector: if yours is taken, remove the old one first.</span> <span class="lang-it">In Claude, sul web o nell’app desktop, apri <strong>Customize → Connectors</strong>, premi <strong>+ Add</strong> e scegli <strong>Add custom connector</strong>. Funziona con tutti i piani Claude, anche quello gratuito, che però ne consente uno solo: se l’hai già usato, togli prima quello vecchio.</span></p>
           </li>
           <li>
             <h4><span class="lang-en">Paste the address</span> <span class="lang-it">Incolla l’indirizzo</span></h4>
@@ -2703,7 +2705,7 @@
           </li>
           <li>
             <h4><span class="lang-en">Connect it</span> <span class="lang-it">Collegalo</span></h4>
-            <p><span class="lang-en">If the sign-in doesn’t open on its own, press <strong>Connect</strong> next to SecondBrain. Log in with <strong>Apple</strong> or <strong>Google</strong>, the same account as the app. Done.</span> <span class="lang-it">Se l’accesso non si apre da solo, premi <strong>Connect</strong> accanto a SecondBrain. Entra con <strong>Apple</strong> o <strong>Google</strong>, lo stesso account dell’app. Fatto.</span></p>
+            <p><span class="lang-en">If the sign-in doesn’t open on its own, press <strong>Connect</strong> next to SecondBrain. Log in with <strong>Apple</strong> or <strong>Google</strong>, the same account as the app. Done.</span> <span class="lang-it">Se la pagina di accesso non si apre da sola, premi <strong>Connect</strong> accanto a SecondBrain. Entra con <strong>Apple</strong> o <strong>Google</strong>, lo stesso account dell’app. Fatto.</span></p>
           </li>
         </ol>
 
@@ -2731,7 +2733,7 @@
         <ol class="install-steps">
           <li>
             <h4><span class="lang-en">Open Claude's plugins</span> <span class="lang-it">Apri i plugin di Claude</span></h4>
-            <p><span class="lang-en"><strong>Customize → Plugins → Add → Add marketplace.</strong> If your sidebar says <strong>Plugins</strong> instead of Customize, open it and go straight to <strong>Add</strong>. Plugins need a paid Claude plan.</span> <span class="lang-it"><strong>Customize → Plugins → Add → Add marketplace.</strong> Se nella barra laterale trovi <strong>Plugins</strong> al posto di Customize, aprilo e vai dritto su <strong>Add</strong>. I plugin richiedono un piano Claude a pagamento.</span></p>
+            <p><span class="lang-en"><strong>Customize → Plugins → Add → Add marketplace.</strong> Plugins need a paid Claude plan.</span> <span class="lang-it"><strong>Customize → Plugins → Add → Add marketplace.</strong> I plugin richiedono un piano Claude a pagamento.</span></p>
           </li>
           <li>
             <h4><span class="lang-en">Paste the marketplace</span> <span class="lang-it">Incolla il marketplace</span></h4>
