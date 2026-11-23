@@ -1082,6 +1082,37 @@
       margin: 0 auto 20px;
       background: var(--mark) center/contain no-repeat;
     }
+    /* Black Friday 2026 link above the headline (no animation, gone after the deadline) */
+    .bf-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      max-width: 100%;
+      margin: 0 auto 22px;
+      padding: 6px 14px 6px 6px;
+      border-radius: 999px;
+      background: var(--card);
+      border: 1px solid var(--hairline);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      transition: border-color .25s var(--ease), transform .25s var(--ease);
+    }
+    .bf-link:hover { border-color: var(--hairline-strong); transform: translateY(-1px); }
+    .bf-link .bf-tag {
+      flex: none;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #000;
+      color: #fbbf24;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    html[data-theme="dark"] .bf-link .bf-tag { background: #1d1d1f; }
+    .bf-link svg { width: 14px; height: 14px; flex: none; color: var(--text-3); }
+    @media (max-width: 420px) { .bf-link { font-size: 13px; text-align: left; } }
     .hero-kicker {
       font-size: 12px;
       font-weight: 600;
@@ -2314,6 +2345,15 @@
 
       <div class="hero-copy">
         <span class="hero-mark" aria-hidden="true"></span>
+
+        <!-- Black Friday 2026: removed by its own script at the deadline (same instant as /black-friday/) -->
+        <a href="/black-friday/" class="bf-link" id="bf-link">
+          <span class="bf-tag">Black Friday</span>
+          <span class="lang-en">SecondBrain Pro 25% off on the web, until Tuesday</span>
+          <span class="lang-it">SecondBrain Pro scontato del 25% sul web, fino a marted&igrave;</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <script>try{if(Date.now()>=Date.parse('2026-12-01T22:59:59Z')){var b=document.getElementById('bf-link');if(b)b.remove();}}catch(e){}</script>
 
         <p class="hero-kicker">
           <span class="lang-en">The AI second brain app</span>
