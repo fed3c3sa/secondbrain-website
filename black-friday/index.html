@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Black Friday: SecondBrain Pro at 25% off</title>
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="canonical" href="https://secondbrainmemory.com/black-friday/" />
+  <meta name="description" content="SecondBrain Pro yearly for $29.99 instead of $39.99, in the web app until Tuesday 1 December. Unlimited notes, more AI every day, and one memory for ChatGPT and Claude." />
+  <meta name="author" content="Federico Cesarini" />
+  <!-- A promotion with an end date: kept out of search results so no stale offer outlives it. -->
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#f5f5f7" />
+  <meta name="color-scheme" content="light dark" />
+
+  <meta property="og:site_name" content="SecondBrain" />
+  <meta property="og:title" content="Black Friday: SecondBrain Pro at 25% off" />
+  <meta property="og:description" content="$29.99 a year instead of $39.99, in the web app until Tuesday 1 December." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://secondbrainmemory.com/black-friday/" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="it_IT" />
+  <meta property="og:image" content="https://secondbrainmemory.com/assets/og-black-friday-2026.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="SecondBrain Pro, Black Friday: 25% off the yearly plan" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Black Friday: SecondBrain Pro at 25% off" />
+  <meta name="twitter:description" content="$29.99 a year instead of $39.99, in the web app until Tuesday 1 December." />
+  <meta name="twitter:image" content="https://secondbrainmemory.com/assets/og-black-friday-2026.png" />
+
+  <script>try{if(localStorage.getItem('sb-theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
+  <!-- Language: ?lang= wins (campaign links, saved like a click on EN/IT), then the
+       site-wide choice, then the browser. Also: `js` for the countdown-only parts, and
+       the ended state before first paint, so an expired price never flashes. -->
+  <script>(function(){var d=document.documentElement,l=null;d.className+=' js';try{if(Date.now()>=Date.parse('2026-12-01T22:59:59Z'))d.className+=' is-ended';}catch(e){}try{var q=(new URLSearchParams(location.search).get('lang')||'').toLowerCase();if(q==='it'||q==='en'){l=q;try{localStorage.setItem('sb-lang',q);}catch(e){}}}catch(e){}if(!l){try{l=localStorage.getItem('sb-lang');}catch(e){}}if(l!=='it'&&l!=='en'){l=/^it\b/i.test(navigator.language||'')?'it':'en';}d.lang=l;})();</script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+
+    /* Site tokens (same values as the home page and the guides) */
+    :root {
+      color-scheme: light;
+      --bg: #f5f5f7; --bg-soft: #fbfbfd; --card: #ffffff;
+      --text: #1d1d1f; --text-2: #515154; --text-3: #6e6e73;
+      --hairline: rgba(0,0,0,0.08); --hairline-strong: rgba(0,0,0,0.16);
+      --fill-1: rgba(0,0,0,0.045); --fill-2: rgba(0,0,0,0.085);
+      --accent: #0071e3; --accent-hover: #0077ed;
+      --glass: rgba(251,251,253,0.75);
+      --btn: #1d1d1f; --btn-text: #ffffff;
+      --max: 1200px; --pad: clamp(20px, 4vw, 56px);
+      --font: -apple-system, BlinkMacSystemFont, 'Inter', 'Helvetica Neue', 'Segoe UI', Roboto, Arial, sans-serif;
+      --ease: cubic-bezier(.2,.7,.2,1);
+      --ease-out: cubic-bezier(.16,1,.3,1);
+      --mark: url('/assets/brain-icon-dark.webp');
+
+      /* The offer tile is black in both themes; the deal color is the app's
+         Black Friday accent (paywall campaignAccent, dark variant). */
+      --tile: #000000;
+      --tile-brd: transparent;
+      --deal: #fbbf24;
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #000000; --bg-soft: #0a0a0b; --card: #141416;
+      --text: #f5f5f7; --text-2: #a6a6ad; --text-3: #86868b;
+      --hairline: rgba(255,255,255,0.10); --hairline-strong: rgba(255,255,255,0.20);
+      --fill-1: rgba(255,255,255,0.065); --fill-2: rgba(255,255,255,0.11);
+      --accent: #2997ff; --accent-hover: #47a6ff;
+      --glass: rgba(18,18,20,0.7);
+      --btn: #f5f5f7; --btn-text: #000000;
+      --mark: url('/assets/brain-icon-light.webp');
+      --tile: #0b0b0c;
+      --tile-brd: rgba(255,255,255,0.10);
+    }
+
+    html[lang="en"] .lang-it { display: none !important; }
+    html[lang="it"] .lang-en { display: none !important; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+    .skip-link { position: absolute; left: -9999px; top: 0; z-index: 300; background: var(--btn); color: var(--btn-text); padding: 10px 18px; border-radius: 0 0 12px 0; font-weight: 600; font-size: 14px; }
+    .skip-link:focus { left: 0; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    /* ── Top bar (the guides' bar, plus the home page language switch) ── */
+    .top-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--glass); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--hairline); }
+    .bar-inner { max-width: var(--max); margin: 0 auto; padding: 12px var(--pad); display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -0.02em; font-size: 16px; }
+    .brand-mark { width: 22px; height: 22px; background: var(--mark) center/contain no-repeat; }
+    .bar-links { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text-2); }
+    .bar-links > a.bar-text { padding: 0 6px; }
+    .bar-links > a.bar-text:hover { color: var(--text); }
+    .nav-icon { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 999px; background: var(--fill-1); color: var(--text-2); transition: background .25s var(--ease), color .25s var(--ease); }
+    .nav-icon:hover { background: var(--fill-2); color: var(--text); }
+    .nav-icon svg { width: 16px; height: 16px; }
+    .icon-sun { display: none; }
+    html[data-theme="dark"] .icon-sun { display: block; }
+    html[data-theme="dark"] .icon-moon { display: none; }
+    .lang-switch { display: inline-flex; align-items: center; padding: 3px; border-radius: 999px; background: var(--fill-1); }
+    .lang-switch button { font-size: 12px; font-weight: 600; letter-spacing: 0.02em; padding: 5px 9px; border-radius: 999px; color: var(--text-3); transition: color .2s var(--ease), background .2s var(--ease); }
+    .lang-switch button.active { color: var(--text); background: var(--card); box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+    /* white text on a fixed blue: #0071e3 keeps 4.7:1 in both themes (same rule as the guides) */
+    .nav-cta { display: inline-flex; align-items: center; padding: 7px 15px; border-radius: 999px; background: #0071e3; color: #fff; font-size: 14px; font-weight: 500; white-space: nowrap; transition: transform .3s var(--ease), background .25s var(--ease); }
+    .nav-cta:hover { background: #0062c4; transform: translateY(-1px); }
+    .nav-cta:active { transform: scale(.96); transition-duration: .08s; }
+
+    /* ── Offer tile ── */
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+    .offer { padding-top: 84px; }
+    .tile {
+      position: relative;
+      background: var(--tile);
+      border: 1px solid var(--tile-brd);
+      color: #f5f5f7;
+      border-radius: 32px;
+      padding: clamp(56px, 8vw, 96px) clamp(22px, 5vw, 64px) clamp(44px, 6vw, 72px);
+      text-align: center;
+      overflow: hidden;
+    }
+    .label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--deal);
+      /* letter-spacing adds a trailing gap: pull it back so the label sits centered */
+      margin-right: -0.32em;
+    }
+    /* Same figure as the app's campaign paywall (CampaignHero): heavy number,
+       half-size % aligned to the top. */
+    .big {
+      font-size: clamp(112px, 23vw, 244px);
+      font-weight: 800;
+      line-height: 0.88;
+      letter-spacing: -0.05em;
+      margin: 22px 0 18px;
+      font-variant-numeric: tabular-nums;
+    }
+    .big .pct { font-size: 0.5em; letter-spacing: -0.02em; vertical-align: 0.66em; margin-left: 0.03em; }
+    .price { display: inline-flex; align-items: baseline; gap: 14px; flex-wrap: wrap; justify-content: center; font-size: clamp(22px, 3vw, 28px); letter-spacing: -0.01em; }
+    .price s { color: rgba(245,245,247,0.5); text-decoration-thickness: 2px; text-decoration-color: rgba(245,245,247,0.55); }
+    .price strong { font-weight: 700; color: #fff; }
+    .price .per { font-size: 0.68em; color: rgba(245,245,247,0.62); margin-left: -6px; }
+    .tile h1 { font-size: clamp(30px, 4.6vw, 52px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.08; margin: 40px auto 12px; max-width: 16em; }
+    .tile .sub { font-size: clamp(17px, 2vw, 20px); color: rgba(245,245,247,0.68); max-width: 30em; margin: 0 auto; }
+
+    /* what Pro includes, in view inside the tile */
+    .pro-incl { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 30px; margin: 30px auto 0; max-width: 46em; }
+    .pro-incl li { display: inline-flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 600; letter-spacing: -0.01em; color: #f5f5f7; }
+    .pro-incl svg { width: 20px; height: 20px; flex: none; color: var(--deal); }
+
+    /* countdown: quiet figures, no boxes */
+    .cd-wrap { margin: 44px auto 0; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.12); max-width: 520px; }
+    .cd-title { font-size: 13px; color: rgba(245,245,247,0.6); margin-bottom: 14px; }
+    .cd { display: flex; justify-content: center; gap: clamp(18px, 4vw, 40px); }
+    .cd-unit { display: flex; flex-direction: column; align-items: center; min-width: 3.1ch; }
+    .cd-num { font-size: clamp(34px, 5vw, 46px); font-weight: 600; letter-spacing: -0.02em; line-height: 1; font-variant-numeric: tabular-nums; }
+    .cd-lbl { margin-top: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(245,245,247,0.5); }
+
+    .cta-block { margin-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .btn-deal {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 54px; padding: 0 30px;
+      border-radius: 999px;
+      background: #f5f5f7; color: #000;
+      font-size: 17px; font-weight: 600; letter-spacing: -0.01em;
+      transition: transform .3s var(--ease), background .25s var(--ease);
+    }
+    .btn-deal:hover { background: #fff; transform: translateY(-1px); }
+    .btn-deal:active { transform: scale(.97); transition-duration: .08s; }
+    .btn-deal svg { width: 17px; height: 17px; }
+    .cta-note { font-size: 14px; color: rgba(245,245,247,0.6); max-width: 30em; }
+    .fine { margin: 30px auto 0; font-size: 12.5px; line-height: 1.55; color: rgba(245,245,247,0.55); max-width: 46em; }
+    /* without JS there is no live countdown: the deadline line above it says it all */
+    html:not(.js) .cd, html:not(.js) .ends { display: none; }
+
+    /* ── Sections under the tile ── */
+    .section { padding: clamp(64px, 9vw, 110px) 0 0; }
+    .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-3); }
+    .section h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 600; letter-spacing: -0.025em; line-height: 1.1; margin: 10px 0 0; max-width: 18em; }
+    .section .lead { color: var(--text-2); font-size: 18px; margin-top: 12px; max-width: 36em; }
+
+    .perks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 36px; }
+    .perk { background: var(--card); border: 1px solid var(--hairline); border-radius: 22px; padding: 26px 24px 24px; }
+    .perk svg { width: 24px; height: 24px; color: var(--text); }
+    .perk h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.015em; margin: 16px 0 6px; }
+    .perk p { font-size: 15.5px; line-height: 1.5; color: var(--text-2); }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 36px; counter-reset: step; list-style: none; }
+    .step { padding: 24px 24px 0 0; border-top: 1px solid var(--hairline-strong); counter-increment: step; }
+    .step::before { content: counter(step); display: block; font-size: 13px; font-weight: 600; color: var(--text-3); font-variant-numeric: tabular-nums; margin-bottom: 12px; }
+    .step h3 { font-size: 18px; font-weight: 600; letter-spacing: -0.015em; margin-bottom: 6px; }
+    .step p { font-size: 15.5px; color: var(--text-2); }
+
+    .faq { margin-top: 28px; border-top: 1px solid var(--hairline); max-width: 820px; }
+    .faq details { border-bottom: 1px solid var(--hairline); }
+    .faq summary { list-style: none; cursor: pointer; position: relative; padding: 22px 52px 22px 0; font-weight: 600; font-size: 17px; letter-spacing: -0.01em; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+" / ""; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-size: 24px; font-weight: 300; line-height: 1; color: var(--text-3); transition: transform .3s var(--ease); }
+    .faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+    .faq .answer { padding: 0 52px 24px 0; color: var(--text-2); font-size: 15.5px; line-height: 1.65; max-width: 660px; }
+    .faq .answer a { color: var(--accent); font-weight: 500; }
+
+    .closing { padding: clamp(72px, 10vw, 120px) 0 clamp(56px, 8vw, 96px); text-align: center; }
+    .closing h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 600; letter-spacing: -0.025em; line-height: 1.1; }
+    .closing .price { color: var(--text); margin-top: 14px; font-size: clamp(20px, 2.6vw, 24px); }
+    .closing .price s { color: var(--text-3); text-decoration-color: var(--text-3); }
+    .closing .price strong { color: var(--text); }
+    .closing .price .per { color: var(--text-3); }
+    .closing .ends { margin-top: 10px; color: var(--text-3); font-size: 15px; font-variant-numeric: tabular-nums; }
+    .btn-solid {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 52px; padding: 0 28px; margin-top: 26px;
+      border-radius: 999px; background: var(--btn); color: var(--btn-text);
+      font-size: 17px; font-weight: 600; letter-spacing: -0.01em;
+      transition: transform .3s var(--ease), opacity .25s var(--ease);
+    }
+    .btn-solid:hover { transform: translateY(-1px); opacity: .9; }
+    .btn-solid:active { transform: scale(.97); transition-duration: .08s; }
+    .btn-solid svg { width: 17px; height: 17px; }
+
+    /* ── Footer (same as the guides) ── */
+    .site-foot { border-top: 1px solid var(--hairline); }
+    .foot-inner { max-width: var(--max); margin: 0 auto; padding: 28px var(--pad); display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: center; justify-content: space-between; font-size: 13.5px; color: var(--text-3); }
+    .foot-inner nav { display: flex; flex-wrap: wrap; gap: 16px; }
+    .foot-inner a:hover { color: var(--text); }
+
+    /* ── Phone: the deal stays one tap away once the tile has scrolled by ── */
+    .deal-bar {
+      position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom));
+      z-index: 90;
+      display: none; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 10px 10px 10px 18px;
+      border-radius: 20px;
+      background: rgba(10,10,11,0.86);
+      backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: #f5f5f7;
+      transform: translateY(140%);
+      transition: transform .45s var(--ease-out);
+    }
+    .deal-bar.show { transform: none; }
+    .deal-bar .bar-price { display: flex; flex-direction: column; line-height: 1.2; }
+    .deal-bar .bar-price strong { font-size: 17px; font-weight: 700; }
+    .deal-bar .bar-price span { font-size: 12.5px; color: rgba(245,245,247,0.6); }
+    .deal-bar .bar-price s { text-decoration-color: rgba(245,245,247,0.6); }
+    .deal-bar .btn-deal { min-height: 44px; padding: 0 20px; font-size: 15.5px; }
+
+    /* ── After the deadline ── */
+    [data-ended] { display: none !important; }
+    html.is-ended [data-ended] { display: revert !important; }
+    html.is-ended [data-deal] { display: none !important; }
+
+    /* entrance: once, short, and only for people who did not ask for less motion */
+    @media (prefers-reduced-motion: no-preference) {
+      .rise { animation: rise .9s var(--ease-out) both; }
+      .rise.d1 { animation-delay: .06s; }
+      .rise.d2 { animation-delay: .14s; }
+      .rise.d3 { animation-delay: .22s; }
+      .rise.d4 { animation-delay: .30s; }
+      @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    }
+
+    @media (max-width: 900px) {
+      .perks { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 720px) {
+      .deal-bar { display: flex; }
+      .steps { grid-template-columns: 1fr; gap: 0; }
+      .step { padding: 20px 0; }
+    }
+    @media (max-width: 420px) {
+      .bar-links { gap: 6px; }
+      .nav-cta { padding: 7px 12px; }
+      .lang-switch button { padding: 5px 7px; }
+    }
+    @media (max-width: 600px) {
+      .bar-links .bar-text { display: none; }
+      .perks { grid-template-columns: 1fr; gap: 10px; margin-top: 26px; }
+      .perk { display: grid; grid-template-columns: 24px 1fr; column-gap: 14px; padding: 18px 18px 18px 16px; border-radius: 18px; }
+      .perk svg { grid-row: span 2; margin-top: 1px; }
+      .perk h3 { margin: 0 0 3px; font-size: 17px; }
+      .perk p { font-size: 15px; }
+      .tile { border-radius: 26px; }
+      .pro-incl { flex-direction: column; align-items: flex-start; width: fit-content; max-width: 100%; gap: 12px; margin-top: 26px; text-align: left; }
+      .pro-incl li { font-size: 16px; align-items: flex-start; }
+      .pro-incl svg { margin-top: 1px; }
+      .offer { padding-top: 74px; }
+      .wrap { padding: 0 12px; }
+      .section .wrap-inner, .closing .wrap-inner { padding: 0 8px; }
+      .faq summary { padding-right: 40px; }
+      .faq .answer { padding-right: 0; }
+    }
+    @media (max-width: 380px) {
+      #theme-toggle { display: none; }
+      .cd { gap: 14px; }
+    }
+    @media (max-width: 360px) {
+      .tile .btn-deal { padding: 0 20px; font-size: 16px; white-space: nowrap; }
+      .bar-inner { padding: 12px 14px; gap: 8px; }
+      .brand { gap: 7px; font-size: 15px; }
+      .nav-cta { padding: 7px 11px; font-size: 13.5px; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main"><span class="lang-en">Skip to content</span><span class="lang-it">Vai al contenuto</span></a>
+
+<header class="top-bar">
+  <div class="bar-inner">
+    <a href="/" class="brand"><span class="brand-mark" aria-hidden="true"></span><span>SecondBrain</span></a>
+    <nav class="bar-links" aria-label="Site">
+      <a href="/" class="bar-text"><span class="lang-en">Home</span><span class="lang-it">Home</span></a>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="en">EN</button>
+        <button type="button" data-lang-btn="it">IT</button>
+      </div>
+      <button type="button" class="nav-icon" id="theme-toggle" aria-label="Switch to dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+      </button>
+      <a href="https://app.secondbrainmemory.com/offer" class="nav-cta" data-deal><span class="lang-en">Get the deal</span><span class="lang-it">Approfitta</span></a>
+      <a href="https://app.secondbrainmemory.com/" class="nav-cta" data-ended>Web app</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- OFFER -->
+  <section class="offer">
+    <div class="wrap">
+      <div class="tile">
+
+        <div data-deal>
+          <p class="label rise">Black Friday</p>
+
+          <p class="big rise d1" aria-hidden="true">-25<span class="pct">%</span></p>
+
+          <p class="price rise d2">
+            <span class="sr-only lang-en">25% off. Yearly plan: was</span><span class="sr-only lang-it">Sconto del 25%. Piano annuale: prima</span>
+            <s><span class="lang-en">$39.99</span><span class="lang-it">39,99&nbsp;$</span></s>
+            <span class="sr-only lang-en">now</span><span class="sr-only lang-it">ora</span>
+            <strong><span class="lang-en">$29.99</span><span class="lang-it">29,99&nbsp;$</span></strong>
+            <span class="per"><span class="lang-en">/ year</span><span class="lang-it">/ anno</span></span>
+          </p>
+
+          <h1 class="rise d3">
+            <span class="lang-en">The best time to go Pro</span>
+            <span class="lang-it">Il momento migliore per passare a Pro</span>
+          </h1>
+          <p class="sub rise d3">
+            <span class="lang-en">All of SecondBrain Pro, at the Black Friday price.</span>
+            <span class="lang-it">Tutto SecondBrain Pro, al prezzo del Black Friday.</span>
+          </p>
+
+          <ul class="pro-incl rise d3">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a6 6 0 0 1-6 6a6 6 0 0 1-6-6V8Z"/></svg>
+              <span class="lang-en">Memory plugin for Claude and ChatGPT</span><span class="lang-it">Plugin memoria per Claude e ChatGPT</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span class="lang-en">Collaborative notes</span><span class="lang-it">Note collaborative</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z"/></svg>
+              <span class="lang-en">Unlimited notes</span><span class="lang-it">Note illimitate</span>
+            </li>
+          </ul>
+
+          <div class="cd-wrap rise d4">
+            <p class="cd-title">
+              <span class="lang-en">Ends Tuesday 1 December, 23:59 Italian time</span>
+              <span class="lang-it">Finisce marted&igrave; 1 dicembre alle 23:59</span>
+            </p>
+            <div class="cd" aria-hidden="true" id="cd">
+              <div class="cd-unit"><span class="cd-num" data-cd="d">--</span><span class="cd-lbl"><span class="lang-en" data-cd-lbl="days">Days</span><span class="lang-it" data-cd-lbl="giorni">Giorni</span></span></div>
+              <div class="cd-unit"><span class="cd-num" data-cd="h">--</span><span class="cd-lbl"><span class="lang-en">Hours</span><span class="lang-it">Ore</span></span></div>
+              <div class="cd-unit"><span class="cd-num" data-cd="m">--</span><span class="cd-lbl"><span class="lang-en">Min</span><span class="lang-it">Min</span></span></div>
+              <div class="cd-unit"><span class="cd-num" data-cd="s">--</span><span class="cd-lbl"><span class="lang-en">Sec</span><span class="lang-it">Sec</span></span></div>
+            </div>
+          </div>
+
+          <div class="cta-block rise d4" id="hero-cta">
+            <a href="https://app.secondbrainmemory.com/offer" class="btn-deal">
+              <span class="lang-en">Go Pro for $29.99</span>
+              <span class="lang-it">Passa a Pro a 29,99&nbsp;$</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <p class="cta-note">
+              <span class="lang-en">Opens the SecondBrain web app: sign in and the offer opens right after.</span>
+              <span class="lang-it">Si apre la web app di SecondBrain: accedi e l'offerta si apre subito dopo.</span>
+            </p>
+          </div>
+
+          <p class="fine">
+            <span class="lang-en">For new SecondBrain Pro yearly subscriptions bought in the web app until Tuesday 1 December 2026, 23:59 Italian time. $29.99 a year instead of $39.99, renewing at $29.99 a year until you cancel. Prices in US dollars: Stripe's checkout may show the amount in your currency. Cancel anytime from Settings in the web app.</span>
+            <span class="lang-it">Per i nuovi abbonamenti annuali SecondBrain Pro acquistati nella web app entro marted&igrave; 1 dicembre 2026 alle 23:59 (ora italiana). 29,99&nbsp;$ l'anno invece di 39,99&nbsp;$, con rinnovo a 29,99&nbsp;$ l'anno finch&eacute; non disdici. Prezzi in dollari USA: il checkout di Stripe pu&ograve; mostrarli nella tua valuta. Disdici quando vuoi dalle Impostazioni della web app.</span>
+          </p>
+        </div>
+
+        <!-- After the deadline: no price, no countdown, no deal -->
+        <div data-ended>
+          <p class="label">Black Friday</p>
+          <h1>
+            <span class="lang-en">Black Friday is over</span>
+            <span class="lang-it">Il Black Friday &egrave; finito</span>
+          </h1>
+          <p class="sub">
+            <span class="lang-en">Thank you to everyone who joined. SecondBrain is free to start, on iPhone, Android and the web.</span>
+            <span class="lang-it">Grazie a chi c'era. SecondBrain &egrave; gratis per iniziare, su iPhone, Android e sul web.</span>
+          </p>
+          <div class="cta-block">
+            <a href="https://app.secondbrainmemory.com/" class="btn-deal">
+              <span class="lang-en">Open the web app</span>
+              <span class="lang-it">Apri la web app</span>
+            </a>
+            <p class="cta-note"><a href="/" style="text-decoration: underline; text-underline-offset: 3px;"><span class="lang-en">Back to the home page</span><span class="lang-it">Torna alla home</span></a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT PRO UNLOCKS -->
+  <section class="section" aria-labelledby="perks-title">
+    <div class="wrap"><div class="wrap-inner">
+      <p class="eyebrow">SecondBrain Pro</p>
+      <h2 id="perks-title">
+        <span class="lang-en">Everything you say, remembered without limits.</span>
+        <span class="lang-it">Tutto quello che dici, ricordato senza limiti.</span>
+      </h2>
+
+      <div class="perks">
+        <article class="perk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z"/></svg>
+          <h3><span class="lang-en">Unlimited notes</span><span class="lang-it">Note illimitate</span></h3>
+          <p><span class="lang-en">Capture every thought without caps or cleanup.</span><span class="lang-it">Salva ogni impegno e pensiero, senza limiti.</span></p>
+        </article>
+        <article class="perk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.94 14.06 4 20"/><path d="m14 4 1.4 3.6L19 9l-3.6 1.4L14 14l-1.4-3.6L9 9l3.6-1.4Z"/><path d="M19 15v4"/><path d="M21 17h-4"/></svg>
+          <h3><span class="lang-en">More AI every day</span><span class="lang-it">Pi&ugrave; AI ogni giorno</span></h3>
+          <p><span class="lang-en">A higher daily limit for questions, new notes and edits.</span><span class="lang-it">Un limite giornaliero pi&ugrave; alto per domande, nuove note e modifiche.</span></p>
+        </article>
+        <article class="perk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a6 6 0 0 1-6 6a6 6 0 0 1-6-6V8Z"/></svg>
+          <h3><span class="lang-en">ChatGPT and Claude, connected</span><span class="lang-it">ChatGPT e Claude, collegati</span></h3>
+          <p><span class="lang-en">Your assistants read and add to your notes: one memory for every AI you use.</span><span class="lang-it">I tuoi assistenti leggono le tue note e ne aggiungono di nuove: una sola memoria per ogni AI che usi.</span></p>
+        </article>
+        <article class="perk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <h3><span class="lang-en">Shared folders</span><span class="lang-it">Cartelle condivise</span></h3>
+          <p><span class="lang-en">Work on notes together, with full access or read-only.</span><span class="lang-it">Lavora alle note insieme ad altri, con accesso completo o in sola lettura.</span></p>
+        </article>
+        <article class="perk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg>
+          <h3><span class="lang-en">Morning briefing</span><span class="lang-it">Briefing del mattino</span></h3>
+          <p><span class="lang-en">Every morning, the day's events and reminders in one place.</span><span class="lang-it">Ogni mattina, gli eventi e i promemoria della giornata in un unico posto.</span></p>
+        </article>
+        <article class="perk">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="14" height="10" rx="2"/><path d="M6 18h6"/><rect x="16" y="8" width="6" height="12" rx="1.5"/></svg>
+          <h3><span class="lang-en">On every device</span><span class="lang-it">Su ogni dispositivo</span></h3>
+          <p><span class="lang-en">Pro belongs to your account: on iPhone, Android and the web.</span><span class="lang-it">Pro &egrave; legato al tuo account: su iPhone, Android e sul web.</span></p>
+        </article>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" aria-labelledby="how-title" data-deal>
+    <div class="wrap"><div class="wrap-inner">
+      <p class="eyebrow"><span class="lang-en">How it works</span><span class="lang-it">Come funziona</span></p>
+      <h2 id="how-title">
+        <span class="lang-en">From this page to Pro in a minute.</span>
+        <span class="lang-it">Da questa pagina a Pro in un minuto.</span>
+      </h2>
+      <ol class="steps">
+        <li class="step">
+          <h3><span class="lang-en">Open the offer</span><span class="lang-it">Apri l'offerta</span></h3>
+          <p><span class="lang-en">The button opens the SecondBrain web app in your browser.</span><span class="lang-it">Il pulsante apre la web app di SecondBrain nel browser.</span></p>
+        </li>
+        <li class="step">
+          <h3><span class="lang-en">Sign in</span><span class="lang-it">Accedi</span></h3>
+          <p><span class="lang-en">With Apple, Google or email. New to SecondBrain? Signing in with Apple or Google creates your account.</span><span class="lang-it">Con Apple, Google o email. Sei nuovo? Accedendo con Apple o Google crei il tuo account.</span></p>
+        </li>
+        <li class="step">
+          <h3><span class="lang-en">Pay on Stripe</span><span class="lang-it">Paga con Stripe</span></h3>
+          <p><span class="lang-en">Stripe's secure checkout takes the payment. Pro switches on within moments.</span><span class="lang-it">Il pagamento passa dal checkout sicuro di Stripe. Pro si attiva in pochi istanti.</span></p>
+        </li>
+      </ol>
+    </div></div>
+  </section>
+
+  <!-- QUESTIONS -->
+  <section class="section" aria-labelledby="faq-title" data-deal>
+    <div class="wrap"><div class="wrap-inner">
+      <p class="eyebrow"><span class="lang-en">Questions</span><span class="lang-it">Domande</span></p>
+      <h2 id="faq-title">
+        <span class="lang-en">Before you go Pro.</span>
+        <span class="lang-it">Prima di passare a Pro.</span>
+      </h2>
+      <div class="faq">
+        <details>
+          <summary><span class="lang-en">Does the price stay at $29.99 after the first year?</span><span class="lang-it">Dopo il primo anno il prezzo resta 29,99&nbsp;$?</span></summary>
+          <div class="answer">
+            <span class="lang-en">Yes. The Black Friday plan renews every year at $29.99 for as long as you keep it. You can cancel anytime from Settings in the web app, and nothing is charged after that.</span>
+            <span class="lang-it">S&igrave;. Il piano del Black Friday si rinnova ogni anno a 29,99&nbsp;$ finch&eacute; lo tieni. Puoi disdire quando vuoi dalle Impostazioni della web app, e da l&igrave; in poi non paghi pi&ugrave; nulla.</span>
+          </div>
+        </details>
+        <details>
+          <summary><span class="lang-en">I use SecondBrain on my phone. Does Pro work there too?</span><span class="lang-it">Uso SecondBrain sul telefono. Pro funziona anche l&igrave;?</span></summary>
+          <div class="answer">
+            <span class="lang-en">Yes. Pro belongs to your account, not to the device. Sign in to the web app with the same Apple, Google or email login you use on your phone, and Pro is there on iPhone and Android too.</span>
+            <span class="lang-it">S&igrave;. Pro &egrave; legato al tuo account, non al dispositivo. Accedi alla web app con lo stesso account che usi sul telefono (Apple, Google o email), e Pro c'&egrave; anche su iPhone e Android.</span>
+          </div>
+        </details>
+        <details>
+          <summary><span class="lang-en">I already have Pro.</span><span class="lang-it">Ho gi&agrave; Pro.</span></summary>
+          <div class="answer">
+            <span class="lang-en">Then nothing changes for you: your plan and its price stay as they are. The offer is for new yearly subscriptions.</span>
+            <span class="lang-it">Allora per te non cambia nulla: il tuo piano e il suo prezzo restano come sono. L'offerta &egrave; per i nuovi abbonamenti annuali.</span>
+          </div>
+        </details>
+        <details>
+          <summary><span class="lang-en">Is my card safe?</span><span class="lang-it">La mia carta &egrave; al sicuro?</span></summary>
+          <div class="answer">
+            <span class="lang-en">Payments run on Stripe's checkout. SecondBrain never sees or stores your card number.</span>
+            <span class="lang-it">I pagamenti passano dal checkout di Stripe. SecondBrain non vede e non conserva mai il numero della tua carta.</span>
+          </div>
+        </details>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- CLOSING -->
+  <section class="closing" data-deal>
+    <div class="wrap"><div class="wrap-inner">
+      <h2>
+        <span class="lang-en">25% off Pro, until Tuesday.</span>
+        <span class="lang-it">Pro scontato del 25%, fino a marted&igrave;.</span>
+      </h2>
+      <p class="price">
+        <span class="sr-only lang-en">Was</span><span class="sr-only lang-it">Prima</span>
+        <s><span class="lang-en">$39.99</span><span class="lang-it">39,99&nbsp;$</span></s>
+        <span class="sr-only lang-en">now</span><span class="sr-only lang-it">ora</span>
+        <strong><span class="lang-en">$29.99</span><span class="lang-it">29,99&nbsp;$</span></strong>
+        <span class="per"><span class="lang-en">/ year</span><span class="lang-it">/ anno</span></span>
+      </p>
+      <p class="ends" aria-hidden="true">
+        <span class="lang-en">Ends in </span><span class="lang-it">Finisce tra </span><span data-cd-inline>&nbsp;</span>
+      </p>
+      <a href="https://app.secondbrainmemory.com/offer" class="btn-solid">
+        <span class="lang-en">Go Pro for $29.99</span>
+        <span class="lang-it">Passa a Pro a 29,99&nbsp;$</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div></div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="foot-inner">
+    <span>&copy; 2026 Influpress LLC &middot; <span class="lang-en">Built in Italy by Federico Cesarini</span><span class="lang-it">Fatto in Italia da Federico Cesarini</span></span>
+    <nav aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="https://app.secondbrainmemory.com/">Web app</a>
+      <a href="https://apps.apple.com/us/app/secondbrain-ai-memory/id6762130376?pt=128686606&amp;ct=site-black-friday&amp;mt=8" target="_blank" rel="noopener">App Store</a>
+      <a href="https://play.google.com/store/apps/details?id=app.secondbrain.android&amp;referrer=utm_source%3Dsecondbrainmemory.com%26utm_medium%3Dwebsite%26utm_campaign%3Dsite-black-friday%26utm_content%3Dfooter" target="_blank" rel="noopener">Google Play</a>
+      <a href="/#privacy">Privacy</a>
+      <a href="/#support"><span class="lang-en">Support</span><span class="lang-it">Supporto</span></a>
+    </nav>
+  </div>
+</footer>
+
+<!-- Phone only: the deal one tap away after the tile has scrolled out of view -->
+<div class="deal-bar" id="deal-bar" data-deal aria-hidden="true">
+  <div class="bar-price">
+    <strong><span class="lang-en">$29.99 / year</span><span class="lang-it">29,99&nbsp;$ / anno</span></strong>
+    <span><span class="sr-only lang-en">was </span><span class="sr-only lang-it">prima </span><s><span class="lang-en">$39.99</span><span class="lang-it">39,99&nbsp;$</span></s> &middot; <span data-cd-inline>&nbsp;</span></span>
+  </div>
+  <a href="https://app.secondbrainmemory.com/offer" class="btn-deal" tabindex="-1"><span class="lang-en">Go Pro</span><span class="lang-it">Passa a Pro</span></a>
+</div>
+
+<script>
+  /* Theme: same storage key and behavior as the rest of the site. */
+  (function () {
+    var meta = document.querySelector('meta[name="theme-color"]');
+    var toggle = document.getElementById('theme-toggle');
+    function setTheme(theme) {
+      if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+      else document.documentElement.removeAttribute('data-theme');
+      try { localStorage.setItem('sb-theme', theme); } catch (e) {}
+      if (meta) meta.content = theme === 'dark' ? '#000000' : '#f5f5f7';
+      if (window.__sbThemeLabel) window.__sbThemeLabel();
+      else if (toggle) toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+    if (toggle) toggle.addEventListener('click', function () {
+      setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+    setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  })();
+
+  /* Language: same storage key and App Store links as the home page. */
+  (function () {
+    var root = document.documentElement;
+    var TITLES = {
+      deal: { en: 'Black Friday: SecondBrain Pro at 25% off', it: 'Black Friday: SecondBrain Pro scontato del 25%' },
+      ended: { en: 'Black Friday is over | SecondBrain', it: 'Il Black Friday è finito | SecondBrain' }
+    };
+    var LABELS = {
+      site: { en: 'Site', it: 'Sito' },
+      language: { en: 'Language', it: 'Lingua' },
+      footer: { en: 'Footer', it: 'Piè di pagina' },
+      toDark: { en: 'Switch to dark mode', it: 'Passa al tema scuro' },
+      toLight: { en: 'Switch to light mode', it: 'Passa al tema chiaro' }
+    };
+    var APP_STORE_URL = {
+      en: 'https://apps.apple.com/us/app/secondbrain-ai-memory/id6762130376',
+      it: 'https://apps.apple.com/it/app/secondbrain-note-vocali-ai/id6762130376'
+    };
+    var btns = document.querySelectorAll('[data-lang-btn]');
+    function lang() { return root.lang === 'it' ? 'it' : 'en'; }
+    window.__sbTitle = function () {
+      document.title = TITLES[root.classList.contains('is-ended') ? 'ended' : 'deal'][lang()];
+    };
+    window.__sbThemeLabel = function () {
+      var t = document.getElementById('theme-toggle');
+      if (t) t.setAttribute('aria-label', LABELS[root.getAttribute('data-theme') === 'dark' ? 'toLight' : 'toDark'][lang()]);
+    };
+    function setLang(l, save) {
+      root.lang = l;
+      window.__sbTitle();
+      window.__sbThemeLabel();
+      btns.forEach(function (b) {
+        var on = b.getAttribute('data-lang-btn') === l;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      var nav = document.querySelector('.bar-links'); if (nav) nav.setAttribute('aria-label', LABELS.site[l]);
+      var sw = document.querySelector('.lang-switch'); if (sw) sw.setAttribute('aria-label', LABELS.language[l]);
+      var foot = document.querySelector('.foot-inner nav'); if (foot) foot.setAttribute('aria-label', LABELS.footer[l]);
+      document.querySelectorAll('a[href^="https://apps.apple.com/"]').forEach(function (a) {
+        a.href = APP_STORE_URL[l] + new URL(a.href).search;  // keep the pt/ct campaign tags
+      });
+      if (save) { try { localStorage.setItem('sb-lang', l); } catch (e) {} }
+      if (window.__sbTick) window.__sbTick();
+    }
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () { setLang(b.getAttribute('data-lang-btn'), true); });
+    });
+    setLang(lang(), false);
+  })();
+
+  /*
+   * Countdown. DEADLINE must be the same instant as `expiresAt` in the
+   * WEB_CAMPAIGN secret (stripe-prices / stripe-checkout), so the page, the
+   * paywall and the checkout end together: Tuesday 1 December 2026, 23:59:59
+   * in Italy (CET, UTC+1). After it the page shows the "is over" state, never
+   * an expired price.
+   */
+  (function () {
+    var DEADLINE = Date.parse('2026-12-01T22:59:59Z');
+    var root = document.documentElement;
+    var nums = {
+      d: document.querySelector('[data-cd="d"]'),
+      h: document.querySelector('[data-cd="h"]'),
+      m: document.querySelector('[data-cd="m"]'),
+      s: document.querySelector('[data-cd="s"]')
+    };
+    var dayLbl = { en: document.querySelector('[data-cd-lbl="days"]'), it: document.querySelector('[data-cd-lbl="giorni"]') };
+    var inline = document.querySelectorAll('[data-cd-inline]');
+    var timer = null;
+    function pad(n) { return n < 10 ? '0' + n : String(n); }
+    function tick() {
+      var left = DEADLINE - Date.now();
+      if (!(left > 0)) {
+        root.classList.add('is-ended');
+        if (window.__sbTitle) window.__sbTitle();
+        if (timer) { clearTimeout(timer); timer = null; }
+        return;
+      }
+      var t = Math.floor(left / 1000);
+      var d = Math.floor(t / 86400), h = Math.floor(t % 86400 / 3600), m = Math.floor(t % 3600 / 60), s = t % 60;
+      nums.d.textContent = String(d);
+      nums.h.textContent = pad(h);
+      nums.m.textContent = pad(m);
+      nums.s.textContent = pad(s);
+      dayLbl.en.textContent = d === 1 ? 'Day' : 'Days';
+      dayLbl.it.textContent = d === 1 ? 'Giorno' : 'Giorni';
+      var it = root.lang === 'it';
+      var text = (d > 0 ? d + (it ? 'g ' : 'd ') : '') + pad(h) + ':' + pad(m) + ':' + pad(s);
+      inline.forEach(function (el) { el.textContent = text; });
+      // next tick on the second boundary, so the digits never skip
+      timer = setTimeout(tick, (left % 1000) + 20);
+    }
+    window.__sbTick = function () { if (timer) clearTimeout(timer); tick(); };
+    tick();
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) window.__sbTick(); });
+    // iOS restores pages from the back/forward cache with timers frozen
+    window.addEventListener('pageshow', function (e) { if (e.persisted) window.__sbTick(); });
+  })();
+
+  /* Phone bar: visible once the offer's own button has scrolled out of view. */
+  (function () {
+    var bar = document.getElementById('deal-bar');
+    var cta = document.getElementById('hero-cta');
+    var closing = document.querySelector('.closing');
+    if (!bar || !cta || !('IntersectionObserver' in window)) return;
+    var ctaVisible = true, closingVisible = false;
+    function last(entries) { return entries[entries.length - 1]; }
+    function update() {
+      var show = !ctaVisible && !closingVisible && !document.documentElement.classList.contains('is-ended');
+      bar.classList.toggle('show', show);
+      bar.setAttribute('aria-hidden', show ? 'false' : 'true');
+      var link = bar.querySelector('a');
+      if (link) link.tabIndex = show ? 0 : -1;
+    }
+    new IntersectionObserver(function (e) { var x = last(e); ctaVisible = x.isIntersecting || x.boundingClientRect.top > 0; update(); }).observe(cta);
+    if (closing) new IntersectionObserver(function (e) { closingVisible = last(e).isIntersecting; update(); }, { rootMargin: '0px 0px -10% 0px' }).observe(closing);
+  })();
+</script>
+</body>
+</html>
