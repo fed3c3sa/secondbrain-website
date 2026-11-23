@@ -2,6 +2,18 @@
   "readme": "iOS App Store releases from the ios branch of ~/Desktop/personal/secondbrain (renamed from refactored-ios-version on 2026-09-10). Shown as vertical markers on the console charts; tapping a tag opens the changelog. liveDate = date the final build of the version was pushed to the branch + 1 day (average App Store review time). Changes are written in plain product language for a non-technical reader: describe what changed for users (paywall, onboarding, features), not code internals. To add a release: prepend an entry (newest first) summarizing the commits since the previous version bump, then sync the copy in secondbrain-dashboard/viewer/ and push this site.",
   "releases": [
     {
+      "version": "3.0.2",
+      "build": 1,
+      "pushedAt": "2026-11-23",
+      "liveDate": "2026-11-24",
+      "title": "Black Friday banner and discount codes in the paywall",
+      "changes": [
+        "Free users see a Black Friday banner on every screen; tapping it opens the offer, and it can be closed for a day.",
+        "On iPhone the paywall always offers to redeem a discount code.",
+        "From the banner, a notification or a link, the paywall opens with the code BLACKFRIDAY already filled in."
+      ]
+    },
+    {
       "version": "3.0.1",
       "build": 3,
       "pushedAt": "2026-11-21",
