@@ -154,6 +154,10 @@ table.data tr:last-child td { border-bottom: none; }
   font: inherit; font-size: 12.5px; color: var(--ink-2); background: var(--surface);
   border: 1px solid var(--border); border-radius: 8px; padding: 4px 8px;
 }
+.scroll-x { overflow-x: auto; }
+.scroll-x table.data { min-width: 860px; }
+table.data td .sub { color: var(--muted); font-size: 11.5px; }
+table.data tr.total td { font-weight: 650; border-top: 1px solid var(--baseline); }
 .meter { background: var(--meter-track); border-radius: 4px; height: 8px; width: 110px; overflow: hidden; }
 .meter > i { display: block; height: 100%; background: var(--meter-fill); border-radius: 4px; }
 .refetching { opacity: 0.55; transition: opacity .2s; }
@@ -1328,6 +1332,109 @@ const DATA_URL = 'https://ntykytpngslkytfyuaee.supabase.co/functions/v1/admin-da
         'Each trial or payment is credited to the app version installed when it happened, so a conversion often lands one version after its trial started. Versions with a changelog are tappable.' +
         (hasDl ? '' : ' RevenueCat does not split downloads by version; use the acquisition charts above for download volume.')));
       c.appendChild(sec);
+    }
+
+    /* Per-campaign delivery. Meta only reports campaign totals per window, so
+       these are its own last_90d / last_30d buckets in the AD ACCOUNT
+       currency - deliberately not scoped by the range filter above and not
+       FX-converted (no daily series to run the ECB rates over). */
+    const mc = p.metaCampaigns;
+    if (mc && mc.windows) {
+      const win = (k) => (mc.windows[k] && mc.windows[k].campaigns) || [];
+      const c90 = win('last_90d');
+      const c30 = win('last_30d');
+      if (c90.length || c30.length) {
+        const code = mc.currency || 'USD';
+        const acct = (v, digits) => {
+          if (v === null || v === undefined || !isFinite(v)) return String.fromCharCode(0x2013);
+          const max = digits ?? (Math.abs(v) >= 1000 ? 0 : 2);
+          return new Intl.NumberFormat('en-IE', { style: 'currency', currency: code, maximumFractionDigits: max, minimumFractionDigits: max > 0 ? 2 : 0 }).format(v);
+        };
+        const keyOf = (r) => r.campaign_id || r.campaign_name;
+        const by30 = new Map(c30.map((r) => [keyOf(r), r]));
+        const merged = c90.map((r) => ({ base: r, recent: by30.get(keyOf(r)) || null }));
+        for (const r of c30) if (!c90.some((x) => keyOf(x) === keyOf(r))) merged.push({ base: r, recent: r });
+
+        /* Meta only reports start-trial actions when the app sends that event
+           to the dataset. When it never does, the two trial columns are dead
+           weight, so they only appear once there is something in them. */
+        const hasTrials = merged.some((m) => (m.base.trials || 0) > 0 || (m.recent && (m.recent.trials || 0) > 0));
+
+        const sec = el('section');
+        sec.appendChild(el('h2', {}, 'Campaigns (Meta, last 90 days)'));
+        const card = el('div', { class: 'card' });
+        const box = el('div', { class: 'scroll-x' });
+        const t = el('table', { class: 'data' });
+        const hr = el('tr');
+        const heads = ['Campaign', 'Status', 'Spend 90d', 'Impr', 'Clicks', 'Installs 90d', 'Cost/install'];
+        if (hasTrials) heads.push('Trials 90d', 'Cost/trial 90d');
+        heads.push('Installs 30d', 'Cost/install 30d');
+        if (hasTrials) heads.push('Trials 30d', 'Cost/trial 30d');
+        for (const h of heads) hr.appendChild(el('th', {}, h));
+        const th = el('thead'); th.appendChild(hr); t.appendChild(th);
+        const tb = el('tbody');
+        const tot = { spend: 0, impressions: 0, clicks: 0, installs: 0, trials: 0, spend30: 0, installs30: 0, trials30: 0 };
+        for (const { base, recent } of merged) {
+          const tr = el('tr');
+          const nameTd = el('td');
+          nameTd.appendChild(document.createTextNode(base.campaign_name));
+          if (base.objective) nameTd.appendChild(el('div', { class: 'sub' }, base.objective.replace(/^OUTCOME_/, '').replace(/_/g, ' ').toLowerCase()));
+          tr.appendChild(nameTd);
+          tr.appendChild(el('td', {}, (base.status || String.fromCharCode(0x2013)).toLowerCase()));
+          tr.appendChild(el('td', {}, acct(base.spend)));
+          tr.appendChild(el('td', {}, int(base.impressions)));
+          tr.appendChild(el('td', {}, int(base.clicks)));
+          tr.appendChild(el('td', {}, int(base.installs)));
+          tr.appendChild(el('td', {}, acct(base.cost_per_install)));
+          if (hasTrials) {
+            tr.appendChild(el('td', {}, int(base.trials)));
+            tr.appendChild(el('td', {}, acct(base.cost_per_trial)));
+          }
+          tr.appendChild(el('td', {}, recent ? int(recent.installs) : String.fromCharCode(0x2013)));
+          tr.appendChild(el('td', {}, recent ? acct(recent.cost_per_install) : String.fromCharCode(0x2013)));
+          if (hasTrials) {
+            tr.appendChild(el('td', {}, recent ? int(recent.trials) : String.fromCharCode(0x2013)));
+            tr.appendChild(el('td', {}, recent ? acct(recent.cost_per_trial) : String.fromCharCode(0x2013)));
+          }
+          tb.appendChild(tr);
+          tot.spend += base.spend || 0;
+          tot.impressions += base.impressions || 0;
+          tot.clicks += base.clicks || 0;
+          tot.installs += base.installs || 0;
+          tot.trials += base.trials || 0;
+          if (recent) { tot.spend30 += recent.spend || 0; tot.installs30 += recent.installs || 0; tot.trials30 += recent.trials || 0; }
+        }
+        const totTr = el('tr', { class: 'total' });
+        totTr.appendChild(el('td', {}, 'All campaigns'));
+        totTr.appendChild(el('td', {}, ''));
+        totTr.appendChild(el('td', {}, acct(r2(tot.spend))));
+        totTr.appendChild(el('td', {}, int(tot.impressions)));
+        totTr.appendChild(el('td', {}, int(tot.clicks)));
+        totTr.appendChild(el('td', {}, int(tot.installs)));
+        totTr.appendChild(el('td', {}, acct(tot.installs > 0 ? r2(tot.spend / tot.installs) : null)));
+        if (hasTrials) {
+          totTr.appendChild(el('td', {}, int(tot.trials)));
+          totTr.appendChild(el('td', {}, acct(tot.trials > 0 ? r2(tot.spend / tot.trials) : null)));
+        }
+        totTr.appendChild(el('td', {}, int(tot.installs30)));
+        totTr.appendChild(el('td', {}, acct(tot.installs30 > 0 ? r2(tot.spend30 / tot.installs30) : null)));
+        if (hasTrials) {
+          totTr.appendChild(el('td', {}, int(tot.trials30)));
+          totTr.appendChild(el('td', {}, acct(tot.trials30 > 0 ? r2(tot.spend30 / tot.trials30) : null)));
+        }
+        tb.appendChild(totTr);
+        t.appendChild(tb);
+        box.appendChild(t);
+        card.appendChild(box);
+        card.appendChild(el('div', { class: 'src', style: 'margin-top:12px' },
+          'Meta last_90d / last_30d windows, independent of the range filter. Spend and costs in ' + code +
+          ' as billed by Meta, not converted to EUR. Installs are Meta-attributed app installs. ' +
+          (hasTrials
+            ? 'Trials are Meta-attributed start-trial conversions (Meta start_trial_total) and will not match the RevenueCat trial counts above.'
+            : 'Meta reports no start-trial events for this account, so cost per trial can only be read from the RevenueCat sections above.')));
+        sec.appendChild(card);
+        c.appendChild(sec);
+      }
     }
 
     /* Monthly table */
