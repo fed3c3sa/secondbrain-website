@@ -6,7 +6,7 @@
     <atom:link href="https://secondbrainmemory.com/blog/feed.xml" rel="self" type="application/rss+xml" />
     <description>Second brains, AI memory and voice notes, from the maker of SecondBrain.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 20 Nov 2026 08:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2026 08:00:00 +0000</lastBuildDate>
     <image>
       <url>https://secondbrainmemory.com/assets/logo-512.png</url>
       <title>SecondBrain Blog</title>
@@ -46,7 +46,7 @@
       <pubDate>Thu, 29 Oct 2026 08:00:00 +0000</pubDate>
       <dc:creator>Federico Cesarini</dc:creator>
       <category>Comparisons</category>
-      <description>Fifteen second brain apps compared on capture, free plans, prices, AI, ChatGPT and Claude access, and export. Checked against each vendor in October 2026.</description>
+      <description>Fourteen second brain apps compared on capture, free plans, prices, AI, ChatGPT and Claude access, and export. Checked with each vendor in November 2026.</description>
     </item>
     <item>
       <title>How to use ChatGPT as a second brain, and what it still forgets</title>
@@ -55,7 +55,7 @@
       <pubDate>Thu, 29 Oct 2026 08:00:00 +0000</pubDate>
       <dc:creator>Federico Cesarini</dc:creator>
       <category>Guides</category>
-      <description>What ChatGPT&#x27;s memory, chat history and Projects can hold in 2026, where they stop, and how to give ChatGPT a second brain it can read and share with Claude.</description>
+      <description>What ChatGPT&#x27;s memory, chat history and Projects hold in 2026, what changes in Europe, and how to give ChatGPT a second brain it shares with Claude.</description>
     </item>
     <item>
       <title>How to turn voice memos into organized notes on iPhone and Android</title>

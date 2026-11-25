@@ -26,7 +26,7 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="en_US" />
   <meta property="article:published_time" content="2026-11-04" />
-  <meta property="article:modified_time" content="2026-11-04" />
+  <meta property="article:modified_time" content="2026-11-25" />
   <meta property="article:author" content="Federico Cesarini" />
   <meta property="article:section" content="Guides" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -92,7 +92,7 @@
         "@id": "https://secondbrainmemory.com/blog/obsidian-second-brain/#image"
       },
       "datePublished": "2026-11-04",
-      "dateModified": "2026-11-04",
+      "dateModified": "2026-11-25",
       "inLanguage": "en",
       "speakable": {
         "@type": "SpeakableSpecification",
@@ -114,7 +114,7 @@
         "height": 630
       },
       "datePublished": "2026-11-04",
-      "dateModified": "2026-11-04",
+      "dateModified": "2026-11-25",
       "author": {
         "@id": "https://secondbrainmemory.com/#federico-cesarini"
       },
@@ -132,9 +132,11 @@
       },
       "inLanguage": "en",
       "articleSection": "Guides",
-      "wordCount": 2655,
+      "wordCount": 3156,
       "keywords": [
         "obsidian second brain",
+        "obsidian skills",
+        "obsidian chatgpt",
         "second brain obsidian",
         "how to build a second brain in obsidian",
         "obsidian second brain template",
@@ -174,6 +176,11 @@
         "https://obsidian.md/help/plugins/canvas",
         "https://obsidian.md/help/web-clipper",
         "https://obsidian.md/help/plugins/audio-recorder",
+        "https://obsidian.md/help/skills",
+        "https://github.com/obsidianmd/obsidian-skills/blob/main/plugins/obsidian/README.md",
+        "https://github.com/obsidianmd/obsidian-skills/blob/main/plugins/obsidian/plugin.json",
+        "https://obsidian.md/help/cli",
+        "https://obsidian.md/roadmap",
         "https://zettelkasten.de/posts/collectors-fallacy/",
         "https://fortelabs.com/blog/para/",
         "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
@@ -252,7 +259,15 @@
           "name": "Can Claude read my Obsidian vault?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Claude Code works directly on the Markdown files when you start it in the vault folder, and a CLAUDE.md file there tells it your rules. Other MCP clients can reach the vault through the community Local REST API plugin while Obsidian is open on your computer, and Claude Desktop can too through the mcp-remote bridge. Whatever the agent reads goes to the model provider, so keep private notes out of the folder you open it in. With SecondBrain Pro, Claude can also read the notes you captured by voice on your phone."
+            "text": "Yes. Claude Code works directly on the Markdown files when you start it in the vault folder, a CLAUDE.md file there tells it your rules, and since November 2026 Obsidian publishes official skills for it. Other MCP clients can reach the vault through the community Local REST API plugin while Obsidian is open on your computer, and Claude Desktop can too through the mcp-remote bridge. Whatever the agent reads goes to the model provider, so keep private notes out of the folder you open it in. With SecondBrain Pro, Claude can also read the notes you captured by voice on your phone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can ChatGPT read my Obsidian vault?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, on your computer. Since November 2026 there is an official Obsidian plugin for ChatGPT and Codex. It searches, reads and edits notes by running Obsidian's command line, so it needs the Obsidian desktop app open, the command line turned on and a ChatGPT or Codex session that can run commands on that computer. It is not an MCP server; Obsidian lists MCP as in progress. For notes ChatGPT can look up on the web too, SecondBrain Pro connects over MCP where your ChatGPT plan allows it."
           }
         },
         {
@@ -545,9 +560,9 @@
 <main id="main" class="article">
   <p class="crumb"><a href="/">SecondBrain</a> · <a href="/blog/">Blog</a> · Obsidian second brain</p>
   <h1>How to build a second brain in Obsidian, and feed it from your phone</h1>
-  <p class="byline">By <a href="#author">Federico Cesarini</a>, maker of SecondBrain · Updated <time datetime="2026-11-04">November 4, 2026</time> · 12 min read</p>
+  <p class="byline">By <a href="#author">Federico Cesarini</a>, maker of SecondBrain · Updated <time datetime="2026-11-25">November 25, 2026</time> · 14 min read</p>
 
-  <div class="tldr"><strong>In short:</strong> Obsidian is one of the best homes for a second brain: it is free, it keeps every note as a plain Markdown file in a folder you own, and AI agents such as Claude Code can work on that folder. Start with five folders, daily notes and one capture habit, and add plugins only when you miss something. On iPhone with iOS 26 or later, Quick Capture and Voice Capture put typed or spoken notes straight into your vault; what Obsidian leaves to you is the filing. SecondBrain does that part: you talk, it writes the note, files it and sets reminders, and with SecondBrain Pro you can bring the notes into your vault as Markdown, by exporting on iPhone or asking Claude Code over MCP.</div>
+  <div class="tldr"><strong>In short:</strong> Obsidian is one of the best homes for a second brain: it is free, it keeps every note as a plain Markdown file in a folder you own, and AI agents such as Claude Code and Codex can work on that folder, since November 2026 with skills Obsidian publishes itself. Start with five folders, daily notes and one capture habit, and add plugins only when you miss something. On iPhone with iOS 26 or later, Quick Capture and Voice Capture put typed or spoken notes straight into your vault; what Obsidian leaves to you is the filing. SecondBrain does that part: you talk, it writes the note, files it and sets reminders, and with SecondBrain Pro you can bring the notes into your vault as Markdown, by exporting on iPhone or asking Claude Code over MCP.</div>
 
   <aside class="get-app" aria-label="Get SecondBrain">
     <img class="get-app-icon" src="/assets/icon-192.png" alt="SecondBrain app icon" width="52" height="52" />
@@ -562,7 +577,7 @@
     </div>
   </aside>
 
-  <nav class="toc" aria-label="In this article"><p class="toc-title">In this article</p><ol><li><a href="#is-obsidian-good">Is Obsidian good for a second brain?</a></li><li><a href="#set-up">How to set up an Obsidian second brain, step by step</a></li><li><a href="#structure">PARA, Zettelkasten or no folders: which structure fits?</a></li><li><a href="#plugins">Which Obsidian plugins does a second brain need?</a></li><li><a href="#phone-capture">How do you capture into Obsidian from your phone?</a></li><li><a href="#claude-code">How do you connect Claude Code to your Obsidian vault?</a></li><li><a href="#obsidian-or-app">Obsidian, SecondBrain, or both?</a></li><li><a href="#mistakes">Mistakes that kill an Obsidian second brain</a></li><li><a href="#faq">Questions people ask</a></li></ol></nav>
+  <nav class="toc" aria-label="In this article"><p class="toc-title">In this article</p><ol><li><a href="#is-obsidian-good">Is Obsidian good for a second brain?</a></li><li><a href="#set-up">How to set up an Obsidian second brain, step by step</a></li><li><a href="#structure">PARA, Zettelkasten or no folders: which structure fits?</a></li><li><a href="#plugins">Which Obsidian plugins does a second brain need?</a></li><li><a href="#phone-capture">How do you capture into Obsidian from your phone?</a></li><li><a href="#chatgpt-claude">Can ChatGPT and Claude work with your Obsidian vault?</a></li><li><a href="#claude-code">How do you connect Claude Code to your Obsidian vault?</a></li><li><a href="#obsidian-or-app">Obsidian, SecondBrain, or both?</a></li><li><a href="#mistakes">Mistakes that kill an Obsidian second brain</a></li><li><a href="#faq">Questions people ask</a></li></ol></nav>
 
 <h2 id="is-obsidian-good">Is Obsidian good for a second brain?</h2>
 <p>Yes, if you want to own your notes and do not mind shaping the system yourself. Obsidian keeps every note as a plain Markdown file in a folder on your device, which it calls a vault (<a href="https://obsidian.md/help/data-storage" target="_blank" rel="noopener">Obsidian Help</a>), links notes in both directions (<a href="https://obsidian.md/help/plugins/backlinks" target="_blank" rel="noopener">backlinks</a>), and has been free for personal and work use since February 2025 (<a href="https://obsidian.md/blog/free-for-work/" target="_blank" rel="noopener">Obsidian's announcement</a>). It keeps whatever you give it. The filing is up to you.</p>
@@ -667,10 +682,30 @@
 </ul>
 <p>Neither is a live sync: you decide when notes move, and your vault stays yours.</p>
 
+<h2 id="chatgpt-claude">Can ChatGPT and Claude work with your Obsidian vault?</h2>
+<p>Yes, with a computer in the loop. In November 2026 Obsidian published Obsidian Skills: official instructions that teach ChatGPT, Codex, Claude, Claude Code and other agents to work with a vault. They are skills, not a live connection: to search and edit your vault, the agent needs the Obsidian desktop app open and permission to run commands on that computer.</p>
+<div class="cmp wide">
+  <table>
+    <caption>How each assistant uses Obsidian Skills, from Obsidian's own help, November 2026</caption>
+    <thead><tr><th>Assistant</th><th>How you add it</th><th>Good to know</th></tr></thead>
+    <tbody>
+      <tr><td>ChatGPT and Codex</td><td>Obsidian, in ChatGPT's plugin directory</td><td>One plugin for both; Obsidian says it will add MCP later, for remote use and the ChatGPT mobile app</td></tr>
+      <tr><td>Claude Code</td><td>Two commands, in the next section</td><td>Can run commands on your computer, which the command line skill needs</td></tr>
+      <tr><td>Claude app</td><td>Upload each skill you want as a ZIP under Customize, Skills</td><td>On plans that support skills; in chat, the Markdown, Bases and Canvas skills apply</td></tr>
+      <tr><td>Cursor</td><td>Obsidian, in the Cursor Marketplace</td><td>Can run commands on your computer</td></tr>
+      <tr><td>Gemini CLI</td><td>As an extension, from Obsidian's GitHub repository</td><td>The command is on Obsidian's help page</td></tr>
+    </tbody>
+  </table>
+</div>
+<p>To let an agent search, read and manage notes in the app, turn on the command line first: in Obsidian's desktop app open Settings, General and enable Command line interface (it needs installer version 1.12.7 or later). The skills for Markdown, Bases and Canvas only describe file formats, so they also work in any agent that can read and write files in your vault. There is no official MCP server yet: Obsidian's <a href="https://obsidian.md/roadmap" target="_blank" rel="noopener">roadmap</a> lists MCP among the things it is working on.</p>
+<p>Obsidian also says plainly that using the plugin can bring the vault content you ask about into the conversation, where the AI model you use processes it. Sources: <a href="https://obsidian.md/help/skills" target="_blank" rel="noopener">Obsidian Skills</a>, its <a href="https://github.com/obsidianmd/obsidian-skills/blob/main/plugins/obsidian/README.md" target="_blank" rel="noopener">requirements and scope</a>, its <a href="https://github.com/obsidianmd/obsidian-skills/blob/main/plugins/obsidian/plugin.json" target="_blank" rel="noopener">plugin listing</a> and <a href="https://obsidian.md/help/cli" target="_blank" rel="noopener">Obsidian CLI</a>.</p>
+<p>On your phone, a chat assistant cannot reach the vault this way yet. If you want ChatGPT or Claude to remember what you said on your phone, SecondBrain Pro gives them that memory over MCP, within each assistant's plan and region limits, and you can bring the same notes into the vault when you want them there.</p>
+
 <h2 id="claude-code">How do you connect Claude Code to your Obsidian vault?</h2>
 <p>Open a terminal in your vault folder and start Claude Code: it reads and edits the Markdown files directly, and a CLAUDE.md file in the vault tells it your folders and rules at the start of every session (<a href="https://code.claude.com/docs/en/memory" target="_blank" rel="noopener">Claude Code docs</a>). For other MCP clients, the community Local REST API plugin runs an MCP server inside Obsidian while it is open on your computer; Claude Desktop connects through the mcp-remote bridge, which needs Node.js.</p>
 <ul>
   <li><strong>Write the rules once.</strong> In CLAUDE.md, list your five folders, what belongs in each, how you name notes and which folders to leave alone. CLAUDE.md guides the agent but locks nothing, so keep notes it must never read out of the vault. It is the schema in Andrej Karpathy's <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f" target="_blank" rel="noopener">LLM Wiki</a> pattern, where an agent keeps a wiki of linked Markdown pages up to date as you add sources.</li>
+  <li><strong>Add the official skills.</strong> <a href="https://obsidian.md/help/skills" target="_blank" rel="noopener">Obsidian Skills</a> teach Claude Code Obsidian's links, properties, Bases and Canvas files, and to drive the open app from the command line. Run <code>claude plugin marketplace add obsidianmd/obsidian-skills</code>, then <code>claude plugin install obsidian@obsidian-skills</code>.</li>
   <li><strong>Borrow a starting point.</strong> Community projects give you one: <a href="https://github.com/AgriciDaniel/claude-obsidian" target="_blank" rel="noopener">claude-obsidian</a> is built on Karpathy's pattern, and <a href="https://github.com/eugeniughelbur/obsidian-second-brain" target="_blank" rel="noopener">obsidian-second-brain</a> keeps a Markdown memory for Claude Code and other agents in your vault. They are independent projects, not made by Obsidian, so read what they change before running them.</li>
   <li><strong>Stay inside Obsidian if you prefer.</strong> The <a href="https://github.com/logancyang/obsidian-copilot" target="_blank" rel="noopener">Copilot</a> plugin runs Claude Code, Codex or OpenCode inside Obsidian.</li>
   <li><strong>Protect the vault.</strong> Keep a backup or version history before an agent edits your notes, and remember that anything it reads goes to the model provider. Pages you clip from the web can also carry instructions written for AI, so review what an agent did after it reads them.</li>
@@ -687,7 +722,7 @@
       <tr><td>Capture on the phone</td><td>Quick Capture and Voice Capture on iOS 26 or later; widgets on Android</td><td>Tap and talk on iPhone, Android and the web</td><td>Talk to SecondBrain, think in Obsidian</td></tr>
       <tr><td>Who files the note</td><td>You</td><td>The AI, you review</td><td>SecondBrain files, you curate in the vault</td></tr>
       <tr><td>Reminders and calendar</td><td>Not built in</td><td>Built in</td><td>From SecondBrain</td></tr>
-      <tr><td>AI assistants</td><td>Through plugins, Claude Code or MCP on your computer</td><td>With SecondBrain Pro, Claude, ChatGPT and Gemini over MCP, within their plan and region limits</td><td>Claude Code reads both, with SecondBrain Pro</td></tr>
+      <tr><td>AI assistants</td><td>Official skills, community plugins or Claude Code, with a vault on your computer</td><td>With SecondBrain Pro, Claude, ChatGPT and Gemini over MCP, within their plan and region limits</td><td>Claude Code reads both, with SecondBrain Pro</td></tr>
       <tr><td>Where notes live</td><td>Markdown files in your own folder</td><td>Stored in the EU, never used for training; Markdown export with SecondBrain Pro on iPhone</td><td>Your vault, fed by exports or Claude Code</td></tr>
       <tr><td>Price</td><td>Free; Sync from 4 dollars per user per month billed yearly</td><td>Free plan holds 10 notes and allows up to 3 AI requests a day; SecondBrain Pro adds shared memory with AI assistants and Markdown export</td><td>Obsidian free, plus SecondBrain Pro</td></tr>
       <tr><td>Best for</td><td>People who enjoy building their own system</td><td>Busy people who think out loud</td><td>People who want plain files and effortless capture</td></tr>
@@ -725,7 +760,11 @@
     </details>
     <details class="faq-item">
       <summary>Can Claude read my Obsidian vault?</summary>
-      <div class="faq-answer"><p>Yes. Claude Code works directly on the Markdown files when you start it in the vault folder, and a CLAUDE.md file there tells it your rules. Other MCP clients can reach the vault through the community Local REST API plugin while Obsidian is open on your computer, and Claude Desktop can too through the mcp-remote bridge. Whatever the agent reads goes to the model provider, so keep private notes out of the folder you open it in. With SecondBrain Pro, Claude can also read the notes you captured by voice on your phone.</p></div>
+      <div class="faq-answer"><p>Yes. Claude Code works directly on the Markdown files when you start it in the vault folder, a CLAUDE.md file there tells it your rules, and since November 2026 Obsidian publishes official skills for it. Other MCP clients can reach the vault through the community Local REST API plugin while Obsidian is open on your computer, and Claude Desktop can too through the mcp-remote bridge. Whatever the agent reads goes to the model provider, so keep private notes out of the folder you open it in. With SecondBrain Pro, Claude can also read the notes you captured by voice on your phone.</p></div>
+    </details>
+    <details class="faq-item">
+      <summary>Can ChatGPT read my Obsidian vault?</summary>
+      <div class="faq-answer"><p>Yes, on your computer. Since November 2026 there is an official Obsidian plugin for ChatGPT and Codex. It searches, reads and edits notes by running Obsidian's command line, so it needs the Obsidian desktop app open, the command line turned on and a ChatGPT or Codex session that can run commands on that computer. It is not an MCP server; Obsidian lists MCP as in progress. For notes ChatGPT can look up on the web too, SecondBrain Pro connects over MCP where your ChatGPT plan allows it.</p></div>
     </details>
     <details class="faq-item">
       <summary>Is Obsidian better than Notion for a second brain?</summary>
@@ -735,7 +774,7 @@
 
   <section class="sources" aria-labelledby="sources">
     <h2 id="sources">Sources</h2>
-    <p class="note-small">Obsidian ships often; prices and features below were read on Obsidian's own pages on November 4, 2026. Community plugins and projects are made by independent developers, not by Obsidian.</p>
+    <p class="note-small">Obsidian ships often; prices and features below were read on Obsidian's own pages on November 4, 2026, and the part on ChatGPT, Claude and Obsidian Skills on November 25, 2026. Community plugins and projects are made by independent developers, not by Obsidian.</p>
     <ol>
       <li><a href="https://obsidian.md/help/data-storage" target="_blank" rel="noopener">Obsidian Help, How Obsidian stores data</a></li>
       <li><a href="https://obsidian.md/license" target="_blank" rel="noopener">Obsidian, License overview (February 20, 2025)</a></li>
@@ -754,6 +793,11 @@
       <li><a href="https://obsidian.md/help/plugins/canvas" target="_blank" rel="noopener">Obsidian Help, Canvas</a></li>
       <li><a href="https://obsidian.md/help/web-clipper" target="_blank" rel="noopener">Obsidian Help, Introduction to Obsidian Web Clipper</a></li>
       <li><a href="https://obsidian.md/help/plugins/audio-recorder" target="_blank" rel="noopener">Obsidian Help, Audio recorder</a></li>
+      <li><a href="https://obsidian.md/help/skills" target="_blank" rel="noopener">Obsidian Help, Obsidian Skills</a></li>
+      <li><a href="https://github.com/obsidianmd/obsidian-skills/blob/main/plugins/obsidian/README.md" target="_blank" rel="noopener">Obsidian Skills on GitHub (requirements and scope)</a></li>
+      <li><a href="https://github.com/obsidianmd/obsidian-skills/blob/main/plugins/obsidian/plugin.json" target="_blank" rel="noopener">Obsidian Skills on GitHub (plugin listing)</a></li>
+      <li><a href="https://obsidian.md/help/cli" target="_blank" rel="noopener">Obsidian Help, Obsidian CLI</a></li>
+      <li><a href="https://obsidian.md/roadmap" target="_blank" rel="noopener">Obsidian, Roadmap</a></li>
       <li><a href="https://zettelkasten.de/posts/collectors-fallacy/" target="_blank" rel="noopener">Christian Tietze, The Collector's Fallacy</a></li>
       <li><a href="https://fortelabs.com/blog/para/" target="_blank" rel="noopener">Tiago Forte, The PARA Method</a></li>
       <li><a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f" target="_blank" rel="noopener">Andrej Karpathy, LLM Wiki (April 4, 2026)</a></li>
@@ -781,7 +825,7 @@
     <div class="rel-grid">
       <a class="rel-card" href="/blog/ai-second-brain/"><strong>AI second brain: what it is, three ways to build one, and which fits you</strong><span>What an AI second brain is, the three ways people build one in 2026 (assistant memory, a Claude and Obsidian wiki, or an app that files what you say), and how to set one up.</span></a>
       <a class="rel-card" href="/blog/what-is-a-second-brain/"><strong>What is a second brain? The definition, the methods, and what AI changes</strong><span>A definition you can quote, where the idea comes from, Tiago Forte&#x27;s CODE and PARA in plain words, why most second brains get abandoned, and a 15-minute way to start.</span></a>
-      <a class="rel-card" href="/blog/best-second-brain-apps/"><strong>The best second brain apps in 2026, by how you actually capture</strong><span>Fifteen apps grouped by how ideas reach them: spoken, written, structured or studied. Free plans, prices and ChatGPT or Claude access, checked against each vendor&#x27;s own pages.</span></a>
+      <a class="rel-card" href="/blog/best-second-brain-apps/"><strong>The best second brain apps in 2026, by how you actually capture</strong><span>Fourteen apps grouped by how ideas reach them: spoken, written, structured or studied. Free plans, prices and ChatGPT or Claude access, checked against each vendor&#x27;s own pages.</span></a>
       <a class="rel-card" href="/mcp-memory-server/"><strong>What is an MCP memory server?</strong><span>A plain-English guide to MCP memory servers, with managed and self-hosted options compared.</span></a>
     </div>
   </section>

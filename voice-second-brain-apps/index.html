@@ -49,7 +49,7 @@
         "author": { "@id": "https://secondbrainmemory.com/#federico-cesarini" },
         "publisher": { "@id": "https://secondbrainmemory.com/#organization" },
         "datePublished": "2026-07-16",
-        "dateModified": "2026-11-20",
+        "dateModified": "2026-11-25",
         "inLanguage": "en",
         "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".tldr"] }
       },
@@ -83,12 +83,12 @@
           {
             "@type": "Question",
             "name": "What is the best free voice-first second brain app?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Voicenotes and SecondBrain both offer free plans for voice capture. Voicenotes gives 100 transcription minutes a week and shows the last 30 days of notes. SecondBrain's free plan, on iPhone, Android and the web, holds 10 notes and allows up to 3 AI requests a day, and turns speech into structured notes, calendar events and reminders; a Pro subscription raises those limits and adds a memory shared with ChatGPT, Claude and Gemini. Obsidian is free too, but transcribing voice needs community plugins." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Voicenotes and SecondBrain both offer free plans for voice capture. Voicenotes limits transcription, with up to 30 minutes per meeting and a 14-day meeting history. SecondBrain's free plan, on iPhone, Android and the web, holds 10 notes and allows up to 3 AI requests a day, and turns speech into structured notes, calendar events and reminders; SecondBrain Pro raises those limits and adds a memory shared with ChatGPT, Claude and Gemini. Obsidian is free too, and transcribes voice notes on iPhone with iOS 26 or later; elsewhere that needs community plugins." }
           },
           {
             "@type": "Question",
             "name": "Does Notion or Obsidian connect to ChatGPT's memory?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Not to the memory feature itself, but Notion now connects to the assistants. Notion runs an official MCP server, so Claude and ChatGPT can search and read your Notion pages during a chat; Obsidian has no official connector, only community plugins. Either way the assistant reads a workspace you built by typing. To give your assistants one long-term memory you fill by speaking, connect them to a memory service over the Model Context Protocol (MCP), which is what SecondBrain provides." }
+            "acceptedAnswer": { "@type": "Answer", "text": "Not to the memory feature itself, but Notion now connects to the assistants. Notion runs an official MCP server, so Claude and ChatGPT can search and read your Notion pages during a chat; Obsidian has official skills that let ChatGPT, Codex and Claude Code work with a vault on your computer, but no official MCP server yet. Either way the assistant reads a workspace you built yourself. To give your assistants one long-term memory you fill by speaking, connect them to a memory service over the Model Context Protocol (MCP), which is what SecondBrain provides." }
           },
           {
             "@type": "Question",
@@ -288,10 +288,10 @@
 <main id="main" class="article">
   <p class="crumb"><a href="/">SecondBrain</a> · Guides · Voice-first second brain apps</p>
   <h1>Voice-first second brain apps: the 2026 comparison</h1>
-  <p class="byline">By <a href="https://www.federicocesarini.com/" target="_blank" rel="noopener">Federico Cesarini</a> · Updated November 20, 2026</p>
+  <p class="byline">By <a href="https://www.federicocesarini.com/" target="_blank" rel="noopener">Federico Cesarini</a> · Updated November 25, 2026</p>
   <p class="disclose">Transparency: I build SecondBrain, which appears in this comparison. Every claim about other apps is kept factual and easy to verify on their own sites.</p>
 
-  <div class="tldr"><strong>The short answer:</strong> if you capture ideas by speaking, pick a tool that does the filing for you. SecondBrain turns one voice note into structured notes, calendar events and reminders, and shares that memory with ChatGPT, Claude and Gemini through MCP. Voicenotes is the strongest pure voice recorder, and since March 2026 its Pro plan connects to ChatGPT and Claude as well; Tana Outliner is the most powerful workspace with voice capture, and Notion or Obsidian remain the best typing-first second brains.</div>
+  <div class="tldr"><strong>The short answer:</strong> if you capture ideas by speaking, pick a tool that does the filing for you. SecondBrain turns one voice note into structured notes, calendar events and reminders, and, with SecondBrain Pro, shares that memory with ChatGPT, Claude and Gemini through MCP. Voicenotes is the strongest pure voice recorder, and since March 2026 its Pro plan connects to ChatGPT and Claude as well; Tana Outliner is the most powerful workspace with voice capture, and Notion or Obsidian remain the best typing-first second brains.</div>
 
   <aside class="get-app" aria-label="Get SecondBrain">
     <img class="get-app-icon" src="/assets/icon-192.png" alt="SecondBrain app icon" width="52" height="52" />
@@ -309,7 +309,7 @@
   <h2>The comparison at a glance</h2>
   <div class="cmp">
     <table>
-      <caption>Voice-first second brain apps compared, updated October 2026. Pricing models summarized; check each site for current prices.</caption>
+      <caption>Voice-first second brain apps compared, updated November 2026. Pricing models summarized; check each site for current prices.</caption>
       <thead>
         <tr>
           <th>App</th>
@@ -327,13 +327,13 @@
           <td>Voice first; also text</td>
           <td>Yes, via MCP: Claude, ChatGPT, Gemini, Cursor, Claude Code</td>
           <td>iPhone, Android, web</td>
-          <td>Free; Pro subscription for shared AI memory</td>
+          <td>Free; SecondBrain Pro for shared AI memory</td>
         </tr>
         <tr>
           <td>Voicenotes</td>
-          <td>Pure voice notes with AI summaries and recall</td>
+          <td>Voice notes and meetings, with AI summaries and recall</td>
           <td>Voice first</td>
-          <td>Yes, official MCP server (listed under Pro)</td>
+          <td>Yes, official MCP server (Voicenotes Pro)</td>
           <td>iOS, Android, web</td>
           <td>Freemium</td>
         </tr>
@@ -347,11 +347,11 @@
         </tr>
         <tr>
           <td>Mem</td>
-          <td>AI-organized notes that resurface themselves</td>
-          <td>Text and voice</td>
-          <td>Yes, official MCP server</td>
+          <td>Closing: shuts down on January 15, 2027</td>
+          <td>Text and voice, until notes become read-only on December 18, 2026</td>
+          <td>Until it closes</td>
           <td>Web, Mac, Windows, iOS</td>
-          <td>Freemium</td>
+          <td>No new subscriptions</td>
         </tr>
         <tr>
           <td>Tana Outliner</td>
@@ -380,8 +380,8 @@
         <tr>
           <td>Obsidian</td>
           <td>Local-first linked Markdown notes</td>
-          <td>Typing first; voice via plugins</td>
-          <td>No official connector; community plugins</td>
+          <td>Typing first; voice with transcripts on iOS 26 or later</td>
+          <td>Official skills for a vault on your computer; no MCP yet</td>
           <td>Desktop, mobile</td>
           <td>Free; paid sync</td>
         </tr>
@@ -394,19 +394,19 @@
   <h2>The quick picks</h2>
 
   <h3>SecondBrain: speak once, everything gets filed</h3>
-  <p><a href="/">SecondBrain</a> is built for people who think out loud. You record one voice note and it writes a structured note, titles it, files it, and creates any calendar events and reminders it heard, all in the same pass. Its second act is what makes it unusual: a Pro subscription connects that memory to Claude, ChatGPT, Gemini, Cursor and Claude Code over the <a href="/mcp-memory-server/">Model Context Protocol</a>, so every assistant you use recalls the same facts. It is free on <a href="https://apps.apple.com/us/app/secondbrain-ai-memory/id6762130376?pt=128686606&amp;ct=site-voice-second-brain-apps&amp;mt=8" target="_blank" rel="noopener">iPhone</a>, <a href="https://play.google.com/store/apps/details?id=app.secondbrain.android&amp;referrer=utm_source%3Dsecondbrainmemory.com%26utm_medium%3Dwebsite%26utm_campaign%3Dsite-voice-second-brain-apps%26utm_content%3Dtext" target="_blank" rel="noopener">Android</a> and <a href="https://app.secondbrainmemory.com/" target="_blank" rel="noopener">the web</a>, holds a 5.0 rating on the App Store (October 2026), stores data in the EU, and never uses your notes to train models. <strong>Choose it if</strong> you capture by voice and want one memory across all your AI assistants.</p>
+  <p><a href="/">SecondBrain</a> is built for people who think out loud. You record one voice note and it writes a structured note, titles it, files it, and creates any calendar events and reminders it heard, all in the same pass. Its second act is what makes it unusual: a SecondBrain Pro subscription connects that memory to Claude, ChatGPT, Gemini, Cursor and Claude Code over the <a href="/mcp-memory-server/">Model Context Protocol</a>, so every assistant you use recalls the same facts. It is free on <a href="https://apps.apple.com/us/app/secondbrain-ai-memory/id6762130376?pt=128686606&amp;ct=site-voice-second-brain-apps&amp;mt=8" target="_blank" rel="noopener">iPhone</a>, <a href="https://play.google.com/store/apps/details?id=app.secondbrain.android&amp;referrer=utm_source%3Dsecondbrainmemory.com%26utm_medium%3Dwebsite%26utm_campaign%3Dsite-voice-second-brain-apps%26utm_content%3Dtext" target="_blank" rel="noopener">Android</a> and <a href="https://app.secondbrainmemory.com/" target="_blank" rel="noopener">the web</a>, holds a 5.0 rating on the App Store (October 2026), stores data in the EU, and never uses your notes to train models. <strong>Choose it if</strong> you capture by voice and want one memory across all your AI assistants.</p>
 
-  <h3>Voicenotes: the purist voice recorder</h3>
-  <p>Voicenotes does one thing with real polish: record, transcribe, summarize, and let you ask questions across everything you have said. It does not try to manage your calendar, and since March 2026 its MCP server, listed under Pro, lets ChatGPT and Claude read your notes. <strong>Choose it if</strong> you want a clean voice journal rather than an organizer.</p>
+  <h3>Voicenotes: the polished recorder, now for meetings</h3>
+  <p>Voicenotes does one thing with real polish: record, transcribe, summarize, and let you ask questions across what you have said. It has moved toward meetings, its free plan now has limited transcription, up to 30 minutes per meeting and a 14-day meeting history, and since March 2026 ChatGPT and Claude can read your notes through its MCP server, part of Voicenotes Pro (<a href="https://voicenotes.com/pricing" target="_blank" rel="noopener">Voicenotes pricing</a>). It shows the meetings in your calendar but does not turn speech into events. <strong>Choose it if</strong> you want clean recordings and meeting notes rather than an organizer.</p>
 
   <h3>TellDone: voice to tasks for schedules</h3>
   <p>TellDone converts speech into tasks, calendar entries and notes, and exposes an MCP connection aimed at coding agents. It leans productivity-first rather than memory-first. <strong>Choose it if</strong> your main goal is turning spoken to-dos into a managed schedule.</p>
 
-  <h3>Mem, Tana and Reflect: AI notes for structured thinkers</h3>
-  <p>Mem auto-organizes whatever you throw at it and resurfaces related notes while you write. Tana Outliner, the note app formerly called just Tana, adds real structure through supertags and turns mobile voice memos into structured notes. Reflect is a fast, networked daily-notes tool, now also available as the open-source Reflect Open. All three are excellent typing-first tools with voice as a side door; Mem and Tana Outliner now run MCP servers, so Claude and ChatGPT can read what you saved there, while Reflect's is aimed at coding agents. <strong>Choose one if</strong> your second brain lives mostly on a keyboard.</p>
+  <h3>Tana and Reflect: AI notes for structured thinkers</h3>
+  <p>Mem used to lead this group, but it is <a href="https://get.mem.ai/blog/mem-is-shutting-down" target="_blank" rel="noopener">shutting down</a>: notes become read-only on December 18, 2026 and the service closes on January 15, 2027, so <a href="/blog/best-second-brain-apps/#mem-shutting-down">export your notes</a> instead of starting there. Tana Outliner, the note app formerly called just Tana, adds real structure through supertags and turns mobile voice memos into structured notes. Reflect is a fast, networked daily-notes tool, now also available as the open-source Reflect Open. Both are excellent typing-first tools with voice as a side door; Tana Outliner runs MCP servers, so Claude and ChatGPT can read what you saved there, while Reflect's is aimed at coding agents. <strong>Choose one if</strong> your second brain lives mostly on a keyboard.</p>
 
   <h3>Notion and Obsidian: the typing-first giants</h3>
-  <p>Notion remains the strongest all-in-one workspace and Obsidian the best local-first Markdown system. Both can host a full second brain, including the popular PARA setup from Tiago Forte's Building a Second Brain method, but both expect you to do the capturing and organizing yourself. <strong>Choose them if</strong> you want maximum control and do not mind typing.</p>
+  <p>Notion remains the strongest all-in-one workspace and Obsidian the best local-first Markdown system. Both can host a full second brain, including the popular PARA setup from Tiago Forte's Building a Second Brain method, but both leave the organizing to you, even now that Obsidian transcribes voice notes on iPhone with iOS 26 or later (<a href="https://obsidian.md/help/ios" target="_blank" rel="noopener">Obsidian</a>). <strong>Choose them if</strong> you want maximum control and do not mind typing.</p>
 
   <aside class="app-nudge" aria-label="Try SecondBrain">
     <p><strong>Got a thought you do not want to lose?</strong> Say it to SecondBrain now and find it filed when you need it. <a href="https://apps.apple.com/us/app/secondbrain-ai-memory/id6762130376?pt=128686606&amp;ct=site-voice-second-brain-apps&amp;mt=8" target="_blank" rel="noopener">Get it for iPhone</a><span class="sep" aria-hidden="true">·</span><a href="https://play.google.com/store/apps/details?id=app.secondbrain.android&amp;referrer=utm_source%3Dsecondbrainmemory.com%26utm_medium%3Dwebsite%26utm_campaign%3Dsite-voice-second-brain-apps%26utm_content%3Dmid" target="_blank" rel="noopener">Android</a><span class="sep" aria-hidden="true">·</span><a href="/">See how it works</a></p>
@@ -416,17 +416,17 @@
   <p>A second brain is a system that captures what you want to remember, organizes it without friction, and gives it back the moment you need it. The term comes from Tiago Forte's book Building a Second Brain, which describes a manual method. An app earns the name when it covers three jobs: <strong>capture</strong> at the speed you think, <strong>organize</strong> automatically enough that you keep doing it, and <strong>recall</strong> in the place where you actually ask questions. In 2026 that last place is increasingly an AI assistant, which is why memory shared across ChatGPT and Claude has become the deciding feature between otherwise similar apps.</p>
 
   <h2>Does any second brain app share memory with ChatGPT and Claude?</h2>
-  <p>Several of them do now. Notion, Mem, Voicenotes and Tana Outliner run servers on the Model Context Protocol (MCP), the open standard AI assistants use to reach external tools, so Claude or ChatGPT can look things up in what you saved there. The built-in memories of ChatGPT and Claude are still locked to their own vendor, and the apps differ in what an assistant finds when it connects: a workspace you typed, a list of transcripts, or a memory organized for recall. SecondBrain runs a managed MCP memory server built for that last case, so a fact you speak into your phone is recalled by Claude on your laptop or ChatGPT in the browser without copying anything. The full setup takes about two minutes and is covered in <a href="/chatgpt-claude-shared-memory/">how to share one memory between ChatGPT and Claude</a>.</p>
+  <p>Several of them do now. Notion, Voicenotes and Tana Outliner run servers on the Model Context Protocol (MCP), the open standard AI assistants use to reach external tools, so Claude or ChatGPT can look things up in what you saved there. The built-in memories of ChatGPT and Claude are still locked to their own vendor, and the apps differ in what an assistant finds when it connects: a workspace you typed, a list of transcripts, or a memory organized for recall. SecondBrain runs a managed MCP memory server built for that last case, so a fact you speak into your phone is recalled by Claude on your laptop or ChatGPT in the browser without copying anything. The full setup takes about two minutes and is covered in <a href="/chatgpt-claude-shared-memory/">how to share one memory between ChatGPT and Claude</a>.</p>
 
   <h2>Questions people ask</h2>
   <div class="faq-list">
     <details class="faq-item">
       <summary>What is the best free voice-first second brain app?</summary>
-      <div class="faq-answer"><p>Voicenotes and SecondBrain both offer free plans for voice capture. Voicenotes gives 100 transcription minutes a week and shows the last 30 days of notes. SecondBrain's free plan, on iPhone, Android and the web, holds 10 notes and allows up to 3 AI requests a day, and turns speech into structured notes, calendar events and reminders; a Pro subscription raises those limits and adds a memory shared with ChatGPT, Claude and Gemini. Obsidian is free too, but transcribing voice needs community plugins.</p></div>
+      <div class="faq-answer"><p>Voicenotes and SecondBrain both offer free plans for voice capture. Voicenotes limits transcription, with up to 30 minutes per meeting and a 14-day meeting history. SecondBrain's free plan, on iPhone, Android and the web, holds 10 notes and allows up to 3 AI requests a day, and turns speech into structured notes, calendar events and reminders; SecondBrain Pro raises those limits and adds a memory shared with ChatGPT, Claude and Gemini. Obsidian is free too, and transcribes voice notes on iPhone with iOS 26 or later; elsewhere that needs community plugins.</p></div>
     </details>
     <details class="faq-item">
       <summary>Does Notion or Obsidian connect to ChatGPT's memory?</summary>
-      <div class="faq-answer"><p>Not to the memory feature itself, but Notion now connects to the assistants. Notion runs an official MCP server, so Claude and ChatGPT can search and read your Notion pages during a chat; Obsidian has no official connector, only community plugins. Either way the assistant reads a workspace you built by typing. To give your assistants one long-term memory you fill by speaking, connect them to a memory service over the Model Context Protocol (MCP), which is what SecondBrain provides.</p></div>
+      <div class="faq-answer"><p>Not to the memory feature itself, but Notion now connects to the assistants. Notion runs an official MCP server, so Claude and ChatGPT can search and read your Notion pages during a chat; Obsidian has official skills that let ChatGPT, Codex and Claude Code work with a vault on your computer, but no official MCP server yet. Either way the assistant reads a workspace you built yourself. To give your assistants one long-term memory you fill by speaking, connect them to a memory service over the Model Context Protocol (MCP), which is what SecondBrain provides.</p></div>
     </details>
     <details class="faq-item">
       <summary>Is Notion a second brain?</summary>
