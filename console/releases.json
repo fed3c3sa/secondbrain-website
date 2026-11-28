@@ -2,6 +2,19 @@
   "readme": "iOS App Store releases from the ios branch of ~/Desktop/personal/secondbrain (renamed from refactored-ios-version on 2026-09-10). Shown as vertical markers on the console charts; tapping a tag opens the changelog. liveDate = date the final build of the version was pushed to the branch + 1 day (average App Store review time). Changes are written in plain product language for a non-technical reader: describe what changed for users (paywall, onboarding, features), not code internals. To add a release: prepend an entry (newest first) summarizing the commits since the previous version bump, then sync the copy in secondbrain-dashboard/viewer/ and push this site.",
   "releases": [
     {
+      "version": "3.0.3",
+      "build": 1,
+      "pushedAt": "2026-11-28",
+      "liveDate": "2026-11-29",
+      "title": "Notes always open formatted, typing starts on a tap",
+      "changes": [
+        "Notes always open fully formatted, including tables, images, code and checklists, instead of sometimes switching to raw text",
+        "The keyboard opens only when you tap to write: scrolling or a long press no longer starts typing, and checkboxes tick without it",
+        "Calendar events linked to a note step aside while you type, and notes open from the top",
+        "Built for iOS 27 and published by Effe Publishing after the app transfer"
+      ]
+    },
+    {
       "version": "3.0.2",
       "build": 1,
       "pushedAt": "2026-11-23",
